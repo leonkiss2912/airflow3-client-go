@@ -1,0 +1,285 @@
+# EntitiesInner
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**NewState** | Pointer to [**TaskInstanceState**](TaskInstanceState.md) |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
+**IncludeUpstream** | Pointer to **bool** |  | [optional] [default to false]
+**IncludeDownstream** | Pointer to **bool** |  | [optional] [default to false]
+**IncludeFuture** | Pointer to **bool** |  | [optional] [default to false]
+**IncludePast** | Pointer to **bool** |  | [optional] [default to false]
+**TaskId** | **string** |  | 
+**MapIndex** | Pointer to **int32** |  | [optional] 
+**DagId** | Pointer to **string** |  | [optional] 
+**DagRunId** | Pointer to **string** |  | [optional] 
+
+## Methods
+
+### NewEntitiesInner
+
+`func NewEntitiesInner(taskId string, ) *EntitiesInner`
+
+NewEntitiesInner instantiates a new EntitiesInner object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewEntitiesInnerWithDefaults
+
+`func NewEntitiesInnerWithDefaults() *EntitiesInner`
+
+NewEntitiesInnerWithDefaults instantiates a new EntitiesInner object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetNewState
+
+`func (o *EntitiesInner) GetNewState() TaskInstanceState`
+
+GetNewState returns the NewState field if non-nil, zero value otherwise.
+
+### GetNewStateOk
+
+`func (o *EntitiesInner) GetNewStateOk() (*TaskInstanceState, bool)`
+
+GetNewStateOk returns a tuple with the NewState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewState
+
+`func (o *EntitiesInner) SetNewState(v TaskInstanceState)`
+
+SetNewState sets NewState field to given value.
+
+### HasNewState
+
+`func (o *EntitiesInner) HasNewState() bool`
+
+HasNewState returns a boolean if a field has been set.
+
+### GetNote
+
+`func (o *EntitiesInner) GetNote() string`
+
+GetNote returns the Note field if non-nil, zero value otherwise.
+
+### GetNoteOk
+
+`func (o *EntitiesInner) GetNoteOk() (*string, bool)`
+
+GetNoteOk returns a tuple with the Note field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNote
+
+`func (o *EntitiesInner) SetNote(v string)`
+
+SetNote sets Note field to given value.
+
+### HasNote
+
+`func (o *EntitiesInner) HasNote() bool`
+
+HasNote returns a boolean if a field has been set.
+
+### GetIncludeUpstream
+
+`func (o *EntitiesInner) GetIncludeUpstream() bool`
+
+GetIncludeUpstream returns the IncludeUpstream field if non-nil, zero value otherwise.
+
+### GetIncludeUpstreamOk
+
+`func (o *EntitiesInner) GetIncludeUpstreamOk() (*bool, bool)`
+
+GetIncludeUpstreamOk returns a tuple with the IncludeUpstream field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeUpstream
+
+`func (o *EntitiesInner) SetIncludeUpstream(v bool)`
+
+SetIncludeUpstream sets IncludeUpstream field to given value.
+
+### HasIncludeUpstream
+
+`func (o *EntitiesInner) HasIncludeUpstream() bool`
+
+HasIncludeUpstream returns a boolean if a field has been set.
+
+### GetIncludeDownstream
+
+`func (o *EntitiesInner) GetIncludeDownstream() bool`
+
+GetIncludeDownstream returns the IncludeDownstream field if non-nil, zero value otherwise.
+
+### GetIncludeDownstreamOk
+
+`func (o *EntitiesInner) GetIncludeDownstreamOk() (*bool, bool)`
+
+GetIncludeDownstreamOk returns a tuple with the IncludeDownstream field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeDownstream
+
+`func (o *EntitiesInner) SetIncludeDownstream(v bool)`
+
+SetIncludeDownstream sets IncludeDownstream field to given value.
+
+### HasIncludeDownstream
+
+`func (o *EntitiesInner) HasIncludeDownstream() bool`
+
+HasIncludeDownstream returns a boolean if a field has been set.
+
+### GetIncludeFuture
+
+`func (o *EntitiesInner) GetIncludeFuture() bool`
+
+GetIncludeFuture returns the IncludeFuture field if non-nil, zero value otherwise.
+
+### GetIncludeFutureOk
+
+`func (o *EntitiesInner) GetIncludeFutureOk() (*bool, bool)`
+
+GetIncludeFutureOk returns a tuple with the IncludeFuture field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeFuture
+
+`func (o *EntitiesInner) SetIncludeFuture(v bool)`
+
+SetIncludeFuture sets IncludeFuture field to given value.
+
+### HasIncludeFuture
+
+`func (o *EntitiesInner) HasIncludeFuture() bool`
+
+HasIncludeFuture returns a boolean if a field has been set.
+
+### GetIncludePast
+
+`func (o *EntitiesInner) GetIncludePast() bool`
+
+GetIncludePast returns the IncludePast field if non-nil, zero value otherwise.
+
+### GetIncludePastOk
+
+`func (o *EntitiesInner) GetIncludePastOk() (*bool, bool)`
+
+GetIncludePastOk returns a tuple with the IncludePast field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludePast
+
+`func (o *EntitiesInner) SetIncludePast(v bool)`
+
+SetIncludePast sets IncludePast field to given value.
+
+### HasIncludePast
+
+`func (o *EntitiesInner) HasIncludePast() bool`
+
+HasIncludePast returns a boolean if a field has been set.
+
+### GetTaskId
+
+`func (o *EntitiesInner) GetTaskId() string`
+
+GetTaskId returns the TaskId field if non-nil, zero value otherwise.
+
+### GetTaskIdOk
+
+`func (o *EntitiesInner) GetTaskIdOk() (*string, bool)`
+
+GetTaskIdOk returns a tuple with the TaskId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTaskId
+
+`func (o *EntitiesInner) SetTaskId(v string)`
+
+SetTaskId sets TaskId field to given value.
+
+
+### GetMapIndex
+
+`func (o *EntitiesInner) GetMapIndex() int32`
+
+GetMapIndex returns the MapIndex field if non-nil, zero value otherwise.
+
+### GetMapIndexOk
+
+`func (o *EntitiesInner) GetMapIndexOk() (*int32, bool)`
+
+GetMapIndexOk returns a tuple with the MapIndex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMapIndex
+
+`func (o *EntitiesInner) SetMapIndex(v int32)`
+
+SetMapIndex sets MapIndex field to given value.
+
+### HasMapIndex
+
+`func (o *EntitiesInner) HasMapIndex() bool`
+
+HasMapIndex returns a boolean if a field has been set.
+
+### GetDagId
+
+`func (o *EntitiesInner) GetDagId() string`
+
+GetDagId returns the DagId field if non-nil, zero value otherwise.
+
+### GetDagIdOk
+
+`func (o *EntitiesInner) GetDagIdOk() (*string, bool)`
+
+GetDagIdOk returns a tuple with the DagId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDagId
+
+`func (o *EntitiesInner) SetDagId(v string)`
+
+SetDagId sets DagId field to given value.
+
+### HasDagId
+
+`func (o *EntitiesInner) HasDagId() bool`
+
+HasDagId returns a boolean if a field has been set.
+
+### GetDagRunId
+
+`func (o *EntitiesInner) GetDagRunId() string`
+
+GetDagRunId returns the DagRunId field if non-nil, zero value otherwise.
+
+### GetDagRunIdOk
+
+`func (o *EntitiesInner) GetDagRunIdOk() (*string, bool)`
+
+GetDagRunIdOk returns a tuple with the DagRunId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDagRunId
+
+`func (o *EntitiesInner) SetDagRunId(v string)`
+
+SetDagRunId sets DagRunId field to given value.
+
+### HasDagRunId
+
+`func (o *EntitiesInner) HasDagRunId() bool`
+
+HasDagRunId returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

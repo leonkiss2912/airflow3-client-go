@@ -1,0 +1,134 @@
+# BulkUpdateActionConnectionBody
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Action** | **string** | The action to be performed on the entities. | 
+**Entities** | [**[]ConnectionBody**](ConnectionBody.md) | A list of entities to be updated. | 
+**UpdateMask** | Pointer to **[]string** | A list of field names to update for each entity.Only these fields will be applied from the request body to the database model.Any extra fields provided will be ignored. | [optional] 
+**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to FAIL]
+
+## Methods
+
+### NewBulkUpdateActionConnectionBody
+
+`func NewBulkUpdateActionConnectionBody(action string, entities []ConnectionBody, ) *BulkUpdateActionConnectionBody`
+
+NewBulkUpdateActionConnectionBody instantiates a new BulkUpdateActionConnectionBody object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBulkUpdateActionConnectionBodyWithDefaults
+
+`func NewBulkUpdateActionConnectionBodyWithDefaults() *BulkUpdateActionConnectionBody`
+
+NewBulkUpdateActionConnectionBodyWithDefaults instantiates a new BulkUpdateActionConnectionBody object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAction
+
+`func (o *BulkUpdateActionConnectionBody) GetAction() string`
+
+GetAction returns the Action field if non-nil, zero value otherwise.
+
+### GetActionOk
+
+`func (o *BulkUpdateActionConnectionBody) GetActionOk() (*string, bool)`
+
+GetActionOk returns a tuple with the Action field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAction
+
+`func (o *BulkUpdateActionConnectionBody) SetAction(v string)`
+
+SetAction sets Action field to given value.
+
+
+### GetEntities
+
+`func (o *BulkUpdateActionConnectionBody) GetEntities() []ConnectionBody`
+
+GetEntities returns the Entities field if non-nil, zero value otherwise.
+
+### GetEntitiesOk
+
+`func (o *BulkUpdateActionConnectionBody) GetEntitiesOk() (*[]ConnectionBody, bool)`
+
+GetEntitiesOk returns a tuple with the Entities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEntities
+
+`func (o *BulkUpdateActionConnectionBody) SetEntities(v []ConnectionBody)`
+
+SetEntities sets Entities field to given value.
+
+
+### GetUpdateMask
+
+`func (o *BulkUpdateActionConnectionBody) GetUpdateMask() []string`
+
+GetUpdateMask returns the UpdateMask field if non-nil, zero value otherwise.
+
+### GetUpdateMaskOk
+
+`func (o *BulkUpdateActionConnectionBody) GetUpdateMaskOk() (*[]string, bool)`
+
+GetUpdateMaskOk returns a tuple with the UpdateMask field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdateMask
+
+`func (o *BulkUpdateActionConnectionBody) SetUpdateMask(v []string)`
+
+SetUpdateMask sets UpdateMask field to given value.
+
+### HasUpdateMask
+
+`func (o *BulkUpdateActionConnectionBody) HasUpdateMask() bool`
+
+HasUpdateMask returns a boolean if a field has been set.
+
+### SetUpdateMaskNil
+
+`func (o *BulkUpdateActionConnectionBody) SetUpdateMaskNil(b bool)`
+
+ SetUpdateMaskNil sets the value for UpdateMask to be an explicit nil
+
+### UnsetUpdateMask
+`func (o *BulkUpdateActionConnectionBody) UnsetUpdateMask()`
+
+UnsetUpdateMask ensures that no value is present for UpdateMask, not even an explicit nil
+### GetActionOnNonExistence
+
+`func (o *BulkUpdateActionConnectionBody) GetActionOnNonExistence() BulkActionNotOnExistence`
+
+GetActionOnNonExistence returns the ActionOnNonExistence field if non-nil, zero value otherwise.
+
+### GetActionOnNonExistenceOk
+
+`func (o *BulkUpdateActionConnectionBody) GetActionOnNonExistenceOk() (*BulkActionNotOnExistence, bool)`
+
+GetActionOnNonExistenceOk returns a tuple with the ActionOnNonExistence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActionOnNonExistence
+
+`func (o *BulkUpdateActionConnectionBody) SetActionOnNonExistence(v BulkActionNotOnExistence)`
+
+SetActionOnNonExistence sets ActionOnNonExistence field to given value.
+
+### HasActionOnNonExistence
+
+`func (o *BulkUpdateActionConnectionBody) HasActionOnNonExistence() bool`
+
+HasActionOnNonExistence returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
