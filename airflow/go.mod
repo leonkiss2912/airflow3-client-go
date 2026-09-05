@@ -1,4 +1,4 @@
-module github.com/GIT_USER_ID/GIT_REPO_ID/airflow
+module github.com/leonkiss2912/airflow3-client-go/airflow
 
 go 1.23.0
 
