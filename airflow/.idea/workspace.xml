@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dbfc4811-4be7-4e28-b258-4ad61af21e91" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.openapi-generator-ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.openapi-generator/FILES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.openapi-generator/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/openapi.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_asset.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_backfill.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_connection.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_parsing.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_run.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_source.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_stats.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_version.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_dag_warning.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_event_log.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_experimental.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_extra_links.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_import_error.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_job.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_login.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_monitor.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_plugin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_pool.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_provider.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_task.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_task_instance.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_variable.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_version.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_x_com.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_actions_inner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_actions_inner_1.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_actions_inner_2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_actions_inner_3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_app_builder_menu_item_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_app_builder_view_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_alias_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_alias_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_event_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_event_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_asset_watcher_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_backfill_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_backfill_post_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_backfill_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_base_info_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_action_not_on_existence.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_action_on_existence.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_action_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_body_bulk_task_instance_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_body_connection_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_body_pool_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_body_variable_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_create_action_bulk_task_instance_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_create_action_connection_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_create_action_pool_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_create_action_variable_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_delete_action_bulk_task_instance_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_delete_action_connection_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_delete_action_pool_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_delete_action_variable_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_task_instance_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_update_action_bulk_task_instance_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_update_action_connection_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_update_action_pool_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_bulk_update_action_variable_body_.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_clear_task_instance_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_clear_task_instances_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_clear_task_instances_body_task_ids_inner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_config_option.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_config_section.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_connection_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_connection_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_connection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_connection_test_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_content.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_create_asset_events_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_details_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_patch_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_processor_info_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_asset_reference.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_clear_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_patch_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_patch_states.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_triggered_by_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_run_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_runs_batch_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_schedule_asset_reference.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_source_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_stats_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_stats_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_stats_state_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_tag_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_tag_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_version_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_version_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_warning_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_warning_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dag_warning_type.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_detail.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dry_run_backfill_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_dry_run_backfill_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_entities_inner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_entities_inner_1.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_entities_inner_2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_entities_inner_3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_event_log_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_event_log_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_external_log_url_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_external_view_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_extra_link_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_fast_api_app_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_fast_api_root_middleware_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_health_info_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_hitl_detail.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_hitl_detail_collection.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_hitl_detail_history.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_hitl_detail_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_hitl_user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_http_exception_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_http_validation_error.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_import_error_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_import_error_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_job_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_job_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_last_asset_event_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_location_inner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_materialize_asset_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_new_task_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_patch_task_instance_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_plugin_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_plugin_import_error_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_plugin_import_error_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_plugin_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_pool_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_pool_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_pool_patch_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_pool_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_provider_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_provider_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_queued_event_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_queued_event_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_react_app_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_reprocess_behavior.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_response_clear_dag_run.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_response_get_xcom_entry.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_scheduler_info_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_structured_log_message.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_dependency_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_dependency_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_inlet_asset_reference.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instance_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instance_history_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instance_history_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instance_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instance_state.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instances_batch_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instances_inner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_instances_log_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_outlet_asset_reference.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_task_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_time_delta.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_trigger_dag_run_post_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_trigger_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_triggerer_info_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_update_hitl_detail_payload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_validation_error.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_value.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_variable_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_variable_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_variable_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_version_info.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_collection_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_create_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_response_native.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_response_string.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_x_com_update_body.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/response.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_asset_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_backfill_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_config_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_connection_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_parsing_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_run_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_source_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_stats_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_version_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_dag_warning_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_event_log_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_experimental_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_extra_links_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_import_error_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_job_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_login_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_monitor_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_plugin_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_pool_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_provider_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_task_instance_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_task_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_variable_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_version_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/api_x_com_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.go" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.8.linux-amd64" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3Iv1RgA1AIqZv7eDnjhfJAUpvwN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.GoLinterPluginOnboardingV2": "true",
+    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
+    "RunOnceActivity.GoOptimizationToolWindowEnableInLayout.v333333": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.analysis.ui.options.defaults": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/leonkiss/Documents/projects/airflow3.0-client-go/airflow-client-go",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-63c95d513abe-08e7ff217c2b-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-262.10315.160" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-GO-262.10315.160" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbfc4811-4be7-4e28-b258-4ad61af21e91" name="Changes" comment="" />
+      <created>1788630222005</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788630222005</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
