@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Content** | [**Content**](Content.md) |  | 
-**ContinuationToken** | **NullableString** |  | 
+**ContinuationToken** | **string** |  | 
 
 ## Methods
 
 ### NewTaskInstancesLogResponse
 
-`func NewTaskInstancesLogResponse(content Content, continuationToken NullableString, ) *TaskInstancesLogResponse`
+`func NewTaskInstancesLogResponse(content Content, continuationToken string, ) *TaskInstancesLogResponse`
 
 NewTaskInstancesLogResponse instantiates a new TaskInstancesLogResponse object
 This constructor will assign default values to properties that have it defined,
@@ -66,16 +66,6 @@ and a boolean to check if the value has been set.
 SetContinuationToken sets ContinuationToken field to given value.
 
 
-### SetContinuationTokenNil
-
-`func (o *TaskInstancesLogResponse) SetContinuationTokenNil(b bool)`
-
- SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
-
-### UnsetContinuationToken
-`func (o *TaskInstancesLogResponse) UnsetContinuationToken()`
-
-UnsetContinuationToken ensures that no value is present for ContinuationToken, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

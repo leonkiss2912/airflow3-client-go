@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **ImportErrorId** | **int32** |  | 
 **Timestamp** | **time.Time** |  | 
 **Filename** | **string** |  | 
-**BundleName** | **NullableString** |  | 
+**BundleName** | **string** |  | 
 **StackTrace** | **string** |  | 
 
 ## Methods
 
 ### NewImportErrorResponse
 
-`func NewImportErrorResponse(importErrorId int32, timestamp time.Time, filename string, bundleName NullableString, stackTrace string, ) *ImportErrorResponse`
+`func NewImportErrorResponse(importErrorId int32, timestamp time.Time, filename string, bundleName string, stackTrace string, ) *ImportErrorResponse`
 
 NewImportErrorResponse instantiates a new ImportErrorResponse object
 This constructor will assign default values to properties that have it defined,
@@ -109,16 +109,6 @@ and a boolean to check if the value has been set.
 SetBundleName sets BundleName field to given value.
 
 
-### SetBundleNameNil
-
-`func (o *ImportErrorResponse) SetBundleNameNil(b bool)`
-
- SetBundleNameNil sets the value for BundleName to be an explicit nil
-
-### UnsetBundleName
-`func (o *ImportErrorResponse) UnsetBundleName()`
-
-UnsetBundleName ensures that no value is present for BundleName, not even an explicit nil
 ### GetStackTrace
 
 `func (o *ImportErrorResponse) GetStackTrace() string`

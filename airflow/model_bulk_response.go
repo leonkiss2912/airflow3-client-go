@@ -20,11 +20,11 @@ var _ MappedNullable = &BulkResponse{}
 // BulkResponse Serializer for responses to bulk entity operations.  This represents the results of create, update, and delete actions performed on entity in bulk. Each action (if requested) is represented as a field containing details about successful keys and any encountered errors. Fields are populated in the response only if the respective action was part of the request, else are set None.
 type BulkResponse struct {
 	// Details of the bulk create operation, including successful keys and errors.
-	Create NullableBulkActionResponse `json:"create,omitempty"`
+	Create *BulkActionResponse `json:"create,omitempty"`
 	// Details of the bulk update operation, including successful keys and errors.
-	Update NullableBulkActionResponse `json:"update,omitempty"`
+	Update *BulkActionResponse `json:"update,omitempty"`
 	// Details of the bulk delete operation, including successful keys and errors.
-	Delete NullableBulkActionResponse `json:"delete,omitempty"`
+	Delete *BulkActionResponse `json:"delete,omitempty"`
 }
 
 // NewBulkResponse instantiates a new BulkResponse object
@@ -44,130 +44,100 @@ func NewBulkResponseWithDefaults() *BulkResponse {
 	return &this
 }
 
-// GetCreate returns the Create field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreate returns the Create field value if set, zero value otherwise.
 func (o *BulkResponse) GetCreate() BulkActionResponse {
-	if o == nil || IsNil(o.Create.Get()) {
+	if o == nil || IsNil(o.Create) {
 		var ret BulkActionResponse
 		return ret
 	}
-	return *o.Create.Get()
+	return *o.Create
 }
 
 // GetCreateOk returns a tuple with the Create field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkResponse) GetCreateOk() (*BulkActionResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Create) {
 		return nil, false
 	}
-	return o.Create.Get(), o.Create.IsSet()
+	return o.Create, true
 }
 
 // HasCreate returns a boolean if a field has been set.
 func (o *BulkResponse) HasCreate() bool {
-	if o != nil && o.Create.IsSet() {
+	if o != nil && !IsNil(o.Create) {
 		return true
 	}
 
 	return false
 }
 
-// SetCreate gets a reference to the given NullableBulkActionResponse and assigns it to the Create field.
+// SetCreate gets a reference to the given BulkActionResponse and assigns it to the Create field.
 func (o *BulkResponse) SetCreate(v BulkActionResponse) {
-	o.Create.Set(&v)
-}
-// SetCreateNil sets the value for Create to be an explicit nil
-func (o *BulkResponse) SetCreateNil() {
-	o.Create.Set(nil)
+	o.Create = &v
 }
 
-// UnsetCreate ensures that no value is present for Create, not even an explicit nil
-func (o *BulkResponse) UnsetCreate() {
-	o.Create.Unset()
-}
-
-// GetUpdate returns the Update field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUpdate returns the Update field value if set, zero value otherwise.
 func (o *BulkResponse) GetUpdate() BulkActionResponse {
-	if o == nil || IsNil(o.Update.Get()) {
+	if o == nil || IsNil(o.Update) {
 		var ret BulkActionResponse
 		return ret
 	}
-	return *o.Update.Get()
+	return *o.Update
 }
 
 // GetUpdateOk returns a tuple with the Update field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkResponse) GetUpdateOk() (*BulkActionResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Update) {
 		return nil, false
 	}
-	return o.Update.Get(), o.Update.IsSet()
+	return o.Update, true
 }
 
 // HasUpdate returns a boolean if a field has been set.
 func (o *BulkResponse) HasUpdate() bool {
-	if o != nil && o.Update.IsSet() {
+	if o != nil && !IsNil(o.Update) {
 		return true
 	}
 
 	return false
 }
 
-// SetUpdate gets a reference to the given NullableBulkActionResponse and assigns it to the Update field.
+// SetUpdate gets a reference to the given BulkActionResponse and assigns it to the Update field.
 func (o *BulkResponse) SetUpdate(v BulkActionResponse) {
-	o.Update.Set(&v)
-}
-// SetUpdateNil sets the value for Update to be an explicit nil
-func (o *BulkResponse) SetUpdateNil() {
-	o.Update.Set(nil)
+	o.Update = &v
 }
 
-// UnsetUpdate ensures that no value is present for Update, not even an explicit nil
-func (o *BulkResponse) UnsetUpdate() {
-	o.Update.Unset()
-}
-
-// GetDelete returns the Delete field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDelete returns the Delete field value if set, zero value otherwise.
 func (o *BulkResponse) GetDelete() BulkActionResponse {
-	if o == nil || IsNil(o.Delete.Get()) {
+	if o == nil || IsNil(o.Delete) {
 		var ret BulkActionResponse
 		return ret
 	}
-	return *o.Delete.Get()
+	return *o.Delete
 }
 
 // GetDeleteOk returns a tuple with the Delete field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkResponse) GetDeleteOk() (*BulkActionResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Delete) {
 		return nil, false
 	}
-	return o.Delete.Get(), o.Delete.IsSet()
+	return o.Delete, true
 }
 
 // HasDelete returns a boolean if a field has been set.
 func (o *BulkResponse) HasDelete() bool {
-	if o != nil && o.Delete.IsSet() {
+	if o != nil && !IsNil(o.Delete) {
 		return true
 	}
 
 	return false
 }
 
-// SetDelete gets a reference to the given NullableBulkActionResponse and assigns it to the Delete field.
+// SetDelete gets a reference to the given BulkActionResponse and assigns it to the Delete field.
 func (o *BulkResponse) SetDelete(v BulkActionResponse) {
-	o.Delete.Set(&v)
-}
-// SetDeleteNil sets the value for Delete to be an explicit nil
-func (o *BulkResponse) SetDeleteNil() {
-	o.Delete.Set(nil)
-}
-
-// UnsetDelete ensures that no value is present for Delete, not even an explicit nil
-func (o *BulkResponse) UnsetDelete() {
-	o.Delete.Unset()
+	o.Delete = &v
 }
 
 func (o BulkResponse) MarshalJSON() ([]byte, error) {
@@ -180,14 +150,14 @@ func (o BulkResponse) MarshalJSON() ([]byte, error) {
 
 func (o BulkResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Create.IsSet() {
-		toSerialize["create"] = o.Create.Get()
+	if !IsNil(o.Create) {
+		toSerialize["create"] = o.Create
 	}
-	if o.Update.IsSet() {
-		toSerialize["update"] = o.Update.Get()
+	if !IsNil(o.Update) {
+		toSerialize["update"] = o.Update
 	}
-	if o.Delete.IsSet() {
-		toSerialize["delete"] = o.Delete.Get()
+	if !IsNil(o.Delete) {
+		toSerialize["delete"] = o.Delete
 	}
 	return toSerialize, nil
 }

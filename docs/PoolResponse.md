@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Slots** | **int32** | Number of slots. Use -1 for unlimited. | 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **IncludeDeferred** | **bool** |  | 
 **OccupiedSlots** | **int32** |  | 
 **RunningSlots** | **int32** |  | 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 **ScheduledSlots** | **int32** |  | 
 **OpenSlots** | **int32** |  | 
 **DeferredSlots** | **int32** |  | 
-**TeamName** | **NullableString** |  | 
+**TeamName** | **string** |  | 
 
 ## Methods
 
 ### NewPoolResponse
 
-`func NewPoolResponse(name string, slots int32, includeDeferred bool, occupiedSlots int32, runningSlots int32, queuedSlots int32, scheduledSlots int32, openSlots int32, deferredSlots int32, teamName NullableString, ) *PoolResponse`
+`func NewPoolResponse(name string, slots int32, includeDeferred bool, occupiedSlots int32, runningSlots int32, queuedSlots int32, scheduledSlots int32, openSlots int32, deferredSlots int32, teamName string, ) *PoolResponse`
 
 NewPoolResponse instantiates a new PoolResponse object
 This constructor will assign default values to properties that have it defined,
@@ -100,16 +100,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *PoolResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *PoolResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIncludeDeferred
 
 `func (o *PoolResponse) GetIncludeDeferred() bool`
@@ -270,16 +260,6 @@ and a boolean to check if the value has been set.
 SetTeamName sets TeamName field to given value.
 
 
-### SetTeamNameNil
-
-`func (o *PoolResponse) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *PoolResponse) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

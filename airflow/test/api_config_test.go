@@ -1,7 +1,7 @@
 /*
 Airflow API
 
-Testing LoginAPIService
+Testing ConfigAPIService
 
 */
 
@@ -14,19 +14,19 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
-func Test_airflow_LoginAPIService(t *testing.T) {
+func Test_airflow_ConfigAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test LoginAPIService Login", func(t *testing.T) {
+	t.Run("Test ConfigAPIService GetConfig", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LoginAPI.Login(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConfigAPI.GetConfig(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,14 @@ func Test_airflow_LoginAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test LoginAPIService Logout", func(t *testing.T) {
+	t.Run("Test ConfigAPIService GetConfigValue", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.LoginAPI.Logout(context.Background()).Execute()
+		var section string
+		var option string
+
+		resp, httpRes, err := apiClient.ConfigAPI.GetConfigValue(context.Background(), section, option).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

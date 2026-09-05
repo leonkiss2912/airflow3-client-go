@@ -31,7 +31,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -106,7 +106,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -175,7 +175,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -249,7 +249,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -282,11 +282,11 @@ func main() {
 	updatedAtLte := time.Now() // time.Time |  (optional)
 	updatedAtLt := time.Now() // time.Time |  (optional)
 	confContains := "confContains_example" // string |  (optional)
-	runType := []*string{"Inner_example"} // []*string |  (optional)
-	state := []*string{"Inner_example"} // []*string |  (optional)
-	dagVersion := []*int32{int32(123)} // []*int32 |  (optional)
+	runType := []string{"Inner_example"} // []string |  (optional)
+	state := []string{"Inner_example"} // []string |  (optional)
+	dagVersion := []int32{int32(123)} // []int32 |  (optional)
 	bundleVersion := "bundleVersion_example" // string |  (optional)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, dag_id, run_id, logical_date, run_after, start_date, end_date, updated_at, conf, duration, dag_run_id` (optional) (default to {"id"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, dag_id, run_id, logical_date, run_after, start_date, end_date, updated_at, conf, duration, dag_run_id` (optional) (default to {"id"})
 	runIdPattern := "runIdPattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``run_id_prefix_pattern`` parameter when possible. (optional)
 	runIdPrefixPattern := "runIdPrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
 	triggeringUserNamePattern := "triggeringUserNamePattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``triggering_user_name_prefix_pattern`` parameter when possible. (optional)
@@ -403,7 +403,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -475,7 +475,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -548,7 +548,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -626,7 +626,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -698,7 +698,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {

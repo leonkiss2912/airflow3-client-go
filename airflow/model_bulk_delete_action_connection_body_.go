@@ -38,7 +38,7 @@ func NewBulkDeleteActionConnectionBody(action string, entities []EntitiesInner1)
 	this := BulkDeleteActionConnectionBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkDeleteActionConnectionBody(action string, entities []EntitiesInner1)
 // but it doesn't guarantee that properties required by API are set
 func NewBulkDeleteActionConnectionBodyWithDefaults() *BulkDeleteActionConnectionBody {
 	this := BulkDeleteActionConnectionBody{}
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }

@@ -24,7 +24,7 @@ type ProviderResponse struct {
 	PackageName string `json:"package_name"`
 	Description string `json:"description"`
 	Version string `json:"version"`
-	DocumentationUrl NullableString `json:"documentation_url"`
+	DocumentationUrl string `json:"documentation_url"`
 }
 
 type _ProviderResponse ProviderResponse
@@ -33,7 +33,7 @@ type _ProviderResponse ProviderResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProviderResponse(packageName string, description string, version string, documentationUrl NullableString) *ProviderResponse {
+func NewProviderResponse(packageName string, description string, version string, documentationUrl string) *ProviderResponse {
 	this := ProviderResponse{}
 	this.PackageName = packageName
 	this.Description = description
@@ -123,29 +123,27 @@ func (o *ProviderResponse) SetVersion(v string) {
 }
 
 // GetDocumentationUrl returns the DocumentationUrl field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ProviderResponse) GetDocumentationUrl() string {
-	if o == nil || o.DocumentationUrl.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DocumentationUrl.Get()
+	return o.DocumentationUrl
 }
 
 // GetDocumentationUrlOk returns a tuple with the DocumentationUrl field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProviderResponse) GetDocumentationUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DocumentationUrl.Get(), o.DocumentationUrl.IsSet()
+	return &o.DocumentationUrl, true
 }
 
 // SetDocumentationUrl sets field value
 func (o *ProviderResponse) SetDocumentationUrl(v string) {
-	o.DocumentationUrl.Set(&v)
+	o.DocumentationUrl = v
 }
 
 func (o ProviderResponse) MarshalJSON() ([]byte, error) {
@@ -161,7 +159,7 @@ func (o ProviderResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["package_name"] = o.PackageName
 	toSerialize["description"] = o.Description
 	toSerialize["version"] = o.Version
-	toSerialize["documentation_url"] = o.DocumentationUrl.Get()
+	toSerialize["documentation_url"] = o.DocumentationUrl
 	return toSerialize, nil
 }
 

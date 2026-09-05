@@ -24,7 +24,7 @@ type PoolResponse struct {
 	Name string `json:"name"`
 	// Number of slots. Use -1 for unlimited.
 	Slots int32 `json:"slots"`
-	Description NullableString `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 	IncludeDeferred bool `json:"include_deferred"`
 	OccupiedSlots int32 `json:"occupied_slots"`
 	RunningSlots int32 `json:"running_slots"`
@@ -32,7 +32,7 @@ type PoolResponse struct {
 	ScheduledSlots int32 `json:"scheduled_slots"`
 	OpenSlots int32 `json:"open_slots"`
 	DeferredSlots int32 `json:"deferred_slots"`
-	TeamName NullableString `json:"team_name"`
+	TeamName string `json:"team_name"`
 }
 
 type _PoolResponse PoolResponse
@@ -41,7 +41,7 @@ type _PoolResponse PoolResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPoolResponse(name string, slots int32, includeDeferred bool, occupiedSlots int32, runningSlots int32, queuedSlots int32, scheduledSlots int32, openSlots int32, deferredSlots int32, teamName NullableString) *PoolResponse {
+func NewPoolResponse(name string, slots int32, includeDeferred bool, occupiedSlots int32, runningSlots int32, queuedSlots int32, scheduledSlots int32, openSlots int32, deferredSlots int32, teamName string) *PoolResponse {
 	this := PoolResponse{}
 	this.Name = name
 	this.Slots = slots
@@ -112,46 +112,36 @@ func (o *PoolResponse) SetSlots(v int32) {
 	o.Slots = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PoolResponse) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolResponse) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PoolResponse) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *PoolResponse) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *PoolResponse) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *PoolResponse) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetIncludeDeferred returns the IncludeDeferred field value
@@ -323,29 +313,27 @@ func (o *PoolResponse) SetDeferredSlots(v int32) {
 }
 
 // GetTeamName returns the TeamName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *PoolResponse) GetTeamName() string {
-	if o == nil || o.TeamName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TeamName.Get()
+	return o.TeamName
 }
 
 // GetTeamNameOk returns a tuple with the TeamName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolResponse) GetTeamNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TeamName.Get(), o.TeamName.IsSet()
+	return &o.TeamName, true
 }
 
 // SetTeamName sets field value
 func (o *PoolResponse) SetTeamName(v string) {
-	o.TeamName.Set(&v)
+	o.TeamName = v
 }
 
 func (o PoolResponse) MarshalJSON() ([]byte, error) {
@@ -360,8 +348,8 @@ func (o PoolResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["slots"] = o.Slots
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	toSerialize["include_deferred"] = o.IncludeDeferred
 	toSerialize["occupied_slots"] = o.OccupiedSlots
@@ -370,7 +358,7 @@ func (o PoolResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["scheduled_slots"] = o.ScheduledSlots
 	toSerialize["open_slots"] = o.OpenSlots
 	toSerialize["deferred_slots"] = o.DeferredSlots
-	toSerialize["team_name"] = o.TeamName.Get()
+	toSerialize["team_name"] = o.TeamName
 	return toSerialize, nil
 }
 

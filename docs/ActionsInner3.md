@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The action to be performed on the entities. | 
 **Entities** | [**[]EntitiesInner3**](EntitiesInner3.md) | A list of entity id/key or entity objects to be deleted. | 
-**ActionOnExistence** | Pointer to [**BulkActionOnExistence**](BulkActionOnExistence.md) |  | [optional] [default to FAIL]
+**ActionOnExistence** | Pointer to [**BulkActionOnExistence**](BulkActionOnExistence.md) |  | [optional] [default to BULKACTIONONEXISTENCE_FAIL]
 **UpdateMask** | Pointer to **[]string** | A list of field names to update for each entity.Only these fields will be applied from the request body to the database model.Any extra fields provided will be ignored. | [optional] 
-**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to FAIL]
+**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to BULKACTIONNOTONEXISTENCE_FAIL]
 
 ## Methods
 

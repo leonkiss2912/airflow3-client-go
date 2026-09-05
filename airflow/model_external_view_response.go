@@ -21,10 +21,10 @@ var _ MappedNullable = &ExternalViewResponse{}
 // ExternalViewResponse Serializer for External View Plugin responses.
 type ExternalViewResponse struct {
 	Name string `json:"name"`
-	Icon NullableString `json:"icon,omitempty"`
-	IconDarkMode NullableString `json:"icon_dark_mode,omitempty"`
-	UrlRoute NullableString `json:"url_route,omitempty"`
-	Category NullableString `json:"category,omitempty"`
+	Icon *string `json:"icon,omitempty"`
+	IconDarkMode *string `json:"icon_dark_mode,omitempty"`
+	UrlRoute *string `json:"url_route,omitempty"`
+	Category *string `json:"category,omitempty"`
 	Href string `json:"href"`
 	Destination *string `json:"destination,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -79,172 +79,132 @@ func (o *ExternalViewResponse) SetName(v string) {
 	o.Name = v
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIcon returns the Icon field value if set, zero value otherwise.
 func (o *ExternalViewResponse) GetIcon() string {
-	if o == nil || IsNil(o.Icon.Get()) {
+	if o == nil || IsNil(o.Icon) {
 		var ret string
 		return ret
 	}
-	return *o.Icon.Get()
+	return *o.Icon
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalViewResponse) GetIconOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Icon) {
 		return nil, false
 	}
-	return o.Icon.Get(), o.Icon.IsSet()
+	return o.Icon, true
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *ExternalViewResponse) HasIcon() bool {
-	if o != nil && o.Icon.IsSet() {
+	if o != nil && !IsNil(o.Icon) {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+// SetIcon gets a reference to the given string and assigns it to the Icon field.
 func (o *ExternalViewResponse) SetIcon(v string) {
-	o.Icon.Set(&v)
-}
-// SetIconNil sets the value for Icon to be an explicit nil
-func (o *ExternalViewResponse) SetIconNil() {
-	o.Icon.Set(nil)
+	o.Icon = &v
 }
 
-// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
-func (o *ExternalViewResponse) UnsetIcon() {
-	o.Icon.Unset()
-}
-
-// GetIconDarkMode returns the IconDarkMode field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIconDarkMode returns the IconDarkMode field value if set, zero value otherwise.
 func (o *ExternalViewResponse) GetIconDarkMode() string {
-	if o == nil || IsNil(o.IconDarkMode.Get()) {
+	if o == nil || IsNil(o.IconDarkMode) {
 		var ret string
 		return ret
 	}
-	return *o.IconDarkMode.Get()
+	return *o.IconDarkMode
 }
 
 // GetIconDarkModeOk returns a tuple with the IconDarkMode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalViewResponse) GetIconDarkModeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IconDarkMode) {
 		return nil, false
 	}
-	return o.IconDarkMode.Get(), o.IconDarkMode.IsSet()
+	return o.IconDarkMode, true
 }
 
 // HasIconDarkMode returns a boolean if a field has been set.
 func (o *ExternalViewResponse) HasIconDarkMode() bool {
-	if o != nil && o.IconDarkMode.IsSet() {
+	if o != nil && !IsNil(o.IconDarkMode) {
 		return true
 	}
 
 	return false
 }
 
-// SetIconDarkMode gets a reference to the given NullableString and assigns it to the IconDarkMode field.
+// SetIconDarkMode gets a reference to the given string and assigns it to the IconDarkMode field.
 func (o *ExternalViewResponse) SetIconDarkMode(v string) {
-	o.IconDarkMode.Set(&v)
-}
-// SetIconDarkModeNil sets the value for IconDarkMode to be an explicit nil
-func (o *ExternalViewResponse) SetIconDarkModeNil() {
-	o.IconDarkMode.Set(nil)
+	o.IconDarkMode = &v
 }
 
-// UnsetIconDarkMode ensures that no value is present for IconDarkMode, not even an explicit nil
-func (o *ExternalViewResponse) UnsetIconDarkMode() {
-	o.IconDarkMode.Unset()
-}
-
-// GetUrlRoute returns the UrlRoute field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrlRoute returns the UrlRoute field value if set, zero value otherwise.
 func (o *ExternalViewResponse) GetUrlRoute() string {
-	if o == nil || IsNil(o.UrlRoute.Get()) {
+	if o == nil || IsNil(o.UrlRoute) {
 		var ret string
 		return ret
 	}
-	return *o.UrlRoute.Get()
+	return *o.UrlRoute
 }
 
 // GetUrlRouteOk returns a tuple with the UrlRoute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalViewResponse) GetUrlRouteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UrlRoute) {
 		return nil, false
 	}
-	return o.UrlRoute.Get(), o.UrlRoute.IsSet()
+	return o.UrlRoute, true
 }
 
 // HasUrlRoute returns a boolean if a field has been set.
 func (o *ExternalViewResponse) HasUrlRoute() bool {
-	if o != nil && o.UrlRoute.IsSet() {
+	if o != nil && !IsNil(o.UrlRoute) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrlRoute gets a reference to the given NullableString and assigns it to the UrlRoute field.
+// SetUrlRoute gets a reference to the given string and assigns it to the UrlRoute field.
 func (o *ExternalViewResponse) SetUrlRoute(v string) {
-	o.UrlRoute.Set(&v)
-}
-// SetUrlRouteNil sets the value for UrlRoute to be an explicit nil
-func (o *ExternalViewResponse) SetUrlRouteNil() {
-	o.UrlRoute.Set(nil)
+	o.UrlRoute = &v
 }
 
-// UnsetUrlRoute ensures that no value is present for UrlRoute, not even an explicit nil
-func (o *ExternalViewResponse) UnsetUrlRoute() {
-	o.UrlRoute.Unset()
-}
-
-// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCategory returns the Category field value if set, zero value otherwise.
 func (o *ExternalViewResponse) GetCategory() string {
-	if o == nil || IsNil(o.Category.Get()) {
+	if o == nil || IsNil(o.Category) {
 		var ret string
 		return ret
 	}
-	return *o.Category.Get()
+	return *o.Category
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ExternalViewResponse) GetCategoryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Category) {
 		return nil, false
 	}
-	return o.Category.Get(), o.Category.IsSet()
+	return o.Category, true
 }
 
 // HasCategory returns a boolean if a field has been set.
 func (o *ExternalViewResponse) HasCategory() bool {
-	if o != nil && o.Category.IsSet() {
+	if o != nil && !IsNil(o.Category) {
 		return true
 	}
 
 	return false
 }
 
-// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
+// SetCategory gets a reference to the given string and assigns it to the Category field.
 func (o *ExternalViewResponse) SetCategory(v string) {
-	o.Category.Set(&v)
-}
-// SetCategoryNil sets the value for Category to be an explicit nil
-func (o *ExternalViewResponse) SetCategoryNil() {
-	o.Category.Set(nil)
-}
-
-// UnsetCategory ensures that no value is present for Category, not even an explicit nil
-func (o *ExternalViewResponse) UnsetCategory() {
-	o.Category.Unset()
+	o.Category = &v
 }
 
 // GetHref returns the Href field value
@@ -314,17 +274,17 @@ func (o ExternalViewResponse) MarshalJSON() ([]byte, error) {
 func (o ExternalViewResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
-	if o.Icon.IsSet() {
-		toSerialize["icon"] = o.Icon.Get()
+	if !IsNil(o.Icon) {
+		toSerialize["icon"] = o.Icon
 	}
-	if o.IconDarkMode.IsSet() {
-		toSerialize["icon_dark_mode"] = o.IconDarkMode.Get()
+	if !IsNil(o.IconDarkMode) {
+		toSerialize["icon_dark_mode"] = o.IconDarkMode
 	}
-	if o.UrlRoute.IsSet() {
-		toSerialize["url_route"] = o.UrlRoute.Get()
+	if !IsNil(o.UrlRoute) {
+		toSerialize["url_route"] = o.UrlRoute
 	}
-	if o.Category.IsSet() {
-		toSerialize["category"] = o.Category.Get()
+	if !IsNil(o.Category) {
+		toSerialize["category"] = o.Category
 	}
 	toSerialize["href"] = o.Href
 	if !IsNil(o.Destination) {

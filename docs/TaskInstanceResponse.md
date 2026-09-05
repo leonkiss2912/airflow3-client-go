@@ -9,41 +9,41 @@ Name | Type | Description | Notes
 **DagId** | **string** |  | 
 **DagRunId** | **string** |  | 
 **MapIndex** | **int32** |  | 
-**LogicalDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
 **RunAfter** | **time.Time** |  | 
-**StartDate** | **NullableTime** |  | 
-**EndDate** | **NullableTime** |  | 
-**Duration** | **NullableFloat32** |  | 
-**State** | [**NullableTaskInstanceState**](TaskInstanceState.md) |  | 
+**StartDate** | **time.Time** |  | 
+**EndDate** | **time.Time** |  | 
+**Duration** | **float32** |  | 
+**State** | [**TaskInstanceState**](TaskInstanceState.md) |  | 
 **TryNumber** | **int32** |  | 
 **MaxTries** | **int32** |  | 
 **TaskDisplayName** | **string** |  | 
 **DagDisplayName** | **string** |  | 
-**Hostname** | **NullableString** |  | 
-**Unixname** | **NullableString** |  | 
+**Hostname** | **string** |  | 
+**Unixname** | **string** |  | 
 **Pool** | **string** |  | 
 **PoolSlots** | **int32** |  | 
-**Queue** | **NullableString** |  | 
-**PriorityWeight** | **NullableInt32** |  | 
-**Operator** | **NullableString** |  | 
-**OperatorName** | **NullableString** |  | 
-**QueuedWhen** | **NullableTime** |  | 
-**ScheduledWhen** | **NullableTime** |  | 
-**Pid** | **NullableInt32** |  | 
-**Executor** | **NullableString** |  | 
+**Queue** | **string** |  | 
+**PriorityWeight** | **int32** |  | 
+**Operator** | **string** |  | 
+**OperatorName** | **string** |  | 
+**QueuedWhen** | **time.Time** |  | 
+**ScheduledWhen** | **time.Time** |  | 
+**Pid** | **int32** |  | 
+**Executor** | **string** |  | 
 **ExecutorConfig** | **string** |  | 
-**Note** | **NullableString** |  | 
-**RenderedMapIndex** | **NullableString** |  | 
+**Note** | **string** |  | 
+**RenderedMapIndex** | **string** |  | 
 **RenderedFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Trigger** | [**NullableTriggerResponse**](TriggerResponse.md) |  | 
-**TriggererJob** | [**NullableJobResponse**](JobResponse.md) |  | 
-**DagVersion** | [**NullableDagVersionResponse**](DagVersionResponse.md) |  | 
+**Trigger** | [**TriggerResponse**](TriggerResponse.md) |  | 
+**TriggererJob** | [**JobResponse**](JobResponse.md) |  | 
+**DagVersion** | [**DagVersionResponse**](DagVersionResponse.md) |  | 
 
 ## Methods
 
 ### NewTaskInstanceResponse
 
-`func NewTaskInstanceResponse(id string, taskId string, dagId string, dagRunId string, mapIndex int32, logicalDate NullableTime, runAfter time.Time, startDate NullableTime, endDate NullableTime, duration NullableFloat32, state NullableTaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname NullableString, unixname NullableString, pool string, poolSlots int32, queue NullableString, priorityWeight NullableInt32, operator NullableString, operatorName NullableString, queuedWhen NullableTime, scheduledWhen NullableTime, pid NullableInt32, executor NullableString, executorConfig string, note NullableString, renderedMapIndex NullableString, trigger NullableTriggerResponse, triggererJob NullableJobResponse, dagVersion NullableDagVersionResponse, ) *TaskInstanceResponse`
+`func NewTaskInstanceResponse(id string, taskId string, dagId string, dagRunId string, mapIndex int32, logicalDate time.Time, runAfter time.Time, startDate time.Time, endDate time.Time, duration float32, state TaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname string, unixname string, pool string, poolSlots int32, queue string, priorityWeight int32, operator string, operatorName string, queuedWhen time.Time, scheduledWhen time.Time, pid int32, executor string, executorConfig string, note string, renderedMapIndex string, trigger TriggerResponse, triggererJob JobResponse, dagVersion DagVersionResponse, ) *TaskInstanceResponse`
 
 NewTaskInstanceResponse instantiates a new TaskInstanceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -178,16 +178,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *TaskInstanceResponse) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *TaskInstanceResponse) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetRunAfter
 
 `func (o *TaskInstanceResponse) GetRunAfter() time.Time`
@@ -228,16 +218,6 @@ and a boolean to check if the value has been set.
 SetStartDate sets StartDate field to given value.
 
 
-### SetStartDateNil
-
-`func (o *TaskInstanceResponse) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *TaskInstanceResponse) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *TaskInstanceResponse) GetEndDate() time.Time`
@@ -258,16 +238,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *TaskInstanceResponse) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *TaskInstanceResponse) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetDuration
 
 `func (o *TaskInstanceResponse) GetDuration() float32`
@@ -288,16 +258,6 @@ and a boolean to check if the value has been set.
 SetDuration sets Duration field to given value.
 
 
-### SetDurationNil
-
-`func (o *TaskInstanceResponse) SetDurationNil(b bool)`
-
- SetDurationNil sets the value for Duration to be an explicit nil
-
-### UnsetDuration
-`func (o *TaskInstanceResponse) UnsetDuration()`
-
-UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 ### GetState
 
 `func (o *TaskInstanceResponse) GetState() TaskInstanceState`
@@ -318,16 +278,6 @@ and a boolean to check if the value has been set.
 SetState sets State field to given value.
 
 
-### SetStateNil
-
-`func (o *TaskInstanceResponse) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *TaskInstanceResponse) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetTryNumber
 
 `func (o *TaskInstanceResponse) GetTryNumber() int32`
@@ -428,16 +378,6 @@ and a boolean to check if the value has been set.
 SetHostname sets Hostname field to given value.
 
 
-### SetHostnameNil
-
-`func (o *TaskInstanceResponse) SetHostnameNil(b bool)`
-
- SetHostnameNil sets the value for Hostname to be an explicit nil
-
-### UnsetHostname
-`func (o *TaskInstanceResponse) UnsetHostname()`
-
-UnsetHostname ensures that no value is present for Hostname, not even an explicit nil
 ### GetUnixname
 
 `func (o *TaskInstanceResponse) GetUnixname() string`
@@ -458,16 +398,6 @@ and a boolean to check if the value has been set.
 SetUnixname sets Unixname field to given value.
 
 
-### SetUnixnameNil
-
-`func (o *TaskInstanceResponse) SetUnixnameNil(b bool)`
-
- SetUnixnameNil sets the value for Unixname to be an explicit nil
-
-### UnsetUnixname
-`func (o *TaskInstanceResponse) UnsetUnixname()`
-
-UnsetUnixname ensures that no value is present for Unixname, not even an explicit nil
 ### GetPool
 
 `func (o *TaskInstanceResponse) GetPool() string`
@@ -528,16 +458,6 @@ and a boolean to check if the value has been set.
 SetQueue sets Queue field to given value.
 
 
-### SetQueueNil
-
-`func (o *TaskInstanceResponse) SetQueueNil(b bool)`
-
- SetQueueNil sets the value for Queue to be an explicit nil
-
-### UnsetQueue
-`func (o *TaskInstanceResponse) UnsetQueue()`
-
-UnsetQueue ensures that no value is present for Queue, not even an explicit nil
 ### GetPriorityWeight
 
 `func (o *TaskInstanceResponse) GetPriorityWeight() int32`
@@ -558,16 +478,6 @@ and a boolean to check if the value has been set.
 SetPriorityWeight sets PriorityWeight field to given value.
 
 
-### SetPriorityWeightNil
-
-`func (o *TaskInstanceResponse) SetPriorityWeightNil(b bool)`
-
- SetPriorityWeightNil sets the value for PriorityWeight to be an explicit nil
-
-### UnsetPriorityWeight
-`func (o *TaskInstanceResponse) UnsetPriorityWeight()`
-
-UnsetPriorityWeight ensures that no value is present for PriorityWeight, not even an explicit nil
 ### GetOperator
 
 `func (o *TaskInstanceResponse) GetOperator() string`
@@ -588,16 +498,6 @@ and a boolean to check if the value has been set.
 SetOperator sets Operator field to given value.
 
 
-### SetOperatorNil
-
-`func (o *TaskInstanceResponse) SetOperatorNil(b bool)`
-
- SetOperatorNil sets the value for Operator to be an explicit nil
-
-### UnsetOperator
-`func (o *TaskInstanceResponse) UnsetOperator()`
-
-UnsetOperator ensures that no value is present for Operator, not even an explicit nil
 ### GetOperatorName
 
 `func (o *TaskInstanceResponse) GetOperatorName() string`
@@ -618,16 +518,6 @@ and a boolean to check if the value has been set.
 SetOperatorName sets OperatorName field to given value.
 
 
-### SetOperatorNameNil
-
-`func (o *TaskInstanceResponse) SetOperatorNameNil(b bool)`
-
- SetOperatorNameNil sets the value for OperatorName to be an explicit nil
-
-### UnsetOperatorName
-`func (o *TaskInstanceResponse) UnsetOperatorName()`
-
-UnsetOperatorName ensures that no value is present for OperatorName, not even an explicit nil
 ### GetQueuedWhen
 
 `func (o *TaskInstanceResponse) GetQueuedWhen() time.Time`
@@ -648,16 +538,6 @@ and a boolean to check if the value has been set.
 SetQueuedWhen sets QueuedWhen field to given value.
 
 
-### SetQueuedWhenNil
-
-`func (o *TaskInstanceResponse) SetQueuedWhenNil(b bool)`
-
- SetQueuedWhenNil sets the value for QueuedWhen to be an explicit nil
-
-### UnsetQueuedWhen
-`func (o *TaskInstanceResponse) UnsetQueuedWhen()`
-
-UnsetQueuedWhen ensures that no value is present for QueuedWhen, not even an explicit nil
 ### GetScheduledWhen
 
 `func (o *TaskInstanceResponse) GetScheduledWhen() time.Time`
@@ -678,16 +558,6 @@ and a boolean to check if the value has been set.
 SetScheduledWhen sets ScheduledWhen field to given value.
 
 
-### SetScheduledWhenNil
-
-`func (o *TaskInstanceResponse) SetScheduledWhenNil(b bool)`
-
- SetScheduledWhenNil sets the value for ScheduledWhen to be an explicit nil
-
-### UnsetScheduledWhen
-`func (o *TaskInstanceResponse) UnsetScheduledWhen()`
-
-UnsetScheduledWhen ensures that no value is present for ScheduledWhen, not even an explicit nil
 ### GetPid
 
 `func (o *TaskInstanceResponse) GetPid() int32`
@@ -708,16 +578,6 @@ and a boolean to check if the value has been set.
 SetPid sets Pid field to given value.
 
 
-### SetPidNil
-
-`func (o *TaskInstanceResponse) SetPidNil(b bool)`
-
- SetPidNil sets the value for Pid to be an explicit nil
-
-### UnsetPid
-`func (o *TaskInstanceResponse) UnsetPid()`
-
-UnsetPid ensures that no value is present for Pid, not even an explicit nil
 ### GetExecutor
 
 `func (o *TaskInstanceResponse) GetExecutor() string`
@@ -738,16 +598,6 @@ and a boolean to check if the value has been set.
 SetExecutor sets Executor field to given value.
 
 
-### SetExecutorNil
-
-`func (o *TaskInstanceResponse) SetExecutorNil(b bool)`
-
- SetExecutorNil sets the value for Executor to be an explicit nil
-
-### UnsetExecutor
-`func (o *TaskInstanceResponse) UnsetExecutor()`
-
-UnsetExecutor ensures that no value is present for Executor, not even an explicit nil
 ### GetExecutorConfig
 
 `func (o *TaskInstanceResponse) GetExecutorConfig() string`
@@ -788,16 +638,6 @@ and a boolean to check if the value has been set.
 SetNote sets Note field to given value.
 
 
-### SetNoteNil
-
-`func (o *TaskInstanceResponse) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *TaskInstanceResponse) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetRenderedMapIndex
 
 `func (o *TaskInstanceResponse) GetRenderedMapIndex() string`
@@ -818,16 +658,6 @@ and a boolean to check if the value has been set.
 SetRenderedMapIndex sets RenderedMapIndex field to given value.
 
 
-### SetRenderedMapIndexNil
-
-`func (o *TaskInstanceResponse) SetRenderedMapIndexNil(b bool)`
-
- SetRenderedMapIndexNil sets the value for RenderedMapIndex to be an explicit nil
-
-### UnsetRenderedMapIndex
-`func (o *TaskInstanceResponse) UnsetRenderedMapIndex()`
-
-UnsetRenderedMapIndex ensures that no value is present for RenderedMapIndex, not even an explicit nil
 ### GetRenderedFields
 
 `func (o *TaskInstanceResponse) GetRenderedFields() map[string]interface{}`
@@ -873,16 +703,6 @@ and a boolean to check if the value has been set.
 SetTrigger sets Trigger field to given value.
 
 
-### SetTriggerNil
-
-`func (o *TaskInstanceResponse) SetTriggerNil(b bool)`
-
- SetTriggerNil sets the value for Trigger to be an explicit nil
-
-### UnsetTrigger
-`func (o *TaskInstanceResponse) UnsetTrigger()`
-
-UnsetTrigger ensures that no value is present for Trigger, not even an explicit nil
 ### GetTriggererJob
 
 `func (o *TaskInstanceResponse) GetTriggererJob() JobResponse`
@@ -903,16 +723,6 @@ and a boolean to check if the value has been set.
 SetTriggererJob sets TriggererJob field to given value.
 
 
-### SetTriggererJobNil
-
-`func (o *TaskInstanceResponse) SetTriggererJobNil(b bool)`
-
- SetTriggererJobNil sets the value for TriggererJob to be an explicit nil
-
-### UnsetTriggererJob
-`func (o *TaskInstanceResponse) UnsetTriggererJob()`
-
-UnsetTriggererJob ensures that no value is present for TriggererJob, not even an explicit nil
 ### GetDagVersion
 
 `func (o *TaskInstanceResponse) GetDagVersion() DagVersionResponse`
@@ -933,16 +743,6 @@ and a boolean to check if the value has been set.
 SetDagVersion sets DagVersion field to given value.
 
 
-### SetDagVersionNil
-
-`func (o *TaskInstanceResponse) SetDagVersionNil(b bool)`
-
- SetDagVersionNil sets the value for DagVersion to be an explicit nil
-
-### UnsetDagVersion
-`func (o *TaskInstanceResponse) UnsetDagVersion()`
-
-UnsetDagVersion ensures that no value is present for DagVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

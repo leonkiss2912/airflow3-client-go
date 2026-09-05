@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Action** | **string** | The action to be performed on the entities. | 
 **Entities** | [**[]ConnectionBody**](ConnectionBody.md) | A list of entities to be updated. | 
 **UpdateMask** | Pointer to **[]string** | A list of field names to update for each entity.Only these fields will be applied from the request body to the database model.Any extra fields provided will be ignored. | [optional] 
-**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to FAIL]
+**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to BULKACTIONNOTONEXISTENCE_FAIL]
 
 ## Methods
 
@@ -93,16 +93,6 @@ SetUpdateMask sets UpdateMask field to given value.
 
 HasUpdateMask returns a boolean if a field has been set.
 
-### SetUpdateMaskNil
-
-`func (o *BulkUpdateActionConnectionBody) SetUpdateMaskNil(b bool)`
-
- SetUpdateMaskNil sets the value for UpdateMask to be an explicit nil
-
-### UnsetUpdateMask
-`func (o *BulkUpdateActionConnectionBody) UnsetUpdateMask()`
-
-UnsetUpdateMask ensures that no value is present for UpdateMask, not even an explicit nil
 ### GetActionOnNonExistence
 
 `func (o *BulkUpdateActionConnectionBody) GetActionOnNonExistence() BulkActionNotOnExistence`

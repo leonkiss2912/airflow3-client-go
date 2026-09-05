@@ -23,14 +23,14 @@ var _ MappedNullable = &ConnectionBody{}
 type ConnectionBody struct {
 	ConnectionId string `json:"connection_id" validate:"regexp=^[\\w.-]+$"`
 	ConnType string `json:"conn_type"`
-	Description NullableString `json:"description,omitempty"`
-	Host NullableString `json:"host,omitempty"`
-	Login NullableString `json:"login,omitempty"`
-	Schema NullableString `json:"schema,omitempty"`
-	Port NullableInt32 `json:"port,omitempty"`
-	Password NullableString `json:"password,omitempty"`
-	Extra NullableString `json:"extra,omitempty"`
-	TeamName NullableString `json:"team_name,omitempty"`
+	Description *string `json:"description,omitempty"`
+	Host *string `json:"host,omitempty"`
+	Login *string `json:"login,omitempty"`
+	Schema *string `json:"schema,omitempty"`
+	Port *int32 `json:"port,omitempty"`
+	Password *string `json:"password,omitempty"`
+	Extra *string `json:"extra,omitempty"`
+	TeamName *string `json:"team_name,omitempty"`
 }
 
 type _ConnectionBody ConnectionBody
@@ -102,340 +102,260 @@ func (o *ConnectionBody) SetConnType(v string) {
 	o.ConnType = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ConnectionBody) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *ConnectionBody) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *ConnectionBody) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *ConnectionBody) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = &v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *ConnectionBody) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetHost returns the Host field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHost returns the Host field value if set, zero value otherwise.
 func (o *ConnectionBody) GetHost() string {
-	if o == nil || IsNil(o.Host.Get()) {
+	if o == nil || IsNil(o.Host) {
 		var ret string
 		return ret
 	}
-	return *o.Host.Get()
+	return *o.Host
 }
 
 // GetHostOk returns a tuple with the Host field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetHostOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Host) {
 		return nil, false
 	}
-	return o.Host.Get(), o.Host.IsSet()
+	return o.Host, true
 }
 
 // HasHost returns a boolean if a field has been set.
 func (o *ConnectionBody) HasHost() bool {
-	if o != nil && o.Host.IsSet() {
+	if o != nil && !IsNil(o.Host) {
 		return true
 	}
 
 	return false
 }
 
-// SetHost gets a reference to the given NullableString and assigns it to the Host field.
+// SetHost gets a reference to the given string and assigns it to the Host field.
 func (o *ConnectionBody) SetHost(v string) {
-	o.Host.Set(&v)
-}
-// SetHostNil sets the value for Host to be an explicit nil
-func (o *ConnectionBody) SetHostNil() {
-	o.Host.Set(nil)
+	o.Host = &v
 }
 
-// UnsetHost ensures that no value is present for Host, not even an explicit nil
-func (o *ConnectionBody) UnsetHost() {
-	o.Host.Unset()
-}
-
-// GetLogin returns the Login field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogin returns the Login field value if set, zero value otherwise.
 func (o *ConnectionBody) GetLogin() string {
-	if o == nil || IsNil(o.Login.Get()) {
+	if o == nil || IsNil(o.Login) {
 		var ret string
 		return ret
 	}
-	return *o.Login.Get()
+	return *o.Login
 }
 
 // GetLoginOk returns a tuple with the Login field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetLoginOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Login) {
 		return nil, false
 	}
-	return o.Login.Get(), o.Login.IsSet()
+	return o.Login, true
 }
 
 // HasLogin returns a boolean if a field has been set.
 func (o *ConnectionBody) HasLogin() bool {
-	if o != nil && o.Login.IsSet() {
+	if o != nil && !IsNil(o.Login) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogin gets a reference to the given NullableString and assigns it to the Login field.
+// SetLogin gets a reference to the given string and assigns it to the Login field.
 func (o *ConnectionBody) SetLogin(v string) {
-	o.Login.Set(&v)
-}
-// SetLoginNil sets the value for Login to be an explicit nil
-func (o *ConnectionBody) SetLoginNil() {
-	o.Login.Set(nil)
+	o.Login = &v
 }
 
-// UnsetLogin ensures that no value is present for Login, not even an explicit nil
-func (o *ConnectionBody) UnsetLogin() {
-	o.Login.Unset()
-}
-
-// GetSchema returns the Schema field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSchema returns the Schema field value if set, zero value otherwise.
 func (o *ConnectionBody) GetSchema() string {
-	if o == nil || IsNil(o.Schema.Get()) {
+	if o == nil || IsNil(o.Schema) {
 		var ret string
 		return ret
 	}
-	return *o.Schema.Get()
+	return *o.Schema
 }
 
 // GetSchemaOk returns a tuple with the Schema field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetSchemaOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Schema) {
 		return nil, false
 	}
-	return o.Schema.Get(), o.Schema.IsSet()
+	return o.Schema, true
 }
 
 // HasSchema returns a boolean if a field has been set.
 func (o *ConnectionBody) HasSchema() bool {
-	if o != nil && o.Schema.IsSet() {
+	if o != nil && !IsNil(o.Schema) {
 		return true
 	}
 
 	return false
 }
 
-// SetSchema gets a reference to the given NullableString and assigns it to the Schema field.
+// SetSchema gets a reference to the given string and assigns it to the Schema field.
 func (o *ConnectionBody) SetSchema(v string) {
-	o.Schema.Set(&v)
-}
-// SetSchemaNil sets the value for Schema to be an explicit nil
-func (o *ConnectionBody) SetSchemaNil() {
-	o.Schema.Set(nil)
+	o.Schema = &v
 }
 
-// UnsetSchema ensures that no value is present for Schema, not even an explicit nil
-func (o *ConnectionBody) UnsetSchema() {
-	o.Schema.Unset()
-}
-
-// GetPort returns the Port field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPort returns the Port field value if set, zero value otherwise.
 func (o *ConnectionBody) GetPort() int32 {
-	if o == nil || IsNil(o.Port.Get()) {
+	if o == nil || IsNil(o.Port) {
 		var ret int32
 		return ret
 	}
-	return *o.Port.Get()
+	return *o.Port
 }
 
 // GetPortOk returns a tuple with the Port field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetPortOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Port) {
 		return nil, false
 	}
-	return o.Port.Get(), o.Port.IsSet()
+	return o.Port, true
 }
 
 // HasPort returns a boolean if a field has been set.
 func (o *ConnectionBody) HasPort() bool {
-	if o != nil && o.Port.IsSet() {
+	if o != nil && !IsNil(o.Port) {
 		return true
 	}
 
 	return false
 }
 
-// SetPort gets a reference to the given NullableInt32 and assigns it to the Port field.
+// SetPort gets a reference to the given int32 and assigns it to the Port field.
 func (o *ConnectionBody) SetPort(v int32) {
-	o.Port.Set(&v)
-}
-// SetPortNil sets the value for Port to be an explicit nil
-func (o *ConnectionBody) SetPortNil() {
-	o.Port.Set(nil)
+	o.Port = &v
 }
 
-// UnsetPort ensures that no value is present for Port, not even an explicit nil
-func (o *ConnectionBody) UnsetPort() {
-	o.Port.Unset()
-}
-
-// GetPassword returns the Password field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPassword returns the Password field value if set, zero value otherwise.
 func (o *ConnectionBody) GetPassword() string {
-	if o == nil || IsNil(o.Password.Get()) {
+	if o == nil || IsNil(o.Password) {
 		var ret string
 		return ret
 	}
-	return *o.Password.Get()
+	return *o.Password
 }
 
 // GetPasswordOk returns a tuple with the Password field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetPasswordOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Password) {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return o.Password, true
 }
 
 // HasPassword returns a boolean if a field has been set.
 func (o *ConnectionBody) HasPassword() bool {
-	if o != nil && o.Password.IsSet() {
+	if o != nil && !IsNil(o.Password) {
 		return true
 	}
 
 	return false
 }
 
-// SetPassword gets a reference to the given NullableString and assigns it to the Password field.
+// SetPassword gets a reference to the given string and assigns it to the Password field.
 func (o *ConnectionBody) SetPassword(v string) {
-	o.Password.Set(&v)
-}
-// SetPasswordNil sets the value for Password to be an explicit nil
-func (o *ConnectionBody) SetPasswordNil() {
-	o.Password.Set(nil)
+	o.Password = &v
 }
 
-// UnsetPassword ensures that no value is present for Password, not even an explicit nil
-func (o *ConnectionBody) UnsetPassword() {
-	o.Password.Unset()
-}
-
-// GetExtra returns the Extra field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtra returns the Extra field value if set, zero value otherwise.
 func (o *ConnectionBody) GetExtra() string {
-	if o == nil || IsNil(o.Extra.Get()) {
+	if o == nil || IsNil(o.Extra) {
 		var ret string
 		return ret
 	}
-	return *o.Extra.Get()
+	return *o.Extra
 }
 
 // GetExtraOk returns a tuple with the Extra field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetExtraOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Extra) {
 		return nil, false
 	}
-	return o.Extra.Get(), o.Extra.IsSet()
+	return o.Extra, true
 }
 
 // HasExtra returns a boolean if a field has been set.
 func (o *ConnectionBody) HasExtra() bool {
-	if o != nil && o.Extra.IsSet() {
+	if o != nil && !IsNil(o.Extra) {
 		return true
 	}
 
 	return false
 }
 
-// SetExtra gets a reference to the given NullableString and assigns it to the Extra field.
+// SetExtra gets a reference to the given string and assigns it to the Extra field.
 func (o *ConnectionBody) SetExtra(v string) {
-	o.Extra.Set(&v)
-}
-// SetExtraNil sets the value for Extra to be an explicit nil
-func (o *ConnectionBody) SetExtraNil() {
-	o.Extra.Set(nil)
+	o.Extra = &v
 }
 
-// UnsetExtra ensures that no value is present for Extra, not even an explicit nil
-func (o *ConnectionBody) UnsetExtra() {
-	o.Extra.Unset()
-}
-
-// GetTeamName returns the TeamName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTeamName returns the TeamName field value if set, zero value otherwise.
 func (o *ConnectionBody) GetTeamName() string {
-	if o == nil || IsNil(o.TeamName.Get()) {
+	if o == nil || IsNil(o.TeamName) {
 		var ret string
 		return ret
 	}
-	return *o.TeamName.Get()
+	return *o.TeamName
 }
 
 // GetTeamNameOk returns a tuple with the TeamName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionBody) GetTeamNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TeamName) {
 		return nil, false
 	}
-	return o.TeamName.Get(), o.TeamName.IsSet()
+	return o.TeamName, true
 }
 
 // HasTeamName returns a boolean if a field has been set.
 func (o *ConnectionBody) HasTeamName() bool {
-	if o != nil && o.TeamName.IsSet() {
+	if o != nil && !IsNil(o.TeamName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTeamName gets a reference to the given NullableString and assigns it to the TeamName field.
+// SetTeamName gets a reference to the given string and assigns it to the TeamName field.
 func (o *ConnectionBody) SetTeamName(v string) {
-	o.TeamName.Set(&v)
-}
-// SetTeamNameNil sets the value for TeamName to be an explicit nil
-func (o *ConnectionBody) SetTeamNameNil() {
-	o.TeamName.Set(nil)
-}
-
-// UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
-func (o *ConnectionBody) UnsetTeamName() {
-	o.TeamName.Unset()
+	o.TeamName = &v
 }
 
 func (o ConnectionBody) MarshalJSON() ([]byte, error) {
@@ -450,29 +370,29 @@ func (o ConnectionBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["connection_id"] = o.ConnectionId
 	toSerialize["conn_type"] = o.ConnType
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.Host.IsSet() {
-		toSerialize["host"] = o.Host.Get()
+	if !IsNil(o.Host) {
+		toSerialize["host"] = o.Host
 	}
-	if o.Login.IsSet() {
-		toSerialize["login"] = o.Login.Get()
+	if !IsNil(o.Login) {
+		toSerialize["login"] = o.Login
 	}
-	if o.Schema.IsSet() {
-		toSerialize["schema"] = o.Schema.Get()
+	if !IsNil(o.Schema) {
+		toSerialize["schema"] = o.Schema
 	}
-	if o.Port.IsSet() {
-		toSerialize["port"] = o.Port.Get()
+	if !IsNil(o.Port) {
+		toSerialize["port"] = o.Port
 	}
-	if o.Password.IsSet() {
-		toSerialize["password"] = o.Password.Get()
+	if !IsNil(o.Password) {
+		toSerialize["password"] = o.Password
 	}
-	if o.Extra.IsSet() {
-		toSerialize["extra"] = o.Extra.Get()
+	if !IsNil(o.Extra) {
+		toSerialize["extra"] = o.Extra
 	}
-	if o.TeamName.IsSet() {
-		toSerialize["team_name"] = o.TeamName.Get()
+	if !IsNil(o.TeamName) {
+		toSerialize["team_name"] = o.TeamName
 	}
 	return toSerialize, nil
 }

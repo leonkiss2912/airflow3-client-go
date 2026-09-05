@@ -38,7 +38,7 @@ func NewBulkDeleteActionBulkTaskInstanceBody(action string, entities []EntitiesI
 	this := BulkDeleteActionBulkTaskInstanceBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkDeleteActionBulkTaskInstanceBody(action string, entities []EntitiesI
 // but it doesn't guarantee that properties required by API are set
 func NewBulkDeleteActionBulkTaskInstanceBodyWithDefaults() *BulkDeleteActionBulkTaskInstanceBody {
 	this := BulkDeleteActionBulkTaskInstanceBody{}
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }

@@ -49,7 +49,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -124,7 +124,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -202,7 +202,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -283,7 +283,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -363,7 +363,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -442,7 +442,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -525,7 +525,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -533,7 +533,7 @@ func main() {
 	dagRunId := "dagRunId_example" // string | 
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	offset := int32(56) // int32 |  (optional) (default to 0)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `ti_id, subject, responded_at, created_at, responded_by_user_id, responded_by_user_name, dag_id, run_id, task_display_name, run_after, rendered_map_index, task_instance_operator, task_instance_state` (optional) (default to {"ti_id"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `ti_id, subject, responded_at, created_at, responded_by_user_id, responded_by_user_name, dag_id, run_id, task_display_name, run_after, rendered_map_index, task_instance_operator, task_instance_state` (optional) (default to {"ti_id"})
 	dagIdPattern := "dagIdPattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``dag_id_prefix_pattern`` parameter when possible. (optional)
 	dagIdPrefixPattern := "dagIdPrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
 	taskId := "taskId_example" // string |  (optional)
@@ -542,8 +542,8 @@ func main() {
 	mapIndex := int32(56) // int32 |  (optional)
 	state := []string{"Inner_example"} // []string |  (optional)
 	responseReceived := true // bool |  (optional)
-	respondedByUserId := []*string{"Inner_example"} // []*string |  (optional)
-	respondedByUserName := []*string{"Inner_example"} // []*string |  (optional)
+	respondedByUserId := []string{"Inner_example"} // []string |  (optional)
+	respondedByUserName := []string{"Inner_example"} // []string |  (optional)
 	subjectSearch := "subjectSearch_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``subject_search`` parameter when possible. (optional)
 	bodySearch := "bodySearch_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``body_search`` parameter when possible. (optional)
 	createdAtGte := time.Now() // time.Time |  (optional)
@@ -636,7 +636,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -723,7 +723,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -800,7 +800,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -877,7 +877,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -960,7 +960,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -992,24 +992,24 @@ func main() {
 	durationLte := float32(8.14) // float32 |  (optional)
 	durationLt := float32(8.14) // float32 |  (optional)
 	state := []string{"Inner_example"} // []string |  (optional)
-	pool := []*string{"Inner_example"} // []*string |  (optional)
+	pool := []string{"Inner_example"} // []string |  (optional)
 	poolNamePattern := "poolNamePattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``pool_name_prefix_pattern`` parameter when possible. (optional)
 	poolNamePrefixPattern := "poolNamePrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
-	queue := []*string{"Inner_example"} // []*string |  (optional)
+	queue := []string{"Inner_example"} // []string |  (optional)
 	queueNamePattern := "queueNamePattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``queue_name_prefix_pattern`` parameter when possible. (optional)
 	queueNamePrefixPattern := "queueNamePrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
-	executor := []*string{"Inner_example"} // []*string |  (optional)
-	versionNumber := []*int32{int32(123)} // []*int32 |  (optional)
-	tryNumber := []*int32{int32(123)} // []*int32 |  (optional)
-	operator := []*string{"Inner_example"} // []*string |  (optional)
+	executor := []string{"Inner_example"} // []string |  (optional)
+	versionNumber := []int32{int32(123)} // []int32 |  (optional)
+	tryNumber := []int32{int32(123)} // []int32 |  (optional)
+	operator := []string{"Inner_example"} // []string |  (optional)
 	operatorNamePattern := "operatorNamePattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``operator_name_prefix_pattern`` parameter when possible. (optional)
 	operatorNamePrefixPattern := "operatorNamePrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
-	mapIndex := []*int32{int32(123)} // []*int32 |  (optional)
+	mapIndex := []int32{int32(123)} // []int32 |  (optional)
 	renderedMapIndexPattern := "renderedMapIndexPattern_example" // string | SQL LIKE expression — use `%` / `_` wildcards (e.g. `%customer_%`). or the pipe `|` operator for OR logic (e.g. `dag1 | dag2`). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as ``ILIKE '%term%'`` and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent ``rendered_map_index_prefix_pattern`` parameter when possible. (optional)
 	renderedMapIndexPrefixPattern := "renderedMapIndexPrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	offset := int32(56) // int32 |  (optional) (default to 0)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, run_after, logical_date, data_interval_start, data_interval_end` (optional) (default to {"map_index"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, run_after, logical_date, data_interval_start, data_interval_end` (optional) (default to {"map_index"})
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1122,7 +1122,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1198,7 +1198,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1276,7 +1276,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1355,7 +1355,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1433,7 +1433,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1515,7 +1515,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1572,7 +1572,7 @@ func main() {
 	renderedMapIndexPrefixPattern := "renderedMapIndexPrefixPattern_example" // string | Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe `|` operator for OR logic (e.g. `dag1|dag2`). Use `~` to match all. Wildcard characters (`%`, `_`) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. `test_` effectively matches items starting with `test`, and `s3://` matches items starting with `s3`. (optional)
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	offset := int32(56) // int32 |  (optional) (default to 0)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, logical_date, run_after, data_interval_start, data_interval_end` (optional) (default to {"map_index"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, logical_date, run_after, data_interval_start, data_interval_end` (optional) (default to {"map_index"})
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1692,7 +1692,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1767,7 +1767,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1849,7 +1849,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -1932,7 +1932,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -2014,7 +2014,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -2097,7 +2097,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -2169,7 +2169,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {

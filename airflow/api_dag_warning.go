@@ -23,43 +23,43 @@ import (
 // DagWarningAPIService DagWarningAPI service
 type DagWarningAPIService service
 
-type ApiListDagWarningsRequest struct {
+type DagWarningAPIListDagWarningsRequest struct {
 	ctx context.Context
 	ApiService *DagWarningAPIService
 	dagId *string
 	warningType *DagWarningType
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 }
 
-func (r ApiListDagWarningsRequest) DagId(dagId string) ApiListDagWarningsRequest {
+func (r DagWarningAPIListDagWarningsRequest) DagId(dagId string) DagWarningAPIListDagWarningsRequest {
 	r.dagId = &dagId
 	return r
 }
 
-func (r ApiListDagWarningsRequest) WarningType(warningType DagWarningType) ApiListDagWarningsRequest {
+func (r DagWarningAPIListDagWarningsRequest) WarningType(warningType DagWarningType) DagWarningAPIListDagWarningsRequest {
 	r.warningType = &warningType
 	return r
 }
 
-func (r ApiListDagWarningsRequest) Limit(limit int32) ApiListDagWarningsRequest {
+func (r DagWarningAPIListDagWarningsRequest) Limit(limit int32) DagWarningAPIListDagWarningsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiListDagWarningsRequest) Offset(offset int32) ApiListDagWarningsRequest {
+func (r DagWarningAPIListDagWarningsRequest) Offset(offset int32) DagWarningAPIListDagWarningsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;dag_id, warning_type, message, timestamp&#x60;
-func (r ApiListDagWarningsRequest) OrderBy(orderBy []*string) ApiListDagWarningsRequest {
+func (r DagWarningAPIListDagWarningsRequest) OrderBy(orderBy []string) DagWarningAPIListDagWarningsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiListDagWarningsRequest) Execute() (*DAGWarningCollectionResponse, *http.Response, error) {
+func (r DagWarningAPIListDagWarningsRequest) Execute() (*DAGWarningCollectionResponse, *http.Response, error) {
 	return r.ApiService.ListDagWarningsExecute(r)
 }
 
@@ -69,10 +69,10 @@ ListDagWarnings List Dag Warnings
 Get a list of Dag warnings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListDagWarningsRequest
+ @return DagWarningAPIListDagWarningsRequest
 */
-func (a *DagWarningAPIService) ListDagWarnings(ctx context.Context) ApiListDagWarningsRequest {
-	return ApiListDagWarningsRequest{
+func (a *DagWarningAPIService) ListDagWarnings(ctx context.Context) DagWarningAPIListDagWarningsRequest {
+	return DagWarningAPIListDagWarningsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -80,7 +80,7 @@ func (a *DagWarningAPIService) ListDagWarnings(ctx context.Context) ApiListDagWa
 
 // Execute executes the request
 //  @return DAGWarningCollectionResponse
-func (a *DagWarningAPIService) ListDagWarningsExecute(r ApiListDagWarningsRequest) (*DAGWarningCollectionResponse, *http.Response, error) {
+func (a *DagWarningAPIService) ListDagWarningsExecute(r DagWarningAPIListDagWarningsRequest) (*DAGWarningCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -130,7 +130,7 @@ func (a *DagWarningAPIService) ListDagWarningsExecute(r ApiListDagWarningsReques
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"dag_id"}
+		var defaultValue []string = []string{"dag_id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}

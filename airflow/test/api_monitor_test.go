@@ -1,7 +1,7 @@
 /*
 Airflow API
 
-Testing DAGParsingAPIService
+Testing MonitorAPIService
 
 */
 
@@ -14,21 +14,19 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
-func Test_airflow_DAGParsingAPIService(t *testing.T) {
+func Test_airflow_MonitorAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DAGParsingAPIService ReparseDagFile", func(t *testing.T) {
+	t.Run("Test MonitorAPIService GetHealth", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var fileToken string
-
-		resp, httpRes, err := apiClient.DAGParsingAPI.ReparseDagFile(context.Background(), fileToken).Execute()
+		resp, httpRes, err := apiClient.MonitorAPI.GetHealth(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

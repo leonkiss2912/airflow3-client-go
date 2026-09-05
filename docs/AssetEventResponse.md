@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | 
 **AssetId** | **int32** |  | 
-**Uri** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Group** | Pointer to **NullableString** |  | [optional] 
+**Uri** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Group** | Pointer to **string** |  | [optional] 
 **Extra** | Pointer to **map[string]interface{}** |  | [optional] 
-**SourceTaskId** | Pointer to **NullableString** |  | [optional] 
-**SourceDagId** | Pointer to **NullableString** |  | [optional] 
-**SourceRunId** | Pointer to **NullableString** |  | [optional] 
+**SourceTaskId** | Pointer to **string** |  | [optional] 
+**SourceDagId** | Pointer to **string** |  | [optional] 
+**SourceRunId** | Pointer to **string** |  | [optional] 
 **SourceMapIndex** | **int32** |  | 
 **CreatedDagruns** | [**[]DagRunAssetReference**](DagRunAssetReference.md) |  | 
 **Timestamp** | **time.Time** |  | 
-**PartitionKey** | Pointer to **NullableString** |  | [optional] 
+**PartitionKey** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -102,16 +102,6 @@ SetUri sets Uri field to given value.
 
 HasUri returns a boolean if a field has been set.
 
-### SetUriNil
-
-`func (o *AssetEventResponse) SetUriNil(b bool)`
-
- SetUriNil sets the value for Uri to be an explicit nil
-
-### UnsetUri
-`func (o *AssetEventResponse) UnsetUri()`
-
-UnsetUri ensures that no value is present for Uri, not even an explicit nil
 ### GetName
 
 `func (o *AssetEventResponse) GetName() string`
@@ -137,16 +127,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *AssetEventResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AssetEventResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetGroup
 
 `func (o *AssetEventResponse) GetGroup() string`
@@ -172,16 +152,6 @@ SetGroup sets Group field to given value.
 
 HasGroup returns a boolean if a field has been set.
 
-### SetGroupNil
-
-`func (o *AssetEventResponse) SetGroupNil(b bool)`
-
- SetGroupNil sets the value for Group to be an explicit nil
-
-### UnsetGroup
-`func (o *AssetEventResponse) UnsetGroup()`
-
-UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetExtra
 
 `func (o *AssetEventResponse) GetExtra() map[string]*interface{}`
@@ -207,16 +177,6 @@ SetExtra sets Extra field to given value.
 
 HasExtra returns a boolean if a field has been set.
 
-### SetExtraNil
-
-`func (o *AssetEventResponse) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *AssetEventResponse) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetSourceTaskId
 
 `func (o *AssetEventResponse) GetSourceTaskId() string`
@@ -242,16 +202,6 @@ SetSourceTaskId sets SourceTaskId field to given value.
 
 HasSourceTaskId returns a boolean if a field has been set.
 
-### SetSourceTaskIdNil
-
-`func (o *AssetEventResponse) SetSourceTaskIdNil(b bool)`
-
- SetSourceTaskIdNil sets the value for SourceTaskId to be an explicit nil
-
-### UnsetSourceTaskId
-`func (o *AssetEventResponse) UnsetSourceTaskId()`
-
-UnsetSourceTaskId ensures that no value is present for SourceTaskId, not even an explicit nil
 ### GetSourceDagId
 
 `func (o *AssetEventResponse) GetSourceDagId() string`
@@ -277,16 +227,6 @@ SetSourceDagId sets SourceDagId field to given value.
 
 HasSourceDagId returns a boolean if a field has been set.
 
-### SetSourceDagIdNil
-
-`func (o *AssetEventResponse) SetSourceDagIdNil(b bool)`
-
- SetSourceDagIdNil sets the value for SourceDagId to be an explicit nil
-
-### UnsetSourceDagId
-`func (o *AssetEventResponse) UnsetSourceDagId()`
-
-UnsetSourceDagId ensures that no value is present for SourceDagId, not even an explicit nil
 ### GetSourceRunId
 
 `func (o *AssetEventResponse) GetSourceRunId() string`
@@ -312,16 +252,6 @@ SetSourceRunId sets SourceRunId field to given value.
 
 HasSourceRunId returns a boolean if a field has been set.
 
-### SetSourceRunIdNil
-
-`func (o *AssetEventResponse) SetSourceRunIdNil(b bool)`
-
- SetSourceRunIdNil sets the value for SourceRunId to be an explicit nil
-
-### UnsetSourceRunId
-`func (o *AssetEventResponse) UnsetSourceRunId()`
-
-UnsetSourceRunId ensures that no value is present for SourceRunId, not even an explicit nil
 ### GetSourceMapIndex
 
 `func (o *AssetEventResponse) GetSourceMapIndex() int32`
@@ -407,16 +337,6 @@ SetPartitionKey sets PartitionKey field to given value.
 
 HasPartitionKey returns a boolean if a field has been set.
 
-### SetPartitionKeyNil
-
-`func (o *AssetEventResponse) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *AssetEventResponse) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

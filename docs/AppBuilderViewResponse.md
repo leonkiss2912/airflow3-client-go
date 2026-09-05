@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Category** | Pointer to **NullableString** |  | [optional] 
-**View** | Pointer to **NullableString** |  | [optional] 
-**Label** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
+**View** | Pointer to **string** |  | [optional] 
+**Label** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -53,16 +53,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *AppBuilderViewResponse) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AppBuilderViewResponse) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCategory
 
 `func (o *AppBuilderViewResponse) GetCategory() string`
@@ -88,16 +78,6 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
-### SetCategoryNil
-
-`func (o *AppBuilderViewResponse) SetCategoryNil(b bool)`
-
- SetCategoryNil sets the value for Category to be an explicit nil
-
-### UnsetCategory
-`func (o *AppBuilderViewResponse) UnsetCategory()`
-
-UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetView
 
 `func (o *AppBuilderViewResponse) GetView() string`
@@ -123,16 +103,6 @@ SetView sets View field to given value.
 
 HasView returns a boolean if a field has been set.
 
-### SetViewNil
-
-`func (o *AppBuilderViewResponse) SetViewNil(b bool)`
-
- SetViewNil sets the value for View to be an explicit nil
-
-### UnsetView
-`func (o *AppBuilderViewResponse) UnsetView()`
-
-UnsetView ensures that no value is present for View, not even an explicit nil
 ### GetLabel
 
 `func (o *AppBuilderViewResponse) GetLabel() string`
@@ -158,16 +128,6 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
-### SetLabelNil
-
-`func (o *AppBuilderViewResponse) SetLabelNil(b bool)`
-
- SetLabelNil sets the value for Label to be an explicit nil
-
-### UnsetLabel
-`func (o *AppBuilderViewResponse) UnsetLabel()`
-
-UnsetLabel ensures that no value is present for Label, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

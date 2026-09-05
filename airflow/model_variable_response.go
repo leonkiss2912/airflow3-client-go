@@ -23,9 +23,9 @@ var _ MappedNullable = &VariableResponse{}
 type VariableResponse struct {
 	Key string `json:"key"`
 	Value string `json:"value"`
-	Description NullableString `json:"description"`
+	Description string `json:"description"`
 	IsEncrypted bool `json:"is_encrypted"`
-	TeamName NullableString `json:"team_name"`
+	TeamName string `json:"team_name"`
 }
 
 type _VariableResponse VariableResponse
@@ -34,7 +34,7 @@ type _VariableResponse VariableResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVariableResponse(key string, value string, description NullableString, isEncrypted bool, teamName NullableString) *VariableResponse {
+func NewVariableResponse(key string, value string, description string, isEncrypted bool, teamName string) *VariableResponse {
 	this := VariableResponse{}
 	this.Key = key
 	this.Value = value
@@ -101,29 +101,27 @@ func (o *VariableResponse) SetValue(v string) {
 }
 
 // GetDescription returns the Description field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *VariableResponse) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Description.Get()
+	return o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VariableResponse) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return &o.Description, true
 }
 
 // SetDescription sets field value
 func (o *VariableResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = v
 }
 
 // GetIsEncrypted returns the IsEncrypted field value
@@ -151,29 +149,27 @@ func (o *VariableResponse) SetIsEncrypted(v bool) {
 }
 
 // GetTeamName returns the TeamName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *VariableResponse) GetTeamName() string {
-	if o == nil || o.TeamName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TeamName.Get()
+	return o.TeamName
 }
 
 // GetTeamNameOk returns a tuple with the TeamName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VariableResponse) GetTeamNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TeamName.Get(), o.TeamName.IsSet()
+	return &o.TeamName, true
 }
 
 // SetTeamName sets field value
 func (o *VariableResponse) SetTeamName(v string) {
-	o.TeamName.Set(&v)
+	o.TeamName = v
 }
 
 func (o VariableResponse) MarshalJSON() ([]byte, error) {
@@ -188,9 +184,9 @@ func (o VariableResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
 	toSerialize["value"] = o.Value
-	toSerialize["description"] = o.Description.Get()
+	toSerialize["description"] = o.Description
 	toSerialize["is_encrypted"] = o.IsEncrypted
-	toSerialize["team_name"] = o.TeamName.Get()
+	toSerialize["team_name"] = o.TeamName
 	return toSerialize, nil
 }
 

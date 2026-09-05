@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConnectionId** | **string** |  | 
 **ConnType** | **string** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Host** | Pointer to **NullableString** |  | [optional] 
-**Login** | Pointer to **NullableString** |  | [optional] 
-**Schema** | Pointer to **NullableString** |  | [optional] 
-**Port** | Pointer to **NullableInt32** |  | [optional] 
-**Password** | Pointer to **NullableString** |  | [optional] 
-**Extra** | Pointer to **NullableString** |  | [optional] 
-**TeamName** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Host** | Pointer to **string** |  | [optional] 
+**Login** | Pointer to **string** |  | [optional] 
+**Schema** | Pointer to **string** |  | [optional] 
+**Port** | Pointer to **int32** |  | [optional] 
+**Password** | Pointer to **string** |  | [optional] 
+**Extra** | Pointer to **string** |  | [optional] 
+**TeamName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -99,16 +99,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *ConnectionBody) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ConnectionBody) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHost
 
 `func (o *ConnectionBody) GetHost() string`
@@ -134,16 +124,6 @@ SetHost sets Host field to given value.
 
 HasHost returns a boolean if a field has been set.
 
-### SetHostNil
-
-`func (o *ConnectionBody) SetHostNil(b bool)`
-
- SetHostNil sets the value for Host to be an explicit nil
-
-### UnsetHost
-`func (o *ConnectionBody) UnsetHost()`
-
-UnsetHost ensures that no value is present for Host, not even an explicit nil
 ### GetLogin
 
 `func (o *ConnectionBody) GetLogin() string`
@@ -169,16 +149,6 @@ SetLogin sets Login field to given value.
 
 HasLogin returns a boolean if a field has been set.
 
-### SetLoginNil
-
-`func (o *ConnectionBody) SetLoginNil(b bool)`
-
- SetLoginNil sets the value for Login to be an explicit nil
-
-### UnsetLogin
-`func (o *ConnectionBody) UnsetLogin()`
-
-UnsetLogin ensures that no value is present for Login, not even an explicit nil
 ### GetSchema
 
 `func (o *ConnectionBody) GetSchema() string`
@@ -204,16 +174,6 @@ SetSchema sets Schema field to given value.
 
 HasSchema returns a boolean if a field has been set.
 
-### SetSchemaNil
-
-`func (o *ConnectionBody) SetSchemaNil(b bool)`
-
- SetSchemaNil sets the value for Schema to be an explicit nil
-
-### UnsetSchema
-`func (o *ConnectionBody) UnsetSchema()`
-
-UnsetSchema ensures that no value is present for Schema, not even an explicit nil
 ### GetPort
 
 `func (o *ConnectionBody) GetPort() int32`
@@ -239,16 +199,6 @@ SetPort sets Port field to given value.
 
 HasPort returns a boolean if a field has been set.
 
-### SetPortNil
-
-`func (o *ConnectionBody) SetPortNil(b bool)`
-
- SetPortNil sets the value for Port to be an explicit nil
-
-### UnsetPort
-`func (o *ConnectionBody) UnsetPort()`
-
-UnsetPort ensures that no value is present for Port, not even an explicit nil
 ### GetPassword
 
 `func (o *ConnectionBody) GetPassword() string`
@@ -274,16 +224,6 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
-### SetPasswordNil
-
-`func (o *ConnectionBody) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *ConnectionBody) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetExtra
 
 `func (o *ConnectionBody) GetExtra() string`
@@ -309,16 +249,6 @@ SetExtra sets Extra field to given value.
 
 HasExtra returns a boolean if a field has been set.
 
-### SetExtraNil
-
-`func (o *ConnectionBody) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *ConnectionBody) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetTeamName
 
 `func (o *ConnectionBody) GetTeamName() string`
@@ -344,16 +274,6 @@ SetTeamName sets TeamName field to given value.
 
 HasTeamName returns a boolean if a field has been set.
 
-### SetTeamNameNil
-
-`func (o *ConnectionBody) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *ConnectionBody) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

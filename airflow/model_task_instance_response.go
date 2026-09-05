@@ -27,35 +27,35 @@ type TaskInstanceResponse struct {
 	DagId string `json:"dag_id"`
 	DagRunId string `json:"dag_run_id"`
 	MapIndex int32 `json:"map_index"`
-	LogicalDate NullableTime `json:"logical_date"`
+	LogicalDate time.Time `json:"logical_date"`
 	RunAfter time.Time `json:"run_after"`
-	StartDate NullableTime `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
-	Duration NullableFloat32 `json:"duration"`
-	State NullableTaskInstanceState `json:"state"`
+	StartDate time.Time `json:"start_date"`
+	EndDate time.Time `json:"end_date"`
+	Duration float32 `json:"duration"`
+	State TaskInstanceState `json:"state"`
 	TryNumber int32 `json:"try_number"`
 	MaxTries int32 `json:"max_tries"`
 	TaskDisplayName string `json:"task_display_name"`
 	DagDisplayName string `json:"dag_display_name"`
-	Hostname NullableString `json:"hostname"`
-	Unixname NullableString `json:"unixname"`
+	Hostname string `json:"hostname"`
+	Unixname string `json:"unixname"`
 	Pool string `json:"pool"`
 	PoolSlots int32 `json:"pool_slots"`
-	Queue NullableString `json:"queue"`
-	PriorityWeight NullableInt32 `json:"priority_weight"`
-	Operator NullableString `json:"operator"`
-	OperatorName NullableString `json:"operator_name"`
-	QueuedWhen NullableTime `json:"queued_when"`
-	ScheduledWhen NullableTime `json:"scheduled_when"`
-	Pid NullableInt32 `json:"pid"`
-	Executor NullableString `json:"executor"`
+	Queue string `json:"queue"`
+	PriorityWeight int32 `json:"priority_weight"`
+	Operator string `json:"operator"`
+	OperatorName string `json:"operator_name"`
+	QueuedWhen time.Time `json:"queued_when"`
+	ScheduledWhen time.Time `json:"scheduled_when"`
+	Pid int32 `json:"pid"`
+	Executor string `json:"executor"`
 	ExecutorConfig string `json:"executor_config"`
-	Note NullableString `json:"note"`
-	RenderedMapIndex NullableString `json:"rendered_map_index"`
+	Note string `json:"note"`
+	RenderedMapIndex string `json:"rendered_map_index"`
 	RenderedFields map[string]interface{} `json:"rendered_fields,omitempty"`
-	Trigger NullableTriggerResponse `json:"trigger"`
-	TriggererJob NullableJobResponse `json:"triggerer_job"`
-	DagVersion NullableDagVersionResponse `json:"dag_version"`
+	Trigger TriggerResponse `json:"trigger"`
+	TriggererJob JobResponse `json:"triggerer_job"`
+	DagVersion DagVersionResponse `json:"dag_version"`
 }
 
 type _TaskInstanceResponse TaskInstanceResponse
@@ -64,7 +64,7 @@ type _TaskInstanceResponse TaskInstanceResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTaskInstanceResponse(id string, taskId string, dagId string, dagRunId string, mapIndex int32, logicalDate NullableTime, runAfter time.Time, startDate NullableTime, endDate NullableTime, duration NullableFloat32, state NullableTaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname NullableString, unixname NullableString, pool string, poolSlots int32, queue NullableString, priorityWeight NullableInt32, operator NullableString, operatorName NullableString, queuedWhen NullableTime, scheduledWhen NullableTime, pid NullableInt32, executor NullableString, executorConfig string, note NullableString, renderedMapIndex NullableString, trigger NullableTriggerResponse, triggererJob NullableJobResponse, dagVersion NullableDagVersionResponse) *TaskInstanceResponse {
+func NewTaskInstanceResponse(id string, taskId string, dagId string, dagRunId string, mapIndex int32, logicalDate time.Time, runAfter time.Time, startDate time.Time, endDate time.Time, duration float32, state TaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname string, unixname string, pool string, poolSlots int32, queue string, priorityWeight int32, operator string, operatorName string, queuedWhen time.Time, scheduledWhen time.Time, pid int32, executor string, executorConfig string, note string, renderedMapIndex string, trigger TriggerResponse, triggererJob JobResponse, dagVersion DagVersionResponse) *TaskInstanceResponse {
 	this := TaskInstanceResponse{}
 	this.Id = id
 	this.TaskId = taskId
@@ -231,29 +231,27 @@ func (o *TaskInstanceResponse) SetMapIndex(v int32) {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskInstanceResponse) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *TaskInstanceResponse) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetRunAfter returns the RunAfter field value
@@ -281,107 +279,99 @@ func (o *TaskInstanceResponse) SetRunAfter(v time.Time) {
 }
 
 // GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskInstanceResponse) GetStartDate() time.Time {
-	if o == nil || o.StartDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.StartDate.Get()
+	return o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetStartDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return &o.StartDate, true
 }
 
 // SetStartDate sets field value
 func (o *TaskInstanceResponse) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskInstanceResponse) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *TaskInstanceResponse) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetDuration returns the Duration field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *TaskInstanceResponse) GetDuration() float32 {
-	if o == nil || o.Duration.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.Duration.Get()
+	return o.Duration
 }
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetDurationOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Duration.Get(), o.Duration.IsSet()
+	return &o.Duration, true
 }
 
 // SetDuration sets field value
 func (o *TaskInstanceResponse) SetDuration(v float32) {
-	o.Duration.Set(&v)
+	o.Duration = v
 }
 
 // GetState returns the State field value
-// If the value is explicit nil, the zero value for TaskInstanceState will be returned
 func (o *TaskInstanceResponse) GetState() TaskInstanceState {
-	if o == nil || o.State.Get() == nil {
+	if o == nil {
 		var ret TaskInstanceState
 		return ret
 	}
 
-	return *o.State.Get()
+	return o.State
 }
 
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetStateOk() (*TaskInstanceState, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.State.Get(), o.State.IsSet()
+	return &o.State, true
 }
 
 // SetState sets field value
 func (o *TaskInstanceResponse) SetState(v TaskInstanceState) {
-	o.State.Set(&v)
+	o.State = v
 }
 
 // GetTryNumber returns the TryNumber field value
@@ -481,55 +471,51 @@ func (o *TaskInstanceResponse) SetDagDisplayName(v string) {
 }
 
 // GetHostname returns the Hostname field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetHostname() string {
-	if o == nil || o.Hostname.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Hostname.Get()
+	return o.Hostname
 }
 
 // GetHostnameOk returns a tuple with the Hostname field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetHostnameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Hostname.Get(), o.Hostname.IsSet()
+	return &o.Hostname, true
 }
 
 // SetHostname sets field value
 func (o *TaskInstanceResponse) SetHostname(v string) {
-	o.Hostname.Set(&v)
+	o.Hostname = v
 }
 
 // GetUnixname returns the Unixname field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetUnixname() string {
-	if o == nil || o.Unixname.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Unixname.Get()
+	return o.Unixname
 }
 
 // GetUnixnameOk returns a tuple with the Unixname field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetUnixnameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Unixname.Get(), o.Unixname.IsSet()
+	return &o.Unixname, true
 }
 
 // SetUnixname sets field value
 func (o *TaskInstanceResponse) SetUnixname(v string) {
-	o.Unixname.Set(&v)
+	o.Unixname = v
 }
 
 // GetPool returns the Pool field value
@@ -581,211 +567,195 @@ func (o *TaskInstanceResponse) SetPoolSlots(v int32) {
 }
 
 // GetQueue returns the Queue field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetQueue() string {
-	if o == nil || o.Queue.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Queue.Get()
+	return o.Queue
 }
 
 // GetQueueOk returns a tuple with the Queue field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetQueueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Queue.Get(), o.Queue.IsSet()
+	return &o.Queue, true
 }
 
 // SetQueue sets field value
 func (o *TaskInstanceResponse) SetQueue(v string) {
-	o.Queue.Set(&v)
+	o.Queue = v
 }
 
 // GetPriorityWeight returns the PriorityWeight field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *TaskInstanceResponse) GetPriorityWeight() int32 {
-	if o == nil || o.PriorityWeight.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.PriorityWeight.Get()
+	return o.PriorityWeight
 }
 
 // GetPriorityWeightOk returns a tuple with the PriorityWeight field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetPriorityWeightOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PriorityWeight.Get(), o.PriorityWeight.IsSet()
+	return &o.PriorityWeight, true
 }
 
 // SetPriorityWeight sets field value
 func (o *TaskInstanceResponse) SetPriorityWeight(v int32) {
-	o.PriorityWeight.Set(&v)
+	o.PriorityWeight = v
 }
 
 // GetOperator returns the Operator field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetOperator() string {
-	if o == nil || o.Operator.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Operator.Get()
+	return o.Operator
 }
 
 // GetOperatorOk returns a tuple with the Operator field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetOperatorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Operator.Get(), o.Operator.IsSet()
+	return &o.Operator, true
 }
 
 // SetOperator sets field value
 func (o *TaskInstanceResponse) SetOperator(v string) {
-	o.Operator.Set(&v)
+	o.Operator = v
 }
 
 // GetOperatorName returns the OperatorName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetOperatorName() string {
-	if o == nil || o.OperatorName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.OperatorName.Get()
+	return o.OperatorName
 }
 
 // GetOperatorNameOk returns a tuple with the OperatorName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetOperatorNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.OperatorName.Get(), o.OperatorName.IsSet()
+	return &o.OperatorName, true
 }
 
 // SetOperatorName sets field value
 func (o *TaskInstanceResponse) SetOperatorName(v string) {
-	o.OperatorName.Set(&v)
+	o.OperatorName = v
 }
 
 // GetQueuedWhen returns the QueuedWhen field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskInstanceResponse) GetQueuedWhen() time.Time {
-	if o == nil || o.QueuedWhen.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.QueuedWhen.Get()
+	return o.QueuedWhen
 }
 
 // GetQueuedWhenOk returns a tuple with the QueuedWhen field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetQueuedWhenOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.QueuedWhen.Get(), o.QueuedWhen.IsSet()
+	return &o.QueuedWhen, true
 }
 
 // SetQueuedWhen sets field value
 func (o *TaskInstanceResponse) SetQueuedWhen(v time.Time) {
-	o.QueuedWhen.Set(&v)
+	o.QueuedWhen = v
 }
 
 // GetScheduledWhen returns the ScheduledWhen field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskInstanceResponse) GetScheduledWhen() time.Time {
-	if o == nil || o.ScheduledWhen.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.ScheduledWhen.Get()
+	return o.ScheduledWhen
 }
 
 // GetScheduledWhenOk returns a tuple with the ScheduledWhen field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetScheduledWhenOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ScheduledWhen.Get(), o.ScheduledWhen.IsSet()
+	return &o.ScheduledWhen, true
 }
 
 // SetScheduledWhen sets field value
 func (o *TaskInstanceResponse) SetScheduledWhen(v time.Time) {
-	o.ScheduledWhen.Set(&v)
+	o.ScheduledWhen = v
 }
 
 // GetPid returns the Pid field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *TaskInstanceResponse) GetPid() int32 {
-	if o == nil || o.Pid.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.Pid.Get()
+	return o.Pid
 }
 
 // GetPidOk returns a tuple with the Pid field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetPidOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Pid.Get(), o.Pid.IsSet()
+	return &o.Pid, true
 }
 
 // SetPid sets field value
 func (o *TaskInstanceResponse) SetPid(v int32) {
-	o.Pid.Set(&v)
+	o.Pid = v
 }
 
 // GetExecutor returns the Executor field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetExecutor() string {
-	if o == nil || o.Executor.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Executor.Get()
+	return o.Executor
 }
 
 // GetExecutorOk returns a tuple with the Executor field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetExecutorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Executor.Get(), o.Executor.IsSet()
+	return &o.Executor, true
 }
 
 // SetExecutor sets field value
 func (o *TaskInstanceResponse) SetExecutor(v string) {
-	o.Executor.Set(&v)
+	o.Executor = v
 }
 
 // GetExecutorConfig returns the ExecutorConfig field value
@@ -813,55 +783,51 @@ func (o *TaskInstanceResponse) SetExecutorConfig(v string) {
 }
 
 // GetNote returns the Note field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetNote() string {
-	if o == nil || o.Note.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Note.Get()
+	return o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetNoteOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return &o.Note, true
 }
 
 // SetNote sets field value
 func (o *TaskInstanceResponse) SetNote(v string) {
-	o.Note.Set(&v)
+	o.Note = v
 }
 
 // GetRenderedMapIndex returns the RenderedMapIndex field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstanceResponse) GetRenderedMapIndex() string {
-	if o == nil || o.RenderedMapIndex.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.RenderedMapIndex.Get()
+	return o.RenderedMapIndex
 }
 
 // GetRenderedMapIndexOk returns a tuple with the RenderedMapIndex field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetRenderedMapIndexOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RenderedMapIndex.Get(), o.RenderedMapIndex.IsSet()
+	return &o.RenderedMapIndex, true
 }
 
 // SetRenderedMapIndex sets field value
 func (o *TaskInstanceResponse) SetRenderedMapIndex(v string) {
-	o.RenderedMapIndex.Set(&v)
+	o.RenderedMapIndex = v
 }
 
 // GetRenderedFields returns the RenderedFields field value if set, zero value otherwise.
@@ -897,81 +863,75 @@ func (o *TaskInstanceResponse) SetRenderedFields(v map[string]interface{}) {
 }
 
 // GetTrigger returns the Trigger field value
-// If the value is explicit nil, the zero value for TriggerResponse will be returned
 func (o *TaskInstanceResponse) GetTrigger() TriggerResponse {
-	if o == nil || o.Trigger.Get() == nil {
+	if o == nil {
 		var ret TriggerResponse
 		return ret
 	}
 
-	return *o.Trigger.Get()
+	return o.Trigger
 }
 
 // GetTriggerOk returns a tuple with the Trigger field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetTriggerOk() (*TriggerResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Trigger.Get(), o.Trigger.IsSet()
+	return &o.Trigger, true
 }
 
 // SetTrigger sets field value
 func (o *TaskInstanceResponse) SetTrigger(v TriggerResponse) {
-	o.Trigger.Set(&v)
+	o.Trigger = v
 }
 
 // GetTriggererJob returns the TriggererJob field value
-// If the value is explicit nil, the zero value for JobResponse will be returned
 func (o *TaskInstanceResponse) GetTriggererJob() JobResponse {
-	if o == nil || o.TriggererJob.Get() == nil {
+	if o == nil {
 		var ret JobResponse
 		return ret
 	}
 
-	return *o.TriggererJob.Get()
+	return o.TriggererJob
 }
 
 // GetTriggererJobOk returns a tuple with the TriggererJob field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetTriggererJobOk() (*JobResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TriggererJob.Get(), o.TriggererJob.IsSet()
+	return &o.TriggererJob, true
 }
 
 // SetTriggererJob sets field value
 func (o *TaskInstanceResponse) SetTriggererJob(v JobResponse) {
-	o.TriggererJob.Set(&v)
+	o.TriggererJob = v
 }
 
 // GetDagVersion returns the DagVersion field value
-// If the value is explicit nil, the zero value for DagVersionResponse will be returned
 func (o *TaskInstanceResponse) GetDagVersion() DagVersionResponse {
-	if o == nil || o.DagVersion.Get() == nil {
+	if o == nil {
 		var ret DagVersionResponse
 		return ret
 	}
 
-	return *o.DagVersion.Get()
+	return o.DagVersion
 }
 
 // GetDagVersionOk returns a tuple with the DagVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstanceResponse) GetDagVersionOk() (*DagVersionResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DagVersion.Get(), o.DagVersion.IsSet()
+	return &o.DagVersion, true
 }
 
 // SetDagVersion sets field value
 func (o *TaskInstanceResponse) SetDagVersion(v DagVersionResponse) {
-	o.DagVersion.Set(&v)
+	o.DagVersion = v
 }
 
 func (o TaskInstanceResponse) MarshalJSON() ([]byte, error) {
@@ -989,37 +949,37 @@ func (o TaskInstanceResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["dag_id"] = o.DagId
 	toSerialize["dag_run_id"] = o.DagRunId
 	toSerialize["map_index"] = o.MapIndex
-	toSerialize["logical_date"] = o.LogicalDate.Get()
+	toSerialize["logical_date"] = o.LogicalDate
 	toSerialize["run_after"] = o.RunAfter
-	toSerialize["start_date"] = o.StartDate.Get()
-	toSerialize["end_date"] = o.EndDate.Get()
-	toSerialize["duration"] = o.Duration.Get()
-	toSerialize["state"] = o.State.Get()
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["duration"] = o.Duration
+	toSerialize["state"] = o.State
 	toSerialize["try_number"] = o.TryNumber
 	toSerialize["max_tries"] = o.MaxTries
 	toSerialize["task_display_name"] = o.TaskDisplayName
 	toSerialize["dag_display_name"] = o.DagDisplayName
-	toSerialize["hostname"] = o.Hostname.Get()
-	toSerialize["unixname"] = o.Unixname.Get()
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["unixname"] = o.Unixname
 	toSerialize["pool"] = o.Pool
 	toSerialize["pool_slots"] = o.PoolSlots
-	toSerialize["queue"] = o.Queue.Get()
-	toSerialize["priority_weight"] = o.PriorityWeight.Get()
-	toSerialize["operator"] = o.Operator.Get()
-	toSerialize["operator_name"] = o.OperatorName.Get()
-	toSerialize["queued_when"] = o.QueuedWhen.Get()
-	toSerialize["scheduled_when"] = o.ScheduledWhen.Get()
-	toSerialize["pid"] = o.Pid.Get()
-	toSerialize["executor"] = o.Executor.Get()
+	toSerialize["queue"] = o.Queue
+	toSerialize["priority_weight"] = o.PriorityWeight
+	toSerialize["operator"] = o.Operator
+	toSerialize["operator_name"] = o.OperatorName
+	toSerialize["queued_when"] = o.QueuedWhen
+	toSerialize["scheduled_when"] = o.ScheduledWhen
+	toSerialize["pid"] = o.Pid
+	toSerialize["executor"] = o.Executor
 	toSerialize["executor_config"] = o.ExecutorConfig
-	toSerialize["note"] = o.Note.Get()
-	toSerialize["rendered_map_index"] = o.RenderedMapIndex.Get()
+	toSerialize["note"] = o.Note
+	toSerialize["rendered_map_index"] = o.RenderedMapIndex
 	if !IsNil(o.RenderedFields) {
 		toSerialize["rendered_fields"] = o.RenderedFields
 	}
-	toSerialize["trigger"] = o.Trigger.Get()
-	toSerialize["triggerer_job"] = o.TriggererJob.Get()
-	toSerialize["dag_version"] = o.DagVersion.Get()
+	toSerialize["trigger"] = o.Trigger
+	toSerialize["triggerer_job"] = o.TriggererJob
+	toSerialize["dag_version"] = o.DagVersion
 	return toSerialize, nil
 }
 

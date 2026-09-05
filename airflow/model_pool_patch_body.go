@@ -19,12 +19,12 @@ var _ MappedNullable = &PoolPatchBody{}
 
 // PoolPatchBody Pool serializer for patch bodies.
 type PoolPatchBody struct {
-	Pool NullableString `json:"pool,omitempty"`
+	Pool *string `json:"pool,omitempty"`
 	// Number of slots. Use -1 for unlimited.
-	Slots NullableInt32 `json:"slots,omitempty"`
-	Description NullableString `json:"description,omitempty"`
-	IncludeDeferred NullableBool `json:"include_deferred,omitempty"`
-	TeamName NullableString `json:"team_name,omitempty"`
+	Slots *int32 `json:"slots,omitempty"`
+	Description *string `json:"description,omitempty"`
+	IncludeDeferred *bool `json:"include_deferred,omitempty"`
+	TeamName *string `json:"team_name,omitempty"`
 }
 
 // NewPoolPatchBody instantiates a new PoolPatchBody object
@@ -44,214 +44,164 @@ func NewPoolPatchBodyWithDefaults() *PoolPatchBody {
 	return &this
 }
 
-// GetPool returns the Pool field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPool returns the Pool field value if set, zero value otherwise.
 func (o *PoolPatchBody) GetPool() string {
-	if o == nil || IsNil(o.Pool.Get()) {
+	if o == nil || IsNil(o.Pool) {
 		var ret string
 		return ret
 	}
-	return *o.Pool.Get()
+	return *o.Pool
 }
 
 // GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolPatchBody) GetPoolOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Pool) {
 		return nil, false
 	}
-	return o.Pool.Get(), o.Pool.IsSet()
+	return o.Pool, true
 }
 
 // HasPool returns a boolean if a field has been set.
 func (o *PoolPatchBody) HasPool() bool {
-	if o != nil && o.Pool.IsSet() {
+	if o != nil && !IsNil(o.Pool) {
 		return true
 	}
 
 	return false
 }
 
-// SetPool gets a reference to the given NullableString and assigns it to the Pool field.
+// SetPool gets a reference to the given string and assigns it to the Pool field.
 func (o *PoolPatchBody) SetPool(v string) {
-	o.Pool.Set(&v)
-}
-// SetPoolNil sets the value for Pool to be an explicit nil
-func (o *PoolPatchBody) SetPoolNil() {
-	o.Pool.Set(nil)
+	o.Pool = &v
 }
 
-// UnsetPool ensures that no value is present for Pool, not even an explicit nil
-func (o *PoolPatchBody) UnsetPool() {
-	o.Pool.Unset()
-}
-
-// GetSlots returns the Slots field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSlots returns the Slots field value if set, zero value otherwise.
 func (o *PoolPatchBody) GetSlots() int32 {
-	if o == nil || IsNil(o.Slots.Get()) {
+	if o == nil || IsNil(o.Slots) {
 		var ret int32
 		return ret
 	}
-	return *o.Slots.Get()
+	return *o.Slots
 }
 
 // GetSlotsOk returns a tuple with the Slots field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolPatchBody) GetSlotsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Slots) {
 		return nil, false
 	}
-	return o.Slots.Get(), o.Slots.IsSet()
+	return o.Slots, true
 }
 
 // HasSlots returns a boolean if a field has been set.
 func (o *PoolPatchBody) HasSlots() bool {
-	if o != nil && o.Slots.IsSet() {
+	if o != nil && !IsNil(o.Slots) {
 		return true
 	}
 
 	return false
 }
 
-// SetSlots gets a reference to the given NullableInt32 and assigns it to the Slots field.
+// SetSlots gets a reference to the given int32 and assigns it to the Slots field.
 func (o *PoolPatchBody) SetSlots(v int32) {
-	o.Slots.Set(&v)
-}
-// SetSlotsNil sets the value for Slots to be an explicit nil
-func (o *PoolPatchBody) SetSlotsNil() {
-	o.Slots.Set(nil)
+	o.Slots = &v
 }
 
-// UnsetSlots ensures that no value is present for Slots, not even an explicit nil
-func (o *PoolPatchBody) UnsetSlots() {
-	o.Slots.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PoolPatchBody) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolPatchBody) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *PoolPatchBody) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *PoolPatchBody) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *PoolPatchBody) SetDescriptionNil() {
-	o.Description.Set(nil)
+	o.Description = &v
 }
 
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *PoolPatchBody) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetIncludeDeferred returns the IncludeDeferred field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIncludeDeferred returns the IncludeDeferred field value if set, zero value otherwise.
 func (o *PoolPatchBody) GetIncludeDeferred() bool {
-	if o == nil || IsNil(o.IncludeDeferred.Get()) {
+	if o == nil || IsNil(o.IncludeDeferred) {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeDeferred.Get()
+	return *o.IncludeDeferred
 }
 
 // GetIncludeDeferredOk returns a tuple with the IncludeDeferred field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolPatchBody) GetIncludeDeferredOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IncludeDeferred) {
 		return nil, false
 	}
-	return o.IncludeDeferred.Get(), o.IncludeDeferred.IsSet()
+	return o.IncludeDeferred, true
 }
 
 // HasIncludeDeferred returns a boolean if a field has been set.
 func (o *PoolPatchBody) HasIncludeDeferred() bool {
-	if o != nil && o.IncludeDeferred.IsSet() {
+	if o != nil && !IsNil(o.IncludeDeferred) {
 		return true
 	}
 
 	return false
 }
 
-// SetIncludeDeferred gets a reference to the given NullableBool and assigns it to the IncludeDeferred field.
+// SetIncludeDeferred gets a reference to the given bool and assigns it to the IncludeDeferred field.
 func (o *PoolPatchBody) SetIncludeDeferred(v bool) {
-	o.IncludeDeferred.Set(&v)
-}
-// SetIncludeDeferredNil sets the value for IncludeDeferred to be an explicit nil
-func (o *PoolPatchBody) SetIncludeDeferredNil() {
-	o.IncludeDeferred.Set(nil)
+	o.IncludeDeferred = &v
 }
 
-// UnsetIncludeDeferred ensures that no value is present for IncludeDeferred, not even an explicit nil
-func (o *PoolPatchBody) UnsetIncludeDeferred() {
-	o.IncludeDeferred.Unset()
-}
-
-// GetTeamName returns the TeamName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTeamName returns the TeamName field value if set, zero value otherwise.
 func (o *PoolPatchBody) GetTeamName() string {
-	if o == nil || IsNil(o.TeamName.Get()) {
+	if o == nil || IsNil(o.TeamName) {
 		var ret string
 		return ret
 	}
-	return *o.TeamName.Get()
+	return *o.TeamName
 }
 
 // GetTeamNameOk returns a tuple with the TeamName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PoolPatchBody) GetTeamNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TeamName) {
 		return nil, false
 	}
-	return o.TeamName.Get(), o.TeamName.IsSet()
+	return o.TeamName, true
 }
 
 // HasTeamName returns a boolean if a field has been set.
 func (o *PoolPatchBody) HasTeamName() bool {
-	if o != nil && o.TeamName.IsSet() {
+	if o != nil && !IsNil(o.TeamName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTeamName gets a reference to the given NullableString and assigns it to the TeamName field.
+// SetTeamName gets a reference to the given string and assigns it to the TeamName field.
 func (o *PoolPatchBody) SetTeamName(v string) {
-	o.TeamName.Set(&v)
-}
-// SetTeamNameNil sets the value for TeamName to be an explicit nil
-func (o *PoolPatchBody) SetTeamNameNil() {
-	o.TeamName.Set(nil)
-}
-
-// UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
-func (o *PoolPatchBody) UnsetTeamName() {
-	o.TeamName.Unset()
+	o.TeamName = &v
 }
 
 func (o PoolPatchBody) MarshalJSON() ([]byte, error) {
@@ -264,20 +214,20 @@ func (o PoolPatchBody) MarshalJSON() ([]byte, error) {
 
 func (o PoolPatchBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Pool.IsSet() {
-		toSerialize["pool"] = o.Pool.Get()
+	if !IsNil(o.Pool) {
+		toSerialize["pool"] = o.Pool
 	}
-	if o.Slots.IsSet() {
-		toSerialize["slots"] = o.Slots.Get()
+	if !IsNil(o.Slots) {
+		toSerialize["slots"] = o.Slots
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
-	if o.IncludeDeferred.IsSet() {
-		toSerialize["include_deferred"] = o.IncludeDeferred.Get()
+	if !IsNil(o.IncludeDeferred) {
+		toSerialize["include_deferred"] = o.IncludeDeferred
 	}
-	if o.TeamName.IsSet() {
-		toSerialize["team_name"] = o.TeamName.Get()
+	if !IsNil(o.TeamName) {
+		toSerialize["team_name"] = o.TeamName
 	}
 	return toSerialize, nil
 }

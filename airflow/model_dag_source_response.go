@@ -21,9 +21,9 @@ var _ MappedNullable = &DAGSourceResponse{}
 
 // DAGSourceResponse Dag Source serializer for responses.
 type DAGSourceResponse struct {
-	Content NullableString `json:"content"`
+	Content string `json:"content"`
 	DagId string `json:"dag_id"`
-	VersionNumber NullableInt32 `json:"version_number"`
+	VersionNumber int32 `json:"version_number"`
 	DagDisplayName string `json:"dag_display_name"`
 }
 
@@ -33,7 +33,7 @@ type _DAGSourceResponse DAGSourceResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDAGSourceResponse(content NullableString, dagId string, versionNumber NullableInt32, dagDisplayName string) *DAGSourceResponse {
+func NewDAGSourceResponse(content string, dagId string, versionNumber int32, dagDisplayName string) *DAGSourceResponse {
 	this := DAGSourceResponse{}
 	this.Content = content
 	this.DagId = dagId
@@ -51,29 +51,27 @@ func NewDAGSourceResponseWithDefaults() *DAGSourceResponse {
 }
 
 // GetContent returns the Content field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGSourceResponse) GetContent() string {
-	if o == nil || o.Content.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Content.Get()
+	return o.Content
 }
 
 // GetContentOk returns a tuple with the Content field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGSourceResponse) GetContentOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Content.Get(), o.Content.IsSet()
+	return &o.Content, true
 }
 
 // SetContent sets field value
 func (o *DAGSourceResponse) SetContent(v string) {
-	o.Content.Set(&v)
+	o.Content = v
 }
 
 // GetDagId returns the DagId field value
@@ -101,29 +99,27 @@ func (o *DAGSourceResponse) SetDagId(v string) {
 }
 
 // GetVersionNumber returns the VersionNumber field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *DAGSourceResponse) GetVersionNumber() int32 {
-	if o == nil || o.VersionNumber.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.VersionNumber.Get()
+	return o.VersionNumber
 }
 
 // GetVersionNumberOk returns a tuple with the VersionNumber field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGSourceResponse) GetVersionNumberOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.VersionNumber.Get(), o.VersionNumber.IsSet()
+	return &o.VersionNumber, true
 }
 
 // SetVersionNumber sets field value
 func (o *DAGSourceResponse) SetVersionNumber(v int32) {
-	o.VersionNumber.Set(&v)
+	o.VersionNumber = v
 }
 
 // GetDagDisplayName returns the DagDisplayName field value
@@ -160,9 +156,9 @@ func (o DAGSourceResponse) MarshalJSON() ([]byte, error) {
 
 func (o DAGSourceResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["content"] = o.Content.Get()
+	toSerialize["content"] = o.Content
 	toSerialize["dag_id"] = o.DagId
-	toSerialize["version_number"] = o.VersionNumber.Get()
+	toSerialize["version_number"] = o.VersionNumber
 	toSerialize["dag_display_name"] = o.DagDisplayName
 	return toSerialize, nil
 }

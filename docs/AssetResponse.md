@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ConsumingTasks** | [**[]TaskInletAssetReference**](TaskInletAssetReference.md) |  | 
 **Aliases** | [**[]AssetAliasResponse**](AssetAliasResponse.md) |  | 
 **Watchers** | [**[]AssetWatcherResponse**](AssetWatcherResponse.md) |  | 
-**LastAssetEvent** | Pointer to [**NullableLastAssetEventResponse**](LastAssetEventResponse.md) |  | [optional] 
+**LastAssetEvent** | Pointer to [**LastAssetEventResponse**](LastAssetEventResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -142,16 +142,6 @@ SetExtra sets Extra field to given value.
 
 HasExtra returns a boolean if a field has been set.
 
-### SetExtraNil
-
-`func (o *AssetResponse) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *AssetResponse) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *AssetResponse) GetCreatedAt() time.Time`
@@ -317,16 +307,6 @@ SetLastAssetEvent sets LastAssetEvent field to given value.
 
 HasLastAssetEvent returns a boolean if a field has been set.
 
-### SetLastAssetEventNil
-
-`func (o *AssetResponse) SetLastAssetEventNil(b bool)`
-
- SetLastAssetEventNil sets the value for LastAssetEvent to be an explicit nil
-
-### UnsetLastAssetEvent
-`func (o *AssetResponse) UnsetLastAssetEvent()`
-
-UnsetLastAssetEvent ensures that no value is present for LastAssetEvent, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

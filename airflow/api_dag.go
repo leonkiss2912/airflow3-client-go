@@ -25,13 +25,13 @@ import (
 // DAGAPIService DAGAPI service
 type DAGAPIService service
 
-type ApiDeleteDagRequest struct {
+type DAGAPIDeleteDagRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
 }
 
-func (r ApiDeleteDagRequest) Execute() (interface{}, *http.Response, error) {
+func (r DAGAPIDeleteDagRequest) Execute() (interface{}, *http.Response, error) {
 	return r.ApiService.DeleteDagExecute(r)
 }
 
@@ -42,10 +42,10 @@ Delete the specific Dag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiDeleteDagRequest
+ @return DAGAPIDeleteDagRequest
 */
-func (a *DAGAPIService) DeleteDag(ctx context.Context, dagId string) ApiDeleteDagRequest {
-	return ApiDeleteDagRequest{
+func (a *DAGAPIService) DeleteDag(ctx context.Context, dagId string) DAGAPIDeleteDagRequest {
+	return DAGAPIDeleteDagRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -54,7 +54,7 @@ func (a *DAGAPIService) DeleteDag(ctx context.Context, dagId string) ApiDeleteDa
 
 // Execute executes the request
 //  @return interface{}
-func (a *DAGAPIService) DeleteDagExecute(r ApiDeleteDagRequest) (interface{}, *http.Response, error) {
+func (a *DAGAPIService) DeleteDagExecute(r DAGAPIDeleteDagRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -182,13 +182,13 @@ func (a *DAGAPIService) DeleteDagExecute(r ApiDeleteDagRequest) (interface{}, *h
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiFavoriteDagRequest struct {
+type DAGAPIFavoriteDagRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
 }
 
-func (r ApiFavoriteDagRequest) Execute() (*http.Response, error) {
+func (r DAGAPIFavoriteDagRequest) Execute() (*http.Response, error) {
 	return r.ApiService.FavoriteDagExecute(r)
 }
 
@@ -199,10 +199,10 @@ Mark the Dag as favorite.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiFavoriteDagRequest
+ @return DAGAPIFavoriteDagRequest
 */
-func (a *DAGAPIService) FavoriteDag(ctx context.Context, dagId string) ApiFavoriteDagRequest {
-	return ApiFavoriteDagRequest{
+func (a *DAGAPIService) FavoriteDag(ctx context.Context, dagId string) DAGAPIFavoriteDagRequest {
+	return DAGAPIFavoriteDagRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -210,7 +210,7 @@ func (a *DAGAPIService) FavoriteDag(ctx context.Context, dagId string) ApiFavori
 }
 
 // Execute executes the request
-func (a *DAGAPIService) FavoriteDagExecute(r ApiFavoriteDagRequest) (*http.Response, error) {
+func (a *DAGAPIService) FavoriteDagExecute(r DAGAPIFavoriteDagRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -317,13 +317,13 @@ func (a *DAGAPIService) FavoriteDagExecute(r ApiFavoriteDagRequest) (*http.Respo
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetDagRequest struct {
+type DAGAPIGetDagRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
 }
 
-func (r ApiGetDagRequest) Execute() (*DAGResponse, *http.Response, error) {
+func (r DAGAPIGetDagRequest) Execute() (*DAGResponse, *http.Response, error) {
 	return r.ApiService.GetDagExecute(r)
 }
 
@@ -334,10 +334,10 @@ Get basic information about a Dag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiGetDagRequest
+ @return DAGAPIGetDagRequest
 */
-func (a *DAGAPIService) GetDag(ctx context.Context, dagId string) ApiGetDagRequest {
-	return ApiGetDagRequest{
+func (a *DAGAPIService) GetDag(ctx context.Context, dagId string) DAGAPIGetDagRequest {
+	return DAGAPIGetDagRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -346,7 +346,7 @@ func (a *DAGAPIService) GetDag(ctx context.Context, dagId string) ApiGetDagReque
 
 // Execute executes the request
 //  @return DAGResponse
-func (a *DAGAPIService) GetDagExecute(r ApiGetDagRequest) (*DAGResponse, *http.Response, error) {
+func (a *DAGAPIService) GetDagExecute(r DAGAPIGetDagRequest) (*DAGResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -474,13 +474,13 @@ func (a *DAGAPIService) GetDagExecute(r ApiGetDagRequest) (*DAGResponse, *http.R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDagDetailsRequest struct {
+type DAGAPIGetDagDetailsRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
 }
 
-func (r ApiGetDagDetailsRequest) Execute() (*DAGDetailsResponse, *http.Response, error) {
+func (r DAGAPIGetDagDetailsRequest) Execute() (*DAGDetailsResponse, *http.Response, error) {
 	return r.ApiService.GetDagDetailsExecute(r)
 }
 
@@ -491,10 +491,10 @@ Get details of Dag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiGetDagDetailsRequest
+ @return DAGAPIGetDagDetailsRequest
 */
-func (a *DAGAPIService) GetDagDetails(ctx context.Context, dagId string) ApiGetDagDetailsRequest {
-	return ApiGetDagDetailsRequest{
+func (a *DAGAPIService) GetDagDetails(ctx context.Context, dagId string) DAGAPIGetDagDetailsRequest {
+	return DAGAPIGetDagDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -503,7 +503,7 @@ func (a *DAGAPIService) GetDagDetails(ctx context.Context, dagId string) ApiGetD
 
 // Execute executes the request
 //  @return DAGDetailsResponse
-func (a *DAGAPIService) GetDagDetailsExecute(r ApiGetDagDetailsRequest) (*DAGDetailsResponse, *http.Response, error) {
+func (a *DAGAPIService) GetDagDetailsExecute(r DAGAPIGetDagDetailsRequest) (*DAGDetailsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -631,45 +631,45 @@ func (a *DAGAPIService) GetDagDetailsExecute(r ApiGetDagDetailsRequest) (*DAGDet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDagTagsRequest struct {
+type DAGAPIGetDagTagsRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	tagNamePattern *string
 	tagNamePrefixPattern *string
 }
 
-func (r ApiGetDagTagsRequest) Limit(limit int32) ApiGetDagTagsRequest {
+func (r DAGAPIGetDagTagsRequest) Limit(limit int32) DAGAPIGetDagTagsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetDagTagsRequest) Offset(offset int32) ApiGetDagTagsRequest {
+func (r DAGAPIGetDagTagsRequest) Offset(offset int32) DAGAPIGetDagTagsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;name&#x60;
-func (r ApiGetDagTagsRequest) OrderBy(orderBy []*string) ApiGetDagTagsRequest {
+func (r DAGAPIGetDagTagsRequest) OrderBy(orderBy []string) DAGAPIGetDagTagsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;tag_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagTagsRequest) TagNamePattern(tagNamePattern string) ApiGetDagTagsRequest {
+func (r DAGAPIGetDagTagsRequest) TagNamePattern(tagNamePattern string) DAGAPIGetDagTagsRequest {
 	r.tagNamePattern = &tagNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagTagsRequest) TagNamePrefixPattern(tagNamePrefixPattern string) ApiGetDagTagsRequest {
+func (r DAGAPIGetDagTagsRequest) TagNamePrefixPattern(tagNamePrefixPattern string) DAGAPIGetDagTagsRequest {
 	r.tagNamePrefixPattern = &tagNamePrefixPattern
 	return r
 }
 
-func (r ApiGetDagTagsRequest) Execute() (*DAGTagCollectionResponse, *http.Response, error) {
+func (r DAGAPIGetDagTagsRequest) Execute() (*DAGTagCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetDagTagsExecute(r)
 }
 
@@ -679,10 +679,10 @@ GetDagTags Get Dag Tags
 Get all Dag tags.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDagTagsRequest
+ @return DAGAPIGetDagTagsRequest
 */
-func (a *DAGAPIService) GetDagTags(ctx context.Context) ApiGetDagTagsRequest {
-	return ApiGetDagTagsRequest{
+func (a *DAGAPIService) GetDagTags(ctx context.Context) DAGAPIGetDagTagsRequest {
+	return DAGAPIGetDagTagsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -690,7 +690,7 @@ func (a *DAGAPIService) GetDagTags(ctx context.Context) ApiGetDagTagsRequest {
 
 // Execute executes the request
 //  @return DAGTagCollectionResponse
-func (a *DAGAPIService) GetDagTagsExecute(r ApiGetDagTagsRequest) (*DAGTagCollectionResponse, *http.Response, error) {
+func (a *DAGAPIService) GetDagTagsExecute(r DAGAPIGetDagTagsRequest) (*DAGTagCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -734,7 +734,7 @@ func (a *DAGAPIService) GetDagTagsExecute(r ApiGetDagTagsRequest) (*DAGTagCollec
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"name"}
+		var defaultValue []string = []string{"name"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -830,14 +830,14 @@ func (a *DAGAPIService) GetDagTagsExecute(r ApiGetDagTagsRequest) (*DAGTagCollec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDagsRequest struct {
+type DAGAPIGetDagsRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	limit *int32
 	offset *int32
-	tags *[]*string
+	tags *[]string
 	tagsMatchMode *string
-	owners *[]*string
+	owners *[]string
 	dagIdPattern *string
 	dagIdPrefixPattern *string
 	dagDisplayNamePattern *string
@@ -858,166 +858,166 @@ type ApiGetDagsRequest struct {
 	dagRunEndDateGt *time.Time
 	dagRunEndDateLte *time.Time
 	dagRunEndDateLt *time.Time
-	dagRunState *[]*string
-	orderBy *[]*string
+	dagRunState *[]string
+	orderBy *[]string
 	isFavorite *bool
-	timetableType *[]*string
+	timetableType *[]string
 }
 
-func (r ApiGetDagsRequest) Limit(limit int32) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) Limit(limit int32) DAGAPIGetDagsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetDagsRequest) Offset(offset int32) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) Offset(offset int32) DAGAPIGetDagsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetDagsRequest) Tags(tags []*string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) Tags(tags []string) DAGAPIGetDagsRequest {
 	r.tags = &tags
 	return r
 }
 
-func (r ApiGetDagsRequest) TagsMatchMode(tagsMatchMode string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) TagsMatchMode(tagsMatchMode string) DAGAPIGetDagsRequest {
 	r.tagsMatchMode = &tagsMatchMode
 	return r
 }
 
-func (r ApiGetDagsRequest) Owners(owners []*string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) Owners(owners []string) DAGAPIGetDagsRequest {
 	r.owners = &owners
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagsRequest) DagIdPattern(dagIdPattern string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagIdPattern(dagIdPattern string) DAGAPIGetDagsRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) DAGAPIGetDagsRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_display_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagsRequest) DagDisplayNamePattern(dagDisplayNamePattern string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagDisplayNamePattern(dagDisplayNamePattern string) DAGAPIGetDagsRequest {
 	r.dagDisplayNamePattern = &dagDisplayNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagsRequest) DagDisplayNamePrefixPattern(dagDisplayNamePrefixPattern string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagDisplayNamePrefixPattern(dagDisplayNamePrefixPattern string) DAGAPIGetDagsRequest {
 	r.dagDisplayNamePrefixPattern = &dagDisplayNamePrefixPattern
 	return r
 }
 
-func (r ApiGetDagsRequest) ExcludeStale(excludeStale bool) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) ExcludeStale(excludeStale bool) DAGAPIGetDagsRequest {
 	r.excludeStale = &excludeStale
 	return r
 }
 
-func (r ApiGetDagsRequest) Paused(paused bool) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) Paused(paused bool) DAGAPIGetDagsRequest {
 	r.paused = &paused
 	return r
 }
 
 // Filter Dags by having import errors. Only Dags that have been successfully loaded before will be returned.
-func (r ApiGetDagsRequest) HasImportErrors(hasImportErrors bool) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) HasImportErrors(hasImportErrors bool) DAGAPIGetDagsRequest {
 	r.hasImportErrors = &hasImportErrors
 	return r
 }
 
-func (r ApiGetDagsRequest) LastDagRunState(lastDagRunState DagRunState) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) LastDagRunState(lastDagRunState DagRunState) DAGAPIGetDagsRequest {
 	r.lastDagRunState = &lastDagRunState
 	return r
 }
 
-func (r ApiGetDagsRequest) BundleName(bundleName string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) BundleName(bundleName string) DAGAPIGetDagsRequest {
 	r.bundleName = &bundleName
 	return r
 }
 
-func (r ApiGetDagsRequest) BundleVersion(bundleVersion string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) BundleVersion(bundleVersion string) DAGAPIGetDagsRequest {
 	r.bundleVersion = &bundleVersion
 	return r
 }
 
 // Filter Dags with asset-based scheduling
-func (r ApiGetDagsRequest) HasAssetSchedule(hasAssetSchedule bool) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) HasAssetSchedule(hasAssetSchedule bool) DAGAPIGetDagsRequest {
 	r.hasAssetSchedule = &hasAssetSchedule
 	return r
 }
 
 // Filter Dags by asset dependency (name or URI)
-func (r ApiGetDagsRequest) AssetDependency(assetDependency string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) AssetDependency(assetDependency string) DAGAPIGetDagsRequest {
 	r.assetDependency = &assetDependency
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunStartDateGte(dagRunStartDateGte time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunStartDateGte(dagRunStartDateGte time.Time) DAGAPIGetDagsRequest {
 	r.dagRunStartDateGte = &dagRunStartDateGte
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunStartDateGt(dagRunStartDateGt time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunStartDateGt(dagRunStartDateGt time.Time) DAGAPIGetDagsRequest {
 	r.dagRunStartDateGt = &dagRunStartDateGt
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunStartDateLte(dagRunStartDateLte time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunStartDateLte(dagRunStartDateLte time.Time) DAGAPIGetDagsRequest {
 	r.dagRunStartDateLte = &dagRunStartDateLte
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunStartDateLt(dagRunStartDateLt time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunStartDateLt(dagRunStartDateLt time.Time) DAGAPIGetDagsRequest {
 	r.dagRunStartDateLt = &dagRunStartDateLt
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunEndDateGte(dagRunEndDateGte time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunEndDateGte(dagRunEndDateGte time.Time) DAGAPIGetDagsRequest {
 	r.dagRunEndDateGte = &dagRunEndDateGte
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunEndDateGt(dagRunEndDateGt time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunEndDateGt(dagRunEndDateGt time.Time) DAGAPIGetDagsRequest {
 	r.dagRunEndDateGt = &dagRunEndDateGt
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunEndDateLte(dagRunEndDateLte time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunEndDateLte(dagRunEndDateLte time.Time) DAGAPIGetDagsRequest {
 	r.dagRunEndDateLte = &dagRunEndDateLte
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunEndDateLt(dagRunEndDateLt time.Time) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunEndDateLt(dagRunEndDateLt time.Time) DAGAPIGetDagsRequest {
 	r.dagRunEndDateLt = &dagRunEndDateLt
 	return r
 }
 
-func (r ApiGetDagsRequest) DagRunState(dagRunState []*string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) DagRunState(dagRunState []string) DAGAPIGetDagsRequest {
 	r.dagRunState = &dagRunState
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;dag_id, dag_display_name, next_dagrun, state, start_date, last_run_state, last_run_start_date&#x60;
-func (r ApiGetDagsRequest) OrderBy(orderBy []*string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) OrderBy(orderBy []string) DAGAPIGetDagsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetDagsRequest) IsFavorite(isFavorite bool) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) IsFavorite(isFavorite bool) DAGAPIGetDagsRequest {
 	r.isFavorite = &isFavorite
 	return r
 }
 
-func (r ApiGetDagsRequest) TimetableType(timetableType []*string) ApiGetDagsRequest {
+func (r DAGAPIGetDagsRequest) TimetableType(timetableType []string) DAGAPIGetDagsRequest {
 	r.timetableType = &timetableType
 	return r
 }
 
-func (r ApiGetDagsRequest) Execute() (*DAGCollectionResponse, *http.Response, error) {
+func (r DAGAPIGetDagsRequest) Execute() (*DAGCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetDagsExecute(r)
 }
 
@@ -1027,10 +1027,10 @@ GetDags Get Dags
 Get all Dags.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDagsRequest
+ @return DAGAPIGetDagsRequest
 */
-func (a *DAGAPIService) GetDags(ctx context.Context) ApiGetDagsRequest {
-	return ApiGetDagsRequest{
+func (a *DAGAPIService) GetDags(ctx context.Context) DAGAPIGetDagsRequest {
+	return DAGAPIGetDagsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1038,7 +1038,7 @@ func (a *DAGAPIService) GetDags(ctx context.Context) ApiGetDagsRequest {
 
 // Execute executes the request
 //  @return DAGCollectionResponse
-func (a *DAGAPIService) GetDagsExecute(r ApiGetDagsRequest) (*DAGCollectionResponse, *http.Response, error) {
+func (a *DAGAPIService) GetDagsExecute(r DAGAPIGetDagsRequest) (*DAGCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1182,7 +1182,7 @@ func (a *DAGAPIService) GetDagsExecute(r ApiGetDagsRequest) (*DAGCollectionRespo
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"dag_id"}
+		var defaultValue []string = []string{"dag_id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -1286,7 +1286,7 @@ func (a *DAGAPIService) GetDagsExecute(r ApiGetDagsRequest) (*DAGCollectionRespo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchDagRequest struct {
+type DAGAPIPatchDagRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
@@ -1294,17 +1294,17 @@ type ApiPatchDagRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchDagRequest) DAGPatchBody(dAGPatchBody DAGPatchBody) ApiPatchDagRequest {
+func (r DAGAPIPatchDagRequest) DAGPatchBody(dAGPatchBody DAGPatchBody) DAGAPIPatchDagRequest {
 	r.dAGPatchBody = &dAGPatchBody
 	return r
 }
 
-func (r ApiPatchDagRequest) UpdateMask(updateMask []string) ApiPatchDagRequest {
+func (r DAGAPIPatchDagRequest) UpdateMask(updateMask []string) DAGAPIPatchDagRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchDagRequest) Execute() (*DAGResponse, *http.Response, error) {
+func (r DAGAPIPatchDagRequest) Execute() (*DAGResponse, *http.Response, error) {
 	return r.ApiService.PatchDagExecute(r)
 }
 
@@ -1315,10 +1315,10 @@ Patch the specific Dag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiPatchDagRequest
+ @return DAGAPIPatchDagRequest
 */
-func (a *DAGAPIService) PatchDag(ctx context.Context, dagId string) ApiPatchDagRequest {
-	return ApiPatchDagRequest{
+func (a *DAGAPIService) PatchDag(ctx context.Context, dagId string) DAGAPIPatchDagRequest {
+	return DAGAPIPatchDagRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1327,7 +1327,7 @@ func (a *DAGAPIService) PatchDag(ctx context.Context, dagId string) ApiPatchDagR
 
 // Execute executes the request
 //  @return DAGResponse
-func (a *DAGAPIService) PatchDagExecute(r ApiPatchDagRequest) (*DAGResponse, *http.Response, error) {
+func (a *DAGAPIService) PatchDagExecute(r DAGAPIPatchDagRequest) (*DAGResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1471,7 +1471,7 @@ func (a *DAGAPIService) PatchDagExecute(r ApiPatchDagRequest) (*DAGResponse, *ht
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchDagsRequest struct {
+type DAGAPIPatchDagsRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dAGPatchBody *DAGPatchBody
@@ -1487,64 +1487,64 @@ type ApiPatchDagsRequest struct {
 	paused *bool
 }
 
-func (r ApiPatchDagsRequest) DAGPatchBody(dAGPatchBody DAGPatchBody) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) DAGPatchBody(dAGPatchBody DAGPatchBody) DAGAPIPatchDagsRequest {
 	r.dAGPatchBody = &dAGPatchBody
 	return r
 }
 
-func (r ApiPatchDagsRequest) UpdateMask(updateMask []string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) UpdateMask(updateMask []string) DAGAPIPatchDagsRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchDagsRequest) Limit(limit int32) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) Limit(limit int32) DAGAPIPatchDagsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiPatchDagsRequest) Offset(offset int32) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) Offset(offset int32) DAGAPIPatchDagsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiPatchDagsRequest) Tags(tags []string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) Tags(tags []string) DAGAPIPatchDagsRequest {
 	r.tags = &tags
 	return r
 }
 
-func (r ApiPatchDagsRequest) TagsMatchMode(tagsMatchMode string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) TagsMatchMode(tagsMatchMode string) DAGAPIPatchDagsRequest {
 	r.tagsMatchMode = &tagsMatchMode
 	return r
 }
 
-func (r ApiPatchDagsRequest) Owners(owners []string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) Owners(owners []string) DAGAPIPatchDagsRequest {
 	r.owners = &owners
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiPatchDagsRequest) DagIdPattern(dagIdPattern string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) DagIdPattern(dagIdPattern string) DAGAPIPatchDagsRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiPatchDagsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) DAGAPIPatchDagsRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
-func (r ApiPatchDagsRequest) ExcludeStale(excludeStale bool) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) ExcludeStale(excludeStale bool) DAGAPIPatchDagsRequest {
 	r.excludeStale = &excludeStale
 	return r
 }
 
-func (r ApiPatchDagsRequest) Paused(paused bool) ApiPatchDagsRequest {
+func (r DAGAPIPatchDagsRequest) Paused(paused bool) DAGAPIPatchDagsRequest {
 	r.paused = &paused
 	return r
 }
 
-func (r ApiPatchDagsRequest) Execute() (*DAGCollectionResponse, *http.Response, error) {
+func (r DAGAPIPatchDagsRequest) Execute() (*DAGCollectionResponse, *http.Response, error) {
 	return r.ApiService.PatchDagsExecute(r)
 }
 
@@ -1558,10 +1558,10 @@ matched regardless of other filters. To match all Dags, pass a wildcard value su
 `~` or `%` for `dag_id_pattern`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPatchDagsRequest
+ @return DAGAPIPatchDagsRequest
 */
-func (a *DAGAPIService) PatchDags(ctx context.Context) ApiPatchDagsRequest {
-	return ApiPatchDagsRequest{
+func (a *DAGAPIService) PatchDags(ctx context.Context) DAGAPIPatchDagsRequest {
+	return DAGAPIPatchDagsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1569,7 +1569,7 @@ func (a *DAGAPIService) PatchDags(ctx context.Context) ApiPatchDagsRequest {
 
 // Execute executes the request
 //  @return DAGCollectionResponse
-func (a *DAGAPIService) PatchDagsExecute(r ApiPatchDagsRequest) (*DAGCollectionResponse, *http.Response, error) {
+func (a *DAGAPIService) PatchDagsExecute(r DAGAPIPatchDagsRequest) (*DAGCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1767,13 +1767,13 @@ func (a *DAGAPIService) PatchDagsExecute(r ApiPatchDagsRequest) (*DAGCollectionR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUnfavoriteDagRequest struct {
+type DAGAPIUnfavoriteDagRequest struct {
 	ctx context.Context
 	ApiService *DAGAPIService
 	dagId string
 }
 
-func (r ApiUnfavoriteDagRequest) Execute() (*http.Response, error) {
+func (r DAGAPIUnfavoriteDagRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UnfavoriteDagExecute(r)
 }
 
@@ -1784,10 +1784,10 @@ Unmark the Dag as favorite.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiUnfavoriteDagRequest
+ @return DAGAPIUnfavoriteDagRequest
 */
-func (a *DAGAPIService) UnfavoriteDag(ctx context.Context, dagId string) ApiUnfavoriteDagRequest {
-	return ApiUnfavoriteDagRequest{
+func (a *DAGAPIService) UnfavoriteDag(ctx context.Context, dagId string) DAGAPIUnfavoriteDagRequest {
+	return DAGAPIUnfavoriteDagRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1795,7 +1795,7 @@ func (a *DAGAPIService) UnfavoriteDag(ctx context.Context, dagId string) ApiUnfa
 }
 
 // Execute executes the request
-func (a *DAGAPIService) UnfavoriteDagExecute(r ApiUnfavoriteDagRequest) (*http.Response, error) {
+func (a *DAGAPIService) UnfavoriteDagExecute(r DAGAPIUnfavoriteDagRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

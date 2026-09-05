@@ -20,32 +20,32 @@ var _ MappedNullable = &DAGRunsBatchBody{}
 
 // DAGRunsBatchBody List Dag Runs body for batch endpoint.
 type DAGRunsBatchBody struct {
-	OrderBy NullableString `json:"order_by,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
 	PageOffset *int32 `json:"page_offset,omitempty"`
 	PageLimit *int32 `json:"page_limit,omitempty"`
 	DagIds []string `json:"dag_ids,omitempty"`
-	States []*DagRunState `json:"states,omitempty"`
-	RunAfterGte NullableTime `json:"run_after_gte,omitempty"`
-	RunAfterGt NullableTime `json:"run_after_gt,omitempty"`
-	RunAfterLte NullableTime `json:"run_after_lte,omitempty"`
-	RunAfterLt NullableTime `json:"run_after_lt,omitempty"`
-	LogicalDateGte NullableTime `json:"logical_date_gte,omitempty"`
-	LogicalDateGt NullableTime `json:"logical_date_gt,omitempty"`
-	LogicalDateLte NullableTime `json:"logical_date_lte,omitempty"`
-	LogicalDateLt NullableTime `json:"logical_date_lt,omitempty"`
-	StartDateGte NullableTime `json:"start_date_gte,omitempty"`
-	StartDateGt NullableTime `json:"start_date_gt,omitempty"`
-	StartDateLte NullableTime `json:"start_date_lte,omitempty"`
-	StartDateLt NullableTime `json:"start_date_lt,omitempty"`
-	EndDateGte NullableTime `json:"end_date_gte,omitempty"`
-	EndDateGt NullableTime `json:"end_date_gt,omitempty"`
-	EndDateLte NullableTime `json:"end_date_lte,omitempty"`
-	EndDateLt NullableTime `json:"end_date_lt,omitempty"`
-	DurationGte NullableFloat32 `json:"duration_gte,omitempty"`
-	DurationGt NullableFloat32 `json:"duration_gt,omitempty"`
-	DurationLte NullableFloat32 `json:"duration_lte,omitempty"`
-	DurationLt NullableFloat32 `json:"duration_lt,omitempty"`
-	ConfContains NullableString `json:"conf_contains,omitempty"`
+	States []DagRunState `json:"states,omitempty"`
+	RunAfterGte *time.Time `json:"run_after_gte,omitempty"`
+	RunAfterGt *time.Time `json:"run_after_gt,omitempty"`
+	RunAfterLte *time.Time `json:"run_after_lte,omitempty"`
+	RunAfterLt *time.Time `json:"run_after_lt,omitempty"`
+	LogicalDateGte *time.Time `json:"logical_date_gte,omitempty"`
+	LogicalDateGt *time.Time `json:"logical_date_gt,omitempty"`
+	LogicalDateLte *time.Time `json:"logical_date_lte,omitempty"`
+	LogicalDateLt *time.Time `json:"logical_date_lt,omitempty"`
+	StartDateGte *time.Time `json:"start_date_gte,omitempty"`
+	StartDateGt *time.Time `json:"start_date_gt,omitempty"`
+	StartDateLte *time.Time `json:"start_date_lte,omitempty"`
+	StartDateLt *time.Time `json:"start_date_lt,omitempty"`
+	EndDateGte *time.Time `json:"end_date_gte,omitempty"`
+	EndDateGt *time.Time `json:"end_date_gt,omitempty"`
+	EndDateLte *time.Time `json:"end_date_lte,omitempty"`
+	EndDateLt *time.Time `json:"end_date_lt,omitempty"`
+	DurationGte *float32 `json:"duration_gte,omitempty"`
+	DurationGt *float32 `json:"duration_gt,omitempty"`
+	DurationLte *float32 `json:"duration_lte,omitempty"`
+	DurationLt *float32 `json:"duration_lt,omitempty"`
+	ConfContains *string `json:"conf_contains,omitempty"`
 }
 
 // NewDAGRunsBatchBody instantiates a new DAGRunsBatchBody object
@@ -73,46 +73,36 @@ func NewDAGRunsBatchBodyWithDefaults() *DAGRunsBatchBody {
 	return &this
 }
 
-// GetOrderBy returns the OrderBy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOrderBy returns the OrderBy field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetOrderBy() string {
-	if o == nil || IsNil(o.OrderBy.Get()) {
+	if o == nil || IsNil(o.OrderBy) {
 		var ret string
 		return ret
 	}
-	return *o.OrderBy.Get()
+	return *o.OrderBy
 }
 
 // GetOrderByOk returns a tuple with the OrderBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetOrderByOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderBy) {
 		return nil, false
 	}
-	return o.OrderBy.Get(), o.OrderBy.IsSet()
+	return o.OrderBy, true
 }
 
 // HasOrderBy returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasOrderBy() bool {
-	if o != nil && o.OrderBy.IsSet() {
+	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
 
 	return false
 }
 
-// SetOrderBy gets a reference to the given NullableString and assigns it to the OrderBy field.
+// SetOrderBy gets a reference to the given string and assigns it to the OrderBy field.
 func (o *DAGRunsBatchBody) SetOrderBy(v string) {
-	o.OrderBy.Set(&v)
-}
-// SetOrderByNil sets the value for OrderBy to be an explicit nil
-func (o *DAGRunsBatchBody) SetOrderByNil() {
-	o.OrderBy.Set(nil)
-}
-
-// UnsetOrderBy ensures that no value is present for OrderBy, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetOrderBy() {
-	o.OrderBy.Unset()
+	o.OrderBy = &v
 }
 
 // GetPageOffset returns the PageOffset field value if set, zero value otherwise.
@@ -179,9 +169,9 @@ func (o *DAGRunsBatchBody) SetPageLimit(v int32) {
 	o.PageLimit = &v
 }
 
-// GetDagIds returns the DagIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagIds returns the DagIds field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetDagIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.DagIds) {
 		var ret []string
 		return ret
 	}
@@ -190,7 +180,6 @@ func (o *DAGRunsBatchBody) GetDagIds() []string {
 
 // GetDagIdsOk returns a tuple with the DagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetDagIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.DagIds) {
 		return nil, false
@@ -212,10 +201,10 @@ func (o *DAGRunsBatchBody) SetDagIds(v []string) {
 	o.DagIds = v
 }
 
-// GetStates returns the States field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DAGRunsBatchBody) GetStates() []*DagRunState {
-	if o == nil {
-		var ret []*DagRunState
+// GetStates returns the States field value if set, zero value otherwise.
+func (o *DAGRunsBatchBody) GetStates() []DagRunState {
+	if o == nil || IsNil(o.States) {
+		var ret []DagRunState
 		return ret
 	}
 	return o.States
@@ -223,8 +212,7 @@ func (o *DAGRunsBatchBody) GetStates() []*DagRunState {
 
 // GetStatesOk returns a tuple with the States field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DAGRunsBatchBody) GetStatesOk() ([]*DagRunState, bool) {
+func (o *DAGRunsBatchBody) GetStatesOk() ([]DagRunState, bool) {
 	if o == nil || IsNil(o.States) {
 		return nil, false
 	}
@@ -240,891 +228,681 @@ func (o *DAGRunsBatchBody) HasStates() bool {
 	return false
 }
 
-// SetStates gets a reference to the given []*DagRunState and assigns it to the States field.
-func (o *DAGRunsBatchBody) SetStates(v []*DagRunState) {
+// SetStates gets a reference to the given []DagRunState and assigns it to the States field.
+func (o *DAGRunsBatchBody) SetStates(v []DagRunState) {
 	o.States = v
 }
 
-// GetRunAfterGte returns the RunAfterGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterGte returns the RunAfterGte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetRunAfterGte() time.Time {
-	if o == nil || IsNil(o.RunAfterGte.Get()) {
+	if o == nil || IsNil(o.RunAfterGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterGte.Get()
+	return *o.RunAfterGte
 }
 
 // GetRunAfterGteOk returns a tuple with the RunAfterGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetRunAfterGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterGte) {
 		return nil, false
 	}
-	return o.RunAfterGte.Get(), o.RunAfterGte.IsSet()
+	return o.RunAfterGte, true
 }
 
 // HasRunAfterGte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasRunAfterGte() bool {
-	if o != nil && o.RunAfterGte.IsSet() {
+	if o != nil && !IsNil(o.RunAfterGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterGte gets a reference to the given NullableTime and assigns it to the RunAfterGte field.
+// SetRunAfterGte gets a reference to the given time.Time and assigns it to the RunAfterGte field.
 func (o *DAGRunsBatchBody) SetRunAfterGte(v time.Time) {
-	o.RunAfterGte.Set(&v)
-}
-// SetRunAfterGteNil sets the value for RunAfterGte to be an explicit nil
-func (o *DAGRunsBatchBody) SetRunAfterGteNil() {
-	o.RunAfterGte.Set(nil)
+	o.RunAfterGte = &v
 }
 
-// UnsetRunAfterGte ensures that no value is present for RunAfterGte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetRunAfterGte() {
-	o.RunAfterGte.Unset()
-}
-
-// GetRunAfterGt returns the RunAfterGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterGt returns the RunAfterGt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetRunAfterGt() time.Time {
-	if o == nil || IsNil(o.RunAfterGt.Get()) {
+	if o == nil || IsNil(o.RunAfterGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterGt.Get()
+	return *o.RunAfterGt
 }
 
 // GetRunAfterGtOk returns a tuple with the RunAfterGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetRunAfterGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterGt) {
 		return nil, false
 	}
-	return o.RunAfterGt.Get(), o.RunAfterGt.IsSet()
+	return o.RunAfterGt, true
 }
 
 // HasRunAfterGt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasRunAfterGt() bool {
-	if o != nil && o.RunAfterGt.IsSet() {
+	if o != nil && !IsNil(o.RunAfterGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterGt gets a reference to the given NullableTime and assigns it to the RunAfterGt field.
+// SetRunAfterGt gets a reference to the given time.Time and assigns it to the RunAfterGt field.
 func (o *DAGRunsBatchBody) SetRunAfterGt(v time.Time) {
-	o.RunAfterGt.Set(&v)
-}
-// SetRunAfterGtNil sets the value for RunAfterGt to be an explicit nil
-func (o *DAGRunsBatchBody) SetRunAfterGtNil() {
-	o.RunAfterGt.Set(nil)
+	o.RunAfterGt = &v
 }
 
-// UnsetRunAfterGt ensures that no value is present for RunAfterGt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetRunAfterGt() {
-	o.RunAfterGt.Unset()
-}
-
-// GetRunAfterLte returns the RunAfterLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterLte returns the RunAfterLte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetRunAfterLte() time.Time {
-	if o == nil || IsNil(o.RunAfterLte.Get()) {
+	if o == nil || IsNil(o.RunAfterLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterLte.Get()
+	return *o.RunAfterLte
 }
 
 // GetRunAfterLteOk returns a tuple with the RunAfterLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetRunAfterLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterLte) {
 		return nil, false
 	}
-	return o.RunAfterLte.Get(), o.RunAfterLte.IsSet()
+	return o.RunAfterLte, true
 }
 
 // HasRunAfterLte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasRunAfterLte() bool {
-	if o != nil && o.RunAfterLte.IsSet() {
+	if o != nil && !IsNil(o.RunAfterLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterLte gets a reference to the given NullableTime and assigns it to the RunAfterLte field.
+// SetRunAfterLte gets a reference to the given time.Time and assigns it to the RunAfterLte field.
 func (o *DAGRunsBatchBody) SetRunAfterLte(v time.Time) {
-	o.RunAfterLte.Set(&v)
-}
-// SetRunAfterLteNil sets the value for RunAfterLte to be an explicit nil
-func (o *DAGRunsBatchBody) SetRunAfterLteNil() {
-	o.RunAfterLte.Set(nil)
+	o.RunAfterLte = &v
 }
 
-// UnsetRunAfterLte ensures that no value is present for RunAfterLte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetRunAfterLte() {
-	o.RunAfterLte.Unset()
-}
-
-// GetRunAfterLt returns the RunAfterLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterLt returns the RunAfterLt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetRunAfterLt() time.Time {
-	if o == nil || IsNil(o.RunAfterLt.Get()) {
+	if o == nil || IsNil(o.RunAfterLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterLt.Get()
+	return *o.RunAfterLt
 }
 
 // GetRunAfterLtOk returns a tuple with the RunAfterLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetRunAfterLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterLt) {
 		return nil, false
 	}
-	return o.RunAfterLt.Get(), o.RunAfterLt.IsSet()
+	return o.RunAfterLt, true
 }
 
 // HasRunAfterLt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasRunAfterLt() bool {
-	if o != nil && o.RunAfterLt.IsSet() {
+	if o != nil && !IsNil(o.RunAfterLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterLt gets a reference to the given NullableTime and assigns it to the RunAfterLt field.
+// SetRunAfterLt gets a reference to the given time.Time and assigns it to the RunAfterLt field.
 func (o *DAGRunsBatchBody) SetRunAfterLt(v time.Time) {
-	o.RunAfterLt.Set(&v)
-}
-// SetRunAfterLtNil sets the value for RunAfterLt to be an explicit nil
-func (o *DAGRunsBatchBody) SetRunAfterLtNil() {
-	o.RunAfterLt.Set(nil)
+	o.RunAfterLt = &v
 }
 
-// UnsetRunAfterLt ensures that no value is present for RunAfterLt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetRunAfterLt() {
-	o.RunAfterLt.Unset()
-}
-
-// GetLogicalDateGte returns the LogicalDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateGte returns the LogicalDateGte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetLogicalDateGte() time.Time {
-	if o == nil || IsNil(o.LogicalDateGte.Get()) {
+	if o == nil || IsNil(o.LogicalDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateGte.Get()
+	return *o.LogicalDateGte
 }
 
 // GetLogicalDateGteOk returns a tuple with the LogicalDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetLogicalDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateGte) {
 		return nil, false
 	}
-	return o.LogicalDateGte.Get(), o.LogicalDateGte.IsSet()
+	return o.LogicalDateGte, true
 }
 
 // HasLogicalDateGte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasLogicalDateGte() bool {
-	if o != nil && o.LogicalDateGte.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateGte gets a reference to the given NullableTime and assigns it to the LogicalDateGte field.
+// SetLogicalDateGte gets a reference to the given time.Time and assigns it to the LogicalDateGte field.
 func (o *DAGRunsBatchBody) SetLogicalDateGte(v time.Time) {
-	o.LogicalDateGte.Set(&v)
-}
-// SetLogicalDateGteNil sets the value for LogicalDateGte to be an explicit nil
-func (o *DAGRunsBatchBody) SetLogicalDateGteNil() {
-	o.LogicalDateGte.Set(nil)
+	o.LogicalDateGte = &v
 }
 
-// UnsetLogicalDateGte ensures that no value is present for LogicalDateGte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetLogicalDateGte() {
-	o.LogicalDateGte.Unset()
-}
-
-// GetLogicalDateGt returns the LogicalDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateGt returns the LogicalDateGt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetLogicalDateGt() time.Time {
-	if o == nil || IsNil(o.LogicalDateGt.Get()) {
+	if o == nil || IsNil(o.LogicalDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateGt.Get()
+	return *o.LogicalDateGt
 }
 
 // GetLogicalDateGtOk returns a tuple with the LogicalDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetLogicalDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateGt) {
 		return nil, false
 	}
-	return o.LogicalDateGt.Get(), o.LogicalDateGt.IsSet()
+	return o.LogicalDateGt, true
 }
 
 // HasLogicalDateGt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasLogicalDateGt() bool {
-	if o != nil && o.LogicalDateGt.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateGt gets a reference to the given NullableTime and assigns it to the LogicalDateGt field.
+// SetLogicalDateGt gets a reference to the given time.Time and assigns it to the LogicalDateGt field.
 func (o *DAGRunsBatchBody) SetLogicalDateGt(v time.Time) {
-	o.LogicalDateGt.Set(&v)
-}
-// SetLogicalDateGtNil sets the value for LogicalDateGt to be an explicit nil
-func (o *DAGRunsBatchBody) SetLogicalDateGtNil() {
-	o.LogicalDateGt.Set(nil)
+	o.LogicalDateGt = &v
 }
 
-// UnsetLogicalDateGt ensures that no value is present for LogicalDateGt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetLogicalDateGt() {
-	o.LogicalDateGt.Unset()
-}
-
-// GetLogicalDateLte returns the LogicalDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateLte returns the LogicalDateLte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetLogicalDateLte() time.Time {
-	if o == nil || IsNil(o.LogicalDateLte.Get()) {
+	if o == nil || IsNil(o.LogicalDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateLte.Get()
+	return *o.LogicalDateLte
 }
 
 // GetLogicalDateLteOk returns a tuple with the LogicalDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetLogicalDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateLte) {
 		return nil, false
 	}
-	return o.LogicalDateLte.Get(), o.LogicalDateLte.IsSet()
+	return o.LogicalDateLte, true
 }
 
 // HasLogicalDateLte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasLogicalDateLte() bool {
-	if o != nil && o.LogicalDateLte.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateLte gets a reference to the given NullableTime and assigns it to the LogicalDateLte field.
+// SetLogicalDateLte gets a reference to the given time.Time and assigns it to the LogicalDateLte field.
 func (o *DAGRunsBatchBody) SetLogicalDateLte(v time.Time) {
-	o.LogicalDateLte.Set(&v)
-}
-// SetLogicalDateLteNil sets the value for LogicalDateLte to be an explicit nil
-func (o *DAGRunsBatchBody) SetLogicalDateLteNil() {
-	o.LogicalDateLte.Set(nil)
+	o.LogicalDateLte = &v
 }
 
-// UnsetLogicalDateLte ensures that no value is present for LogicalDateLte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetLogicalDateLte() {
-	o.LogicalDateLte.Unset()
-}
-
-// GetLogicalDateLt returns the LogicalDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateLt returns the LogicalDateLt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetLogicalDateLt() time.Time {
-	if o == nil || IsNil(o.LogicalDateLt.Get()) {
+	if o == nil || IsNil(o.LogicalDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateLt.Get()
+	return *o.LogicalDateLt
 }
 
 // GetLogicalDateLtOk returns a tuple with the LogicalDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetLogicalDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateLt) {
 		return nil, false
 	}
-	return o.LogicalDateLt.Get(), o.LogicalDateLt.IsSet()
+	return o.LogicalDateLt, true
 }
 
 // HasLogicalDateLt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasLogicalDateLt() bool {
-	if o != nil && o.LogicalDateLt.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateLt gets a reference to the given NullableTime and assigns it to the LogicalDateLt field.
+// SetLogicalDateLt gets a reference to the given time.Time and assigns it to the LogicalDateLt field.
 func (o *DAGRunsBatchBody) SetLogicalDateLt(v time.Time) {
-	o.LogicalDateLt.Set(&v)
-}
-// SetLogicalDateLtNil sets the value for LogicalDateLt to be an explicit nil
-func (o *DAGRunsBatchBody) SetLogicalDateLtNil() {
-	o.LogicalDateLt.Set(nil)
+	o.LogicalDateLt = &v
 }
 
-// UnsetLogicalDateLt ensures that no value is present for LogicalDateLt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetLogicalDateLt() {
-	o.LogicalDateLt.Unset()
-}
-
-// GetStartDateGte returns the StartDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateGte returns the StartDateGte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetStartDateGte() time.Time {
-	if o == nil || IsNil(o.StartDateGte.Get()) {
+	if o == nil || IsNil(o.StartDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateGte.Get()
+	return *o.StartDateGte
 }
 
 // GetStartDateGteOk returns a tuple with the StartDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetStartDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateGte) {
 		return nil, false
 	}
-	return o.StartDateGte.Get(), o.StartDateGte.IsSet()
+	return o.StartDateGte, true
 }
 
 // HasStartDateGte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasStartDateGte() bool {
-	if o != nil && o.StartDateGte.IsSet() {
+	if o != nil && !IsNil(o.StartDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateGte gets a reference to the given NullableTime and assigns it to the StartDateGte field.
+// SetStartDateGte gets a reference to the given time.Time and assigns it to the StartDateGte field.
 func (o *DAGRunsBatchBody) SetStartDateGte(v time.Time) {
-	o.StartDateGte.Set(&v)
-}
-// SetStartDateGteNil sets the value for StartDateGte to be an explicit nil
-func (o *DAGRunsBatchBody) SetStartDateGteNil() {
-	o.StartDateGte.Set(nil)
+	o.StartDateGte = &v
 }
 
-// UnsetStartDateGte ensures that no value is present for StartDateGte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetStartDateGte() {
-	o.StartDateGte.Unset()
-}
-
-// GetStartDateGt returns the StartDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateGt returns the StartDateGt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetStartDateGt() time.Time {
-	if o == nil || IsNil(o.StartDateGt.Get()) {
+	if o == nil || IsNil(o.StartDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateGt.Get()
+	return *o.StartDateGt
 }
 
 // GetStartDateGtOk returns a tuple with the StartDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetStartDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateGt) {
 		return nil, false
 	}
-	return o.StartDateGt.Get(), o.StartDateGt.IsSet()
+	return o.StartDateGt, true
 }
 
 // HasStartDateGt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasStartDateGt() bool {
-	if o != nil && o.StartDateGt.IsSet() {
+	if o != nil && !IsNil(o.StartDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateGt gets a reference to the given NullableTime and assigns it to the StartDateGt field.
+// SetStartDateGt gets a reference to the given time.Time and assigns it to the StartDateGt field.
 func (o *DAGRunsBatchBody) SetStartDateGt(v time.Time) {
-	o.StartDateGt.Set(&v)
-}
-// SetStartDateGtNil sets the value for StartDateGt to be an explicit nil
-func (o *DAGRunsBatchBody) SetStartDateGtNil() {
-	o.StartDateGt.Set(nil)
+	o.StartDateGt = &v
 }
 
-// UnsetStartDateGt ensures that no value is present for StartDateGt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetStartDateGt() {
-	o.StartDateGt.Unset()
-}
-
-// GetStartDateLte returns the StartDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateLte returns the StartDateLte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetStartDateLte() time.Time {
-	if o == nil || IsNil(o.StartDateLte.Get()) {
+	if o == nil || IsNil(o.StartDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateLte.Get()
+	return *o.StartDateLte
 }
 
 // GetStartDateLteOk returns a tuple with the StartDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetStartDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateLte) {
 		return nil, false
 	}
-	return o.StartDateLte.Get(), o.StartDateLte.IsSet()
+	return o.StartDateLte, true
 }
 
 // HasStartDateLte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasStartDateLte() bool {
-	if o != nil && o.StartDateLte.IsSet() {
+	if o != nil && !IsNil(o.StartDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateLte gets a reference to the given NullableTime and assigns it to the StartDateLte field.
+// SetStartDateLte gets a reference to the given time.Time and assigns it to the StartDateLte field.
 func (o *DAGRunsBatchBody) SetStartDateLte(v time.Time) {
-	o.StartDateLte.Set(&v)
-}
-// SetStartDateLteNil sets the value for StartDateLte to be an explicit nil
-func (o *DAGRunsBatchBody) SetStartDateLteNil() {
-	o.StartDateLte.Set(nil)
+	o.StartDateLte = &v
 }
 
-// UnsetStartDateLte ensures that no value is present for StartDateLte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetStartDateLte() {
-	o.StartDateLte.Unset()
-}
-
-// GetStartDateLt returns the StartDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateLt returns the StartDateLt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetStartDateLt() time.Time {
-	if o == nil || IsNil(o.StartDateLt.Get()) {
+	if o == nil || IsNil(o.StartDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateLt.Get()
+	return *o.StartDateLt
 }
 
 // GetStartDateLtOk returns a tuple with the StartDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetStartDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateLt) {
 		return nil, false
 	}
-	return o.StartDateLt.Get(), o.StartDateLt.IsSet()
+	return o.StartDateLt, true
 }
 
 // HasStartDateLt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasStartDateLt() bool {
-	if o != nil && o.StartDateLt.IsSet() {
+	if o != nil && !IsNil(o.StartDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateLt gets a reference to the given NullableTime and assigns it to the StartDateLt field.
+// SetStartDateLt gets a reference to the given time.Time and assigns it to the StartDateLt field.
 func (o *DAGRunsBatchBody) SetStartDateLt(v time.Time) {
-	o.StartDateLt.Set(&v)
-}
-// SetStartDateLtNil sets the value for StartDateLt to be an explicit nil
-func (o *DAGRunsBatchBody) SetStartDateLtNil() {
-	o.StartDateLt.Set(nil)
+	o.StartDateLt = &v
 }
 
-// UnsetStartDateLt ensures that no value is present for StartDateLt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetStartDateLt() {
-	o.StartDateLt.Unset()
-}
-
-// GetEndDateGte returns the EndDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateGte returns the EndDateGte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetEndDateGte() time.Time {
-	if o == nil || IsNil(o.EndDateGte.Get()) {
+	if o == nil || IsNil(o.EndDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateGte.Get()
+	return *o.EndDateGte
 }
 
 // GetEndDateGteOk returns a tuple with the EndDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetEndDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateGte) {
 		return nil, false
 	}
-	return o.EndDateGte.Get(), o.EndDateGte.IsSet()
+	return o.EndDateGte, true
 }
 
 // HasEndDateGte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasEndDateGte() bool {
-	if o != nil && o.EndDateGte.IsSet() {
+	if o != nil && !IsNil(o.EndDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateGte gets a reference to the given NullableTime and assigns it to the EndDateGte field.
+// SetEndDateGte gets a reference to the given time.Time and assigns it to the EndDateGte field.
 func (o *DAGRunsBatchBody) SetEndDateGte(v time.Time) {
-	o.EndDateGte.Set(&v)
-}
-// SetEndDateGteNil sets the value for EndDateGte to be an explicit nil
-func (o *DAGRunsBatchBody) SetEndDateGteNil() {
-	o.EndDateGte.Set(nil)
+	o.EndDateGte = &v
 }
 
-// UnsetEndDateGte ensures that no value is present for EndDateGte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetEndDateGte() {
-	o.EndDateGte.Unset()
-}
-
-// GetEndDateGt returns the EndDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateGt returns the EndDateGt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetEndDateGt() time.Time {
-	if o == nil || IsNil(o.EndDateGt.Get()) {
+	if o == nil || IsNil(o.EndDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateGt.Get()
+	return *o.EndDateGt
 }
 
 // GetEndDateGtOk returns a tuple with the EndDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetEndDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateGt) {
 		return nil, false
 	}
-	return o.EndDateGt.Get(), o.EndDateGt.IsSet()
+	return o.EndDateGt, true
 }
 
 // HasEndDateGt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasEndDateGt() bool {
-	if o != nil && o.EndDateGt.IsSet() {
+	if o != nil && !IsNil(o.EndDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateGt gets a reference to the given NullableTime and assigns it to the EndDateGt field.
+// SetEndDateGt gets a reference to the given time.Time and assigns it to the EndDateGt field.
 func (o *DAGRunsBatchBody) SetEndDateGt(v time.Time) {
-	o.EndDateGt.Set(&v)
-}
-// SetEndDateGtNil sets the value for EndDateGt to be an explicit nil
-func (o *DAGRunsBatchBody) SetEndDateGtNil() {
-	o.EndDateGt.Set(nil)
+	o.EndDateGt = &v
 }
 
-// UnsetEndDateGt ensures that no value is present for EndDateGt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetEndDateGt() {
-	o.EndDateGt.Unset()
-}
-
-// GetEndDateLte returns the EndDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateLte returns the EndDateLte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetEndDateLte() time.Time {
-	if o == nil || IsNil(o.EndDateLte.Get()) {
+	if o == nil || IsNil(o.EndDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateLte.Get()
+	return *o.EndDateLte
 }
 
 // GetEndDateLteOk returns a tuple with the EndDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetEndDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateLte) {
 		return nil, false
 	}
-	return o.EndDateLte.Get(), o.EndDateLte.IsSet()
+	return o.EndDateLte, true
 }
 
 // HasEndDateLte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasEndDateLte() bool {
-	if o != nil && o.EndDateLte.IsSet() {
+	if o != nil && !IsNil(o.EndDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateLte gets a reference to the given NullableTime and assigns it to the EndDateLte field.
+// SetEndDateLte gets a reference to the given time.Time and assigns it to the EndDateLte field.
 func (o *DAGRunsBatchBody) SetEndDateLte(v time.Time) {
-	o.EndDateLte.Set(&v)
-}
-// SetEndDateLteNil sets the value for EndDateLte to be an explicit nil
-func (o *DAGRunsBatchBody) SetEndDateLteNil() {
-	o.EndDateLte.Set(nil)
+	o.EndDateLte = &v
 }
 
-// UnsetEndDateLte ensures that no value is present for EndDateLte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetEndDateLte() {
-	o.EndDateLte.Unset()
-}
-
-// GetEndDateLt returns the EndDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateLt returns the EndDateLt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetEndDateLt() time.Time {
-	if o == nil || IsNil(o.EndDateLt.Get()) {
+	if o == nil || IsNil(o.EndDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateLt.Get()
+	return *o.EndDateLt
 }
 
 // GetEndDateLtOk returns a tuple with the EndDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetEndDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateLt) {
 		return nil, false
 	}
-	return o.EndDateLt.Get(), o.EndDateLt.IsSet()
+	return o.EndDateLt, true
 }
 
 // HasEndDateLt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasEndDateLt() bool {
-	if o != nil && o.EndDateLt.IsSet() {
+	if o != nil && !IsNil(o.EndDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateLt gets a reference to the given NullableTime and assigns it to the EndDateLt field.
+// SetEndDateLt gets a reference to the given time.Time and assigns it to the EndDateLt field.
 func (o *DAGRunsBatchBody) SetEndDateLt(v time.Time) {
-	o.EndDateLt.Set(&v)
-}
-// SetEndDateLtNil sets the value for EndDateLt to be an explicit nil
-func (o *DAGRunsBatchBody) SetEndDateLtNil() {
-	o.EndDateLt.Set(nil)
+	o.EndDateLt = &v
 }
 
-// UnsetEndDateLt ensures that no value is present for EndDateLt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetEndDateLt() {
-	o.EndDateLt.Unset()
-}
-
-// GetDurationGte returns the DurationGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationGte returns the DurationGte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetDurationGte() float32 {
-	if o == nil || IsNil(o.DurationGte.Get()) {
+	if o == nil || IsNil(o.DurationGte) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationGte.Get()
+	return *o.DurationGte
 }
 
 // GetDurationGteOk returns a tuple with the DurationGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetDurationGteOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationGte) {
 		return nil, false
 	}
-	return o.DurationGte.Get(), o.DurationGte.IsSet()
+	return o.DurationGte, true
 }
 
 // HasDurationGte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasDurationGte() bool {
-	if o != nil && o.DurationGte.IsSet() {
+	if o != nil && !IsNil(o.DurationGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationGte gets a reference to the given NullableFloat32 and assigns it to the DurationGte field.
+// SetDurationGte gets a reference to the given float32 and assigns it to the DurationGte field.
 func (o *DAGRunsBatchBody) SetDurationGte(v float32) {
-	o.DurationGte.Set(&v)
-}
-// SetDurationGteNil sets the value for DurationGte to be an explicit nil
-func (o *DAGRunsBatchBody) SetDurationGteNil() {
-	o.DurationGte.Set(nil)
+	o.DurationGte = &v
 }
 
-// UnsetDurationGte ensures that no value is present for DurationGte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetDurationGte() {
-	o.DurationGte.Unset()
-}
-
-// GetDurationGt returns the DurationGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationGt returns the DurationGt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetDurationGt() float32 {
-	if o == nil || IsNil(o.DurationGt.Get()) {
+	if o == nil || IsNil(o.DurationGt) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationGt.Get()
+	return *o.DurationGt
 }
 
 // GetDurationGtOk returns a tuple with the DurationGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetDurationGtOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationGt) {
 		return nil, false
 	}
-	return o.DurationGt.Get(), o.DurationGt.IsSet()
+	return o.DurationGt, true
 }
 
 // HasDurationGt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasDurationGt() bool {
-	if o != nil && o.DurationGt.IsSet() {
+	if o != nil && !IsNil(o.DurationGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationGt gets a reference to the given NullableFloat32 and assigns it to the DurationGt field.
+// SetDurationGt gets a reference to the given float32 and assigns it to the DurationGt field.
 func (o *DAGRunsBatchBody) SetDurationGt(v float32) {
-	o.DurationGt.Set(&v)
-}
-// SetDurationGtNil sets the value for DurationGt to be an explicit nil
-func (o *DAGRunsBatchBody) SetDurationGtNil() {
-	o.DurationGt.Set(nil)
+	o.DurationGt = &v
 }
 
-// UnsetDurationGt ensures that no value is present for DurationGt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetDurationGt() {
-	o.DurationGt.Unset()
-}
-
-// GetDurationLte returns the DurationLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationLte returns the DurationLte field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetDurationLte() float32 {
-	if o == nil || IsNil(o.DurationLte.Get()) {
+	if o == nil || IsNil(o.DurationLte) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationLte.Get()
+	return *o.DurationLte
 }
 
 // GetDurationLteOk returns a tuple with the DurationLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetDurationLteOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationLte) {
 		return nil, false
 	}
-	return o.DurationLte.Get(), o.DurationLte.IsSet()
+	return o.DurationLte, true
 }
 
 // HasDurationLte returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasDurationLte() bool {
-	if o != nil && o.DurationLte.IsSet() {
+	if o != nil && !IsNil(o.DurationLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationLte gets a reference to the given NullableFloat32 and assigns it to the DurationLte field.
+// SetDurationLte gets a reference to the given float32 and assigns it to the DurationLte field.
 func (o *DAGRunsBatchBody) SetDurationLte(v float32) {
-	o.DurationLte.Set(&v)
-}
-// SetDurationLteNil sets the value for DurationLte to be an explicit nil
-func (o *DAGRunsBatchBody) SetDurationLteNil() {
-	o.DurationLte.Set(nil)
+	o.DurationLte = &v
 }
 
-// UnsetDurationLte ensures that no value is present for DurationLte, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetDurationLte() {
-	o.DurationLte.Unset()
-}
-
-// GetDurationLt returns the DurationLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationLt returns the DurationLt field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetDurationLt() float32 {
-	if o == nil || IsNil(o.DurationLt.Get()) {
+	if o == nil || IsNil(o.DurationLt) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationLt.Get()
+	return *o.DurationLt
 }
 
 // GetDurationLtOk returns a tuple with the DurationLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetDurationLtOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationLt) {
 		return nil, false
 	}
-	return o.DurationLt.Get(), o.DurationLt.IsSet()
+	return o.DurationLt, true
 }
 
 // HasDurationLt returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasDurationLt() bool {
-	if o != nil && o.DurationLt.IsSet() {
+	if o != nil && !IsNil(o.DurationLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationLt gets a reference to the given NullableFloat32 and assigns it to the DurationLt field.
+// SetDurationLt gets a reference to the given float32 and assigns it to the DurationLt field.
 func (o *DAGRunsBatchBody) SetDurationLt(v float32) {
-	o.DurationLt.Set(&v)
-}
-// SetDurationLtNil sets the value for DurationLt to be an explicit nil
-func (o *DAGRunsBatchBody) SetDurationLtNil() {
-	o.DurationLt.Set(nil)
+	o.DurationLt = &v
 }
 
-// UnsetDurationLt ensures that no value is present for DurationLt, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetDurationLt() {
-	o.DurationLt.Unset()
-}
-
-// GetConfContains returns the ConfContains field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConfContains returns the ConfContains field value if set, zero value otherwise.
 func (o *DAGRunsBatchBody) GetConfContains() string {
-	if o == nil || IsNil(o.ConfContains.Get()) {
+	if o == nil || IsNil(o.ConfContains) {
 		var ret string
 		return ret
 	}
-	return *o.ConfContains.Get()
+	return *o.ConfContains
 }
 
 // GetConfContainsOk returns a tuple with the ConfContains field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunsBatchBody) GetConfContainsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ConfContains) {
 		return nil, false
 	}
-	return o.ConfContains.Get(), o.ConfContains.IsSet()
+	return o.ConfContains, true
 }
 
 // HasConfContains returns a boolean if a field has been set.
 func (o *DAGRunsBatchBody) HasConfContains() bool {
-	if o != nil && o.ConfContains.IsSet() {
+	if o != nil && !IsNil(o.ConfContains) {
 		return true
 	}
 
 	return false
 }
 
-// SetConfContains gets a reference to the given NullableString and assigns it to the ConfContains field.
+// SetConfContains gets a reference to the given string and assigns it to the ConfContains field.
 func (o *DAGRunsBatchBody) SetConfContains(v string) {
-	o.ConfContains.Set(&v)
-}
-// SetConfContainsNil sets the value for ConfContains to be an explicit nil
-func (o *DAGRunsBatchBody) SetConfContainsNil() {
-	o.ConfContains.Set(nil)
-}
-
-// UnsetConfContains ensures that no value is present for ConfContains, not even an explicit nil
-func (o *DAGRunsBatchBody) UnsetConfContains() {
-	o.ConfContains.Unset()
+	o.ConfContains = &v
 }
 
 func (o DAGRunsBatchBody) MarshalJSON() ([]byte, error) {
@@ -1137,8 +915,8 @@ func (o DAGRunsBatchBody) MarshalJSON() ([]byte, error) {
 
 func (o DAGRunsBatchBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.OrderBy.IsSet() {
-		toSerialize["order_by"] = o.OrderBy.Get()
+	if !IsNil(o.OrderBy) {
+		toSerialize["order_by"] = o.OrderBy
 	}
 	if !IsNil(o.PageOffset) {
 		toSerialize["page_offset"] = o.PageOffset
@@ -1146,74 +924,74 @@ func (o DAGRunsBatchBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PageLimit) {
 		toSerialize["page_limit"] = o.PageLimit
 	}
-	if o.DagIds != nil {
+	if !IsNil(o.DagIds) {
 		toSerialize["dag_ids"] = o.DagIds
 	}
-	if o.States != nil {
+	if !IsNil(o.States) {
 		toSerialize["states"] = o.States
 	}
-	if o.RunAfterGte.IsSet() {
-		toSerialize["run_after_gte"] = o.RunAfterGte.Get()
+	if !IsNil(o.RunAfterGte) {
+		toSerialize["run_after_gte"] = o.RunAfterGte
 	}
-	if o.RunAfterGt.IsSet() {
-		toSerialize["run_after_gt"] = o.RunAfterGt.Get()
+	if !IsNil(o.RunAfterGt) {
+		toSerialize["run_after_gt"] = o.RunAfterGt
 	}
-	if o.RunAfterLte.IsSet() {
-		toSerialize["run_after_lte"] = o.RunAfterLte.Get()
+	if !IsNil(o.RunAfterLte) {
+		toSerialize["run_after_lte"] = o.RunAfterLte
 	}
-	if o.RunAfterLt.IsSet() {
-		toSerialize["run_after_lt"] = o.RunAfterLt.Get()
+	if !IsNil(o.RunAfterLt) {
+		toSerialize["run_after_lt"] = o.RunAfterLt
 	}
-	if o.LogicalDateGte.IsSet() {
-		toSerialize["logical_date_gte"] = o.LogicalDateGte.Get()
+	if !IsNil(o.LogicalDateGte) {
+		toSerialize["logical_date_gte"] = o.LogicalDateGte
 	}
-	if o.LogicalDateGt.IsSet() {
-		toSerialize["logical_date_gt"] = o.LogicalDateGt.Get()
+	if !IsNil(o.LogicalDateGt) {
+		toSerialize["logical_date_gt"] = o.LogicalDateGt
 	}
-	if o.LogicalDateLte.IsSet() {
-		toSerialize["logical_date_lte"] = o.LogicalDateLte.Get()
+	if !IsNil(o.LogicalDateLte) {
+		toSerialize["logical_date_lte"] = o.LogicalDateLte
 	}
-	if o.LogicalDateLt.IsSet() {
-		toSerialize["logical_date_lt"] = o.LogicalDateLt.Get()
+	if !IsNil(o.LogicalDateLt) {
+		toSerialize["logical_date_lt"] = o.LogicalDateLt
 	}
-	if o.StartDateGte.IsSet() {
-		toSerialize["start_date_gte"] = o.StartDateGte.Get()
+	if !IsNil(o.StartDateGte) {
+		toSerialize["start_date_gte"] = o.StartDateGte
 	}
-	if o.StartDateGt.IsSet() {
-		toSerialize["start_date_gt"] = o.StartDateGt.Get()
+	if !IsNil(o.StartDateGt) {
+		toSerialize["start_date_gt"] = o.StartDateGt
 	}
-	if o.StartDateLte.IsSet() {
-		toSerialize["start_date_lte"] = o.StartDateLte.Get()
+	if !IsNil(o.StartDateLte) {
+		toSerialize["start_date_lte"] = o.StartDateLte
 	}
-	if o.StartDateLt.IsSet() {
-		toSerialize["start_date_lt"] = o.StartDateLt.Get()
+	if !IsNil(o.StartDateLt) {
+		toSerialize["start_date_lt"] = o.StartDateLt
 	}
-	if o.EndDateGte.IsSet() {
-		toSerialize["end_date_gte"] = o.EndDateGte.Get()
+	if !IsNil(o.EndDateGte) {
+		toSerialize["end_date_gte"] = o.EndDateGte
 	}
-	if o.EndDateGt.IsSet() {
-		toSerialize["end_date_gt"] = o.EndDateGt.Get()
+	if !IsNil(o.EndDateGt) {
+		toSerialize["end_date_gt"] = o.EndDateGt
 	}
-	if o.EndDateLte.IsSet() {
-		toSerialize["end_date_lte"] = o.EndDateLte.Get()
+	if !IsNil(o.EndDateLte) {
+		toSerialize["end_date_lte"] = o.EndDateLte
 	}
-	if o.EndDateLt.IsSet() {
-		toSerialize["end_date_lt"] = o.EndDateLt.Get()
+	if !IsNil(o.EndDateLt) {
+		toSerialize["end_date_lt"] = o.EndDateLt
 	}
-	if o.DurationGte.IsSet() {
-		toSerialize["duration_gte"] = o.DurationGte.Get()
+	if !IsNil(o.DurationGte) {
+		toSerialize["duration_gte"] = o.DurationGte
 	}
-	if o.DurationGt.IsSet() {
-		toSerialize["duration_gt"] = o.DurationGt.Get()
+	if !IsNil(o.DurationGt) {
+		toSerialize["duration_gt"] = o.DurationGt
 	}
-	if o.DurationLte.IsSet() {
-		toSerialize["duration_lte"] = o.DurationLte.Get()
+	if !IsNil(o.DurationLte) {
+		toSerialize["duration_lte"] = o.DurationLte
 	}
-	if o.DurationLt.IsSet() {
-		toSerialize["duration_lt"] = o.DurationLt.Get()
+	if !IsNil(o.DurationLt) {
+		toSerialize["duration_lt"] = o.DurationLt
 	}
-	if o.ConfContains.IsSet() {
-		toSerialize["conf_contains"] = o.ConfContains.Get()
+	if !IsNil(o.ConfContains) {
+		toSerialize["conf_contains"] = o.ConfContains
 	}
 	return toSerialize, nil
 }

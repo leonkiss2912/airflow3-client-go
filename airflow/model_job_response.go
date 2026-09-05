@@ -23,16 +23,16 @@ var _ MappedNullable = &JobResponse{}
 // JobResponse Job serializer for responses.
 type JobResponse struct {
 	Id int32 `json:"id"`
-	DagId NullableString `json:"dag_id"`
-	State NullableString `json:"state"`
-	JobType NullableString `json:"job_type"`
-	StartDate NullableTime `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
-	LatestHeartbeat NullableTime `json:"latest_heartbeat"`
-	ExecutorClass NullableString `json:"executor_class"`
-	Hostname NullableString `json:"hostname"`
-	Unixname NullableString `json:"unixname"`
-	DagDisplayName NullableString `json:"dag_display_name,omitempty"`
+	DagId string `json:"dag_id"`
+	State string `json:"state"`
+	JobType string `json:"job_type"`
+	StartDate time.Time `json:"start_date"`
+	EndDate time.Time `json:"end_date"`
+	LatestHeartbeat time.Time `json:"latest_heartbeat"`
+	ExecutorClass string `json:"executor_class"`
+	Hostname string `json:"hostname"`
+	Unixname string `json:"unixname"`
+	DagDisplayName *string `json:"dag_display_name,omitempty"`
 }
 
 type _JobResponse JobResponse
@@ -41,7 +41,7 @@ type _JobResponse JobResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJobResponse(id int32, dagId NullableString, state NullableString, jobType NullableString, startDate NullableTime, endDate NullableTime, latestHeartbeat NullableTime, executorClass NullableString, hostname NullableString, unixname NullableString) *JobResponse {
+func NewJobResponse(id int32, dagId string, state string, jobType string, startDate time.Time, endDate time.Time, latestHeartbeat time.Time, executorClass string, hostname string, unixname string) *JobResponse {
 	this := JobResponse{}
 	this.Id = id
 	this.DagId = dagId
@@ -89,279 +89,251 @@ func (o *JobResponse) SetId(v int32) {
 }
 
 // GetDagId returns the DagId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetDagId() string {
-	if o == nil || o.DagId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DagId.Get()
+	return o.DagId
 }
 
 // GetDagIdOk returns a tuple with the DagId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetDagIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DagId.Get(), o.DagId.IsSet()
+	return &o.DagId, true
 }
 
 // SetDagId sets field value
 func (o *JobResponse) SetDagId(v string) {
-	o.DagId.Set(&v)
+	o.DagId = v
 }
 
 // GetState returns the State field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetState() string {
-	if o == nil || o.State.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.State.Get()
+	return o.State
 }
 
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetStateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.State.Get(), o.State.IsSet()
+	return &o.State, true
 }
 
 // SetState sets field value
 func (o *JobResponse) SetState(v string) {
-	o.State.Set(&v)
+	o.State = v
 }
 
 // GetJobType returns the JobType field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetJobType() string {
-	if o == nil || o.JobType.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.JobType.Get()
+	return o.JobType
 }
 
 // GetJobTypeOk returns a tuple with the JobType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetJobTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.JobType.Get(), o.JobType.IsSet()
+	return &o.JobType, true
 }
 
 // SetJobType sets field value
 func (o *JobResponse) SetJobType(v string) {
-	o.JobType.Set(&v)
+	o.JobType = v
 }
 
 // GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *JobResponse) GetStartDate() time.Time {
-	if o == nil || o.StartDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.StartDate.Get()
+	return o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetStartDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return &o.StartDate, true
 }
 
 // SetStartDate sets field value
 func (o *JobResponse) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *JobResponse) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *JobResponse) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetLatestHeartbeat returns the LatestHeartbeat field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *JobResponse) GetLatestHeartbeat() time.Time {
-	if o == nil || o.LatestHeartbeat.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LatestHeartbeat.Get()
+	return o.LatestHeartbeat
 }
 
 // GetLatestHeartbeatOk returns a tuple with the LatestHeartbeat field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetLatestHeartbeatOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LatestHeartbeat.Get(), o.LatestHeartbeat.IsSet()
+	return &o.LatestHeartbeat, true
 }
 
 // SetLatestHeartbeat sets field value
 func (o *JobResponse) SetLatestHeartbeat(v time.Time) {
-	o.LatestHeartbeat.Set(&v)
+	o.LatestHeartbeat = v
 }
 
 // GetExecutorClass returns the ExecutorClass field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetExecutorClass() string {
-	if o == nil || o.ExecutorClass.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.ExecutorClass.Get()
+	return o.ExecutorClass
 }
 
 // GetExecutorClassOk returns a tuple with the ExecutorClass field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetExecutorClassOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExecutorClass.Get(), o.ExecutorClass.IsSet()
+	return &o.ExecutorClass, true
 }
 
 // SetExecutorClass sets field value
 func (o *JobResponse) SetExecutorClass(v string) {
-	o.ExecutorClass.Set(&v)
+	o.ExecutorClass = v
 }
 
 // GetHostname returns the Hostname field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetHostname() string {
-	if o == nil || o.Hostname.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Hostname.Get()
+	return o.Hostname
 }
 
 // GetHostnameOk returns a tuple with the Hostname field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetHostnameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Hostname.Get(), o.Hostname.IsSet()
+	return &o.Hostname, true
 }
 
 // SetHostname sets field value
 func (o *JobResponse) SetHostname(v string) {
-	o.Hostname.Set(&v)
+	o.Hostname = v
 }
 
 // GetUnixname returns the Unixname field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *JobResponse) GetUnixname() string {
-	if o == nil || o.Unixname.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Unixname.Get()
+	return o.Unixname
 }
 
 // GetUnixnameOk returns a tuple with the Unixname field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetUnixnameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Unixname.Get(), o.Unixname.IsSet()
+	return &o.Unixname, true
 }
 
 // SetUnixname sets field value
 func (o *JobResponse) SetUnixname(v string) {
-	o.Unixname.Set(&v)
+	o.Unixname = v
 }
 
-// GetDagDisplayName returns the DagDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagDisplayName returns the DagDisplayName field value if set, zero value otherwise.
 func (o *JobResponse) GetDagDisplayName() string {
-	if o == nil || IsNil(o.DagDisplayName.Get()) {
+	if o == nil || IsNil(o.DagDisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DagDisplayName.Get()
+	return *o.DagDisplayName
 }
 
 // GetDagDisplayNameOk returns a tuple with the DagDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *JobResponse) GetDagDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagDisplayName) {
 		return nil, false
 	}
-	return o.DagDisplayName.Get(), o.DagDisplayName.IsSet()
+	return o.DagDisplayName, true
 }
 
 // HasDagDisplayName returns a boolean if a field has been set.
 func (o *JobResponse) HasDagDisplayName() bool {
-	if o != nil && o.DagDisplayName.IsSet() {
+	if o != nil && !IsNil(o.DagDisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagDisplayName gets a reference to the given NullableString and assigns it to the DagDisplayName field.
+// SetDagDisplayName gets a reference to the given string and assigns it to the DagDisplayName field.
 func (o *JobResponse) SetDagDisplayName(v string) {
-	o.DagDisplayName.Set(&v)
-}
-// SetDagDisplayNameNil sets the value for DagDisplayName to be an explicit nil
-func (o *JobResponse) SetDagDisplayNameNil() {
-	o.DagDisplayName.Set(nil)
-}
-
-// UnsetDagDisplayName ensures that no value is present for DagDisplayName, not even an explicit nil
-func (o *JobResponse) UnsetDagDisplayName() {
-	o.DagDisplayName.Unset()
+	o.DagDisplayName = &v
 }
 
 func (o JobResponse) MarshalJSON() ([]byte, error) {
@@ -375,17 +347,17 @@ func (o JobResponse) MarshalJSON() ([]byte, error) {
 func (o JobResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["dag_id"] = o.DagId.Get()
-	toSerialize["state"] = o.State.Get()
-	toSerialize["job_type"] = o.JobType.Get()
-	toSerialize["start_date"] = o.StartDate.Get()
-	toSerialize["end_date"] = o.EndDate.Get()
-	toSerialize["latest_heartbeat"] = o.LatestHeartbeat.Get()
-	toSerialize["executor_class"] = o.ExecutorClass.Get()
-	toSerialize["hostname"] = o.Hostname.Get()
-	toSerialize["unixname"] = o.Unixname.Get()
-	if o.DagDisplayName.IsSet() {
-		toSerialize["dag_display_name"] = o.DagDisplayName.Get()
+	toSerialize["dag_id"] = o.DagId
+	toSerialize["state"] = o.State
+	toSerialize["job_type"] = o.JobType
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["latest_heartbeat"] = o.LatestHeartbeat
+	toSerialize["executor_class"] = o.ExecutorClass
+	toSerialize["hostname"] = o.Hostname
+	toSerialize["unixname"] = o.Unixname
+	if !IsNil(o.DagDisplayName) {
+		toSerialize["dag_display_name"] = o.DagDisplayName
 	}
 	return toSerialize, nil
 }

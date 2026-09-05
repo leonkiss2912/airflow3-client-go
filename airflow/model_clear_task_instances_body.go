@@ -21,14 +21,14 @@ var _ MappedNullable = &ClearTaskInstancesBody{}
 // ClearTaskInstancesBody Request body for Clear Task Instances endpoint.
 type ClearTaskInstancesBody struct {
 	DryRun *bool `json:"dry_run,omitempty"`
-	StartDate NullableTime `json:"start_date,omitempty"`
-	EndDate NullableTime `json:"end_date,omitempty"`
+	StartDate *time.Time `json:"start_date,omitempty"`
+	EndDate *time.Time `json:"end_date,omitempty"`
 	OnlyFailed *bool `json:"only_failed,omitempty"`
 	OnlyRunning *bool `json:"only_running,omitempty"`
 	ResetDagRuns *bool `json:"reset_dag_runs,omitempty"`
 	// A list of `task_id` or [`task_id`, `map_index`]. If only the `task_id` is provided for a mapped task, all of its map indices will be targeted.
 	TaskIds []ClearTaskInstancesBodyTaskIdsInner `json:"task_ids,omitempty"`
-	DagRunId NullableString `json:"dag_run_id,omitempty"`
+	DagRunId *string `json:"dag_run_id,omitempty"`
 	IncludeUpstream *bool `json:"include_upstream,omitempty"`
 	IncludeDownstream *bool `json:"include_downstream,omitempty"`
 	IncludeFuture *bool `json:"include_future,omitempty"`
@@ -127,88 +127,68 @@ func (o *ClearTaskInstancesBody) SetDryRun(v bool) {
 	o.DryRun = &v
 }
 
-// GetStartDate returns the StartDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDate returns the StartDate field value if set, zero value otherwise.
 func (o *ClearTaskInstancesBody) GetStartDate() time.Time {
-	if o == nil || IsNil(o.StartDate.Get()) {
+	if o == nil || IsNil(o.StartDate) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDate.Get()
+	return *o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ClearTaskInstancesBody) GetStartDateOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDate) {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return o.StartDate, true
 }
 
 // HasStartDate returns a boolean if a field has been set.
 func (o *ClearTaskInstancesBody) HasStartDate() bool {
-	if o != nil && o.StartDate.IsSet() {
+	if o != nil && !IsNil(o.StartDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDate gets a reference to the given NullableTime and assigns it to the StartDate field.
+// SetStartDate gets a reference to the given time.Time and assigns it to the StartDate field.
 func (o *ClearTaskInstancesBody) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
-}
-// SetStartDateNil sets the value for StartDate to be an explicit nil
-func (o *ClearTaskInstancesBody) SetStartDateNil() {
-	o.StartDate.Set(nil)
+	o.StartDate = &v
 }
 
-// UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
-func (o *ClearTaskInstancesBody) UnsetStartDate() {
-	o.StartDate.Unset()
-}
-
-// GetEndDate returns the EndDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDate returns the EndDate field value if set, zero value otherwise.
 func (o *ClearTaskInstancesBody) GetEndDate() time.Time {
-	if o == nil || IsNil(o.EndDate.Get()) {
+	if o == nil || IsNil(o.EndDate) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDate.Get()
+	return *o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ClearTaskInstancesBody) GetEndDateOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDate) {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return o.EndDate, true
 }
 
 // HasEndDate returns a boolean if a field has been set.
 func (o *ClearTaskInstancesBody) HasEndDate() bool {
-	if o != nil && o.EndDate.IsSet() {
+	if o != nil && !IsNil(o.EndDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDate gets a reference to the given NullableTime and assigns it to the EndDate field.
+// SetEndDate gets a reference to the given time.Time and assigns it to the EndDate field.
 func (o *ClearTaskInstancesBody) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
-}
-// SetEndDateNil sets the value for EndDate to be an explicit nil
-func (o *ClearTaskInstancesBody) SetEndDateNil() {
-	o.EndDate.Set(nil)
-}
-
-// UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
-func (o *ClearTaskInstancesBody) UnsetEndDate() {
-	o.EndDate.Unset()
+	o.EndDate = &v
 }
 
 // GetOnlyFailed returns the OnlyFailed field value if set, zero value otherwise.
@@ -307,9 +287,9 @@ func (o *ClearTaskInstancesBody) SetResetDagRuns(v bool) {
 	o.ResetDagRuns = &v
 }
 
-// GetTaskIds returns the TaskIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTaskIds returns the TaskIds field value if set, zero value otherwise.
 func (o *ClearTaskInstancesBody) GetTaskIds() []ClearTaskInstancesBodyTaskIdsInner {
-	if o == nil {
+	if o == nil || IsNil(o.TaskIds) {
 		var ret []ClearTaskInstancesBodyTaskIdsInner
 		return ret
 	}
@@ -318,7 +298,6 @@ func (o *ClearTaskInstancesBody) GetTaskIds() []ClearTaskInstancesBodyTaskIdsInn
 
 // GetTaskIdsOk returns a tuple with the TaskIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ClearTaskInstancesBody) GetTaskIdsOk() ([]ClearTaskInstancesBodyTaskIdsInner, bool) {
 	if o == nil || IsNil(o.TaskIds) {
 		return nil, false
@@ -340,46 +319,36 @@ func (o *ClearTaskInstancesBody) SetTaskIds(v []ClearTaskInstancesBodyTaskIdsInn
 	o.TaskIds = v
 }
 
-// GetDagRunId returns the DagRunId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunId returns the DagRunId field value if set, zero value otherwise.
 func (o *ClearTaskInstancesBody) GetDagRunId() string {
-	if o == nil || IsNil(o.DagRunId.Get()) {
+	if o == nil || IsNil(o.DagRunId) {
 		var ret string
 		return ret
 	}
-	return *o.DagRunId.Get()
+	return *o.DagRunId
 }
 
 // GetDagRunIdOk returns a tuple with the DagRunId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ClearTaskInstancesBody) GetDagRunIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunId) {
 		return nil, false
 	}
-	return o.DagRunId.Get(), o.DagRunId.IsSet()
+	return o.DagRunId, true
 }
 
 // HasDagRunId returns a boolean if a field has been set.
 func (o *ClearTaskInstancesBody) HasDagRunId() bool {
-	if o != nil && o.DagRunId.IsSet() {
+	if o != nil && !IsNil(o.DagRunId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagRunId gets a reference to the given NullableString and assigns it to the DagRunId field.
+// SetDagRunId gets a reference to the given string and assigns it to the DagRunId field.
 func (o *ClearTaskInstancesBody) SetDagRunId(v string) {
-	o.DagRunId.Set(&v)
-}
-// SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-func (o *ClearTaskInstancesBody) SetDagRunIdNil() {
-	o.DagRunId.Set(nil)
-}
-
-// UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
-func (o *ClearTaskInstancesBody) UnsetDagRunId() {
-	o.DagRunId.Unset()
+	o.DagRunId = &v
 }
 
 // GetIncludeUpstream returns the IncludeUpstream field value if set, zero value otherwise.
@@ -587,11 +556,11 @@ func (o ClearTaskInstancesBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DryRun) {
 		toSerialize["dry_run"] = o.DryRun
 	}
-	if o.StartDate.IsSet() {
-		toSerialize["start_date"] = o.StartDate.Get()
+	if !IsNil(o.StartDate) {
+		toSerialize["start_date"] = o.StartDate
 	}
-	if o.EndDate.IsSet() {
-		toSerialize["end_date"] = o.EndDate.Get()
+	if !IsNil(o.EndDate) {
+		toSerialize["end_date"] = o.EndDate
 	}
 	if !IsNil(o.OnlyFailed) {
 		toSerialize["only_failed"] = o.OnlyFailed
@@ -602,11 +571,11 @@ func (o ClearTaskInstancesBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ResetDagRuns) {
 		toSerialize["reset_dag_runs"] = o.ResetDagRuns
 	}
-	if o.TaskIds != nil {
+	if !IsNil(o.TaskIds) {
 		toSerialize["task_ids"] = o.TaskIds
 	}
-	if o.DagRunId.IsSet() {
-		toSerialize["dag_run_id"] = o.DagRunId.Get()
+	if !IsNil(o.DagRunId) {
+		toSerialize["dag_run_id"] = o.DagRunId
 	}
 	if !IsNil(o.IncludeUpstream) {
 		toSerialize["include_upstream"] = o.IncludeUpstream

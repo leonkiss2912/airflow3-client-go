@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func Test_airflow_TaskInstanceAPIService(t *testing.T) {

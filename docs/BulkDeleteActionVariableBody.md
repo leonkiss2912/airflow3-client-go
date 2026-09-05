@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The action to be performed on the entities. | 
 **Entities** | [**[]EntitiesInner3**](EntitiesInner3.md) | A list of entity id/key or entity objects to be deleted. | 
-**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to FAIL]
+**ActionOnNonExistence** | Pointer to [**BulkActionNotOnExistence**](BulkActionNotOnExistence.md) |  | [optional] [default to BULKACTIONNOTONEXISTENCE_FAIL]
 
 ## Methods
 

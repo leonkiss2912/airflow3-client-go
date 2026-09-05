@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **NullableString** |  | 
-**LatestTriggererHeartbeat** | **NullableString** |  | 
+**Status** | **string** |  | 
+**LatestTriggererHeartbeat** | **string** |  | 
 
 ## Methods
 
 ### NewTriggererInfoResponse
 
-`func NewTriggererInfoResponse(status NullableString, latestTriggererHeartbeat NullableString, ) *TriggererInfoResponse`
+`func NewTriggererInfoResponse(status string, latestTriggererHeartbeat string, ) *TriggererInfoResponse`
 
 NewTriggererInfoResponse instantiates a new TriggererInfoResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,16 +46,6 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
-### SetStatusNil
-
-`func (o *TriggererInfoResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TriggererInfoResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetLatestTriggererHeartbeat
 
 `func (o *TriggererInfoResponse) GetLatestTriggererHeartbeat() string`
@@ -76,16 +66,6 @@ and a boolean to check if the value has been set.
 SetLatestTriggererHeartbeat sets LatestTriggererHeartbeat field to given value.
 
 
-### SetLatestTriggererHeartbeatNil
-
-`func (o *TriggererInfoResponse) SetLatestTriggererHeartbeatNil(b bool)`
-
- SetLatestTriggererHeartbeatNil sets the value for LatestTriggererHeartbeat to be an explicit nil
-
-### UnsetLatestTriggererHeartbeat
-`func (o *TriggererInfoResponse) UnsetLatestTriggererHeartbeat()`
-
-UnsetLatestTriggererHeartbeat ensures that no value is present for LatestTriggererHeartbeat, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

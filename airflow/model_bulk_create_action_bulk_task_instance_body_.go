@@ -38,7 +38,7 @@ func NewBulkCreateActionBulkTaskInstanceBody(action string, entities []BulkTaskI
 	this := BulkCreateActionBulkTaskInstanceBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkCreateActionBulkTaskInstanceBody(action string, entities []BulkTaskI
 // but it doesn't guarantee that properties required by API are set
 func NewBulkCreateActionBulkTaskInstanceBodyWithDefaults() *BulkCreateActionBulkTaskInstanceBody {
 	this := BulkCreateActionBulkTaskInstanceBody{}
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }

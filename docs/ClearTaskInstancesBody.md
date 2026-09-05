@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DryRun** | Pointer to **bool** |  | [optional] [default to true]
-**StartDate** | Pointer to **NullableTime** |  | [optional] 
-**EndDate** | Pointer to **NullableTime** |  | [optional] 
+**StartDate** | Pointer to **time.Time** |  | [optional] 
+**EndDate** | Pointer to **time.Time** |  | [optional] 
 **OnlyFailed** | Pointer to **bool** |  | [optional] [default to true]
 **OnlyRunning** | Pointer to **bool** |  | [optional] [default to false]
 **ResetDagRuns** | Pointer to **bool** |  | [optional] [default to true]
 **TaskIds** | Pointer to [**[]ClearTaskInstancesBodyTaskIdsInner**](ClearTaskInstancesBodyTaskIdsInner.md) | A list of &#x60;task_id&#x60; or [&#x60;task_id&#x60;, &#x60;map_index&#x60;]. If only the &#x60;task_id&#x60; is provided for a mapped task, all of its map indices will be targeted. | [optional] 
-**DagRunId** | Pointer to **NullableString** |  | [optional] 
+**DagRunId** | Pointer to **string** |  | [optional] 
 **IncludeUpstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeDownstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeFuture** | Pointer to **bool** |  | [optional] [default to false]
@@ -88,16 +88,6 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
-### SetStartDateNil
-
-`func (o *ClearTaskInstancesBody) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *ClearTaskInstancesBody) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *ClearTaskInstancesBody) GetEndDate() time.Time`
@@ -123,16 +113,6 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
-### SetEndDateNil
-
-`func (o *ClearTaskInstancesBody) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *ClearTaskInstancesBody) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetOnlyFailed
 
 `func (o *ClearTaskInstancesBody) GetOnlyFailed() bool`
@@ -233,16 +213,6 @@ SetTaskIds sets TaskIds field to given value.
 
 HasTaskIds returns a boolean if a field has been set.
 
-### SetTaskIdsNil
-
-`func (o *ClearTaskInstancesBody) SetTaskIdsNil(b bool)`
-
- SetTaskIdsNil sets the value for TaskIds to be an explicit nil
-
-### UnsetTaskIds
-`func (o *ClearTaskInstancesBody) UnsetTaskIds()`
-
-UnsetTaskIds ensures that no value is present for TaskIds, not even an explicit nil
 ### GetDagRunId
 
 `func (o *ClearTaskInstancesBody) GetDagRunId() string`
@@ -268,16 +238,6 @@ SetDagRunId sets DagRunId field to given value.
 
 HasDagRunId returns a boolean if a field has been set.
 
-### SetDagRunIdNil
-
-`func (o *ClearTaskInstancesBody) SetDagRunIdNil(b bool)`
-
- SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-
-### UnsetDagRunId
-`func (o *ClearTaskInstancesBody) UnsetDagRunId()`
-
-UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
 ### GetIncludeUpstream
 
 `func (o *ClearTaskInstancesBody) GetIncludeUpstream() bool`

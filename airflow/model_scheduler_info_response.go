@@ -21,8 +21,8 @@ var _ MappedNullable = &SchedulerInfoResponse{}
 
 // SchedulerInfoResponse Scheduler info serializer for responses.
 type SchedulerInfoResponse struct {
-	Status NullableString `json:"status"`
-	LatestSchedulerHeartbeat NullableString `json:"latest_scheduler_heartbeat"`
+	Status string `json:"status"`
+	LatestSchedulerHeartbeat string `json:"latest_scheduler_heartbeat"`
 }
 
 type _SchedulerInfoResponse SchedulerInfoResponse
@@ -31,7 +31,7 @@ type _SchedulerInfoResponse SchedulerInfoResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSchedulerInfoResponse(status NullableString, latestSchedulerHeartbeat NullableString) *SchedulerInfoResponse {
+func NewSchedulerInfoResponse(status string, latestSchedulerHeartbeat string) *SchedulerInfoResponse {
 	this := SchedulerInfoResponse{}
 	this.Status = status
 	this.LatestSchedulerHeartbeat = latestSchedulerHeartbeat
@@ -47,55 +47,51 @@ func NewSchedulerInfoResponseWithDefaults() *SchedulerInfoResponse {
 }
 
 // GetStatus returns the Status field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *SchedulerInfoResponse) GetStatus() string {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Status.Get()
+	return o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SchedulerInfoResponse) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
 // SetStatus sets field value
 func (o *SchedulerInfoResponse) SetStatus(v string) {
-	o.Status.Set(&v)
+	o.Status = v
 }
 
 // GetLatestSchedulerHeartbeat returns the LatestSchedulerHeartbeat field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *SchedulerInfoResponse) GetLatestSchedulerHeartbeat() string {
-	if o == nil || o.LatestSchedulerHeartbeat.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.LatestSchedulerHeartbeat.Get()
+	return o.LatestSchedulerHeartbeat
 }
 
 // GetLatestSchedulerHeartbeatOk returns a tuple with the LatestSchedulerHeartbeat field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SchedulerInfoResponse) GetLatestSchedulerHeartbeatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LatestSchedulerHeartbeat.Get(), o.LatestSchedulerHeartbeat.IsSet()
+	return &o.LatestSchedulerHeartbeat, true
 }
 
 // SetLatestSchedulerHeartbeat sets field value
 func (o *SchedulerInfoResponse) SetLatestSchedulerHeartbeat(v string) {
-	o.LatestSchedulerHeartbeat.Set(&v)
+	o.LatestSchedulerHeartbeat = v
 }
 
 func (o SchedulerInfoResponse) MarshalJSON() ([]byte, error) {
@@ -108,8 +104,8 @@ func (o SchedulerInfoResponse) MarshalJSON() ([]byte, error) {
 
 func (o SchedulerInfoResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status.Get()
-	toSerialize["latest_scheduler_heartbeat"] = o.LatestSchedulerHeartbeat.Get()
+	toSerialize["status"] = o.Status
+	toSerialize["latest_scheduler_heartbeat"] = o.LatestSchedulerHeartbeat
 	return toSerialize, nil
 }
 

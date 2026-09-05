@@ -20,15 +20,18 @@ var _ MappedNullable = &MaterializeAssetBody{}
 
 // MaterializeAssetBody Materialize asset request.
 type MaterializeAssetBody struct {
-	DagRunId NullableString `json:"dag_run_id,omitempty"`
-	DataIntervalStart NullableTime `json:"data_interval_start,omitempty"`
-	DataIntervalEnd NullableTime `json:"data_interval_end,omitempty"`
-	LogicalDate NullableTime `json:"logical_date,omitempty"`
-	RunAfter NullableTime `json:"run_after,omitempty"`
+	DagRunId *string `json:"dag_run_id,omitempty"`
+	DataIntervalStart *time.Time `json:"data_interval_start,omitempty"`
+	DataIntervalEnd *time.Time `json:"data_interval_end,omitempty"`
+	LogicalDate *time.Time `json:"logical_date,omitempty"`
+	RunAfter *time.Time `json:"run_after,omitempty"`
 	Conf map[string]interface{} `json:"conf,omitempty"`
-	Note NullableString `json:"note,omitempty"`
-	PartitionKey NullableString `json:"partition_key,omitempty"`
+	Note *string `json:"note,omitempty"`
+	PartitionKey *string `json:"partition_key,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _MaterializeAssetBody MaterializeAssetBody
 
 // NewMaterializeAssetBody instantiates a new MaterializeAssetBody object
 // This constructor will assign default values to properties that have it defined,
@@ -47,219 +50,169 @@ func NewMaterializeAssetBodyWithDefaults() *MaterializeAssetBody {
 	return &this
 }
 
-// GetDagRunId returns the DagRunId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunId returns the DagRunId field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetDagRunId() string {
-	if o == nil || IsNil(o.DagRunId.Get()) {
+	if o == nil || IsNil(o.DagRunId) {
 		var ret string
 		return ret
 	}
-	return *o.DagRunId.Get()
+	return *o.DagRunId
 }
 
 // GetDagRunIdOk returns a tuple with the DagRunId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetDagRunIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunId) {
 		return nil, false
 	}
-	return o.DagRunId.Get(), o.DagRunId.IsSet()
+	return o.DagRunId, true
 }
 
 // HasDagRunId returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasDagRunId() bool {
-	if o != nil && o.DagRunId.IsSet() {
+	if o != nil && !IsNil(o.DagRunId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagRunId gets a reference to the given NullableString and assigns it to the DagRunId field.
+// SetDagRunId gets a reference to the given string and assigns it to the DagRunId field.
 func (o *MaterializeAssetBody) SetDagRunId(v string) {
-	o.DagRunId.Set(&v)
-}
-// SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-func (o *MaterializeAssetBody) SetDagRunIdNil() {
-	o.DagRunId.Set(nil)
+	o.DagRunId = &v
 }
 
-// UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetDagRunId() {
-	o.DagRunId.Unset()
-}
-
-// GetDataIntervalStart returns the DataIntervalStart field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataIntervalStart returns the DataIntervalStart field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetDataIntervalStart() time.Time {
-	if o == nil || IsNil(o.DataIntervalStart.Get()) {
+	if o == nil || IsNil(o.DataIntervalStart) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DataIntervalStart.Get()
+	return *o.DataIntervalStart
 }
 
 // GetDataIntervalStartOk returns a tuple with the DataIntervalStart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetDataIntervalStartOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DataIntervalStart) {
 		return nil, false
 	}
-	return o.DataIntervalStart.Get(), o.DataIntervalStart.IsSet()
+	return o.DataIntervalStart, true
 }
 
 // HasDataIntervalStart returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasDataIntervalStart() bool {
-	if o != nil && o.DataIntervalStart.IsSet() {
+	if o != nil && !IsNil(o.DataIntervalStart) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataIntervalStart gets a reference to the given NullableTime and assigns it to the DataIntervalStart field.
+// SetDataIntervalStart gets a reference to the given time.Time and assigns it to the DataIntervalStart field.
 func (o *MaterializeAssetBody) SetDataIntervalStart(v time.Time) {
-	o.DataIntervalStart.Set(&v)
-}
-// SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-func (o *MaterializeAssetBody) SetDataIntervalStartNil() {
-	o.DataIntervalStart.Set(nil)
+	o.DataIntervalStart = &v
 }
 
-// UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetDataIntervalStart() {
-	o.DataIntervalStart.Unset()
-}
-
-// GetDataIntervalEnd returns the DataIntervalEnd field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataIntervalEnd returns the DataIntervalEnd field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetDataIntervalEnd() time.Time {
-	if o == nil || IsNil(o.DataIntervalEnd.Get()) {
+	if o == nil || IsNil(o.DataIntervalEnd) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DataIntervalEnd.Get()
+	return *o.DataIntervalEnd
 }
 
 // GetDataIntervalEndOk returns a tuple with the DataIntervalEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetDataIntervalEndOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DataIntervalEnd) {
 		return nil, false
 	}
-	return o.DataIntervalEnd.Get(), o.DataIntervalEnd.IsSet()
+	return o.DataIntervalEnd, true
 }
 
 // HasDataIntervalEnd returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasDataIntervalEnd() bool {
-	if o != nil && o.DataIntervalEnd.IsSet() {
+	if o != nil && !IsNil(o.DataIntervalEnd) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataIntervalEnd gets a reference to the given NullableTime and assigns it to the DataIntervalEnd field.
+// SetDataIntervalEnd gets a reference to the given time.Time and assigns it to the DataIntervalEnd field.
 func (o *MaterializeAssetBody) SetDataIntervalEnd(v time.Time) {
-	o.DataIntervalEnd.Set(&v)
-}
-// SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-func (o *MaterializeAssetBody) SetDataIntervalEndNil() {
-	o.DataIntervalEnd.Set(nil)
+	o.DataIntervalEnd = &v
 }
 
-// UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetDataIntervalEnd() {
-	o.DataIntervalEnd.Unset()
-}
-
-// GetLogicalDate returns the LogicalDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDate returns the LogicalDate field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetLogicalDate() time.Time {
-	if o == nil || IsNil(o.LogicalDate.Get()) {
+	if o == nil || IsNil(o.LogicalDate) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDate.Get()
+	return *o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetLogicalDateOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDate) {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return o.LogicalDate, true
 }
 
 // HasLogicalDate returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasLogicalDate() bool {
-	if o != nil && o.LogicalDate.IsSet() {
+	if o != nil && !IsNil(o.LogicalDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDate gets a reference to the given NullableTime and assigns it to the LogicalDate field.
+// SetLogicalDate gets a reference to the given time.Time and assigns it to the LogicalDate field.
 func (o *MaterializeAssetBody) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
-}
-// SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-func (o *MaterializeAssetBody) SetLogicalDateNil() {
-	o.LogicalDate.Set(nil)
+	o.LogicalDate = &v
 }
 
-// UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetLogicalDate() {
-	o.LogicalDate.Unset()
-}
-
-// GetRunAfter returns the RunAfter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfter returns the RunAfter field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetRunAfter() time.Time {
-	if o == nil || IsNil(o.RunAfter.Get()) {
+	if o == nil || IsNil(o.RunAfter) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfter.Get()
+	return *o.RunAfter
 }
 
 // GetRunAfterOk returns a tuple with the RunAfter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetRunAfterOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfter) {
 		return nil, false
 	}
-	return o.RunAfter.Get(), o.RunAfter.IsSet()
+	return o.RunAfter, true
 }
 
 // HasRunAfter returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasRunAfter() bool {
-	if o != nil && o.RunAfter.IsSet() {
+	if o != nil && !IsNil(o.RunAfter) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfter gets a reference to the given NullableTime and assigns it to the RunAfter field.
+// SetRunAfter gets a reference to the given time.Time and assigns it to the RunAfter field.
 func (o *MaterializeAssetBody) SetRunAfter(v time.Time) {
-	o.RunAfter.Set(&v)
-}
-// SetRunAfterNil sets the value for RunAfter to be an explicit nil
-func (o *MaterializeAssetBody) SetRunAfterNil() {
-	o.RunAfter.Set(nil)
+	o.RunAfter = &v
 }
 
-// UnsetRunAfter ensures that no value is present for RunAfter, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetRunAfter() {
-	o.RunAfter.Unset()
-}
-
-// GetConf returns the Conf field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConf returns the Conf field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetConf() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Conf) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -268,7 +221,6 @@ func (o *MaterializeAssetBody) GetConf() map[string]interface{} {
 
 // GetConfOk returns a tuple with the Conf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetConfOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Conf) {
 		return map[string]interface{}{}, false
@@ -290,88 +242,68 @@ func (o *MaterializeAssetBody) SetConf(v map[string]interface{}) {
 	o.Conf = v
 }
 
-// GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNote returns the Note field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetNote() string {
-	if o == nil || IsNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note) {
 		var ret string
 		return ret
 	}
-	return *o.Note.Get()
+	return *o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Note) {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return o.Note, true
 }
 
 // HasNote returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasNote() bool {
-	if o != nil && o.Note.IsSet() {
+	if o != nil && !IsNil(o.Note) {
 		return true
 	}
 
 	return false
 }
 
-// SetNote gets a reference to the given NullableString and assigns it to the Note field.
+// SetNote gets a reference to the given string and assigns it to the Note field.
 func (o *MaterializeAssetBody) SetNote(v string) {
-	o.Note.Set(&v)
-}
-// SetNoteNil sets the value for Note to be an explicit nil
-func (o *MaterializeAssetBody) SetNoteNil() {
-	o.Note.Set(nil)
+	o.Note = &v
 }
 
-// UnsetNote ensures that no value is present for Note, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetNote() {
-	o.Note.Unset()
-}
-
-// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise.
 func (o *MaterializeAssetBody) GetPartitionKey() string {
-	if o == nil || IsNil(o.PartitionKey.Get()) {
+	if o == nil || IsNil(o.PartitionKey) {
 		var ret string
 		return ret
 	}
-	return *o.PartitionKey.Get()
+	return *o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MaterializeAssetBody) GetPartitionKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartitionKey) {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return o.PartitionKey, true
 }
 
 // HasPartitionKey returns a boolean if a field has been set.
 func (o *MaterializeAssetBody) HasPartitionKey() bool {
-	if o != nil && o.PartitionKey.IsSet() {
+	if o != nil && !IsNil(o.PartitionKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetPartitionKey gets a reference to the given NullableString and assigns it to the PartitionKey field.
+// SetPartitionKey gets a reference to the given string and assigns it to the PartitionKey field.
 func (o *MaterializeAssetBody) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
-}
-// SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-func (o *MaterializeAssetBody) SetPartitionKeyNil() {
-	o.PartitionKey.Set(nil)
-}
-
-// UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
-func (o *MaterializeAssetBody) UnsetPartitionKey() {
-	o.PartitionKey.Unset()
+	o.PartitionKey = &v
 }
 
 func (o MaterializeAssetBody) MarshalJSON() ([]byte, error) {
@@ -384,31 +316,64 @@ func (o MaterializeAssetBody) MarshalJSON() ([]byte, error) {
 
 func (o MaterializeAssetBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DagRunId.IsSet() {
-		toSerialize["dag_run_id"] = o.DagRunId.Get()
+	if !IsNil(o.DagRunId) {
+		toSerialize["dag_run_id"] = o.DagRunId
 	}
-	if o.DataIntervalStart.IsSet() {
-		toSerialize["data_interval_start"] = o.DataIntervalStart.Get()
+	if !IsNil(o.DataIntervalStart) {
+		toSerialize["data_interval_start"] = o.DataIntervalStart
 	}
-	if o.DataIntervalEnd.IsSet() {
-		toSerialize["data_interval_end"] = o.DataIntervalEnd.Get()
+	if !IsNil(o.DataIntervalEnd) {
+		toSerialize["data_interval_end"] = o.DataIntervalEnd
 	}
-	if o.LogicalDate.IsSet() {
-		toSerialize["logical_date"] = o.LogicalDate.Get()
+	if !IsNil(o.LogicalDate) {
+		toSerialize["logical_date"] = o.LogicalDate
 	}
-	if o.RunAfter.IsSet() {
-		toSerialize["run_after"] = o.RunAfter.Get()
+	if !IsNil(o.RunAfter) {
+		toSerialize["run_after"] = o.RunAfter
 	}
-	if o.Conf != nil {
+	if !IsNil(o.Conf) {
 		toSerialize["conf"] = o.Conf
 	}
-	if o.Note.IsSet() {
-		toSerialize["note"] = o.Note.Get()
+	if !IsNil(o.Note) {
+		toSerialize["note"] = o.Note
 	}
-	if o.PartitionKey.IsSet() {
-		toSerialize["partition_key"] = o.PartitionKey.Get()
+	if !IsNil(o.PartitionKey) {
+		toSerialize["partition_key"] = o.PartitionKey
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *MaterializeAssetBody) UnmarshalJSON(data []byte) (err error) {
+	varMaterializeAssetBody := _MaterializeAssetBody{}
+
+	err = json.Unmarshal(data, &varMaterializeAssetBody)
+
+	if err != nil {
+		return err
+	}
+
+	*o = MaterializeAssetBody(varMaterializeAssetBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dag_run_id")
+		delete(additionalProperties, "data_interval_start")
+		delete(additionalProperties, "data_interval_end")
+		delete(additionalProperties, "logical_date")
+		delete(additionalProperties, "run_after")
+		delete(additionalProperties, "conf")
+		delete(additionalProperties, "note")
+		delete(additionalProperties, "partition_key")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableMaterializeAssetBody struct {

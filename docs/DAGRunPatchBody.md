@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to [**NullableDAGRunPatchStates**](DAGRunPatchStates.md) |  | [optional] 
-**Note** | Pointer to **NullableString** |  | [optional] 
+**State** | Pointer to [**DAGRunPatchStates**](DAGRunPatchStates.md) |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-### SetStateNil
-
-`func (o *DAGRunPatchBody) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *DAGRunPatchBody) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetNote
 
 `func (o *DAGRunPatchBody) GetNote() string`
@@ -86,16 +76,6 @@ SetNote sets Note field to given value.
 
 HasNote returns a boolean if a field has been set.
 
-### SetNoteNil
-
-`func (o *DAGRunPatchBody) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *DAGRunPatchBody) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &ExtraLinkCollectionResponse{}
 
 // ExtraLinkCollectionResponse Extra Links Response.
 type ExtraLinkCollectionResponse struct {
-	ExtraLinks map[string]*string `json:"extra_links"`
+	ExtraLinks map[string]string `json:"extra_links"`
 	TotalEntries int32 `json:"total_entries"`
 }
 
@@ -31,7 +31,7 @@ type _ExtraLinkCollectionResponse ExtraLinkCollectionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExtraLinkCollectionResponse(extraLinks map[string]*string, totalEntries int32) *ExtraLinkCollectionResponse {
+func NewExtraLinkCollectionResponse(extraLinks map[string]string, totalEntries int32) *ExtraLinkCollectionResponse {
 	this := ExtraLinkCollectionResponse{}
 	this.ExtraLinks = extraLinks
 	this.TotalEntries = totalEntries
@@ -47,9 +47,9 @@ func NewExtraLinkCollectionResponseWithDefaults() *ExtraLinkCollectionResponse {
 }
 
 // GetExtraLinks returns the ExtraLinks field value
-func (o *ExtraLinkCollectionResponse) GetExtraLinks() map[string]*string {
+func (o *ExtraLinkCollectionResponse) GetExtraLinks() map[string]string {
 	if o == nil {
-		var ret map[string]*string
+		var ret map[string]string
 		return ret
 	}
 
@@ -58,15 +58,15 @@ func (o *ExtraLinkCollectionResponse) GetExtraLinks() map[string]*string {
 
 // GetExtraLinksOk returns a tuple with the ExtraLinks field value
 // and a boolean to check if the value has been set.
-func (o *ExtraLinkCollectionResponse) GetExtraLinksOk() (map[string]*string, bool) {
+func (o *ExtraLinkCollectionResponse) GetExtraLinksOk() (map[string]string, bool) {
 	if o == nil {
-		return map[string]*string{}, false
+		return map[string]string{}, false
 	}
 	return o.ExtraLinks, true
 }
 
 // SetExtraLinks sets field value
-func (o *ExtraLinkCollectionResponse) SetExtraLinks(v map[string]*string) {
+func (o *ExtraLinkCollectionResponse) SetExtraLinks(v map[string]string) {
 	o.ExtraLinks = v
 }
 

@@ -13,7 +13,6 @@ package airflow
 import (
 	"encoding/json"
 	"time"
-	"bytes"
 	"fmt"
 )
 
@@ -30,6 +29,7 @@ type BackfillPostBody struct {
 	ReprocessBehavior *ReprocessBehavior `json:"reprocess_behavior,omitempty"`
 	MaxActiveRuns *int32 `json:"max_active_runs,omitempty"`
 	RunOnLatestVersion *bool `json:"run_on_latest_version,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _BackfillPostBody BackfillPostBody
@@ -45,7 +45,7 @@ func NewBackfillPostBody(dagId string, fromDate time.Time, toDate time.Time) *Ba
 	this.ToDate = toDate
 	var runBackwards bool = false
 	this.RunBackwards = &runBackwards
-	var reprocessBehavior ReprocessBehavior = NONE
+	var reprocessBehavior ReprocessBehavior = REPROCESSBEHAVIOR_NONE
 	this.ReprocessBehavior = &reprocessBehavior
 	var maxActiveRuns int32 = 10
 	this.MaxActiveRuns = &maxActiveRuns
@@ -61,7 +61,7 @@ func NewBackfillPostBodyWithDefaults() *BackfillPostBody {
 	this := BackfillPostBody{}
 	var runBackwards bool = false
 	this.RunBackwards = &runBackwards
-	var reprocessBehavior ReprocessBehavior = NONE
+	var reprocessBehavior ReprocessBehavior = REPROCESSBEHAVIOR_NONE
 	this.ReprocessBehavior = &reprocessBehavior
 	var maxActiveRuns int32 = 10
 	this.MaxActiveRuns = &maxActiveRuns
@@ -174,9 +174,9 @@ func (o *BackfillPostBody) SetRunBackwards(v bool) {
 	o.RunBackwards = &v
 }
 
-// GetDagRunConf returns the DagRunConf field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunConf returns the DagRunConf field value if set, zero value otherwise.
 func (o *BackfillPostBody) GetDagRunConf() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunConf) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -185,7 +185,6 @@ func (o *BackfillPostBody) GetDagRunConf() map[string]interface{} {
 
 // GetDagRunConfOk returns a tuple with the DagRunConf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackfillPostBody) GetDagRunConfOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.DagRunConf) {
 		return map[string]interface{}{}, false
@@ -319,7 +318,7 @@ func (o BackfillPostBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RunBackwards) {
 		toSerialize["run_backwards"] = o.RunBackwards
 	}
-	if o.DagRunConf != nil {
+	if !IsNil(o.DagRunConf) {
 		toSerialize["dag_run_conf"] = o.DagRunConf
 	}
 	if !IsNil(o.ReprocessBehavior) {
@@ -331,6 +330,11 @@ func (o BackfillPostBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.RunOnLatestVersion) {
 		toSerialize["run_on_latest_version"] = o.RunOnLatestVersion
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -360,15 +364,27 @@ func (o *BackfillPostBody) UnmarshalJSON(data []byte) (err error) {
 
 	varBackfillPostBody := _BackfillPostBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varBackfillPostBody)
+	err = json.Unmarshal(data, &varBackfillPostBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = BackfillPostBody(varBackfillPostBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dag_id")
+		delete(additionalProperties, "from_date")
+		delete(additionalProperties, "to_date")
+		delete(additionalProperties, "run_backwards")
+		delete(additionalProperties, "dag_run_conf")
+		delete(additionalProperties, "reprocess_behavior")
+		delete(additionalProperties, "max_active_runs")
+		delete(additionalProperties, "run_on_latest_version")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

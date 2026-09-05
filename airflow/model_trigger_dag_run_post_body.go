@@ -13,7 +13,6 @@ package airflow
 import (
 	"encoding/json"
 	"time"
-	"bytes"
 	"fmt"
 )
 
@@ -22,14 +21,15 @@ var _ MappedNullable = &TriggerDAGRunPostBody{}
 
 // TriggerDAGRunPostBody Trigger Dag Run Serializer for POST body.
 type TriggerDAGRunPostBody struct {
-	DagRunId NullableString `json:"dag_run_id,omitempty"`
-	DataIntervalStart NullableTime `json:"data_interval_start,omitempty"`
-	DataIntervalEnd NullableTime `json:"data_interval_end,omitempty"`
-	LogicalDate NullableTime `json:"logical_date"`
-	RunAfter NullableTime `json:"run_after,omitempty"`
+	DagRunId *string `json:"dag_run_id,omitempty"`
+	DataIntervalStart *time.Time `json:"data_interval_start,omitempty"`
+	DataIntervalEnd *time.Time `json:"data_interval_end,omitempty"`
+	LogicalDate time.Time `json:"logical_date"`
+	RunAfter *time.Time `json:"run_after,omitempty"`
 	Conf map[string]interface{} `json:"conf,omitempty"`
-	Note NullableString `json:"note,omitempty"`
-	PartitionKey NullableString `json:"partition_key,omitempty"`
+	Note *string `json:"note,omitempty"`
+	PartitionKey *string `json:"partition_key,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _TriggerDAGRunPostBody TriggerDAGRunPostBody
@@ -38,7 +38,7 @@ type _TriggerDAGRunPostBody TriggerDAGRunPostBody
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTriggerDAGRunPostBody(logicalDate NullableTime) *TriggerDAGRunPostBody {
+func NewTriggerDAGRunPostBody(logicalDate time.Time) *TriggerDAGRunPostBody {
 	this := TriggerDAGRunPostBody{}
 	this.LogicalDate = logicalDate
 	return &this
@@ -52,203 +52,161 @@ func NewTriggerDAGRunPostBodyWithDefaults() *TriggerDAGRunPostBody {
 	return &this
 }
 
-// GetDagRunId returns the DagRunId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunId returns the DagRunId field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetDagRunId() string {
-	if o == nil || IsNil(o.DagRunId.Get()) {
+	if o == nil || IsNil(o.DagRunId) {
 		var ret string
 		return ret
 	}
-	return *o.DagRunId.Get()
+	return *o.DagRunId
 }
 
 // GetDagRunIdOk returns a tuple with the DagRunId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetDagRunIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunId) {
 		return nil, false
 	}
-	return o.DagRunId.Get(), o.DagRunId.IsSet()
+	return o.DagRunId, true
 }
 
 // HasDagRunId returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasDagRunId() bool {
-	if o != nil && o.DagRunId.IsSet() {
+	if o != nil && !IsNil(o.DagRunId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagRunId gets a reference to the given NullableString and assigns it to the DagRunId field.
+// SetDagRunId gets a reference to the given string and assigns it to the DagRunId field.
 func (o *TriggerDAGRunPostBody) SetDagRunId(v string) {
-	o.DagRunId.Set(&v)
-}
-// SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetDagRunIdNil() {
-	o.DagRunId.Set(nil)
+	o.DagRunId = &v
 }
 
-// UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetDagRunId() {
-	o.DagRunId.Unset()
-}
-
-// GetDataIntervalStart returns the DataIntervalStart field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataIntervalStart returns the DataIntervalStart field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetDataIntervalStart() time.Time {
-	if o == nil || IsNil(o.DataIntervalStart.Get()) {
+	if o == nil || IsNil(o.DataIntervalStart) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DataIntervalStart.Get()
+	return *o.DataIntervalStart
 }
 
 // GetDataIntervalStartOk returns a tuple with the DataIntervalStart field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetDataIntervalStartOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DataIntervalStart) {
 		return nil, false
 	}
-	return o.DataIntervalStart.Get(), o.DataIntervalStart.IsSet()
+	return o.DataIntervalStart, true
 }
 
 // HasDataIntervalStart returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasDataIntervalStart() bool {
-	if o != nil && o.DataIntervalStart.IsSet() {
+	if o != nil && !IsNil(o.DataIntervalStart) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataIntervalStart gets a reference to the given NullableTime and assigns it to the DataIntervalStart field.
+// SetDataIntervalStart gets a reference to the given time.Time and assigns it to the DataIntervalStart field.
 func (o *TriggerDAGRunPostBody) SetDataIntervalStart(v time.Time) {
-	o.DataIntervalStart.Set(&v)
-}
-// SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetDataIntervalStartNil() {
-	o.DataIntervalStart.Set(nil)
+	o.DataIntervalStart = &v
 }
 
-// UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetDataIntervalStart() {
-	o.DataIntervalStart.Unset()
-}
-
-// GetDataIntervalEnd returns the DataIntervalEnd field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDataIntervalEnd returns the DataIntervalEnd field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetDataIntervalEnd() time.Time {
-	if o == nil || IsNil(o.DataIntervalEnd.Get()) {
+	if o == nil || IsNil(o.DataIntervalEnd) {
 		var ret time.Time
 		return ret
 	}
-	return *o.DataIntervalEnd.Get()
+	return *o.DataIntervalEnd
 }
 
 // GetDataIntervalEndOk returns a tuple with the DataIntervalEnd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetDataIntervalEndOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DataIntervalEnd) {
 		return nil, false
 	}
-	return o.DataIntervalEnd.Get(), o.DataIntervalEnd.IsSet()
+	return o.DataIntervalEnd, true
 }
 
 // HasDataIntervalEnd returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasDataIntervalEnd() bool {
-	if o != nil && o.DataIntervalEnd.IsSet() {
+	if o != nil && !IsNil(o.DataIntervalEnd) {
 		return true
 	}
 
 	return false
 }
 
-// SetDataIntervalEnd gets a reference to the given NullableTime and assigns it to the DataIntervalEnd field.
+// SetDataIntervalEnd gets a reference to the given time.Time and assigns it to the DataIntervalEnd field.
 func (o *TriggerDAGRunPostBody) SetDataIntervalEnd(v time.Time) {
-	o.DataIntervalEnd.Set(&v)
-}
-// SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetDataIntervalEndNil() {
-	o.DataIntervalEnd.Set(nil)
-}
-
-// UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetDataIntervalEnd() {
-	o.DataIntervalEnd.Unset()
+	o.DataIntervalEnd = &v
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TriggerDAGRunPostBody) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *TriggerDAGRunPostBody) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
-// GetRunAfter returns the RunAfter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfter returns the RunAfter field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetRunAfter() time.Time {
-	if o == nil || IsNil(o.RunAfter.Get()) {
+	if o == nil || IsNil(o.RunAfter) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfter.Get()
+	return *o.RunAfter
 }
 
 // GetRunAfterOk returns a tuple with the RunAfter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetRunAfterOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfter) {
 		return nil, false
 	}
-	return o.RunAfter.Get(), o.RunAfter.IsSet()
+	return o.RunAfter, true
 }
 
 // HasRunAfter returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasRunAfter() bool {
-	if o != nil && o.RunAfter.IsSet() {
+	if o != nil && !IsNil(o.RunAfter) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfter gets a reference to the given NullableTime and assigns it to the RunAfter field.
+// SetRunAfter gets a reference to the given time.Time and assigns it to the RunAfter field.
 func (o *TriggerDAGRunPostBody) SetRunAfter(v time.Time) {
-	o.RunAfter.Set(&v)
-}
-// SetRunAfterNil sets the value for RunAfter to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetRunAfterNil() {
-	o.RunAfter.Set(nil)
+	o.RunAfter = &v
 }
 
-// UnsetRunAfter ensures that no value is present for RunAfter, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetRunAfter() {
-	o.RunAfter.Unset()
-}
-
-// GetConf returns the Conf field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConf returns the Conf field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetConf() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Conf) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -257,7 +215,6 @@ func (o *TriggerDAGRunPostBody) GetConf() map[string]interface{} {
 
 // GetConfOk returns a tuple with the Conf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetConfOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Conf) {
 		return map[string]interface{}{}, false
@@ -279,88 +236,68 @@ func (o *TriggerDAGRunPostBody) SetConf(v map[string]interface{}) {
 	o.Conf = v
 }
 
-// GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNote returns the Note field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetNote() string {
-	if o == nil || IsNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note) {
 		var ret string
 		return ret
 	}
-	return *o.Note.Get()
+	return *o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Note) {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return o.Note, true
 }
 
 // HasNote returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasNote() bool {
-	if o != nil && o.Note.IsSet() {
+	if o != nil && !IsNil(o.Note) {
 		return true
 	}
 
 	return false
 }
 
-// SetNote gets a reference to the given NullableString and assigns it to the Note field.
+// SetNote gets a reference to the given string and assigns it to the Note field.
 func (o *TriggerDAGRunPostBody) SetNote(v string) {
-	o.Note.Set(&v)
-}
-// SetNoteNil sets the value for Note to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetNoteNil() {
-	o.Note.Set(nil)
+	o.Note = &v
 }
 
-// UnsetNote ensures that no value is present for Note, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetNote() {
-	o.Note.Unset()
-}
-
-// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise.
 func (o *TriggerDAGRunPostBody) GetPartitionKey() string {
-	if o == nil || IsNil(o.PartitionKey.Get()) {
+	if o == nil || IsNil(o.PartitionKey) {
 		var ret string
 		return ret
 	}
-	return *o.PartitionKey.Get()
+	return *o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerDAGRunPostBody) GetPartitionKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartitionKey) {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return o.PartitionKey, true
 }
 
 // HasPartitionKey returns a boolean if a field has been set.
 func (o *TriggerDAGRunPostBody) HasPartitionKey() bool {
-	if o != nil && o.PartitionKey.IsSet() {
+	if o != nil && !IsNil(o.PartitionKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetPartitionKey gets a reference to the given NullableString and assigns it to the PartitionKey field.
+// SetPartitionKey gets a reference to the given string and assigns it to the PartitionKey field.
 func (o *TriggerDAGRunPostBody) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
-}
-// SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-func (o *TriggerDAGRunPostBody) SetPartitionKeyNil() {
-	o.PartitionKey.Set(nil)
-}
-
-// UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
-func (o *TriggerDAGRunPostBody) UnsetPartitionKey() {
-	o.PartitionKey.Unset()
+	o.PartitionKey = &v
 }
 
 func (o TriggerDAGRunPostBody) MarshalJSON() ([]byte, error) {
@@ -373,28 +310,33 @@ func (o TriggerDAGRunPostBody) MarshalJSON() ([]byte, error) {
 
 func (o TriggerDAGRunPostBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DagRunId.IsSet() {
-		toSerialize["dag_run_id"] = o.DagRunId.Get()
+	if !IsNil(o.DagRunId) {
+		toSerialize["dag_run_id"] = o.DagRunId
 	}
-	if o.DataIntervalStart.IsSet() {
-		toSerialize["data_interval_start"] = o.DataIntervalStart.Get()
+	if !IsNil(o.DataIntervalStart) {
+		toSerialize["data_interval_start"] = o.DataIntervalStart
 	}
-	if o.DataIntervalEnd.IsSet() {
-		toSerialize["data_interval_end"] = o.DataIntervalEnd.Get()
+	if !IsNil(o.DataIntervalEnd) {
+		toSerialize["data_interval_end"] = o.DataIntervalEnd
 	}
-	toSerialize["logical_date"] = o.LogicalDate.Get()
-	if o.RunAfter.IsSet() {
-		toSerialize["run_after"] = o.RunAfter.Get()
+	toSerialize["logical_date"] = o.LogicalDate
+	if !IsNil(o.RunAfter) {
+		toSerialize["run_after"] = o.RunAfter
 	}
-	if o.Conf != nil {
+	if !IsNil(o.Conf) {
 		toSerialize["conf"] = o.Conf
 	}
-	if o.Note.IsSet() {
-		toSerialize["note"] = o.Note.Get()
+	if !IsNil(o.Note) {
+		toSerialize["note"] = o.Note
 	}
-	if o.PartitionKey.IsSet() {
-		toSerialize["partition_key"] = o.PartitionKey.Get()
+	if !IsNil(o.PartitionKey) {
+		toSerialize["partition_key"] = o.PartitionKey
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
@@ -422,15 +364,27 @@ func (o *TriggerDAGRunPostBody) UnmarshalJSON(data []byte) (err error) {
 
 	varTriggerDAGRunPostBody := _TriggerDAGRunPostBody{}
 
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTriggerDAGRunPostBody)
+	err = json.Unmarshal(data, &varTriggerDAGRunPostBody)
 
 	if err != nil {
 		return err
 	}
 
 	*o = TriggerDAGRunPostBody(varTriggerDAGRunPostBody)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "dag_run_id")
+		delete(additionalProperties, "data_interval_start")
+		delete(additionalProperties, "data_interval_end")
+		delete(additionalProperties, "logical_date")
+		delete(additionalProperties, "run_after")
+		delete(additionalProperties, "conf")
+		delete(additionalProperties, "note")
+		delete(additionalProperties, "partition_key")
+		o.AdditionalProperties = additionalProperties
+	}
 
 	return err
 }

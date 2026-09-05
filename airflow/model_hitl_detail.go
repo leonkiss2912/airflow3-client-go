@@ -24,14 +24,14 @@ var _ MappedNullable = &HITLDetail{}
 type HITLDetail struct {
 	Options []string `json:"options"`
 	Subject string `json:"subject"`
-	Body NullableString `json:"body,omitempty"`
+	Body *string `json:"body,omitempty"`
 	Defaults []string `json:"defaults,omitempty"`
 	Multiple *bool `json:"multiple,omitempty"`
 	Params map[string]interface{} `json:"params,omitempty"`
 	AssignedUsers []HITLUser `json:"assigned_users,omitempty"`
 	CreatedAt time.Time `json:"created_at"`
-	RespondedByUser NullableHITLUser `json:"responded_by_user,omitempty"`
-	RespondedAt NullableTime `json:"responded_at,omitempty"`
+	RespondedByUser *HITLUser `json:"responded_by_user,omitempty"`
+	RespondedAt *time.Time `json:"responded_at,omitempty"`
 	ChosenOptions []string `json:"chosen_options,omitempty"`
 	ParamsInput map[string]interface{} `json:"params_input,omitempty"`
 	ResponseReceived *bool `json:"response_received,omitempty"`
@@ -117,51 +117,41 @@ func (o *HITLDetail) SetSubject(v string) {
 	o.Subject = v
 }
 
-// GetBody returns the Body field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBody returns the Body field value if set, zero value otherwise.
 func (o *HITLDetail) GetBody() string {
-	if o == nil || IsNil(o.Body.Get()) {
+	if o == nil || IsNil(o.Body) {
 		var ret string
 		return ret
 	}
-	return *o.Body.Get()
+	return *o.Body
 }
 
 // GetBodyOk returns a tuple with the Body field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HITLDetail) GetBodyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Body) {
 		return nil, false
 	}
-	return o.Body.Get(), o.Body.IsSet()
+	return o.Body, true
 }
 
 // HasBody returns a boolean if a field has been set.
 func (o *HITLDetail) HasBody() bool {
-	if o != nil && o.Body.IsSet() {
+	if o != nil && !IsNil(o.Body) {
 		return true
 	}
 
 	return false
 }
 
-// SetBody gets a reference to the given NullableString and assigns it to the Body field.
+// SetBody gets a reference to the given string and assigns it to the Body field.
 func (o *HITLDetail) SetBody(v string) {
-	o.Body.Set(&v)
-}
-// SetBodyNil sets the value for Body to be an explicit nil
-func (o *HITLDetail) SetBodyNil() {
-	o.Body.Set(nil)
+	o.Body = &v
 }
 
-// UnsetBody ensures that no value is present for Body, not even an explicit nil
-func (o *HITLDetail) UnsetBody() {
-	o.Body.Unset()
-}
-
-// GetDefaults returns the Defaults field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDefaults returns the Defaults field value if set, zero value otherwise.
 func (o *HITLDetail) GetDefaults() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Defaults) {
 		var ret []string
 		return ret
 	}
@@ -170,7 +160,6 @@ func (o *HITLDetail) GetDefaults() []string {
 
 // GetDefaultsOk returns a tuple with the Defaults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HITLDetail) GetDefaultsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Defaults) {
 		return nil, false
@@ -312,93 +301,73 @@ func (o *HITLDetail) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
 
-// GetRespondedByUser returns the RespondedByUser field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRespondedByUser returns the RespondedByUser field value if set, zero value otherwise.
 func (o *HITLDetail) GetRespondedByUser() HITLUser {
-	if o == nil || IsNil(o.RespondedByUser.Get()) {
+	if o == nil || IsNil(o.RespondedByUser) {
 		var ret HITLUser
 		return ret
 	}
-	return *o.RespondedByUser.Get()
+	return *o.RespondedByUser
 }
 
 // GetRespondedByUserOk returns a tuple with the RespondedByUser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HITLDetail) GetRespondedByUserOk() (*HITLUser, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RespondedByUser) {
 		return nil, false
 	}
-	return o.RespondedByUser.Get(), o.RespondedByUser.IsSet()
+	return o.RespondedByUser, true
 }
 
 // HasRespondedByUser returns a boolean if a field has been set.
 func (o *HITLDetail) HasRespondedByUser() bool {
-	if o != nil && o.RespondedByUser.IsSet() {
+	if o != nil && !IsNil(o.RespondedByUser) {
 		return true
 	}
 
 	return false
 }
 
-// SetRespondedByUser gets a reference to the given NullableHITLUser and assigns it to the RespondedByUser field.
+// SetRespondedByUser gets a reference to the given HITLUser and assigns it to the RespondedByUser field.
 func (o *HITLDetail) SetRespondedByUser(v HITLUser) {
-	o.RespondedByUser.Set(&v)
-}
-// SetRespondedByUserNil sets the value for RespondedByUser to be an explicit nil
-func (o *HITLDetail) SetRespondedByUserNil() {
-	o.RespondedByUser.Set(nil)
+	o.RespondedByUser = &v
 }
 
-// UnsetRespondedByUser ensures that no value is present for RespondedByUser, not even an explicit nil
-func (o *HITLDetail) UnsetRespondedByUser() {
-	o.RespondedByUser.Unset()
-}
-
-// GetRespondedAt returns the RespondedAt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRespondedAt returns the RespondedAt field value if set, zero value otherwise.
 func (o *HITLDetail) GetRespondedAt() time.Time {
-	if o == nil || IsNil(o.RespondedAt.Get()) {
+	if o == nil || IsNil(o.RespondedAt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RespondedAt.Get()
+	return *o.RespondedAt
 }
 
 // GetRespondedAtOk returns a tuple with the RespondedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HITLDetail) GetRespondedAtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RespondedAt) {
 		return nil, false
 	}
-	return o.RespondedAt.Get(), o.RespondedAt.IsSet()
+	return o.RespondedAt, true
 }
 
 // HasRespondedAt returns a boolean if a field has been set.
 func (o *HITLDetail) HasRespondedAt() bool {
-	if o != nil && o.RespondedAt.IsSet() {
+	if o != nil && !IsNil(o.RespondedAt) {
 		return true
 	}
 
 	return false
 }
 
-// SetRespondedAt gets a reference to the given NullableTime and assigns it to the RespondedAt field.
+// SetRespondedAt gets a reference to the given time.Time and assigns it to the RespondedAt field.
 func (o *HITLDetail) SetRespondedAt(v time.Time) {
-	o.RespondedAt.Set(&v)
-}
-// SetRespondedAtNil sets the value for RespondedAt to be an explicit nil
-func (o *HITLDetail) SetRespondedAtNil() {
-	o.RespondedAt.Set(nil)
+	o.RespondedAt = &v
 }
 
-// UnsetRespondedAt ensures that no value is present for RespondedAt, not even an explicit nil
-func (o *HITLDetail) UnsetRespondedAt() {
-	o.RespondedAt.Unset()
-}
-
-// GetChosenOptions returns the ChosenOptions field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetChosenOptions returns the ChosenOptions field value if set, zero value otherwise.
 func (o *HITLDetail) GetChosenOptions() []string {
-	if o == nil {
+	if o == nil || IsNil(o.ChosenOptions) {
 		var ret []string
 		return ret
 	}
@@ -407,7 +376,6 @@ func (o *HITLDetail) GetChosenOptions() []string {
 
 // GetChosenOptionsOk returns a tuple with the ChosenOptions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HITLDetail) GetChosenOptionsOk() ([]string, bool) {
 	if o == nil || IsNil(o.ChosenOptions) {
 		return nil, false
@@ -529,10 +497,10 @@ func (o HITLDetail) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["options"] = o.Options
 	toSerialize["subject"] = o.Subject
-	if o.Body.IsSet() {
-		toSerialize["body"] = o.Body.Get()
+	if !IsNil(o.Body) {
+		toSerialize["body"] = o.Body
 	}
-	if o.Defaults != nil {
+	if !IsNil(o.Defaults) {
 		toSerialize["defaults"] = o.Defaults
 	}
 	if !IsNil(o.Multiple) {
@@ -545,13 +513,13 @@ func (o HITLDetail) ToMap() (map[string]interface{}, error) {
 		toSerialize["assigned_users"] = o.AssignedUsers
 	}
 	toSerialize["created_at"] = o.CreatedAt
-	if o.RespondedByUser.IsSet() {
-		toSerialize["responded_by_user"] = o.RespondedByUser.Get()
+	if !IsNil(o.RespondedByUser) {
+		toSerialize["responded_by_user"] = o.RespondedByUser
 	}
-	if o.RespondedAt.IsSet() {
-		toSerialize["responded_at"] = o.RespondedAt.Get()
+	if !IsNil(o.RespondedAt) {
+		toSerialize["responded_at"] = o.RespondedAt
 	}
-	if o.ChosenOptions != nil {
+	if !IsNil(o.ChosenOptions) {
 		toSerialize["chosen_options"] = o.ChosenOptions
 	}
 	if !IsNil(o.ParamsInput) {

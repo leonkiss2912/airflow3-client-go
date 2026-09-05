@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Create** | Pointer to [**NullableBulkActionResponse**](BulkActionResponse.md) | Details of the bulk create operation, including successful keys and errors. | [optional] 
-**Update** | Pointer to [**NullableBulkActionResponse**](BulkActionResponse.md) | Details of the bulk update operation, including successful keys and errors. | [optional] 
-**Delete** | Pointer to [**NullableBulkActionResponse**](BulkActionResponse.md) | Details of the bulk delete operation, including successful keys and errors. | [optional] 
+**Create** | Pointer to [**BulkActionResponse**](BulkActionResponse.md) | Details of the bulk create operation, including successful keys and errors. | [optional] 
+**Update** | Pointer to [**BulkActionResponse**](BulkActionResponse.md) | Details of the bulk update operation, including successful keys and errors. | [optional] 
+**Delete** | Pointer to [**BulkActionResponse**](BulkActionResponse.md) | Details of the bulk delete operation, including successful keys and errors. | [optional] 
 
 ## Methods
 
@@ -52,16 +52,6 @@ SetCreate sets Create field to given value.
 
 HasCreate returns a boolean if a field has been set.
 
-### SetCreateNil
-
-`func (o *BulkResponse) SetCreateNil(b bool)`
-
- SetCreateNil sets the value for Create to be an explicit nil
-
-### UnsetCreate
-`func (o *BulkResponse) UnsetCreate()`
-
-UnsetCreate ensures that no value is present for Create, not even an explicit nil
 ### GetUpdate
 
 `func (o *BulkResponse) GetUpdate() BulkActionResponse`
@@ -87,16 +77,6 @@ SetUpdate sets Update field to given value.
 
 HasUpdate returns a boolean if a field has been set.
 
-### SetUpdateNil
-
-`func (o *BulkResponse) SetUpdateNil(b bool)`
-
- SetUpdateNil sets the value for Update to be an explicit nil
-
-### UnsetUpdate
-`func (o *BulkResponse) UnsetUpdate()`
-
-UnsetUpdate ensures that no value is present for Update, not even an explicit nil
 ### GetDelete
 
 `func (o *BulkResponse) GetDelete() BulkActionResponse`
@@ -122,16 +102,6 @@ SetDelete sets Delete field to given value.
 
 HasDelete returns a boolean if a field has been set.
 
-### SetDeleteNil
-
-`func (o *BulkResponse) SetDeleteNil(b bool)`
-
- SetDeleteNil sets the value for Delete to be an explicit nil
-
-### UnsetDelete
-`func (o *BulkResponse) UnsetDelete()`
-
-UnsetDelete ensures that no value is present for Delete, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

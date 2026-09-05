@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **NullableString** |  | 
+**Status** | **string** |  | 
 
 ## Methods
 
 ### NewBaseInfoResponse
 
-`func NewBaseInfoResponse(status NullableString, ) *BaseInfoResponse`
+`func NewBaseInfoResponse(status string, ) *BaseInfoResponse`
 
 NewBaseInfoResponse instantiates a new BaseInfoResponse object
 This constructor will assign default values to properties that have it defined,
@@ -45,16 +45,6 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
-### SetStatusNil
-
-`func (o *BaseInfoResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *BaseInfoResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

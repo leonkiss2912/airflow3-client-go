@@ -20,9 +20,9 @@ type DagWarningType string
 
 // List of DagWarningType
 const (
-	ASSET_CONFLICT DagWarningType = "asset conflict"
-	NON_EXISTENT_POOL DagWarningType = "non-existent pool"
-	RUNTIME_VARYING_VALUE DagWarningType = "runtime varying value"
+	DAGWARNINGTYPE_ASSET_CONFLICT DagWarningType = "asset conflict"
+	DAGWARNINGTYPE_NON_EXISTENT_POOL DagWarningType = "non-existent pool"
+	DAGWARNINGTYPE_RUNTIME_VARYING_VALUE DagWarningType = "runtime varying value"
 )
 
 // All allowed values of DagWarningType enum

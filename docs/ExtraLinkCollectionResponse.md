@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 
 ### NewExtraLinkCollectionResponse
 
-`func NewExtraLinkCollectionResponse(extraLinks map[string]*string, totalEntries int32, ) *ExtraLinkCollectionResponse`
+`func NewExtraLinkCollectionResponse(extraLinks map[string]string, totalEntries int32, ) *ExtraLinkCollectionResponse`
 
 NewExtraLinkCollectionResponse instantiates a new ExtraLinkCollectionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetExtraLinks
 
-`func (o *ExtraLinkCollectionResponse) GetExtraLinks() map[string]*string`
+`func (o *ExtraLinkCollectionResponse) GetExtraLinks() map[string]string`
 
 GetExtraLinks returns the ExtraLinks field if non-nil, zero value otherwise.
 
 ### GetExtraLinksOk
 
-`func (o *ExtraLinkCollectionResponse) GetExtraLinksOk() (*map[string]*string, bool)`
+`func (o *ExtraLinkCollectionResponse) GetExtraLinksOk() (*map[string]string, bool)`
 
 GetExtraLinksOk returns a tuple with the ExtraLinks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtraLinks
 
-`func (o *ExtraLinkCollectionResponse) SetExtraLinks(v map[string]*string)`
+`func (o *ExtraLinkCollectionResponse) SetExtraLinks(v map[string]string)`
 
 SetExtraLinks sets ExtraLinks field to given value.
 

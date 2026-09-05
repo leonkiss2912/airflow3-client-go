@@ -23,7 +23,7 @@ import (
 // ExtraLinksAPIService ExtraLinksAPI service
 type ExtraLinksAPIService service
 
-type ApiGetExtraLinksRequest struct {
+type ExtraLinksAPIGetExtraLinksRequest struct {
 	ctx context.Context
 	ApiService *ExtraLinksAPIService
 	dagId string
@@ -33,17 +33,17 @@ type ApiGetExtraLinksRequest struct {
 	tryNumber *int32
 }
 
-func (r ApiGetExtraLinksRequest) MapIndex(mapIndex int32) ApiGetExtraLinksRequest {
+func (r ExtraLinksAPIGetExtraLinksRequest) MapIndex(mapIndex int32) ExtraLinksAPIGetExtraLinksRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetExtraLinksRequest) TryNumber(tryNumber int32) ApiGetExtraLinksRequest {
+func (r ExtraLinksAPIGetExtraLinksRequest) TryNumber(tryNumber int32) ExtraLinksAPIGetExtraLinksRequest {
 	r.tryNumber = &tryNumber
 	return r
 }
 
-func (r ApiGetExtraLinksRequest) Execute() (*ExtraLinkCollectionResponse, *http.Response, error) {
+func (r ExtraLinksAPIGetExtraLinksRequest) Execute() (*ExtraLinkCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetExtraLinksExecute(r)
 }
 
@@ -56,10 +56,10 @@ Get extra links for task instance.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetExtraLinksRequest
+ @return ExtraLinksAPIGetExtraLinksRequest
 */
-func (a *ExtraLinksAPIService) GetExtraLinks(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetExtraLinksRequest {
-	return ApiGetExtraLinksRequest{
+func (a *ExtraLinksAPIService) GetExtraLinks(ctx context.Context, dagId string, dagRunId string, taskId string) ExtraLinksAPIGetExtraLinksRequest {
+	return ExtraLinksAPIGetExtraLinksRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -70,7 +70,7 @@ func (a *ExtraLinksAPIService) GetExtraLinks(ctx context.Context, dagId string, 
 
 // Execute executes the request
 //  @return ExtraLinkCollectionResponse
-func (a *ExtraLinksAPIService) GetExtraLinksExecute(r ApiGetExtraLinksRequest) (*ExtraLinkCollectionResponse, *http.Response, error) {
+func (a *ExtraLinksAPIService) GetExtraLinksExecute(r ExtraLinksAPIGetExtraLinksRequest) (*ExtraLinkCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

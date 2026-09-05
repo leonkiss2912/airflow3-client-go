@@ -22,7 +22,7 @@ var _ MappedNullable = &AppBuilderMenuItemResponse{}
 type AppBuilderMenuItemResponse struct {
 	Name string `json:"name"`
 	Href string `json:"href"`
-	Category NullableString `json:"category,omitempty"`
+	Category *string `json:"category,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -95,46 +95,36 @@ func (o *AppBuilderMenuItemResponse) SetHref(v string) {
 	o.Href = v
 }
 
-// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCategory returns the Category field value if set, zero value otherwise.
 func (o *AppBuilderMenuItemResponse) GetCategory() string {
-	if o == nil || IsNil(o.Category.Get()) {
+	if o == nil || IsNil(o.Category) {
 		var ret string
 		return ret
 	}
-	return *o.Category.Get()
+	return *o.Category
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppBuilderMenuItemResponse) GetCategoryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Category) {
 		return nil, false
 	}
-	return o.Category.Get(), o.Category.IsSet()
+	return o.Category, true
 }
 
 // HasCategory returns a boolean if a field has been set.
 func (o *AppBuilderMenuItemResponse) HasCategory() bool {
-	if o != nil && o.Category.IsSet() {
+	if o != nil && !IsNil(o.Category) {
 		return true
 	}
 
 	return false
 }
 
-// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
+// SetCategory gets a reference to the given string and assigns it to the Category field.
 func (o *AppBuilderMenuItemResponse) SetCategory(v string) {
-	o.Category.Set(&v)
-}
-// SetCategoryNil sets the value for Category to be an explicit nil
-func (o *AppBuilderMenuItemResponse) SetCategoryNil() {
-	o.Category.Set(nil)
-}
-
-// UnsetCategory ensures that no value is present for Category, not even an explicit nil
-func (o *AppBuilderMenuItemResponse) UnsetCategory() {
-	o.Category.Unset()
+	o.Category = &v
 }
 
 func (o AppBuilderMenuItemResponse) MarshalJSON() ([]byte, error) {
@@ -149,8 +139,8 @@ func (o AppBuilderMenuItemResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["href"] = o.Href
-	if o.Category.IsSet() {
-		toSerialize["category"] = o.Category.Get()
+	if !IsNil(o.Category) {
+		toSerialize["category"] = o.Category
 	}
 
 	for key, value := range o.AdditionalProperties {

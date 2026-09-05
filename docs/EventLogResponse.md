@@ -6,23 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EventLogId** | **int32** |  | 
 **When** | **time.Time** |  | 
-**DagId** | **NullableString** |  | 
-**TaskId** | **NullableString** |  | 
-**RunId** | **NullableString** |  | 
-**MapIndex** | **NullableInt32** |  | 
-**TryNumber** | **NullableInt32** |  | 
+**DagId** | **string** |  | 
+**TaskId** | **string** |  | 
+**RunId** | **string** |  | 
+**MapIndex** | **int32** |  | 
+**TryNumber** | **int32** |  | 
 **Event** | **string** |  | 
-**LogicalDate** | **NullableTime** |  | 
-**Owner** | **NullableString** |  | 
-**Extra** | **NullableString** |  | 
-**DagDisplayName** | Pointer to **NullableString** |  | [optional] 
-**TaskDisplayName** | Pointer to **NullableString** |  | [optional] 
+**LogicalDate** | **time.Time** |  | 
+**Owner** | **string** |  | 
+**Extra** | **string** |  | 
+**DagDisplayName** | Pointer to **string** |  | [optional] 
+**TaskDisplayName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewEventLogResponse
 
-`func NewEventLogResponse(eventLogId int32, when time.Time, dagId NullableString, taskId NullableString, runId NullableString, mapIndex NullableInt32, tryNumber NullableInt32, event string, logicalDate NullableTime, owner NullableString, extra NullableString, ) *EventLogResponse`
+`func NewEventLogResponse(eventLogId int32, when time.Time, dagId string, taskId string, runId string, mapIndex int32, tryNumber int32, event string, logicalDate time.Time, owner string, extra string, ) *EventLogResponse`
 
 NewEventLogResponse instantiates a new EventLogResponse object
 This constructor will assign default values to properties that have it defined,
@@ -97,16 +97,6 @@ and a boolean to check if the value has been set.
 SetDagId sets DagId field to given value.
 
 
-### SetDagIdNil
-
-`func (o *EventLogResponse) SetDagIdNil(b bool)`
-
- SetDagIdNil sets the value for DagId to be an explicit nil
-
-### UnsetDagId
-`func (o *EventLogResponse) UnsetDagId()`
-
-UnsetDagId ensures that no value is present for DagId, not even an explicit nil
 ### GetTaskId
 
 `func (o *EventLogResponse) GetTaskId() string`
@@ -127,16 +117,6 @@ and a boolean to check if the value has been set.
 SetTaskId sets TaskId field to given value.
 
 
-### SetTaskIdNil
-
-`func (o *EventLogResponse) SetTaskIdNil(b bool)`
-
- SetTaskIdNil sets the value for TaskId to be an explicit nil
-
-### UnsetTaskId
-`func (o *EventLogResponse) UnsetTaskId()`
-
-UnsetTaskId ensures that no value is present for TaskId, not even an explicit nil
 ### GetRunId
 
 `func (o *EventLogResponse) GetRunId() string`
@@ -157,16 +137,6 @@ and a boolean to check if the value has been set.
 SetRunId sets RunId field to given value.
 
 
-### SetRunIdNil
-
-`func (o *EventLogResponse) SetRunIdNil(b bool)`
-
- SetRunIdNil sets the value for RunId to be an explicit nil
-
-### UnsetRunId
-`func (o *EventLogResponse) UnsetRunId()`
-
-UnsetRunId ensures that no value is present for RunId, not even an explicit nil
 ### GetMapIndex
 
 `func (o *EventLogResponse) GetMapIndex() int32`
@@ -187,16 +157,6 @@ and a boolean to check if the value has been set.
 SetMapIndex sets MapIndex field to given value.
 
 
-### SetMapIndexNil
-
-`func (o *EventLogResponse) SetMapIndexNil(b bool)`
-
- SetMapIndexNil sets the value for MapIndex to be an explicit nil
-
-### UnsetMapIndex
-`func (o *EventLogResponse) UnsetMapIndex()`
-
-UnsetMapIndex ensures that no value is present for MapIndex, not even an explicit nil
 ### GetTryNumber
 
 `func (o *EventLogResponse) GetTryNumber() int32`
@@ -217,16 +177,6 @@ and a boolean to check if the value has been set.
 SetTryNumber sets TryNumber field to given value.
 
 
-### SetTryNumberNil
-
-`func (o *EventLogResponse) SetTryNumberNil(b bool)`
-
- SetTryNumberNil sets the value for TryNumber to be an explicit nil
-
-### UnsetTryNumber
-`func (o *EventLogResponse) UnsetTryNumber()`
-
-UnsetTryNumber ensures that no value is present for TryNumber, not even an explicit nil
 ### GetEvent
 
 `func (o *EventLogResponse) GetEvent() string`
@@ -267,16 +217,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *EventLogResponse) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *EventLogResponse) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetOwner
 
 `func (o *EventLogResponse) GetOwner() string`
@@ -297,16 +237,6 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
-### SetOwnerNil
-
-`func (o *EventLogResponse) SetOwnerNil(b bool)`
-
- SetOwnerNil sets the value for Owner to be an explicit nil
-
-### UnsetOwner
-`func (o *EventLogResponse) UnsetOwner()`
-
-UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetExtra
 
 `func (o *EventLogResponse) GetExtra() string`
@@ -327,16 +257,6 @@ and a boolean to check if the value has been set.
 SetExtra sets Extra field to given value.
 
 
-### SetExtraNil
-
-`func (o *EventLogResponse) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *EventLogResponse) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetDagDisplayName
 
 `func (o *EventLogResponse) GetDagDisplayName() string`
@@ -362,16 +282,6 @@ SetDagDisplayName sets DagDisplayName field to given value.
 
 HasDagDisplayName returns a boolean if a field has been set.
 
-### SetDagDisplayNameNil
-
-`func (o *EventLogResponse) SetDagDisplayNameNil(b bool)`
-
- SetDagDisplayNameNil sets the value for DagDisplayName to be an explicit nil
-
-### UnsetDagDisplayName
-`func (o *EventLogResponse) UnsetDagDisplayName()`
-
-UnsetDagDisplayName ensures that no value is present for DagDisplayName, not even an explicit nil
 ### GetTaskDisplayName
 
 `func (o *EventLogResponse) GetTaskDisplayName() string`
@@ -397,16 +307,6 @@ SetTaskDisplayName sets TaskDisplayName field to given value.
 
 HasTaskDisplayName returns a boolean if a field has been set.
 
-### SetTaskDisplayNameNil
-
-`func (o *EventLogResponse) SetTaskDisplayNameNil(b bool)`
-
- SetTaskDisplayNameNil sets the value for TaskDisplayName to be an explicit nil
-
-### UnsetTaskDisplayName
-`func (o *EventLogResponse) UnsetTaskDisplayName()`
-
-UnsetTaskDisplayName ensures that no value is present for TaskDisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

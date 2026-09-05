@@ -21,8 +21,8 @@ var _ MappedNullable = &DagProcessorInfoResponse{}
 
 // DagProcessorInfoResponse DagProcessor info serializer for responses.
 type DagProcessorInfoResponse struct {
-	Status NullableString `json:"status"`
-	LatestDagProcessorHeartbeat NullableString `json:"latest_dag_processor_heartbeat"`
+	Status string `json:"status"`
+	LatestDagProcessorHeartbeat string `json:"latest_dag_processor_heartbeat"`
 }
 
 type _DagProcessorInfoResponse DagProcessorInfoResponse
@@ -31,7 +31,7 @@ type _DagProcessorInfoResponse DagProcessorInfoResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDagProcessorInfoResponse(status NullableString, latestDagProcessorHeartbeat NullableString) *DagProcessorInfoResponse {
+func NewDagProcessorInfoResponse(status string, latestDagProcessorHeartbeat string) *DagProcessorInfoResponse {
 	this := DagProcessorInfoResponse{}
 	this.Status = status
 	this.LatestDagProcessorHeartbeat = latestDagProcessorHeartbeat
@@ -47,55 +47,51 @@ func NewDagProcessorInfoResponseWithDefaults() *DagProcessorInfoResponse {
 }
 
 // GetStatus returns the Status field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagProcessorInfoResponse) GetStatus() string {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Status.Get()
+	return o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagProcessorInfoResponse) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
 // SetStatus sets field value
 func (o *DagProcessorInfoResponse) SetStatus(v string) {
-	o.Status.Set(&v)
+	o.Status = v
 }
 
 // GetLatestDagProcessorHeartbeat returns the LatestDagProcessorHeartbeat field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagProcessorInfoResponse) GetLatestDagProcessorHeartbeat() string {
-	if o == nil || o.LatestDagProcessorHeartbeat.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.LatestDagProcessorHeartbeat.Get()
+	return o.LatestDagProcessorHeartbeat
 }
 
 // GetLatestDagProcessorHeartbeatOk returns a tuple with the LatestDagProcessorHeartbeat field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagProcessorInfoResponse) GetLatestDagProcessorHeartbeatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LatestDagProcessorHeartbeat.Get(), o.LatestDagProcessorHeartbeat.IsSet()
+	return &o.LatestDagProcessorHeartbeat, true
 }
 
 // SetLatestDagProcessorHeartbeat sets field value
 func (o *DagProcessorInfoResponse) SetLatestDagProcessorHeartbeat(v string) {
-	o.LatestDagProcessorHeartbeat.Set(&v)
+	o.LatestDagProcessorHeartbeat = v
 }
 
 func (o DagProcessorInfoResponse) MarshalJSON() ([]byte, error) {
@@ -108,8 +104,8 @@ func (o DagProcessorInfoResponse) MarshalJSON() ([]byte, error) {
 
 func (o DagProcessorInfoResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status.Get()
-	toSerialize["latest_dag_processor_heartbeat"] = o.LatestDagProcessorHeartbeat.Get()
+	toSerialize["status"] = o.Status
+	toSerialize["latest_dag_processor_heartbeat"] = o.LatestDagProcessorHeartbeat
 	return toSerialize, nil
 }
 

@@ -6,19 +6,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RunId** | **string** |  | 
 **DagId** | **string** |  | 
-**LogicalDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
 **StartDate** | **time.Time** |  | 
-**EndDate** | **NullableTime** |  | 
+**EndDate** | **time.Time** |  | 
 **State** | **string** |  | 
-**DataIntervalStart** | **NullableTime** |  | 
-**DataIntervalEnd** | **NullableTime** |  | 
-**PartitionKey** | **NullableString** |  | 
+**DataIntervalStart** | **time.Time** |  | 
+**DataIntervalEnd** | **time.Time** |  | 
+**PartitionKey** | **string** |  | 
 
 ## Methods
 
 ### NewDagRunAssetReference
 
-`func NewDagRunAssetReference(runId string, dagId string, logicalDate NullableTime, startDate time.Time, endDate NullableTime, state string, dataIntervalStart NullableTime, dataIntervalEnd NullableTime, partitionKey NullableString, ) *DagRunAssetReference`
+`func NewDagRunAssetReference(runId string, dagId string, logicalDate time.Time, startDate time.Time, endDate time.Time, state string, dataIntervalStart time.Time, dataIntervalEnd time.Time, partitionKey string, ) *DagRunAssetReference`
 
 NewDagRunAssetReference instantiates a new DagRunAssetReference object
 This constructor will assign default values to properties that have it defined,
@@ -93,16 +93,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *DagRunAssetReference) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *DagRunAssetReference) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetStartDate
 
 `func (o *DagRunAssetReference) GetStartDate() time.Time`
@@ -143,16 +133,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *DagRunAssetReference) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *DagRunAssetReference) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetState
 
 `func (o *DagRunAssetReference) GetState() string`
@@ -193,16 +173,6 @@ and a boolean to check if the value has been set.
 SetDataIntervalStart sets DataIntervalStart field to given value.
 
 
-### SetDataIntervalStartNil
-
-`func (o *DagRunAssetReference) SetDataIntervalStartNil(b bool)`
-
- SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-
-### UnsetDataIntervalStart
-`func (o *DagRunAssetReference) UnsetDataIntervalStart()`
-
-UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
 ### GetDataIntervalEnd
 
 `func (o *DagRunAssetReference) GetDataIntervalEnd() time.Time`
@@ -223,16 +193,6 @@ and a boolean to check if the value has been set.
 SetDataIntervalEnd sets DataIntervalEnd field to given value.
 
 
-### SetDataIntervalEndNil
-
-`func (o *DagRunAssetReference) SetDataIntervalEndNil(b bool)`
-
- SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-
-### UnsetDataIntervalEnd
-`func (o *DagRunAssetReference) UnsetDataIntervalEnd()`
-
-UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
 ### GetPartitionKey
 
 `func (o *DagRunAssetReference) GetPartitionKey() string`
@@ -253,16 +213,6 @@ and a boolean to check if the value has been set.
 SetPartitionKey sets PartitionKey field to given value.
 
 
-### SetPartitionKeyNil
-
-`func (o *DagRunAssetReference) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *DagRunAssetReference) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

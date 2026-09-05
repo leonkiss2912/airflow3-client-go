@@ -25,7 +25,7 @@ import (
 // TaskInstanceAPIService TaskInstanceAPI service
 type TaskInstanceAPIService service
 
-type ApiBulkTaskInstancesRequest struct {
+type TaskInstanceAPIBulkTaskInstancesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -33,12 +33,12 @@ type ApiBulkTaskInstancesRequest struct {
 	bulkBodyBulkTaskInstanceBody *BulkBodyBulkTaskInstanceBody
 }
 
-func (r ApiBulkTaskInstancesRequest) BulkBodyBulkTaskInstanceBody(bulkBodyBulkTaskInstanceBody BulkBodyBulkTaskInstanceBody) ApiBulkTaskInstancesRequest {
+func (r TaskInstanceAPIBulkTaskInstancesRequest) BulkBodyBulkTaskInstanceBody(bulkBodyBulkTaskInstanceBody BulkBodyBulkTaskInstanceBody) TaskInstanceAPIBulkTaskInstancesRequest {
 	r.bulkBodyBulkTaskInstanceBody = &bulkBodyBulkTaskInstanceBody
 	return r
 }
 
-func (r ApiBulkTaskInstancesRequest) Execute() (*BulkResponse, *http.Response, error) {
+func (r TaskInstanceAPIBulkTaskInstancesRequest) Execute() (*BulkResponse, *http.Response, error) {
 	return r.ApiService.BulkTaskInstancesExecute(r)
 }
 
@@ -50,10 +50,10 @@ Bulk update, and delete task instances.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiBulkTaskInstancesRequest
+ @return TaskInstanceAPIBulkTaskInstancesRequest
 */
-func (a *TaskInstanceAPIService) BulkTaskInstances(ctx context.Context, dagId string, dagRunId string) ApiBulkTaskInstancesRequest {
-	return ApiBulkTaskInstancesRequest{
+func (a *TaskInstanceAPIService) BulkTaskInstances(ctx context.Context, dagId string, dagRunId string) TaskInstanceAPIBulkTaskInstancesRequest {
+	return TaskInstanceAPIBulkTaskInstancesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -63,7 +63,7 @@ func (a *TaskInstanceAPIService) BulkTaskInstances(ctx context.Context, dagId st
 
 // Execute executes the request
 //  @return BulkResponse
-func (a *TaskInstanceAPIService) BulkTaskInstancesExecute(r ApiBulkTaskInstancesRequest) (*BulkResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) BulkTaskInstancesExecute(r TaskInstanceAPIBulkTaskInstancesRequest) (*BulkResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -175,7 +175,7 @@ func (a *TaskInstanceAPIService) BulkTaskInstancesExecute(r ApiBulkTaskInstances
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTaskInstanceRequest struct {
+type TaskInstanceAPIDeleteTaskInstanceRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -184,12 +184,12 @@ type ApiDeleteTaskInstanceRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiDeleteTaskInstanceRequest) MapIndex(mapIndex int32) ApiDeleteTaskInstanceRequest {
+func (r TaskInstanceAPIDeleteTaskInstanceRequest) MapIndex(mapIndex int32) TaskInstanceAPIDeleteTaskInstanceRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiDeleteTaskInstanceRequest) Execute() (interface{}, *http.Response, error) {
+func (r TaskInstanceAPIDeleteTaskInstanceRequest) Execute() (interface{}, *http.Response, error) {
 	return r.ApiService.DeleteTaskInstanceExecute(r)
 }
 
@@ -202,10 +202,10 @@ Delete a task instance.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiDeleteTaskInstanceRequest
+ @return TaskInstanceAPIDeleteTaskInstanceRequest
 */
-func (a *TaskInstanceAPIService) DeleteTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) ApiDeleteTaskInstanceRequest {
-	return ApiDeleteTaskInstanceRequest{
+func (a *TaskInstanceAPIService) DeleteTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIDeleteTaskInstanceRequest {
+	return TaskInstanceAPIDeleteTaskInstanceRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -216,7 +216,7 @@ func (a *TaskInstanceAPIService) DeleteTaskInstance(ctx context.Context, dagId s
 
 // Execute executes the request
 //  @return interface{}
-func (a *TaskInstanceAPIService) DeleteTaskInstanceExecute(r ApiDeleteTaskInstanceRequest) (interface{}, *http.Response, error) {
+func (a *TaskInstanceAPIService) DeleteTaskInstanceExecute(r TaskInstanceAPIDeleteTaskInstanceRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -342,7 +342,7 @@ func (a *TaskInstanceAPIService) DeleteTaskInstanceExecute(r ApiDeleteTaskInstan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExternalLogUrlRequest struct {
+type TaskInstanceAPIGetExternalLogUrlRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -352,12 +352,12 @@ type ApiGetExternalLogUrlRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiGetExternalLogUrlRequest) MapIndex(mapIndex int32) ApiGetExternalLogUrlRequest {
+func (r TaskInstanceAPIGetExternalLogUrlRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetExternalLogUrlRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetExternalLogUrlRequest) Execute() (*ExternalLogUrlResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetExternalLogUrlRequest) Execute() (*ExternalLogUrlResponse, *http.Response, error) {
 	return r.ApiService.GetExternalLogUrlExecute(r)
 }
 
@@ -371,10 +371,10 @@ Get external log URL for a specific task instance.
  @param dagRunId
  @param taskId
  @param tryNumber
- @return ApiGetExternalLogUrlRequest
+ @return TaskInstanceAPIGetExternalLogUrlRequest
 */
-func (a *TaskInstanceAPIService) GetExternalLogUrl(ctx context.Context, dagId string, dagRunId string, taskId string, tryNumber int32) ApiGetExternalLogUrlRequest {
-	return ApiGetExternalLogUrlRequest{
+func (a *TaskInstanceAPIService) GetExternalLogUrl(ctx context.Context, dagId string, dagRunId string, taskId string, tryNumber int32) TaskInstanceAPIGetExternalLogUrlRequest {
+	return TaskInstanceAPIGetExternalLogUrlRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -386,7 +386,7 @@ func (a *TaskInstanceAPIService) GetExternalLogUrl(ctx context.Context, dagId st
 
 // Execute executes the request
 //  @return ExternalLogUrlResponse
-func (a *TaskInstanceAPIService) GetExternalLogUrlExecute(r ApiGetExternalLogUrlRequest) (*ExternalLogUrlResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetExternalLogUrlExecute(r TaskInstanceAPIGetExternalLogUrlRequest) (*ExternalLogUrlResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -527,7 +527,7 @@ func (a *TaskInstanceAPIService) GetExternalLogUrlExecute(r ApiGetExternalLogUrl
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetExtraLinksRequest struct {
+type TaskInstanceAPIGetExtraLinksRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -537,17 +537,17 @@ type ApiGetExtraLinksRequest struct {
 	tryNumber *int32
 }
 
-func (r ApiGetExtraLinksRequest) MapIndex(mapIndex int32) ApiGetExtraLinksRequest {
+func (r TaskInstanceAPIGetExtraLinksRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetExtraLinksRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetExtraLinksRequest) TryNumber(tryNumber int32) ApiGetExtraLinksRequest {
+func (r TaskInstanceAPIGetExtraLinksRequest) TryNumber(tryNumber int32) TaskInstanceAPIGetExtraLinksRequest {
 	r.tryNumber = &tryNumber
 	return r
 }
 
-func (r ApiGetExtraLinksRequest) Execute() (*ExtraLinkCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetExtraLinksRequest) Execute() (*ExtraLinkCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetExtraLinksExecute(r)
 }
 
@@ -560,10 +560,10 @@ Get extra links for task instance.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetExtraLinksRequest
+ @return TaskInstanceAPIGetExtraLinksRequest
 */
-func (a *TaskInstanceAPIService) GetExtraLinks(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetExtraLinksRequest {
-	return ApiGetExtraLinksRequest{
+func (a *TaskInstanceAPIService) GetExtraLinks(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIGetExtraLinksRequest {
+	return TaskInstanceAPIGetExtraLinksRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -574,7 +574,7 @@ func (a *TaskInstanceAPIService) GetExtraLinks(ctx context.Context, dagId string
 
 // Execute executes the request
 //  @return ExtraLinkCollectionResponse
-func (a *TaskInstanceAPIService) GetExtraLinksExecute(r ApiGetExtraLinksRequest) (*ExtraLinkCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetExtraLinksExecute(r TaskInstanceAPIGetExtraLinksRequest) (*ExtraLinkCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -703,7 +703,7 @@ func (a *TaskInstanceAPIService) GetExtraLinksExecute(r ApiGetExtraLinksRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetHitlDetailRequest struct {
+type TaskInstanceAPIGetHitlDetailRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -712,7 +712,7 @@ type ApiGetHitlDetailRequest struct {
 	mapIndex int32
 }
 
-func (r ApiGetHitlDetailRequest) Execute() (*HITLDetail, *http.Response, error) {
+func (r TaskInstanceAPIGetHitlDetailRequest) Execute() (*HITLDetail, *http.Response, error) {
 	return r.ApiService.GetHitlDetailExecute(r)
 }
 
@@ -726,10 +726,10 @@ Get a Human-in-the-loop detail of a specific task instance.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiGetHitlDetailRequest
+ @return TaskInstanceAPIGetHitlDetailRequest
 */
-func (a *TaskInstanceAPIService) GetHitlDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiGetHitlDetailRequest {
-	return ApiGetHitlDetailRequest{
+func (a *TaskInstanceAPIService) GetHitlDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIGetHitlDetailRequest {
+	return TaskInstanceAPIGetHitlDetailRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -741,7 +741,7 @@ func (a *TaskInstanceAPIService) GetHitlDetail(ctx context.Context, dagId string
 
 // Execute executes the request
 //  @return HITLDetail
-func (a *TaskInstanceAPIService) GetHitlDetailExecute(r ApiGetHitlDetailRequest) (*HITLDetail, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetHitlDetailExecute(r TaskInstanceAPIGetHitlDetailRequest) (*HITLDetail, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -861,7 +861,7 @@ func (a *TaskInstanceAPIService) GetHitlDetailExecute(r ApiGetHitlDetailRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetHitlDetailTryDetailRequest struct {
+type TaskInstanceAPIGetHitlDetailTryDetailRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -871,7 +871,7 @@ type ApiGetHitlDetailTryDetailRequest struct {
 	tryNumber int32
 }
 
-func (r ApiGetHitlDetailTryDetailRequest) Execute() (*HITLDetailHistory, *http.Response, error) {
+func (r TaskInstanceAPIGetHitlDetailTryDetailRequest) Execute() (*HITLDetailHistory, *http.Response, error) {
 	return r.ApiService.GetHitlDetailTryDetailExecute(r)
 }
 
@@ -886,10 +886,10 @@ Get a Human-in-the-loop detail of a specific task instance.
  @param taskId
  @param mapIndex
  @param tryNumber
- @return ApiGetHitlDetailTryDetailRequest
+ @return TaskInstanceAPIGetHitlDetailTryDetailRequest
 */
-func (a *TaskInstanceAPIService) GetHitlDetailTryDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32, tryNumber int32) ApiGetHitlDetailTryDetailRequest {
-	return ApiGetHitlDetailTryDetailRequest{
+func (a *TaskInstanceAPIService) GetHitlDetailTryDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32, tryNumber int32) TaskInstanceAPIGetHitlDetailTryDetailRequest {
+	return TaskInstanceAPIGetHitlDetailTryDetailRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -902,7 +902,7 @@ func (a *TaskInstanceAPIService) GetHitlDetailTryDetail(ctx context.Context, dag
 
 // Execute executes the request
 //  @return HITLDetailHistory
-func (a *TaskInstanceAPIService) GetHitlDetailTryDetailExecute(r ApiGetHitlDetailTryDetailRequest) (*HITLDetailHistory, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetHitlDetailTryDetailExecute(r TaskInstanceAPIGetHitlDetailTryDetailRequest) (*HITLDetailHistory, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1023,14 +1023,14 @@ func (a *TaskInstanceAPIService) GetHitlDetailTryDetailExecute(r ApiGetHitlDetai
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetHitlDetailsRequest struct {
+type TaskInstanceAPIGetHitlDetailsRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
 	dagRunId string
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	dagIdPattern *string
 	dagIdPrefixPattern *string
 	taskId *string
@@ -1039,8 +1039,8 @@ type ApiGetHitlDetailsRequest struct {
 	mapIndex *int32
 	state *[]string
 	responseReceived *bool
-	respondedByUserId *[]*string
-	respondedByUserName *[]*string
+	respondedByUserId *[]string
+	respondedByUserName *[]string
 	subjectSearch *string
 	bodySearch *string
 	createdAtGte *time.Time
@@ -1049,109 +1049,109 @@ type ApiGetHitlDetailsRequest struct {
 	createdAtLt *time.Time
 }
 
-func (r ApiGetHitlDetailsRequest) Limit(limit int32) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) Limit(limit int32) TaskInstanceAPIGetHitlDetailsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) Offset(offset int32) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) Offset(offset int32) TaskInstanceAPIGetHitlDetailsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;ti_id, subject, responded_at, created_at, responded_by_user_id, responded_by_user_name, dag_id, run_id, task_display_name, run_after, rendered_map_index, task_instance_operator, task_instance_state&#x60;
-func (r ApiGetHitlDetailsRequest) OrderBy(orderBy []*string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) OrderBy(orderBy []string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetHitlDetailsRequest) DagIdPattern(dagIdPattern string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) DagIdPattern(dagIdPattern string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetHitlDetailsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) TaskId(taskId string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) TaskId(taskId string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.taskId = &taskId
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;task_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetHitlDetailsRequest) TaskIdPattern(taskIdPattern string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) TaskIdPattern(taskIdPattern string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.taskIdPattern = &taskIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetHitlDetailsRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.taskIdPrefixPattern = &taskIdPrefixPattern
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) MapIndex(mapIndex int32) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetHitlDetailsRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) State(state []string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) State(state []string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) ResponseReceived(responseReceived bool) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) ResponseReceived(responseReceived bool) TaskInstanceAPIGetHitlDetailsRequest {
 	r.responseReceived = &responseReceived
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) RespondedByUserId(respondedByUserId []*string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) RespondedByUserId(respondedByUserId []string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.respondedByUserId = &respondedByUserId
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) RespondedByUserName(respondedByUserName []*string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) RespondedByUserName(respondedByUserName []string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.respondedByUserName = &respondedByUserName
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;subject_search&#x60;&#x60; parameter when possible.
-func (r ApiGetHitlDetailsRequest) SubjectSearch(subjectSearch string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) SubjectSearch(subjectSearch string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.subjectSearch = &subjectSearch
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;body_search&#x60;&#x60; parameter when possible.
-func (r ApiGetHitlDetailsRequest) BodySearch(bodySearch string) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) BodySearch(bodySearch string) TaskInstanceAPIGetHitlDetailsRequest {
 	r.bodySearch = &bodySearch
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) CreatedAtGte(createdAtGte time.Time) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) CreatedAtGte(createdAtGte time.Time) TaskInstanceAPIGetHitlDetailsRequest {
 	r.createdAtGte = &createdAtGte
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) CreatedAtGt(createdAtGt time.Time) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) CreatedAtGt(createdAtGt time.Time) TaskInstanceAPIGetHitlDetailsRequest {
 	r.createdAtGt = &createdAtGt
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) CreatedAtLte(createdAtLte time.Time) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) CreatedAtLte(createdAtLte time.Time) TaskInstanceAPIGetHitlDetailsRequest {
 	r.createdAtLte = &createdAtLte
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) CreatedAtLt(createdAtLt time.Time) ApiGetHitlDetailsRequest {
+func (r TaskInstanceAPIGetHitlDetailsRequest) CreatedAtLt(createdAtLt time.Time) TaskInstanceAPIGetHitlDetailsRequest {
 	r.createdAtLt = &createdAtLt
 	return r
 }
 
-func (r ApiGetHitlDetailsRequest) Execute() (*HITLDetailCollection, *http.Response, error) {
+func (r TaskInstanceAPIGetHitlDetailsRequest) Execute() (*HITLDetailCollection, *http.Response, error) {
 	return r.ApiService.GetHitlDetailsExecute(r)
 }
 
@@ -1163,10 +1163,10 @@ Get Human-in-the-loop details.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiGetHitlDetailsRequest
+ @return TaskInstanceAPIGetHitlDetailsRequest
 */
-func (a *TaskInstanceAPIService) GetHitlDetails(ctx context.Context, dagId string, dagRunId string) ApiGetHitlDetailsRequest {
-	return ApiGetHitlDetailsRequest{
+func (a *TaskInstanceAPIService) GetHitlDetails(ctx context.Context, dagId string, dagRunId string) TaskInstanceAPIGetHitlDetailsRequest {
+	return TaskInstanceAPIGetHitlDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1176,7 +1176,7 @@ func (a *TaskInstanceAPIService) GetHitlDetails(ctx context.Context, dagId strin
 
 // Execute executes the request
 //  @return HITLDetailCollection
-func (a *TaskInstanceAPIService) GetHitlDetailsExecute(r ApiGetHitlDetailsRequest) (*HITLDetailCollection, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetHitlDetailsExecute(r TaskInstanceAPIGetHitlDetailsRequest) (*HITLDetailCollection, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1222,7 +1222,7 @@ func (a *TaskInstanceAPIService) GetHitlDetailsExecute(r ApiGetHitlDetailsReques
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"ti_id"}
+		var defaultValue []string = []string{"ti_id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -1384,7 +1384,7 @@ func (a *TaskInstanceAPIService) GetHitlDetailsExecute(r ApiGetHitlDetailsReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLogRequest struct {
+type TaskInstanceAPIGetLogRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -1397,27 +1397,27 @@ type ApiGetLogRequest struct {
 	accept *string
 }
 
-func (r ApiGetLogRequest) FullContent(fullContent bool) ApiGetLogRequest {
+func (r TaskInstanceAPIGetLogRequest) FullContent(fullContent bool) TaskInstanceAPIGetLogRequest {
 	r.fullContent = &fullContent
 	return r
 }
 
-func (r ApiGetLogRequest) MapIndex(mapIndex int32) ApiGetLogRequest {
+func (r TaskInstanceAPIGetLogRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetLogRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetLogRequest) Token(token string) ApiGetLogRequest {
+func (r TaskInstanceAPIGetLogRequest) Token(token string) TaskInstanceAPIGetLogRequest {
 	r.token = &token
 	return r
 }
 
-func (r ApiGetLogRequest) Accept(accept string) ApiGetLogRequest {
+func (r TaskInstanceAPIGetLogRequest) Accept(accept string) TaskInstanceAPIGetLogRequest {
 	r.accept = &accept
 	return r
 }
 
-func (r ApiGetLogRequest) Execute() (*TaskInstancesLogResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetLogRequest) Execute() (*TaskInstancesLogResponse, *http.Response, error) {
 	return r.ApiService.GetLogExecute(r)
 }
 
@@ -1431,10 +1431,10 @@ Get logs for a specific task instance.
  @param dagRunId
  @param taskId
  @param tryNumber
- @return ApiGetLogRequest
+ @return TaskInstanceAPIGetLogRequest
 */
-func (a *TaskInstanceAPIService) GetLog(ctx context.Context, dagId string, dagRunId string, taskId string, tryNumber int32) ApiGetLogRequest {
-	return ApiGetLogRequest{
+func (a *TaskInstanceAPIService) GetLog(ctx context.Context, dagId string, dagRunId string, taskId string, tryNumber int32) TaskInstanceAPIGetLogRequest {
+	return TaskInstanceAPIGetLogRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1446,7 +1446,7 @@ func (a *TaskInstanceAPIService) GetLog(ctx context.Context, dagId string, dagRu
 
 // Execute executes the request
 //  @return TaskInstancesLogResponse
-func (a *TaskInstanceAPIService) GetLogExecute(r ApiGetLogRequest) (*TaskInstancesLogResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetLogExecute(r TaskInstanceAPIGetLogRequest) (*TaskInstancesLogResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1589,7 +1589,7 @@ func (a *TaskInstanceAPIService) GetLogExecute(r ApiGetLogRequest) (*TaskInstanc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMappedTaskInstanceRequest struct {
+type TaskInstanceAPIGetMappedTaskInstanceRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -1598,7 +1598,7 @@ type ApiGetMappedTaskInstanceRequest struct {
 	mapIndex int32
 }
 
-func (r ApiGetMappedTaskInstanceRequest) Execute() (*TaskInstanceResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetMappedTaskInstanceRequest) Execute() (*TaskInstanceResponse, *http.Response, error) {
 	return r.ApiService.GetMappedTaskInstanceExecute(r)
 }
 
@@ -1612,10 +1612,10 @@ Get task instance.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiGetMappedTaskInstanceRequest
+ @return TaskInstanceAPIGetMappedTaskInstanceRequest
 */
-func (a *TaskInstanceAPIService) GetMappedTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiGetMappedTaskInstanceRequest {
-	return ApiGetMappedTaskInstanceRequest{
+func (a *TaskInstanceAPIService) GetMappedTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIGetMappedTaskInstanceRequest {
+	return TaskInstanceAPIGetMappedTaskInstanceRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1627,7 +1627,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstance(ctx context.Context, dagI
 
 // Execute executes the request
 //  @return TaskInstanceResponse
-func (a *TaskInstanceAPIService) GetMappedTaskInstanceExecute(r ApiGetMappedTaskInstanceRequest) (*TaskInstanceResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetMappedTaskInstanceExecute(r TaskInstanceAPIGetMappedTaskInstanceRequest) (*TaskInstanceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1747,7 +1747,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstanceExecute(r ApiGetMappedTask
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMappedTaskInstanceTriesRequest struct {
+type TaskInstanceAPIGetMappedTaskInstanceTriesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -1756,7 +1756,7 @@ type ApiGetMappedTaskInstanceTriesRequest struct {
 	mapIndex int32
 }
 
-func (r ApiGetMappedTaskInstanceTriesRequest) Execute() (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetMappedTaskInstanceTriesRequest) Execute() (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetMappedTaskInstanceTriesExecute(r)
 }
 
@@ -1768,10 +1768,10 @@ GetMappedTaskInstanceTries Get Mapped Task Instance Tries
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiGetMappedTaskInstanceTriesRequest
+ @return TaskInstanceAPIGetMappedTaskInstanceTriesRequest
 */
-func (a *TaskInstanceAPIService) GetMappedTaskInstanceTries(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiGetMappedTaskInstanceTriesRequest {
-	return ApiGetMappedTaskInstanceTriesRequest{
+func (a *TaskInstanceAPIService) GetMappedTaskInstanceTries(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIGetMappedTaskInstanceTriesRequest {
+	return TaskInstanceAPIGetMappedTaskInstanceTriesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1783,7 +1783,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstanceTries(ctx context.Context,
 
 // Execute executes the request
 //  @return TaskInstanceHistoryCollectionResponse
-func (a *TaskInstanceAPIService) GetMappedTaskInstanceTriesExecute(r ApiGetMappedTaskInstanceTriesRequest) (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetMappedTaskInstanceTriesExecute(r TaskInstanceAPIGetMappedTaskInstanceTriesRequest) (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1903,7 +1903,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstanceTriesExecute(r ApiGetMappe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMappedTaskInstanceTryDetailsRequest struct {
+type TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -1913,7 +1913,7 @@ type ApiGetMappedTaskInstanceTryDetailsRequest struct {
 	mapIndex int32
 }
 
-func (r ApiGetMappedTaskInstanceTryDetailsRequest) Execute() (*TaskInstanceHistoryResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest) Execute() (*TaskInstanceHistoryResponse, *http.Response, error) {
 	return r.ApiService.GetMappedTaskInstanceTryDetailsExecute(r)
 }
 
@@ -1926,10 +1926,10 @@ GetMappedTaskInstanceTryDetails Get Mapped Task Instance Try Details
  @param taskId
  @param taskTryNumber
  @param mapIndex
- @return ApiGetMappedTaskInstanceTryDetailsRequest
+ @return TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest
 */
-func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetails(ctx context.Context, dagId string, dagRunId string, taskId string, taskTryNumber int32, mapIndex int32) ApiGetMappedTaskInstanceTryDetailsRequest {
-	return ApiGetMappedTaskInstanceTryDetailsRequest{
+func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetails(ctx context.Context, dagId string, dagRunId string, taskId string, taskTryNumber int32, mapIndex int32) TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest {
+	return TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1942,7 +1942,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetails(ctx context.Con
 
 // Execute executes the request
 //  @return TaskInstanceHistoryResponse
-func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetailsExecute(r ApiGetMappedTaskInstanceTryDetailsRequest) (*TaskInstanceHistoryResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetailsExecute(r TaskInstanceAPIGetMappedTaskInstanceTryDetailsRequest) (*TaskInstanceHistoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2063,7 +2063,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstanceTryDetailsExecute(r ApiGet
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMappedTaskInstancesRequest struct {
+type TaskInstanceAPIGetMappedTaskInstancesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -2094,251 +2094,251 @@ type ApiGetMappedTaskInstancesRequest struct {
 	durationLte *float32
 	durationLt *float32
 	state *[]string
-	pool *[]*string
+	pool *[]string
 	poolNamePattern *string
 	poolNamePrefixPattern *string
-	queue *[]*string
+	queue *[]string
 	queueNamePattern *string
 	queueNamePrefixPattern *string
-	executor *[]*string
-	versionNumber *[]*int32
-	tryNumber *[]*int32
-	operator *[]*string
+	executor *[]string
+	versionNumber *[]int32
+	tryNumber *[]int32
+	operator *[]string
 	operatorNamePattern *string
 	operatorNamePrefixPattern *string
-	mapIndex *[]*int32
+	mapIndex *[]int32
 	renderedMapIndexPattern *string
 	renderedMapIndexPrefixPattern *string
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 }
 
-func (r ApiGetMappedTaskInstancesRequest) RunAfterGte(runAfterGte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RunAfterGte(runAfterGte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.runAfterGte = &runAfterGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) RunAfterGt(runAfterGt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RunAfterGt(runAfterGt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.runAfterGt = &runAfterGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) RunAfterLte(runAfterLte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RunAfterLte(runAfterLte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.runAfterLte = &runAfterLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) RunAfterLt(runAfterLt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RunAfterLt(runAfterLt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.runAfterLt = &runAfterLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) LogicalDateGte(logicalDateGte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) LogicalDateGte(logicalDateGte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.logicalDateGte = &logicalDateGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) LogicalDateGt(logicalDateGt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) LogicalDateGt(logicalDateGt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.logicalDateGt = &logicalDateGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) LogicalDateLte(logicalDateLte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) LogicalDateLte(logicalDateLte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.logicalDateLte = &logicalDateLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) LogicalDateLt(logicalDateLt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) LogicalDateLt(logicalDateLt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.logicalDateLt = &logicalDateLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) StartDateGte(startDateGte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) StartDateGte(startDateGte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.startDateGte = &startDateGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) StartDateGt(startDateGt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) StartDateGt(startDateGt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.startDateGt = &startDateGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) StartDateLte(startDateLte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) StartDateLte(startDateLte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.startDateLte = &startDateLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) StartDateLt(startDateLt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) StartDateLt(startDateLt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.startDateLt = &startDateLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) EndDateGte(endDateGte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) EndDateGte(endDateGte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.endDateGte = &endDateGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) EndDateGt(endDateGt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) EndDateGt(endDateGt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.endDateGt = &endDateGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) EndDateLte(endDateLte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) EndDateLte(endDateLte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.endDateLte = &endDateLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) EndDateLt(endDateLt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) EndDateLt(endDateLt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.endDateLt = &endDateLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) UpdatedAtGte(updatedAtGte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) UpdatedAtGte(updatedAtGte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.updatedAtGte = &updatedAtGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) UpdatedAtGt(updatedAtGt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) UpdatedAtGt(updatedAtGt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.updatedAtGt = &updatedAtGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) UpdatedAtLte(updatedAtLte time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) UpdatedAtLte(updatedAtLte time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.updatedAtLte = &updatedAtLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) UpdatedAtLt(updatedAtLt time.Time) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) UpdatedAtLt(updatedAtLt time.Time) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.updatedAtLt = &updatedAtLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) DurationGte(durationGte float32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) DurationGte(durationGte float32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.durationGte = &durationGte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) DurationGt(durationGt float32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) DurationGt(durationGt float32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.durationGt = &durationGt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) DurationLte(durationLte float32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) DurationLte(durationLte float32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.durationLte = &durationLte
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) DurationLt(durationLt float32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) DurationLt(durationLt float32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.durationLt = &durationLt
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) State(state []string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) State(state []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Pool(pool []*string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Pool(pool []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.pool = &pool
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;pool_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetMappedTaskInstancesRequest) PoolNamePattern(poolNamePattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) PoolNamePattern(poolNamePattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.poolNamePattern = &poolNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetMappedTaskInstancesRequest) PoolNamePrefixPattern(poolNamePrefixPattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) PoolNamePrefixPattern(poolNamePrefixPattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.poolNamePrefixPattern = &poolNamePrefixPattern
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Queue(queue []*string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Queue(queue []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.queue = &queue
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;queue_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetMappedTaskInstancesRequest) QueueNamePattern(queueNamePattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) QueueNamePattern(queueNamePattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.queueNamePattern = &queueNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetMappedTaskInstancesRequest) QueueNamePrefixPattern(queueNamePrefixPattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) QueueNamePrefixPattern(queueNamePrefixPattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.queueNamePrefixPattern = &queueNamePrefixPattern
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Executor(executor []*string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Executor(executor []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.executor = &executor
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) VersionNumber(versionNumber []*int32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) VersionNumber(versionNumber []int32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.versionNumber = &versionNumber
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) TryNumber(tryNumber []*int32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) TryNumber(tryNumber []int32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.tryNumber = &tryNumber
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Operator(operator []*string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Operator(operator []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.operator = &operator
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;operator_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetMappedTaskInstancesRequest) OperatorNamePattern(operatorNamePattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) OperatorNamePattern(operatorNamePattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.operatorNamePattern = &operatorNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetMappedTaskInstancesRequest) OperatorNamePrefixPattern(operatorNamePrefixPattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) OperatorNamePrefixPattern(operatorNamePrefixPattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.operatorNamePrefixPattern = &operatorNamePrefixPattern
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) MapIndex(mapIndex []*int32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) MapIndex(mapIndex []int32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;rendered_map_index_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetMappedTaskInstancesRequest) RenderedMapIndexPattern(renderedMapIndexPattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RenderedMapIndexPattern(renderedMapIndexPattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.renderedMapIndexPattern = &renderedMapIndexPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetMappedTaskInstancesRequest) RenderedMapIndexPrefixPattern(renderedMapIndexPrefixPattern string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) RenderedMapIndexPrefixPattern(renderedMapIndexPrefixPattern string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.renderedMapIndexPrefixPattern = &renderedMapIndexPrefixPattern
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Limit(limit int32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Limit(limit int32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Offset(offset int32) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Offset(offset int32) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, run_after, logical_date, data_interval_start, data_interval_end&#x60;
-func (r ApiGetMappedTaskInstancesRequest) OrderBy(orderBy []*string) ApiGetMappedTaskInstancesRequest {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) OrderBy(orderBy []string) TaskInstanceAPIGetMappedTaskInstancesRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetMappedTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetMappedTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetMappedTaskInstancesExecute(r)
 }
 
@@ -2351,10 +2351,10 @@ Get list of mapped task instances.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetMappedTaskInstancesRequest
+ @return TaskInstanceAPIGetMappedTaskInstancesRequest
 */
-func (a *TaskInstanceAPIService) GetMappedTaskInstances(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetMappedTaskInstancesRequest {
-	return ApiGetMappedTaskInstancesRequest{
+func (a *TaskInstanceAPIService) GetMappedTaskInstances(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIGetMappedTaskInstancesRequest {
+	return TaskInstanceAPIGetMappedTaskInstancesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -2365,7 +2365,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstances(ctx context.Context, dag
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) GetMappedTaskInstancesExecute(r ApiGetMappedTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetMappedTaskInstancesExecute(r TaskInstanceAPIGetMappedTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2596,7 +2596,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstancesExecute(r ApiGetMappedTas
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"map_index"}
+		var defaultValue []string = []string{"map_index"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -2697,7 +2697,7 @@ func (a *TaskInstanceAPIService) GetMappedTaskInstancesExecute(r ApiGetMappedTas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstanceRequest struct {
+type TaskInstanceAPIGetTaskInstanceRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -2705,7 +2705,7 @@ type ApiGetTaskInstanceRequest struct {
 	taskId string
 }
 
-func (r ApiGetTaskInstanceRequest) Execute() (*TaskInstanceResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstanceRequest) Execute() (*TaskInstanceResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstanceExecute(r)
 }
 
@@ -2718,10 +2718,10 @@ Get task instance.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetTaskInstanceRequest
+ @return TaskInstanceAPIGetTaskInstanceRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetTaskInstanceRequest {
-	return ApiGetTaskInstanceRequest{
+func (a *TaskInstanceAPIService) GetTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIGetTaskInstanceRequest {
+	return TaskInstanceAPIGetTaskInstanceRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -2732,7 +2732,7 @@ func (a *TaskInstanceAPIService) GetTaskInstance(ctx context.Context, dagId stri
 
 // Execute executes the request
 //  @return TaskInstanceResponse
-func (a *TaskInstanceAPIService) GetTaskInstanceExecute(r ApiGetTaskInstanceRequest) (*TaskInstanceResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstanceExecute(r TaskInstanceAPIGetTaskInstanceRequest) (*TaskInstanceResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2851,7 +2851,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceExecute(r ApiGetTaskInstanceRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstanceDependenciesRequest struct {
+type TaskInstanceAPIGetTaskInstanceDependenciesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -2860,12 +2860,12 @@ type ApiGetTaskInstanceDependenciesRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiGetTaskInstanceDependenciesRequest) MapIndex(mapIndex int32) ApiGetTaskInstanceDependenciesRequest {
+func (r TaskInstanceAPIGetTaskInstanceDependenciesRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetTaskInstanceDependenciesRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetTaskInstanceDependenciesRequest) Execute() (*TaskDependencyCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstanceDependenciesRequest) Execute() (*TaskDependencyCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstanceDependenciesExecute(r)
 }
 
@@ -2878,10 +2878,10 @@ Get dependencies blocking task from getting scheduled.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetTaskInstanceDependenciesRequest
+ @return TaskInstanceAPIGetTaskInstanceDependenciesRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstanceDependencies(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetTaskInstanceDependenciesRequest {
-	return ApiGetTaskInstanceDependenciesRequest{
+func (a *TaskInstanceAPIService) GetTaskInstanceDependencies(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIGetTaskInstanceDependenciesRequest {
+	return TaskInstanceAPIGetTaskInstanceDependenciesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -2892,7 +2892,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceDependencies(ctx context.Context
 
 // Execute executes the request
 //  @return TaskDependencyCollectionResponse
-func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesExecute(r ApiGetTaskInstanceDependenciesRequest) (*TaskDependencyCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesExecute(r TaskInstanceAPIGetTaskInstanceDependenciesRequest) (*TaskDependencyCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3018,7 +3018,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesExecute(r ApiGetTask
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstanceDependenciesByMapIndexRequest struct {
+type TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -3027,7 +3027,7 @@ type ApiGetTaskInstanceDependenciesByMapIndexRequest struct {
 	mapIndex int32
 }
 
-func (r ApiGetTaskInstanceDependenciesByMapIndexRequest) Execute() (*TaskDependencyCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest) Execute() (*TaskDependencyCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstanceDependenciesByMapIndexExecute(r)
 }
 
@@ -3041,10 +3041,10 @@ Get dependencies blocking task from getting scheduled.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiGetTaskInstanceDependenciesByMapIndexRequest
+ @return TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiGetTaskInstanceDependenciesByMapIndexRequest {
-	return ApiGetTaskInstanceDependenciesByMapIndexRequest{
+func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest {
+	return TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -3056,7 +3056,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndex(ctx conte
 
 // Execute executes the request
 //  @return TaskDependencyCollectionResponse
-func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndexExecute(r ApiGetTaskInstanceDependenciesByMapIndexRequest) (*TaskDependencyCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndexExecute(r TaskInstanceAPIGetTaskInstanceDependenciesByMapIndexRequest) (*TaskDependencyCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3176,7 +3176,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceDependenciesByMapIndexExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstanceTriesRequest struct {
+type TaskInstanceAPIGetTaskInstanceTriesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -3185,12 +3185,12 @@ type ApiGetTaskInstanceTriesRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiGetTaskInstanceTriesRequest) MapIndex(mapIndex int32) ApiGetTaskInstanceTriesRequest {
+func (r TaskInstanceAPIGetTaskInstanceTriesRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetTaskInstanceTriesRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetTaskInstanceTriesRequest) Execute() (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstanceTriesRequest) Execute() (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstanceTriesExecute(r)
 }
 
@@ -3203,10 +3203,10 @@ Get list of task instances history.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetTaskInstanceTriesRequest
+ @return TaskInstanceAPIGetTaskInstanceTriesRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstanceTries(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetTaskInstanceTriesRequest {
-	return ApiGetTaskInstanceTriesRequest{
+func (a *TaskInstanceAPIService) GetTaskInstanceTries(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIGetTaskInstanceTriesRequest {
+	return TaskInstanceAPIGetTaskInstanceTriesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -3217,7 +3217,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceTries(ctx context.Context, dagId
 
 // Execute executes the request
 //  @return TaskInstanceHistoryCollectionResponse
-func (a *TaskInstanceAPIService) GetTaskInstanceTriesExecute(r ApiGetTaskInstanceTriesRequest) (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstanceTriesExecute(r TaskInstanceAPIGetTaskInstanceTriesRequest) (*TaskInstanceHistoryCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3343,7 +3343,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceTriesExecute(r ApiGetTaskInstanc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstanceTryDetailsRequest struct {
+type TaskInstanceAPIGetTaskInstanceTryDetailsRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -3353,12 +3353,12 @@ type ApiGetTaskInstanceTryDetailsRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiGetTaskInstanceTryDetailsRequest) MapIndex(mapIndex int32) ApiGetTaskInstanceTryDetailsRequest {
+func (r TaskInstanceAPIGetTaskInstanceTryDetailsRequest) MapIndex(mapIndex int32) TaskInstanceAPIGetTaskInstanceTryDetailsRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetTaskInstanceTryDetailsRequest) Execute() (*TaskInstanceHistoryResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstanceTryDetailsRequest) Execute() (*TaskInstanceHistoryResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstanceTryDetailsExecute(r)
 }
 
@@ -3372,10 +3372,10 @@ Get task instance details by try number.
  @param dagRunId
  @param taskId
  @param taskTryNumber
- @return ApiGetTaskInstanceTryDetailsRequest
+ @return TaskInstanceAPIGetTaskInstanceTryDetailsRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstanceTryDetails(ctx context.Context, dagId string, dagRunId string, taskId string, taskTryNumber int32) ApiGetTaskInstanceTryDetailsRequest {
-	return ApiGetTaskInstanceTryDetailsRequest{
+func (a *TaskInstanceAPIService) GetTaskInstanceTryDetails(ctx context.Context, dagId string, dagRunId string, taskId string, taskTryNumber int32) TaskInstanceAPIGetTaskInstanceTryDetailsRequest {
+	return TaskInstanceAPIGetTaskInstanceTryDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -3387,7 +3387,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceTryDetails(ctx context.Context, 
 
 // Execute executes the request
 //  @return TaskInstanceHistoryResponse
-func (a *TaskInstanceAPIService) GetTaskInstanceTryDetailsExecute(r ApiGetTaskInstanceTryDetailsRequest) (*TaskInstanceHistoryResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstanceTryDetailsExecute(r TaskInstanceAPIGetTaskInstanceTryDetailsRequest) (*TaskInstanceHistoryResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3514,7 +3514,7 @@ func (a *TaskInstanceAPIService) GetTaskInstanceTryDetailsExecute(r ApiGetTaskIn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstancesRequest struct {
+type TaskInstanceAPIGetTaskInstancesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -3570,287 +3570,287 @@ type ApiGetTaskInstancesRequest struct {
 	renderedMapIndexPrefixPattern *string
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 }
 
 // Cursor for keyset-based pagination. Pass an empty string for the first page, then use &#x60;&#x60;next_cursor&#x60;&#x60; from the response. When &#x60;&#x60;cursor&#x60;&#x60; is provided, &#x60;&#x60;offset&#x60;&#x60; is ignored.
-func (r ApiGetTaskInstancesRequest) Cursor(cursor string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Cursor(cursor string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) TaskId(taskId string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) TaskId(taskId string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.taskId = &taskId
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) RunAfterGte(runAfterGte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunAfterGte(runAfterGte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runAfterGte = &runAfterGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) RunAfterGt(runAfterGt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunAfterGt(runAfterGt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runAfterGt = &runAfterGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) RunAfterLte(runAfterLte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunAfterLte(runAfterLte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runAfterLte = &runAfterLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) RunAfterLt(runAfterLt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunAfterLt(runAfterLt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runAfterLt = &runAfterLt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) LogicalDateGte(logicalDateGte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) LogicalDateGte(logicalDateGte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.logicalDateGte = &logicalDateGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) LogicalDateGt(logicalDateGt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) LogicalDateGt(logicalDateGt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.logicalDateGt = &logicalDateGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) LogicalDateLte(logicalDateLte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) LogicalDateLte(logicalDateLte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.logicalDateLte = &logicalDateLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) LogicalDateLt(logicalDateLt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) LogicalDateLt(logicalDateLt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.logicalDateLt = &logicalDateLt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) StartDateGte(startDateGte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) StartDateGte(startDateGte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.startDateGte = &startDateGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) StartDateGt(startDateGt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) StartDateGt(startDateGt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.startDateGt = &startDateGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) StartDateLte(startDateLte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) StartDateLte(startDateLte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.startDateLte = &startDateLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) StartDateLt(startDateLt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) StartDateLt(startDateLt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.startDateLt = &startDateLt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) EndDateGte(endDateGte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) EndDateGte(endDateGte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.endDateGte = &endDateGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) EndDateGt(endDateGt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) EndDateGt(endDateGt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.endDateGt = &endDateGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) EndDateLte(endDateLte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) EndDateLte(endDateLte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.endDateLte = &endDateLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) EndDateLt(endDateLt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) EndDateLt(endDateLt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.endDateLt = &endDateLt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) UpdatedAtGte(updatedAtGte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) UpdatedAtGte(updatedAtGte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.updatedAtGte = &updatedAtGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) UpdatedAtGt(updatedAtGt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) UpdatedAtGt(updatedAtGt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.updatedAtGt = &updatedAtGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) UpdatedAtLte(updatedAtLte time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) UpdatedAtLte(updatedAtLte time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.updatedAtLte = &updatedAtLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) UpdatedAtLt(updatedAtLt time.Time) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) UpdatedAtLt(updatedAtLt time.Time) TaskInstanceAPIGetTaskInstancesRequest {
 	r.updatedAtLt = &updatedAtLt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) DurationGte(durationGte float32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DurationGte(durationGte float32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.durationGte = &durationGte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) DurationGt(durationGt float32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DurationGt(durationGt float32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.durationGt = &durationGt
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) DurationLte(durationLte float32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DurationLte(durationLte float32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.durationLte = &durationLte
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) DurationLt(durationLt float32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DurationLt(durationLt float32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.durationLt = &durationLt
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;task_display_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) TaskDisplayNamePattern(taskDisplayNamePattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) TaskDisplayNamePattern(taskDisplayNamePattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.taskDisplayNamePattern = &taskDisplayNamePattern
 	return r
 }
 
 // Prefix match on task display name: optional &#x60;&#x60;_task_display_property_value&#x60;&#x60; else &#x60;&#x60;task_id&#x60;&#x60; (same as &#x60;&#x60;coalesce&#x60;&#x60;). Case-sensitive. Index-friendly alternative to &#x60;&#x60;task_display_name_pattern&#x60;&#x60;. On large databases, combine with &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; (or a specific Dag in the path) so &#x60;&#x60;(dag_id, task_id, ...)&#x60;&#x60; indexes apply. Use &#x60;&#x60;|&#x60;&#x60; for OR. Use &#x60;&#x60;~&#x60;&#x60; to match all. Trailing non-alphanumeric characters in the term are stripped before matching so the range scan stays index-compatible under locale-aware collations.
-func (r ApiGetTaskInstancesRequest) TaskDisplayNamePrefixPattern(taskDisplayNamePrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) TaskDisplayNamePrefixPattern(taskDisplayNamePrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.taskDisplayNamePrefixPattern = &taskDisplayNamePrefixPattern
 	return r
 }
 
 // Filter by exact task group ID. Returns all tasks within the specified task group.
-func (r ApiGetTaskInstancesRequest) TaskGroupId(taskGroupId string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) TaskGroupId(taskGroupId string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.taskGroupId = &taskGroupId
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) DagIdPattern(dagIdPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DagIdPattern(dagIdPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) DagIdPrefixPattern(dagIdPrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;run_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) RunIdPattern(runIdPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunIdPattern(runIdPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runIdPattern = &runIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) RunIdPrefixPattern(runIdPrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RunIdPrefixPattern(runIdPrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.runIdPrefixPattern = &runIdPrefixPattern
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) State(state []string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) State(state []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Pool(pool []string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Pool(pool []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.pool = &pool
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;pool_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) PoolNamePattern(poolNamePattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) PoolNamePattern(poolNamePattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.poolNamePattern = &poolNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) PoolNamePrefixPattern(poolNamePrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) PoolNamePrefixPattern(poolNamePrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.poolNamePrefixPattern = &poolNamePrefixPattern
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Queue(queue []string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Queue(queue []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.queue = &queue
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;queue_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) QueueNamePattern(queueNamePattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) QueueNamePattern(queueNamePattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.queueNamePattern = &queueNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) QueueNamePrefixPattern(queueNamePrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) QueueNamePrefixPattern(queueNamePrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.queueNamePrefixPattern = &queueNamePrefixPattern
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Executor(executor []string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Executor(executor []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.executor = &executor
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) VersionNumber(versionNumber []int32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) VersionNumber(versionNumber []int32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.versionNumber = &versionNumber
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) TryNumber(tryNumber []int32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) TryNumber(tryNumber []int32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.tryNumber = &tryNumber
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Operator(operator []string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Operator(operator []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.operator = &operator
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;operator_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) OperatorNamePattern(operatorNamePattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) OperatorNamePattern(operatorNamePattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.operatorNamePattern = &operatorNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) OperatorNamePrefixPattern(operatorNamePrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) OperatorNamePrefixPattern(operatorNamePrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.operatorNamePrefixPattern = &operatorNamePrefixPattern
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) MapIndex(mapIndex []int32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) MapIndex(mapIndex []int32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;rendered_map_index_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetTaskInstancesRequest) RenderedMapIndexPattern(renderedMapIndexPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RenderedMapIndexPattern(renderedMapIndexPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.renderedMapIndexPattern = &renderedMapIndexPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetTaskInstancesRequest) RenderedMapIndexPrefixPattern(renderedMapIndexPrefixPattern string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) RenderedMapIndexPrefixPattern(renderedMapIndexPrefixPattern string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.renderedMapIndexPrefixPattern = &renderedMapIndexPrefixPattern
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Limit(limit int32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Limit(limit int32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Offset(offset int32) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Offset(offset int32) TaskInstanceAPIGetTaskInstancesRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, state, duration, start_date, end_date, map_index, try_number, logical_date, run_after, data_interval_start, data_interval_end, rendered_map_index, operator, logical_date, run_after, data_interval_start, data_interval_end&#x60;
-func (r ApiGetTaskInstancesRequest) OrderBy(orderBy []*string) ApiGetTaskInstancesRequest {
+func (r TaskInstanceAPIGetTaskInstancesRequest) OrderBy(orderBy []string) TaskInstanceAPIGetTaskInstancesRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstancesExecute(r)
 }
 
@@ -3874,10 +3874,10 @@ on the first page.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiGetTaskInstancesRequest
+ @return TaskInstanceAPIGetTaskInstancesRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstances(ctx context.Context, dagId string, dagRunId string) ApiGetTaskInstancesRequest {
-	return ApiGetTaskInstancesRequest{
+func (a *TaskInstanceAPIService) GetTaskInstances(ctx context.Context, dagId string, dagRunId string) TaskInstanceAPIGetTaskInstancesRequest {
+	return TaskInstanceAPIGetTaskInstancesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -3887,7 +3887,7 @@ func (a *TaskInstanceAPIService) GetTaskInstances(ctx context.Context, dagId str
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) GetTaskInstancesExecute(r ApiGetTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstancesExecute(r TaskInstanceAPIGetTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -4144,7 +4144,7 @@ func (a *TaskInstanceAPIService) GetTaskInstancesExecute(r ApiGetTaskInstancesRe
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"map_index"}
+		var defaultValue []string = []string{"map_index"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -4256,7 +4256,7 @@ func (a *TaskInstanceAPIService) GetTaskInstancesExecute(r ApiGetTaskInstancesRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskInstancesBatchRequest struct {
+type TaskInstanceAPIGetTaskInstancesBatchRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -4264,12 +4264,12 @@ type ApiGetTaskInstancesBatchRequest struct {
 	taskInstancesBatchBody *TaskInstancesBatchBody
 }
 
-func (r ApiGetTaskInstancesBatchRequest) TaskInstancesBatchBody(taskInstancesBatchBody TaskInstancesBatchBody) ApiGetTaskInstancesBatchRequest {
+func (r TaskInstanceAPIGetTaskInstancesBatchRequest) TaskInstancesBatchBody(taskInstancesBatchBody TaskInstancesBatchBody) TaskInstanceAPIGetTaskInstancesBatchRequest {
 	r.taskInstancesBatchBody = &taskInstancesBatchBody
 	return r
 }
 
-func (r ApiGetTaskInstancesBatchRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIGetTaskInstancesBatchRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetTaskInstancesBatchExecute(r)
 }
 
@@ -4281,10 +4281,10 @@ Get list of task instances.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiGetTaskInstancesBatchRequest
+ @return TaskInstanceAPIGetTaskInstancesBatchRequest
 */
-func (a *TaskInstanceAPIService) GetTaskInstancesBatch(ctx context.Context, dagId string, dagRunId string) ApiGetTaskInstancesBatchRequest {
-	return ApiGetTaskInstancesBatchRequest{
+func (a *TaskInstanceAPIService) GetTaskInstancesBatch(ctx context.Context, dagId string, dagRunId string) TaskInstanceAPIGetTaskInstancesBatchRequest {
+	return TaskInstanceAPIGetTaskInstancesBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -4294,7 +4294,7 @@ func (a *TaskInstanceAPIService) GetTaskInstancesBatch(ctx context.Context, dagI
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) GetTaskInstancesBatchExecute(r ApiGetTaskInstancesBatchRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) GetTaskInstancesBatchExecute(r TaskInstanceAPIGetTaskInstancesBatchRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4417,7 +4417,7 @@ func (a *TaskInstanceAPIService) GetTaskInstancesBatchExecute(r ApiGetTaskInstan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchTaskInstanceRequest struct {
+type TaskInstanceAPIPatchTaskInstanceRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -4428,22 +4428,22 @@ type ApiPatchTaskInstanceRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchTaskInstanceRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) ApiPatchTaskInstanceRequest {
+func (r TaskInstanceAPIPatchTaskInstanceRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) TaskInstanceAPIPatchTaskInstanceRequest {
 	r.patchTaskInstanceBody = &patchTaskInstanceBody
 	return r
 }
 
-func (r ApiPatchTaskInstanceRequest) MapIndex(mapIndex int32) ApiPatchTaskInstanceRequest {
+func (r TaskInstanceAPIPatchTaskInstanceRequest) MapIndex(mapIndex int32) TaskInstanceAPIPatchTaskInstanceRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiPatchTaskInstanceRequest) UpdateMask(updateMask []string) ApiPatchTaskInstanceRequest {
+func (r TaskInstanceAPIPatchTaskInstanceRequest) UpdateMask(updateMask []string) TaskInstanceAPIPatchTaskInstanceRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchTaskInstanceRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIPatchTaskInstanceRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.PatchTaskInstanceExecute(r)
 }
 
@@ -4456,10 +4456,10 @@ Update a task instance.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiPatchTaskInstanceRequest
+ @return TaskInstanceAPIPatchTaskInstanceRequest
 */
-func (a *TaskInstanceAPIService) PatchTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) ApiPatchTaskInstanceRequest {
-	return ApiPatchTaskInstanceRequest{
+func (a *TaskInstanceAPIService) PatchTaskInstance(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIPatchTaskInstanceRequest {
+	return TaskInstanceAPIPatchTaskInstanceRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -4470,7 +4470,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstance(ctx context.Context, dagId st
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) PatchTaskInstanceExecute(r ApiPatchTaskInstanceRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) PatchTaskInstanceExecute(r TaskInstanceAPIPatchTaskInstanceRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -4630,7 +4630,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceExecute(r ApiPatchTaskInstance
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchTaskInstanceByMapIndexRequest struct {
+type TaskInstanceAPIPatchTaskInstanceByMapIndexRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -4641,17 +4641,17 @@ type ApiPatchTaskInstanceByMapIndexRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchTaskInstanceByMapIndexRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) ApiPatchTaskInstanceByMapIndexRequest {
+func (r TaskInstanceAPIPatchTaskInstanceByMapIndexRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) TaskInstanceAPIPatchTaskInstanceByMapIndexRequest {
 	r.patchTaskInstanceBody = &patchTaskInstanceBody
 	return r
 }
 
-func (r ApiPatchTaskInstanceByMapIndexRequest) UpdateMask(updateMask []string) ApiPatchTaskInstanceByMapIndexRequest {
+func (r TaskInstanceAPIPatchTaskInstanceByMapIndexRequest) UpdateMask(updateMask []string) TaskInstanceAPIPatchTaskInstanceByMapIndexRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchTaskInstanceByMapIndexRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIPatchTaskInstanceByMapIndexRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.PatchTaskInstanceByMapIndexExecute(r)
 }
 
@@ -4665,10 +4665,10 @@ Update a task instance.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiPatchTaskInstanceByMapIndexRequest
+ @return TaskInstanceAPIPatchTaskInstanceByMapIndexRequest
 */
-func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiPatchTaskInstanceByMapIndexRequest {
-	return ApiPatchTaskInstanceByMapIndexRequest{
+func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIPatchTaskInstanceByMapIndexRequest {
+	return TaskInstanceAPIPatchTaskInstanceByMapIndexRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -4680,7 +4680,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndex(ctx context.Context
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndexExecute(r ApiPatchTaskInstanceByMapIndexRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndexExecute(r TaskInstanceAPIPatchTaskInstanceByMapIndexRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -4838,7 +4838,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceByMapIndexExecute(r ApiPatchTa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchTaskInstanceDryRunRequest struct {
+type TaskInstanceAPIPatchTaskInstanceDryRunRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -4849,22 +4849,22 @@ type ApiPatchTaskInstanceDryRunRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchTaskInstanceDryRunRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) ApiPatchTaskInstanceDryRunRequest {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) TaskInstanceAPIPatchTaskInstanceDryRunRequest {
 	r.patchTaskInstanceBody = &patchTaskInstanceBody
 	return r
 }
 
-func (r ApiPatchTaskInstanceDryRunRequest) MapIndex(mapIndex int32) ApiPatchTaskInstanceDryRunRequest {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunRequest) MapIndex(mapIndex int32) TaskInstanceAPIPatchTaskInstanceDryRunRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiPatchTaskInstanceDryRunRequest) UpdateMask(updateMask []string) ApiPatchTaskInstanceDryRunRequest {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunRequest) UpdateMask(updateMask []string) TaskInstanceAPIPatchTaskInstanceDryRunRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchTaskInstanceDryRunRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.PatchTaskInstanceDryRunExecute(r)
 }
 
@@ -4877,10 +4877,10 @@ Update a task instance dry_run mode.
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiPatchTaskInstanceDryRunRequest
+ @return TaskInstanceAPIPatchTaskInstanceDryRunRequest
 */
-func (a *TaskInstanceAPIService) PatchTaskInstanceDryRun(ctx context.Context, dagId string, dagRunId string, taskId string) ApiPatchTaskInstanceDryRunRequest {
-	return ApiPatchTaskInstanceDryRunRequest{
+func (a *TaskInstanceAPIService) PatchTaskInstanceDryRun(ctx context.Context, dagId string, dagRunId string, taskId string) TaskInstanceAPIPatchTaskInstanceDryRunRequest {
+	return TaskInstanceAPIPatchTaskInstanceDryRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -4891,7 +4891,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceDryRun(ctx context.Context, da
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunExecute(r ApiPatchTaskInstanceDryRunRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunExecute(r TaskInstanceAPIPatchTaskInstanceDryRunRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -5040,7 +5040,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunExecute(r ApiPatchTaskIn
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchTaskInstanceDryRunByMapIndexRequest struct {
+type TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -5051,17 +5051,17 @@ type ApiPatchTaskInstanceDryRunByMapIndexRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchTaskInstanceDryRunByMapIndexRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) ApiPatchTaskInstanceDryRunByMapIndexRequest {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest) PatchTaskInstanceBody(patchTaskInstanceBody PatchTaskInstanceBody) TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest {
 	r.patchTaskInstanceBody = &patchTaskInstanceBody
 	return r
 }
 
-func (r ApiPatchTaskInstanceDryRunByMapIndexRequest) UpdateMask(updateMask []string) ApiPatchTaskInstanceDryRunByMapIndexRequest {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest) UpdateMask(updateMask []string) TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchTaskInstanceDryRunByMapIndexRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.PatchTaskInstanceDryRunByMapIndexExecute(r)
 }
 
@@ -5075,10 +5075,10 @@ Update a task instance dry_run mode.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiPatchTaskInstanceDryRunByMapIndexRequest
+ @return TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest
 */
-func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiPatchTaskInstanceDryRunByMapIndexRequest {
-	return ApiPatchTaskInstanceDryRunByMapIndexRequest{
+func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndex(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest {
+	return TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -5090,7 +5090,7 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndex(ctx context.C
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndexExecute(r ApiPatchTaskInstanceDryRunByMapIndexRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndexExecute(r TaskInstanceAPIPatchTaskInstanceDryRunByMapIndexRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -5237,19 +5237,19 @@ func (a *TaskInstanceAPIService) PatchTaskInstanceDryRunByMapIndexExecute(r ApiP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostClearTaskInstancesRequest struct {
+type TaskInstanceAPIPostClearTaskInstancesRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
 	clearTaskInstancesBody *ClearTaskInstancesBody
 }
 
-func (r ApiPostClearTaskInstancesRequest) ClearTaskInstancesBody(clearTaskInstancesBody ClearTaskInstancesBody) ApiPostClearTaskInstancesRequest {
+func (r TaskInstanceAPIPostClearTaskInstancesRequest) ClearTaskInstancesBody(clearTaskInstancesBody ClearTaskInstancesBody) TaskInstanceAPIPostClearTaskInstancesRequest {
 	r.clearTaskInstancesBody = &clearTaskInstancesBody
 	return r
 }
 
-func (r ApiPostClearTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (r TaskInstanceAPIPostClearTaskInstancesRequest) Execute() (*TaskInstanceCollectionResponse, *http.Response, error) {
 	return r.ApiService.PostClearTaskInstancesExecute(r)
 }
 
@@ -5260,10 +5260,10 @@ Clear task instances.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiPostClearTaskInstancesRequest
+ @return TaskInstanceAPIPostClearTaskInstancesRequest
 */
-func (a *TaskInstanceAPIService) PostClearTaskInstances(ctx context.Context, dagId string) ApiPostClearTaskInstancesRequest {
-	return ApiPostClearTaskInstancesRequest{
+func (a *TaskInstanceAPIService) PostClearTaskInstances(ctx context.Context, dagId string) TaskInstanceAPIPostClearTaskInstancesRequest {
+	return TaskInstanceAPIPostClearTaskInstancesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -5272,7 +5272,7 @@ func (a *TaskInstanceAPIService) PostClearTaskInstances(ctx context.Context, dag
 
 // Execute executes the request
 //  @return TaskInstanceCollectionResponse
-func (a *TaskInstanceAPIService) PostClearTaskInstancesExecute(r ApiPostClearTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) PostClearTaskInstancesExecute(r TaskInstanceAPIPostClearTaskInstancesRequest) (*TaskInstanceCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5405,7 +5405,7 @@ func (a *TaskInstanceAPIService) PostClearTaskInstancesExecute(r ApiPostClearTas
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateHitlDetailRequest struct {
+type TaskInstanceAPIUpdateHitlDetailRequest struct {
 	ctx context.Context
 	ApiService *TaskInstanceAPIService
 	dagId string
@@ -5415,12 +5415,12 @@ type ApiUpdateHitlDetailRequest struct {
 	updateHITLDetailPayload *UpdateHITLDetailPayload
 }
 
-func (r ApiUpdateHitlDetailRequest) UpdateHITLDetailPayload(updateHITLDetailPayload UpdateHITLDetailPayload) ApiUpdateHitlDetailRequest {
+func (r TaskInstanceAPIUpdateHitlDetailRequest) UpdateHITLDetailPayload(updateHITLDetailPayload UpdateHITLDetailPayload) TaskInstanceAPIUpdateHitlDetailRequest {
 	r.updateHITLDetailPayload = &updateHITLDetailPayload
 	return r
 }
 
-func (r ApiUpdateHitlDetailRequest) Execute() (*HITLDetailResponse, *http.Response, error) {
+func (r TaskInstanceAPIUpdateHitlDetailRequest) Execute() (*HITLDetailResponse, *http.Response, error) {
 	return r.ApiService.UpdateHitlDetailExecute(r)
 }
 
@@ -5434,10 +5434,10 @@ Update a Human-in-the-loop detail.
  @param dagRunId
  @param taskId
  @param mapIndex
- @return ApiUpdateHitlDetailRequest
+ @return TaskInstanceAPIUpdateHitlDetailRequest
 */
-func (a *TaskInstanceAPIService) UpdateHitlDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) ApiUpdateHitlDetailRequest {
-	return ApiUpdateHitlDetailRequest{
+func (a *TaskInstanceAPIService) UpdateHitlDetail(ctx context.Context, dagId string, dagRunId string, taskId string, mapIndex int32) TaskInstanceAPIUpdateHitlDetailRequest {
+	return TaskInstanceAPIUpdateHitlDetailRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -5449,7 +5449,7 @@ func (a *TaskInstanceAPIService) UpdateHitlDetail(ctx context.Context, dagId str
 
 // Execute executes the request
 //  @return HITLDetailResponse
-func (a *TaskInstanceAPIService) UpdateHitlDetailExecute(r ApiUpdateHitlDetailRequest) (*HITLDetailResponse, *http.Response, error) {
+func (a *TaskInstanceAPIService) UpdateHitlDetailExecute(r TaskInstanceAPIUpdateHitlDetailRequest) (*HITLDetailResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

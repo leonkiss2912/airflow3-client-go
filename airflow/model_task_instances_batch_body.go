@@ -23,33 +23,33 @@ type TaskInstancesBatchBody struct {
 	DagIds []string `json:"dag_ids,omitempty"`
 	DagRunIds []string `json:"dag_run_ids,omitempty"`
 	TaskIds []string `json:"task_ids,omitempty"`
-	State []*TaskInstanceState `json:"state,omitempty"`
-	RunAfterGte NullableTime `json:"run_after_gte,omitempty"`
-	RunAfterGt NullableTime `json:"run_after_gt,omitempty"`
-	RunAfterLte NullableTime `json:"run_after_lte,omitempty"`
-	RunAfterLt NullableTime `json:"run_after_lt,omitempty"`
-	LogicalDateGte NullableTime `json:"logical_date_gte,omitempty"`
-	LogicalDateGt NullableTime `json:"logical_date_gt,omitempty"`
-	LogicalDateLte NullableTime `json:"logical_date_lte,omitempty"`
-	LogicalDateLt NullableTime `json:"logical_date_lt,omitempty"`
-	StartDateGte NullableTime `json:"start_date_gte,omitempty"`
-	StartDateGt NullableTime `json:"start_date_gt,omitempty"`
-	StartDateLte NullableTime `json:"start_date_lte,omitempty"`
-	StartDateLt NullableTime `json:"start_date_lt,omitempty"`
-	EndDateGte NullableTime `json:"end_date_gte,omitempty"`
-	EndDateGt NullableTime `json:"end_date_gt,omitempty"`
-	EndDateLte NullableTime `json:"end_date_lte,omitempty"`
-	EndDateLt NullableTime `json:"end_date_lt,omitempty"`
-	DurationGte NullableFloat32 `json:"duration_gte,omitempty"`
-	DurationGt NullableFloat32 `json:"duration_gt,omitempty"`
-	DurationLte NullableFloat32 `json:"duration_lte,omitempty"`
-	DurationLt NullableFloat32 `json:"duration_lt,omitempty"`
+	State []TaskInstanceState `json:"state,omitempty"`
+	RunAfterGte *time.Time `json:"run_after_gte,omitempty"`
+	RunAfterGt *time.Time `json:"run_after_gt,omitempty"`
+	RunAfterLte *time.Time `json:"run_after_lte,omitempty"`
+	RunAfterLt *time.Time `json:"run_after_lt,omitempty"`
+	LogicalDateGte *time.Time `json:"logical_date_gte,omitempty"`
+	LogicalDateGt *time.Time `json:"logical_date_gt,omitempty"`
+	LogicalDateLte *time.Time `json:"logical_date_lte,omitempty"`
+	LogicalDateLt *time.Time `json:"logical_date_lt,omitempty"`
+	StartDateGte *time.Time `json:"start_date_gte,omitempty"`
+	StartDateGt *time.Time `json:"start_date_gt,omitempty"`
+	StartDateLte *time.Time `json:"start_date_lte,omitempty"`
+	StartDateLt *time.Time `json:"start_date_lt,omitempty"`
+	EndDateGte *time.Time `json:"end_date_gte,omitempty"`
+	EndDateGt *time.Time `json:"end_date_gt,omitempty"`
+	EndDateLte *time.Time `json:"end_date_lte,omitempty"`
+	EndDateLt *time.Time `json:"end_date_lt,omitempty"`
+	DurationGte *float32 `json:"duration_gte,omitempty"`
+	DurationGt *float32 `json:"duration_gt,omitempty"`
+	DurationLte *float32 `json:"duration_lte,omitempty"`
+	DurationLt *float32 `json:"duration_lt,omitempty"`
 	Pool []string `json:"pool,omitempty"`
 	Queue []string `json:"queue,omitempty"`
 	Executor []string `json:"executor,omitempty"`
 	PageOffset *int32 `json:"page_offset,omitempty"`
 	PageLimit *int32 `json:"page_limit,omitempty"`
-	OrderBy NullableString `json:"order_by,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
 }
 
 // NewTaskInstancesBatchBody instantiates a new TaskInstancesBatchBody object
@@ -77,9 +77,9 @@ func NewTaskInstancesBatchBodyWithDefaults() *TaskInstancesBatchBody {
 	return &this
 }
 
-// GetDagIds returns the DagIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagIds returns the DagIds field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDagIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.DagIds) {
 		var ret []string
 		return ret
 	}
@@ -88,7 +88,6 @@ func (o *TaskInstancesBatchBody) GetDagIds() []string {
 
 // GetDagIdsOk returns a tuple with the DagIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDagIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.DagIds) {
 		return nil, false
@@ -110,9 +109,9 @@ func (o *TaskInstancesBatchBody) SetDagIds(v []string) {
 	o.DagIds = v
 }
 
-// GetDagRunIds returns the DagRunIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunIds returns the DagRunIds field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDagRunIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunIds) {
 		var ret []string
 		return ret
 	}
@@ -121,7 +120,6 @@ func (o *TaskInstancesBatchBody) GetDagRunIds() []string {
 
 // GetDagRunIdsOk returns a tuple with the DagRunIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDagRunIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.DagRunIds) {
 		return nil, false
@@ -143,9 +141,9 @@ func (o *TaskInstancesBatchBody) SetDagRunIds(v []string) {
 	o.DagRunIds = v
 }
 
-// GetTaskIds returns the TaskIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTaskIds returns the TaskIds field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetTaskIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.TaskIds) {
 		var ret []string
 		return ret
 	}
@@ -154,7 +152,6 @@ func (o *TaskInstancesBatchBody) GetTaskIds() []string {
 
 // GetTaskIdsOk returns a tuple with the TaskIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetTaskIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.TaskIds) {
 		return nil, false
@@ -176,10 +173,10 @@ func (o *TaskInstancesBatchBody) SetTaskIds(v []string) {
 	o.TaskIds = v
 }
 
-// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TaskInstancesBatchBody) GetState() []*TaskInstanceState {
-	if o == nil {
-		var ret []*TaskInstanceState
+// GetState returns the State field value if set, zero value otherwise.
+func (o *TaskInstancesBatchBody) GetState() []TaskInstanceState {
+	if o == nil || IsNil(o.State) {
+		var ret []TaskInstanceState
 		return ret
 	}
 	return o.State
@@ -187,8 +184,7 @@ func (o *TaskInstancesBatchBody) GetState() []*TaskInstanceState {
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TaskInstancesBatchBody) GetStateOk() ([]*TaskInstanceState, bool) {
+func (o *TaskInstancesBatchBody) GetStateOk() ([]TaskInstanceState, bool) {
 	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
@@ -204,854 +200,654 @@ func (o *TaskInstancesBatchBody) HasState() bool {
 	return false
 }
 
-// SetState gets a reference to the given []*TaskInstanceState and assigns it to the State field.
-func (o *TaskInstancesBatchBody) SetState(v []*TaskInstanceState) {
+// SetState gets a reference to the given []TaskInstanceState and assigns it to the State field.
+func (o *TaskInstancesBatchBody) SetState(v []TaskInstanceState) {
 	o.State = v
 }
 
-// GetRunAfterGte returns the RunAfterGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterGte returns the RunAfterGte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetRunAfterGte() time.Time {
-	if o == nil || IsNil(o.RunAfterGte.Get()) {
+	if o == nil || IsNil(o.RunAfterGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterGte.Get()
+	return *o.RunAfterGte
 }
 
 // GetRunAfterGteOk returns a tuple with the RunAfterGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetRunAfterGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterGte) {
 		return nil, false
 	}
-	return o.RunAfterGte.Get(), o.RunAfterGte.IsSet()
+	return o.RunAfterGte, true
 }
 
 // HasRunAfterGte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasRunAfterGte() bool {
-	if o != nil && o.RunAfterGte.IsSet() {
+	if o != nil && !IsNil(o.RunAfterGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterGte gets a reference to the given NullableTime and assigns it to the RunAfterGte field.
+// SetRunAfterGte gets a reference to the given time.Time and assigns it to the RunAfterGte field.
 func (o *TaskInstancesBatchBody) SetRunAfterGte(v time.Time) {
-	o.RunAfterGte.Set(&v)
-}
-// SetRunAfterGteNil sets the value for RunAfterGte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetRunAfterGteNil() {
-	o.RunAfterGte.Set(nil)
+	o.RunAfterGte = &v
 }
 
-// UnsetRunAfterGte ensures that no value is present for RunAfterGte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetRunAfterGte() {
-	o.RunAfterGte.Unset()
-}
-
-// GetRunAfterGt returns the RunAfterGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterGt returns the RunAfterGt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetRunAfterGt() time.Time {
-	if o == nil || IsNil(o.RunAfterGt.Get()) {
+	if o == nil || IsNil(o.RunAfterGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterGt.Get()
+	return *o.RunAfterGt
 }
 
 // GetRunAfterGtOk returns a tuple with the RunAfterGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetRunAfterGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterGt) {
 		return nil, false
 	}
-	return o.RunAfterGt.Get(), o.RunAfterGt.IsSet()
+	return o.RunAfterGt, true
 }
 
 // HasRunAfterGt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasRunAfterGt() bool {
-	if o != nil && o.RunAfterGt.IsSet() {
+	if o != nil && !IsNil(o.RunAfterGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterGt gets a reference to the given NullableTime and assigns it to the RunAfterGt field.
+// SetRunAfterGt gets a reference to the given time.Time and assigns it to the RunAfterGt field.
 func (o *TaskInstancesBatchBody) SetRunAfterGt(v time.Time) {
-	o.RunAfterGt.Set(&v)
-}
-// SetRunAfterGtNil sets the value for RunAfterGt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetRunAfterGtNil() {
-	o.RunAfterGt.Set(nil)
+	o.RunAfterGt = &v
 }
 
-// UnsetRunAfterGt ensures that no value is present for RunAfterGt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetRunAfterGt() {
-	o.RunAfterGt.Unset()
-}
-
-// GetRunAfterLte returns the RunAfterLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterLte returns the RunAfterLte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetRunAfterLte() time.Time {
-	if o == nil || IsNil(o.RunAfterLte.Get()) {
+	if o == nil || IsNil(o.RunAfterLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterLte.Get()
+	return *o.RunAfterLte
 }
 
 // GetRunAfterLteOk returns a tuple with the RunAfterLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetRunAfterLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterLte) {
 		return nil, false
 	}
-	return o.RunAfterLte.Get(), o.RunAfterLte.IsSet()
+	return o.RunAfterLte, true
 }
 
 // HasRunAfterLte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasRunAfterLte() bool {
-	if o != nil && o.RunAfterLte.IsSet() {
+	if o != nil && !IsNil(o.RunAfterLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterLte gets a reference to the given NullableTime and assigns it to the RunAfterLte field.
+// SetRunAfterLte gets a reference to the given time.Time and assigns it to the RunAfterLte field.
 func (o *TaskInstancesBatchBody) SetRunAfterLte(v time.Time) {
-	o.RunAfterLte.Set(&v)
-}
-// SetRunAfterLteNil sets the value for RunAfterLte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetRunAfterLteNil() {
-	o.RunAfterLte.Set(nil)
+	o.RunAfterLte = &v
 }
 
-// UnsetRunAfterLte ensures that no value is present for RunAfterLte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetRunAfterLte() {
-	o.RunAfterLte.Unset()
-}
-
-// GetRunAfterLt returns the RunAfterLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRunAfterLt returns the RunAfterLt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetRunAfterLt() time.Time {
-	if o == nil || IsNil(o.RunAfterLt.Get()) {
+	if o == nil || IsNil(o.RunAfterLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.RunAfterLt.Get()
+	return *o.RunAfterLt
 }
 
 // GetRunAfterLtOk returns a tuple with the RunAfterLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetRunAfterLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.RunAfterLt) {
 		return nil, false
 	}
-	return o.RunAfterLt.Get(), o.RunAfterLt.IsSet()
+	return o.RunAfterLt, true
 }
 
 // HasRunAfterLt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasRunAfterLt() bool {
-	if o != nil && o.RunAfterLt.IsSet() {
+	if o != nil && !IsNil(o.RunAfterLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetRunAfterLt gets a reference to the given NullableTime and assigns it to the RunAfterLt field.
+// SetRunAfterLt gets a reference to the given time.Time and assigns it to the RunAfterLt field.
 func (o *TaskInstancesBatchBody) SetRunAfterLt(v time.Time) {
-	o.RunAfterLt.Set(&v)
-}
-// SetRunAfterLtNil sets the value for RunAfterLt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetRunAfterLtNil() {
-	o.RunAfterLt.Set(nil)
+	o.RunAfterLt = &v
 }
 
-// UnsetRunAfterLt ensures that no value is present for RunAfterLt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetRunAfterLt() {
-	o.RunAfterLt.Unset()
-}
-
-// GetLogicalDateGte returns the LogicalDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateGte returns the LogicalDateGte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetLogicalDateGte() time.Time {
-	if o == nil || IsNil(o.LogicalDateGte.Get()) {
+	if o == nil || IsNil(o.LogicalDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateGte.Get()
+	return *o.LogicalDateGte
 }
 
 // GetLogicalDateGteOk returns a tuple with the LogicalDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetLogicalDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateGte) {
 		return nil, false
 	}
-	return o.LogicalDateGte.Get(), o.LogicalDateGte.IsSet()
+	return o.LogicalDateGte, true
 }
 
 // HasLogicalDateGte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasLogicalDateGte() bool {
-	if o != nil && o.LogicalDateGte.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateGte gets a reference to the given NullableTime and assigns it to the LogicalDateGte field.
+// SetLogicalDateGte gets a reference to the given time.Time and assigns it to the LogicalDateGte field.
 func (o *TaskInstancesBatchBody) SetLogicalDateGte(v time.Time) {
-	o.LogicalDateGte.Set(&v)
-}
-// SetLogicalDateGteNil sets the value for LogicalDateGte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetLogicalDateGteNil() {
-	o.LogicalDateGte.Set(nil)
+	o.LogicalDateGte = &v
 }
 
-// UnsetLogicalDateGte ensures that no value is present for LogicalDateGte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetLogicalDateGte() {
-	o.LogicalDateGte.Unset()
-}
-
-// GetLogicalDateGt returns the LogicalDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateGt returns the LogicalDateGt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetLogicalDateGt() time.Time {
-	if o == nil || IsNil(o.LogicalDateGt.Get()) {
+	if o == nil || IsNil(o.LogicalDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateGt.Get()
+	return *o.LogicalDateGt
 }
 
 // GetLogicalDateGtOk returns a tuple with the LogicalDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetLogicalDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateGt) {
 		return nil, false
 	}
-	return o.LogicalDateGt.Get(), o.LogicalDateGt.IsSet()
+	return o.LogicalDateGt, true
 }
 
 // HasLogicalDateGt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasLogicalDateGt() bool {
-	if o != nil && o.LogicalDateGt.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateGt gets a reference to the given NullableTime and assigns it to the LogicalDateGt field.
+// SetLogicalDateGt gets a reference to the given time.Time and assigns it to the LogicalDateGt field.
 func (o *TaskInstancesBatchBody) SetLogicalDateGt(v time.Time) {
-	o.LogicalDateGt.Set(&v)
-}
-// SetLogicalDateGtNil sets the value for LogicalDateGt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetLogicalDateGtNil() {
-	o.LogicalDateGt.Set(nil)
+	o.LogicalDateGt = &v
 }
 
-// UnsetLogicalDateGt ensures that no value is present for LogicalDateGt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetLogicalDateGt() {
-	o.LogicalDateGt.Unset()
-}
-
-// GetLogicalDateLte returns the LogicalDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateLte returns the LogicalDateLte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetLogicalDateLte() time.Time {
-	if o == nil || IsNil(o.LogicalDateLte.Get()) {
+	if o == nil || IsNil(o.LogicalDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateLte.Get()
+	return *o.LogicalDateLte
 }
 
 // GetLogicalDateLteOk returns a tuple with the LogicalDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetLogicalDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateLte) {
 		return nil, false
 	}
-	return o.LogicalDateLte.Get(), o.LogicalDateLte.IsSet()
+	return o.LogicalDateLte, true
 }
 
 // HasLogicalDateLte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasLogicalDateLte() bool {
-	if o != nil && o.LogicalDateLte.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateLte gets a reference to the given NullableTime and assigns it to the LogicalDateLte field.
+// SetLogicalDateLte gets a reference to the given time.Time and assigns it to the LogicalDateLte field.
 func (o *TaskInstancesBatchBody) SetLogicalDateLte(v time.Time) {
-	o.LogicalDateLte.Set(&v)
-}
-// SetLogicalDateLteNil sets the value for LogicalDateLte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetLogicalDateLteNil() {
-	o.LogicalDateLte.Set(nil)
+	o.LogicalDateLte = &v
 }
 
-// UnsetLogicalDateLte ensures that no value is present for LogicalDateLte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetLogicalDateLte() {
-	o.LogicalDateLte.Unset()
-}
-
-// GetLogicalDateLt returns the LogicalDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLogicalDateLt returns the LogicalDateLt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetLogicalDateLt() time.Time {
-	if o == nil || IsNil(o.LogicalDateLt.Get()) {
+	if o == nil || IsNil(o.LogicalDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.LogicalDateLt.Get()
+	return *o.LogicalDateLt
 }
 
 // GetLogicalDateLtOk returns a tuple with the LogicalDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetLogicalDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LogicalDateLt) {
 		return nil, false
 	}
-	return o.LogicalDateLt.Get(), o.LogicalDateLt.IsSet()
+	return o.LogicalDateLt, true
 }
 
 // HasLogicalDateLt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasLogicalDateLt() bool {
-	if o != nil && o.LogicalDateLt.IsSet() {
+	if o != nil && !IsNil(o.LogicalDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetLogicalDateLt gets a reference to the given NullableTime and assigns it to the LogicalDateLt field.
+// SetLogicalDateLt gets a reference to the given time.Time and assigns it to the LogicalDateLt field.
 func (o *TaskInstancesBatchBody) SetLogicalDateLt(v time.Time) {
-	o.LogicalDateLt.Set(&v)
-}
-// SetLogicalDateLtNil sets the value for LogicalDateLt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetLogicalDateLtNil() {
-	o.LogicalDateLt.Set(nil)
+	o.LogicalDateLt = &v
 }
 
-// UnsetLogicalDateLt ensures that no value is present for LogicalDateLt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetLogicalDateLt() {
-	o.LogicalDateLt.Unset()
-}
-
-// GetStartDateGte returns the StartDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateGte returns the StartDateGte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetStartDateGte() time.Time {
-	if o == nil || IsNil(o.StartDateGte.Get()) {
+	if o == nil || IsNil(o.StartDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateGte.Get()
+	return *o.StartDateGte
 }
 
 // GetStartDateGteOk returns a tuple with the StartDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetStartDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateGte) {
 		return nil, false
 	}
-	return o.StartDateGte.Get(), o.StartDateGte.IsSet()
+	return o.StartDateGte, true
 }
 
 // HasStartDateGte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasStartDateGte() bool {
-	if o != nil && o.StartDateGte.IsSet() {
+	if o != nil && !IsNil(o.StartDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateGte gets a reference to the given NullableTime and assigns it to the StartDateGte field.
+// SetStartDateGte gets a reference to the given time.Time and assigns it to the StartDateGte field.
 func (o *TaskInstancesBatchBody) SetStartDateGte(v time.Time) {
-	o.StartDateGte.Set(&v)
-}
-// SetStartDateGteNil sets the value for StartDateGte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetStartDateGteNil() {
-	o.StartDateGte.Set(nil)
+	o.StartDateGte = &v
 }
 
-// UnsetStartDateGte ensures that no value is present for StartDateGte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetStartDateGte() {
-	o.StartDateGte.Unset()
-}
-
-// GetStartDateGt returns the StartDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateGt returns the StartDateGt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetStartDateGt() time.Time {
-	if o == nil || IsNil(o.StartDateGt.Get()) {
+	if o == nil || IsNil(o.StartDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateGt.Get()
+	return *o.StartDateGt
 }
 
 // GetStartDateGtOk returns a tuple with the StartDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetStartDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateGt) {
 		return nil, false
 	}
-	return o.StartDateGt.Get(), o.StartDateGt.IsSet()
+	return o.StartDateGt, true
 }
 
 // HasStartDateGt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasStartDateGt() bool {
-	if o != nil && o.StartDateGt.IsSet() {
+	if o != nil && !IsNil(o.StartDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateGt gets a reference to the given NullableTime and assigns it to the StartDateGt field.
+// SetStartDateGt gets a reference to the given time.Time and assigns it to the StartDateGt field.
 func (o *TaskInstancesBatchBody) SetStartDateGt(v time.Time) {
-	o.StartDateGt.Set(&v)
-}
-// SetStartDateGtNil sets the value for StartDateGt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetStartDateGtNil() {
-	o.StartDateGt.Set(nil)
+	o.StartDateGt = &v
 }
 
-// UnsetStartDateGt ensures that no value is present for StartDateGt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetStartDateGt() {
-	o.StartDateGt.Unset()
-}
-
-// GetStartDateLte returns the StartDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateLte returns the StartDateLte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetStartDateLte() time.Time {
-	if o == nil || IsNil(o.StartDateLte.Get()) {
+	if o == nil || IsNil(o.StartDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateLte.Get()
+	return *o.StartDateLte
 }
 
 // GetStartDateLteOk returns a tuple with the StartDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetStartDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateLte) {
 		return nil, false
 	}
-	return o.StartDateLte.Get(), o.StartDateLte.IsSet()
+	return o.StartDateLte, true
 }
 
 // HasStartDateLte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasStartDateLte() bool {
-	if o != nil && o.StartDateLte.IsSet() {
+	if o != nil && !IsNil(o.StartDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateLte gets a reference to the given NullableTime and assigns it to the StartDateLte field.
+// SetStartDateLte gets a reference to the given time.Time and assigns it to the StartDateLte field.
 func (o *TaskInstancesBatchBody) SetStartDateLte(v time.Time) {
-	o.StartDateLte.Set(&v)
-}
-// SetStartDateLteNil sets the value for StartDateLte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetStartDateLteNil() {
-	o.StartDateLte.Set(nil)
+	o.StartDateLte = &v
 }
 
-// UnsetStartDateLte ensures that no value is present for StartDateLte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetStartDateLte() {
-	o.StartDateLte.Unset()
-}
-
-// GetStartDateLt returns the StartDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStartDateLt returns the StartDateLt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetStartDateLt() time.Time {
-	if o == nil || IsNil(o.StartDateLt.Get()) {
+	if o == nil || IsNil(o.StartDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.StartDateLt.Get()
+	return *o.StartDateLt
 }
 
 // GetStartDateLtOk returns a tuple with the StartDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetStartDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.StartDateLt) {
 		return nil, false
 	}
-	return o.StartDateLt.Get(), o.StartDateLt.IsSet()
+	return o.StartDateLt, true
 }
 
 // HasStartDateLt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasStartDateLt() bool {
-	if o != nil && o.StartDateLt.IsSet() {
+	if o != nil && !IsNil(o.StartDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDateLt gets a reference to the given NullableTime and assigns it to the StartDateLt field.
+// SetStartDateLt gets a reference to the given time.Time and assigns it to the StartDateLt field.
 func (o *TaskInstancesBatchBody) SetStartDateLt(v time.Time) {
-	o.StartDateLt.Set(&v)
-}
-// SetStartDateLtNil sets the value for StartDateLt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetStartDateLtNil() {
-	o.StartDateLt.Set(nil)
+	o.StartDateLt = &v
 }
 
-// UnsetStartDateLt ensures that no value is present for StartDateLt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetStartDateLt() {
-	o.StartDateLt.Unset()
-}
-
-// GetEndDateGte returns the EndDateGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateGte returns the EndDateGte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetEndDateGte() time.Time {
-	if o == nil || IsNil(o.EndDateGte.Get()) {
+	if o == nil || IsNil(o.EndDateGte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateGte.Get()
+	return *o.EndDateGte
 }
 
 // GetEndDateGteOk returns a tuple with the EndDateGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetEndDateGteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateGte) {
 		return nil, false
 	}
-	return o.EndDateGte.Get(), o.EndDateGte.IsSet()
+	return o.EndDateGte, true
 }
 
 // HasEndDateGte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasEndDateGte() bool {
-	if o != nil && o.EndDateGte.IsSet() {
+	if o != nil && !IsNil(o.EndDateGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateGte gets a reference to the given NullableTime and assigns it to the EndDateGte field.
+// SetEndDateGte gets a reference to the given time.Time and assigns it to the EndDateGte field.
 func (o *TaskInstancesBatchBody) SetEndDateGte(v time.Time) {
-	o.EndDateGte.Set(&v)
-}
-// SetEndDateGteNil sets the value for EndDateGte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetEndDateGteNil() {
-	o.EndDateGte.Set(nil)
+	o.EndDateGte = &v
 }
 
-// UnsetEndDateGte ensures that no value is present for EndDateGte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetEndDateGte() {
-	o.EndDateGte.Unset()
-}
-
-// GetEndDateGt returns the EndDateGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateGt returns the EndDateGt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetEndDateGt() time.Time {
-	if o == nil || IsNil(o.EndDateGt.Get()) {
+	if o == nil || IsNil(o.EndDateGt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateGt.Get()
+	return *o.EndDateGt
 }
 
 // GetEndDateGtOk returns a tuple with the EndDateGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetEndDateGtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateGt) {
 		return nil, false
 	}
-	return o.EndDateGt.Get(), o.EndDateGt.IsSet()
+	return o.EndDateGt, true
 }
 
 // HasEndDateGt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasEndDateGt() bool {
-	if o != nil && o.EndDateGt.IsSet() {
+	if o != nil && !IsNil(o.EndDateGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateGt gets a reference to the given NullableTime and assigns it to the EndDateGt field.
+// SetEndDateGt gets a reference to the given time.Time and assigns it to the EndDateGt field.
 func (o *TaskInstancesBatchBody) SetEndDateGt(v time.Time) {
-	o.EndDateGt.Set(&v)
-}
-// SetEndDateGtNil sets the value for EndDateGt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetEndDateGtNil() {
-	o.EndDateGt.Set(nil)
+	o.EndDateGt = &v
 }
 
-// UnsetEndDateGt ensures that no value is present for EndDateGt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetEndDateGt() {
-	o.EndDateGt.Unset()
-}
-
-// GetEndDateLte returns the EndDateLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateLte returns the EndDateLte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetEndDateLte() time.Time {
-	if o == nil || IsNil(o.EndDateLte.Get()) {
+	if o == nil || IsNil(o.EndDateLte) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateLte.Get()
+	return *o.EndDateLte
 }
 
 // GetEndDateLteOk returns a tuple with the EndDateLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetEndDateLteOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateLte) {
 		return nil, false
 	}
-	return o.EndDateLte.Get(), o.EndDateLte.IsSet()
+	return o.EndDateLte, true
 }
 
 // HasEndDateLte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasEndDateLte() bool {
-	if o != nil && o.EndDateLte.IsSet() {
+	if o != nil && !IsNil(o.EndDateLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateLte gets a reference to the given NullableTime and assigns it to the EndDateLte field.
+// SetEndDateLte gets a reference to the given time.Time and assigns it to the EndDateLte field.
 func (o *TaskInstancesBatchBody) SetEndDateLte(v time.Time) {
-	o.EndDateLte.Set(&v)
-}
-// SetEndDateLteNil sets the value for EndDateLte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetEndDateLteNil() {
-	o.EndDateLte.Set(nil)
+	o.EndDateLte = &v
 }
 
-// UnsetEndDateLte ensures that no value is present for EndDateLte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetEndDateLte() {
-	o.EndDateLte.Unset()
-}
-
-// GetEndDateLt returns the EndDateLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEndDateLt returns the EndDateLt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetEndDateLt() time.Time {
-	if o == nil || IsNil(o.EndDateLt.Get()) {
+	if o == nil || IsNil(o.EndDateLt) {
 		var ret time.Time
 		return ret
 	}
-	return *o.EndDateLt.Get()
+	return *o.EndDateLt
 }
 
 // GetEndDateLtOk returns a tuple with the EndDateLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetEndDateLtOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EndDateLt) {
 		return nil, false
 	}
-	return o.EndDateLt.Get(), o.EndDateLt.IsSet()
+	return o.EndDateLt, true
 }
 
 // HasEndDateLt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasEndDateLt() bool {
-	if o != nil && o.EndDateLt.IsSet() {
+	if o != nil && !IsNil(o.EndDateLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDateLt gets a reference to the given NullableTime and assigns it to the EndDateLt field.
+// SetEndDateLt gets a reference to the given time.Time and assigns it to the EndDateLt field.
 func (o *TaskInstancesBatchBody) SetEndDateLt(v time.Time) {
-	o.EndDateLt.Set(&v)
-}
-// SetEndDateLtNil sets the value for EndDateLt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetEndDateLtNil() {
-	o.EndDateLt.Set(nil)
+	o.EndDateLt = &v
 }
 
-// UnsetEndDateLt ensures that no value is present for EndDateLt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetEndDateLt() {
-	o.EndDateLt.Unset()
-}
-
-// GetDurationGte returns the DurationGte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationGte returns the DurationGte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDurationGte() float32 {
-	if o == nil || IsNil(o.DurationGte.Get()) {
+	if o == nil || IsNil(o.DurationGte) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationGte.Get()
+	return *o.DurationGte
 }
 
 // GetDurationGteOk returns a tuple with the DurationGte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDurationGteOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationGte) {
 		return nil, false
 	}
-	return o.DurationGte.Get(), o.DurationGte.IsSet()
+	return o.DurationGte, true
 }
 
 // HasDurationGte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasDurationGte() bool {
-	if o != nil && o.DurationGte.IsSet() {
+	if o != nil && !IsNil(o.DurationGte) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationGte gets a reference to the given NullableFloat32 and assigns it to the DurationGte field.
+// SetDurationGte gets a reference to the given float32 and assigns it to the DurationGte field.
 func (o *TaskInstancesBatchBody) SetDurationGte(v float32) {
-	o.DurationGte.Set(&v)
-}
-// SetDurationGteNil sets the value for DurationGte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetDurationGteNil() {
-	o.DurationGte.Set(nil)
+	o.DurationGte = &v
 }
 
-// UnsetDurationGte ensures that no value is present for DurationGte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetDurationGte() {
-	o.DurationGte.Unset()
-}
-
-// GetDurationGt returns the DurationGt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationGt returns the DurationGt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDurationGt() float32 {
-	if o == nil || IsNil(o.DurationGt.Get()) {
+	if o == nil || IsNil(o.DurationGt) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationGt.Get()
+	return *o.DurationGt
 }
 
 // GetDurationGtOk returns a tuple with the DurationGt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDurationGtOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationGt) {
 		return nil, false
 	}
-	return o.DurationGt.Get(), o.DurationGt.IsSet()
+	return o.DurationGt, true
 }
 
 // HasDurationGt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasDurationGt() bool {
-	if o != nil && o.DurationGt.IsSet() {
+	if o != nil && !IsNil(o.DurationGt) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationGt gets a reference to the given NullableFloat32 and assigns it to the DurationGt field.
+// SetDurationGt gets a reference to the given float32 and assigns it to the DurationGt field.
 func (o *TaskInstancesBatchBody) SetDurationGt(v float32) {
-	o.DurationGt.Set(&v)
-}
-// SetDurationGtNil sets the value for DurationGt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetDurationGtNil() {
-	o.DurationGt.Set(nil)
+	o.DurationGt = &v
 }
 
-// UnsetDurationGt ensures that no value is present for DurationGt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetDurationGt() {
-	o.DurationGt.Unset()
-}
-
-// GetDurationLte returns the DurationLte field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationLte returns the DurationLte field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDurationLte() float32 {
-	if o == nil || IsNil(o.DurationLte.Get()) {
+	if o == nil || IsNil(o.DurationLte) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationLte.Get()
+	return *o.DurationLte
 }
 
 // GetDurationLteOk returns a tuple with the DurationLte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDurationLteOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationLte) {
 		return nil, false
 	}
-	return o.DurationLte.Get(), o.DurationLte.IsSet()
+	return o.DurationLte, true
 }
 
 // HasDurationLte returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasDurationLte() bool {
-	if o != nil && o.DurationLte.IsSet() {
+	if o != nil && !IsNil(o.DurationLte) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationLte gets a reference to the given NullableFloat32 and assigns it to the DurationLte field.
+// SetDurationLte gets a reference to the given float32 and assigns it to the DurationLte field.
 func (o *TaskInstancesBatchBody) SetDurationLte(v float32) {
-	o.DurationLte.Set(&v)
-}
-// SetDurationLteNil sets the value for DurationLte to be an explicit nil
-func (o *TaskInstancesBatchBody) SetDurationLteNil() {
-	o.DurationLte.Set(nil)
+	o.DurationLte = &v
 }
 
-// UnsetDurationLte ensures that no value is present for DurationLte, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetDurationLte() {
-	o.DurationLte.Unset()
-}
-
-// GetDurationLt returns the DurationLt field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDurationLt returns the DurationLt field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetDurationLt() float32 {
-	if o == nil || IsNil(o.DurationLt.Get()) {
+	if o == nil || IsNil(o.DurationLt) {
 		var ret float32
 		return ret
 	}
-	return *o.DurationLt.Get()
+	return *o.DurationLt
 }
 
 // GetDurationLtOk returns a tuple with the DurationLt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetDurationLtOk() (*float32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DurationLt) {
 		return nil, false
 	}
-	return o.DurationLt.Get(), o.DurationLt.IsSet()
+	return o.DurationLt, true
 }
 
 // HasDurationLt returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasDurationLt() bool {
-	if o != nil && o.DurationLt.IsSet() {
+	if o != nil && !IsNil(o.DurationLt) {
 		return true
 	}
 
 	return false
 }
 
-// SetDurationLt gets a reference to the given NullableFloat32 and assigns it to the DurationLt field.
+// SetDurationLt gets a reference to the given float32 and assigns it to the DurationLt field.
 func (o *TaskInstancesBatchBody) SetDurationLt(v float32) {
-	o.DurationLt.Set(&v)
-}
-// SetDurationLtNil sets the value for DurationLt to be an explicit nil
-func (o *TaskInstancesBatchBody) SetDurationLtNil() {
-	o.DurationLt.Set(nil)
+	o.DurationLt = &v
 }
 
-// UnsetDurationLt ensures that no value is present for DurationLt, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetDurationLt() {
-	o.DurationLt.Unset()
-}
-
-// GetPool returns the Pool field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPool returns the Pool field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetPool() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Pool) {
 		var ret []string
 		return ret
 	}
@@ -1060,7 +856,6 @@ func (o *TaskInstancesBatchBody) GetPool() []string {
 
 // GetPoolOk returns a tuple with the Pool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetPoolOk() ([]string, bool) {
 	if o == nil || IsNil(o.Pool) {
 		return nil, false
@@ -1082,9 +877,9 @@ func (o *TaskInstancesBatchBody) SetPool(v []string) {
 	o.Pool = v
 }
 
-// GetQueue returns the Queue field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetQueue returns the Queue field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetQueue() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Queue) {
 		var ret []string
 		return ret
 	}
@@ -1093,7 +888,6 @@ func (o *TaskInstancesBatchBody) GetQueue() []string {
 
 // GetQueueOk returns a tuple with the Queue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetQueueOk() ([]string, bool) {
 	if o == nil || IsNil(o.Queue) {
 		return nil, false
@@ -1115,9 +909,9 @@ func (o *TaskInstancesBatchBody) SetQueue(v []string) {
 	o.Queue = v
 }
 
-// GetExecutor returns the Executor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExecutor returns the Executor field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetExecutor() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Executor) {
 		var ret []string
 		return ret
 	}
@@ -1126,7 +920,6 @@ func (o *TaskInstancesBatchBody) GetExecutor() []string {
 
 // GetExecutorOk returns a tuple with the Executor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetExecutorOk() ([]string, bool) {
 	if o == nil || IsNil(o.Executor) {
 		return nil, false
@@ -1212,46 +1005,36 @@ func (o *TaskInstancesBatchBody) SetPageLimit(v int32) {
 	o.PageLimit = &v
 }
 
-// GetOrderBy returns the OrderBy field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOrderBy returns the OrderBy field value if set, zero value otherwise.
 func (o *TaskInstancesBatchBody) GetOrderBy() string {
-	if o == nil || IsNil(o.OrderBy.Get()) {
+	if o == nil || IsNil(o.OrderBy) {
 		var ret string
 		return ret
 	}
-	return *o.OrderBy.Get()
+	return *o.OrderBy
 }
 
 // GetOrderByOk returns a tuple with the OrderBy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesBatchBody) GetOrderByOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.OrderBy) {
 		return nil, false
 	}
-	return o.OrderBy.Get(), o.OrderBy.IsSet()
+	return o.OrderBy, true
 }
 
 // HasOrderBy returns a boolean if a field has been set.
 func (o *TaskInstancesBatchBody) HasOrderBy() bool {
-	if o != nil && o.OrderBy.IsSet() {
+	if o != nil && !IsNil(o.OrderBy) {
 		return true
 	}
 
 	return false
 }
 
-// SetOrderBy gets a reference to the given NullableString and assigns it to the OrderBy field.
+// SetOrderBy gets a reference to the given string and assigns it to the OrderBy field.
 func (o *TaskInstancesBatchBody) SetOrderBy(v string) {
-	o.OrderBy.Set(&v)
-}
-// SetOrderByNil sets the value for OrderBy to be an explicit nil
-func (o *TaskInstancesBatchBody) SetOrderByNil() {
-	o.OrderBy.Set(nil)
-}
-
-// UnsetOrderBy ensures that no value is present for OrderBy, not even an explicit nil
-func (o *TaskInstancesBatchBody) UnsetOrderBy() {
-	o.OrderBy.Unset()
+	o.OrderBy = &v
 }
 
 func (o TaskInstancesBatchBody) MarshalJSON() ([]byte, error) {
@@ -1264,85 +1047,85 @@ func (o TaskInstancesBatchBody) MarshalJSON() ([]byte, error) {
 
 func (o TaskInstancesBatchBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.DagIds != nil {
+	if !IsNil(o.DagIds) {
 		toSerialize["dag_ids"] = o.DagIds
 	}
-	if o.DagRunIds != nil {
+	if !IsNil(o.DagRunIds) {
 		toSerialize["dag_run_ids"] = o.DagRunIds
 	}
-	if o.TaskIds != nil {
+	if !IsNil(o.TaskIds) {
 		toSerialize["task_ids"] = o.TaskIds
 	}
-	if o.State != nil {
+	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if o.RunAfterGte.IsSet() {
-		toSerialize["run_after_gte"] = o.RunAfterGte.Get()
+	if !IsNil(o.RunAfterGte) {
+		toSerialize["run_after_gte"] = o.RunAfterGte
 	}
-	if o.RunAfterGt.IsSet() {
-		toSerialize["run_after_gt"] = o.RunAfterGt.Get()
+	if !IsNil(o.RunAfterGt) {
+		toSerialize["run_after_gt"] = o.RunAfterGt
 	}
-	if o.RunAfterLte.IsSet() {
-		toSerialize["run_after_lte"] = o.RunAfterLte.Get()
+	if !IsNil(o.RunAfterLte) {
+		toSerialize["run_after_lte"] = o.RunAfterLte
 	}
-	if o.RunAfterLt.IsSet() {
-		toSerialize["run_after_lt"] = o.RunAfterLt.Get()
+	if !IsNil(o.RunAfterLt) {
+		toSerialize["run_after_lt"] = o.RunAfterLt
 	}
-	if o.LogicalDateGte.IsSet() {
-		toSerialize["logical_date_gte"] = o.LogicalDateGte.Get()
+	if !IsNil(o.LogicalDateGte) {
+		toSerialize["logical_date_gte"] = o.LogicalDateGte
 	}
-	if o.LogicalDateGt.IsSet() {
-		toSerialize["logical_date_gt"] = o.LogicalDateGt.Get()
+	if !IsNil(o.LogicalDateGt) {
+		toSerialize["logical_date_gt"] = o.LogicalDateGt
 	}
-	if o.LogicalDateLte.IsSet() {
-		toSerialize["logical_date_lte"] = o.LogicalDateLte.Get()
+	if !IsNil(o.LogicalDateLte) {
+		toSerialize["logical_date_lte"] = o.LogicalDateLte
 	}
-	if o.LogicalDateLt.IsSet() {
-		toSerialize["logical_date_lt"] = o.LogicalDateLt.Get()
+	if !IsNil(o.LogicalDateLt) {
+		toSerialize["logical_date_lt"] = o.LogicalDateLt
 	}
-	if o.StartDateGte.IsSet() {
-		toSerialize["start_date_gte"] = o.StartDateGte.Get()
+	if !IsNil(o.StartDateGte) {
+		toSerialize["start_date_gte"] = o.StartDateGte
 	}
-	if o.StartDateGt.IsSet() {
-		toSerialize["start_date_gt"] = o.StartDateGt.Get()
+	if !IsNil(o.StartDateGt) {
+		toSerialize["start_date_gt"] = o.StartDateGt
 	}
-	if o.StartDateLte.IsSet() {
-		toSerialize["start_date_lte"] = o.StartDateLte.Get()
+	if !IsNil(o.StartDateLte) {
+		toSerialize["start_date_lte"] = o.StartDateLte
 	}
-	if o.StartDateLt.IsSet() {
-		toSerialize["start_date_lt"] = o.StartDateLt.Get()
+	if !IsNil(o.StartDateLt) {
+		toSerialize["start_date_lt"] = o.StartDateLt
 	}
-	if o.EndDateGte.IsSet() {
-		toSerialize["end_date_gte"] = o.EndDateGte.Get()
+	if !IsNil(o.EndDateGte) {
+		toSerialize["end_date_gte"] = o.EndDateGte
 	}
-	if o.EndDateGt.IsSet() {
-		toSerialize["end_date_gt"] = o.EndDateGt.Get()
+	if !IsNil(o.EndDateGt) {
+		toSerialize["end_date_gt"] = o.EndDateGt
 	}
-	if o.EndDateLte.IsSet() {
-		toSerialize["end_date_lte"] = o.EndDateLte.Get()
+	if !IsNil(o.EndDateLte) {
+		toSerialize["end_date_lte"] = o.EndDateLte
 	}
-	if o.EndDateLt.IsSet() {
-		toSerialize["end_date_lt"] = o.EndDateLt.Get()
+	if !IsNil(o.EndDateLt) {
+		toSerialize["end_date_lt"] = o.EndDateLt
 	}
-	if o.DurationGte.IsSet() {
-		toSerialize["duration_gte"] = o.DurationGte.Get()
+	if !IsNil(o.DurationGte) {
+		toSerialize["duration_gte"] = o.DurationGte
 	}
-	if o.DurationGt.IsSet() {
-		toSerialize["duration_gt"] = o.DurationGt.Get()
+	if !IsNil(o.DurationGt) {
+		toSerialize["duration_gt"] = o.DurationGt
 	}
-	if o.DurationLte.IsSet() {
-		toSerialize["duration_lte"] = o.DurationLte.Get()
+	if !IsNil(o.DurationLte) {
+		toSerialize["duration_lte"] = o.DurationLte
 	}
-	if o.DurationLt.IsSet() {
-		toSerialize["duration_lt"] = o.DurationLt.Get()
+	if !IsNil(o.DurationLt) {
+		toSerialize["duration_lt"] = o.DurationLt
 	}
-	if o.Pool != nil {
+	if !IsNil(o.Pool) {
 		toSerialize["pool"] = o.Pool
 	}
-	if o.Queue != nil {
+	if !IsNil(o.Queue) {
 		toSerialize["queue"] = o.Queue
 	}
-	if o.Executor != nil {
+	if !IsNil(o.Executor) {
 		toSerialize["executor"] = o.Executor
 	}
 	if !IsNil(o.PageOffset) {
@@ -1351,8 +1134,8 @@ func (o TaskInstancesBatchBody) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PageLimit) {
 		toSerialize["page_limit"] = o.PageLimit
 	}
-	if o.OrderBy.IsSet() {
-		toSerialize["order_by"] = o.OrderBy.Get()
+	if !IsNil(o.OrderBy) {
+		toSerialize["order_by"] = o.OrderBy
 	}
 	return toSerialize, nil
 }

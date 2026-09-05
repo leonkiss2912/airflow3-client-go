@@ -7,17 +7,17 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **VersionNumber** | **int32** |  | 
 **DagId** | **string** |  | 
-**BundleName** | **NullableString** |  | 
-**BundleVersion** | **NullableString** |  | 
+**BundleName** | **string** |  | 
+**BundleVersion** | **string** |  | 
 **CreatedAt** | **time.Time** |  | 
 **DagDisplayName** | **string** |  | 
-**BundleUrl** | **NullableString** |  | 
+**BundleUrl** | **string** |  | 
 
 ## Methods
 
 ### NewDagVersionResponse
 
-`func NewDagVersionResponse(id string, versionNumber int32, dagId string, bundleName NullableString, bundleVersion NullableString, createdAt time.Time, dagDisplayName string, bundleUrl NullableString, ) *DagVersionResponse`
+`func NewDagVersionResponse(id string, versionNumber int32, dagId string, bundleName string, bundleVersion string, createdAt time.Time, dagDisplayName string, bundleUrl string, ) *DagVersionResponse`
 
 NewDagVersionResponse instantiates a new DagVersionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -112,16 +112,6 @@ and a boolean to check if the value has been set.
 SetBundleName sets BundleName field to given value.
 
 
-### SetBundleNameNil
-
-`func (o *DagVersionResponse) SetBundleNameNil(b bool)`
-
- SetBundleNameNil sets the value for BundleName to be an explicit nil
-
-### UnsetBundleName
-`func (o *DagVersionResponse) UnsetBundleName()`
-
-UnsetBundleName ensures that no value is present for BundleName, not even an explicit nil
 ### GetBundleVersion
 
 `func (o *DagVersionResponse) GetBundleVersion() string`
@@ -142,16 +132,6 @@ and a boolean to check if the value has been set.
 SetBundleVersion sets BundleVersion field to given value.
 
 
-### SetBundleVersionNil
-
-`func (o *DagVersionResponse) SetBundleVersionNil(b bool)`
-
- SetBundleVersionNil sets the value for BundleVersion to be an explicit nil
-
-### UnsetBundleVersion
-`func (o *DagVersionResponse) UnsetBundleVersion()`
-
-UnsetBundleVersion ensures that no value is present for BundleVersion, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *DagVersionResponse) GetCreatedAt() time.Time`
@@ -212,16 +192,6 @@ and a boolean to check if the value has been set.
 SetBundleUrl sets BundleUrl field to given value.
 
 
-### SetBundleUrlNil
-
-`func (o *DagVersionResponse) SetBundleUrlNil(b bool)`
-
- SetBundleUrlNil sets the value for BundleUrl to be an explicit nil
-
-### UnsetBundleUrl
-`func (o *DagVersionResponse) UnsetBundleUrl()`
-
-UnsetBundleUrl ensures that no value is present for BundleUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

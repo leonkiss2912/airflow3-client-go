@@ -22,32 +22,32 @@ var _ MappedNullable = &TaskResponse{}
 
 // TaskResponse Task serializer for responses.
 type TaskResponse struct {
-	TaskId NullableString `json:"task_id"`
-	TaskDisplayName NullableString `json:"task_display_name"`
-	Owner NullableString `json:"owner"`
-	StartDate NullableTime `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
-	TriggerRule NullableString `json:"trigger_rule"`
+	TaskId string `json:"task_id"`
+	TaskDisplayName string `json:"task_display_name"`
+	Owner string `json:"owner"`
+	StartDate time.Time `json:"start_date"`
+	EndDate time.Time `json:"end_date"`
+	TriggerRule string `json:"trigger_rule"`
 	DependsOnPast bool `json:"depends_on_past"`
 	WaitForDownstream bool `json:"wait_for_downstream"`
-	Retries NullableFloat32 `json:"retries"`
-	Queue NullableString `json:"queue"`
-	Pool NullableString `json:"pool"`
-	PoolSlots NullableFloat32 `json:"pool_slots"`
-	ExecutionTimeout NullableTimeDelta `json:"execution_timeout"`
-	RetryDelay NullableTimeDelta `json:"retry_delay"`
+	Retries float32 `json:"retries"`
+	Queue string `json:"queue"`
+	Pool string `json:"pool"`
+	PoolSlots float32 `json:"pool_slots"`
+	ExecutionTimeout TimeDelta `json:"execution_timeout"`
+	RetryDelay TimeDelta `json:"retry_delay"`
 	RetryExponentialBackoff float32 `json:"retry_exponential_backoff"`
-	PriorityWeight NullableFloat32 `json:"priority_weight"`
-	WeightRule NullableString `json:"weight_rule"`
-	UiColor NullableString `json:"ui_color"`
-	UiFgcolor NullableString `json:"ui_fgcolor"`
+	PriorityWeight float32 `json:"priority_weight"`
+	WeightRule string `json:"weight_rule"`
+	UiColor string `json:"ui_color"`
+	UiFgcolor string `json:"ui_fgcolor"`
 	TemplateFields []string `json:"template_fields"`
 	DownstreamTaskIds []string `json:"downstream_task_ids"`
-	DocMd NullableString `json:"doc_md"`
-	OperatorName NullableString `json:"operator_name"`
+	DocMd string `json:"doc_md"`
+	OperatorName string `json:"operator_name"`
 	Params map[string]interface{} `json:"params"`
 	ClassRef map[string]interface{} `json:"class_ref"`
-	IsMapped NullableBool `json:"is_mapped"`
+	IsMapped bool `json:"is_mapped"`
 	// Extract and return extra_links.
 	ExtraLinks []string `json:"extra_links"`
 }
@@ -58,7 +58,7 @@ type _TaskResponse TaskResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTaskResponse(taskId NullableString, taskDisplayName NullableString, owner NullableString, startDate NullableTime, endDate NullableTime, triggerRule NullableString, dependsOnPast bool, waitForDownstream bool, retries NullableFloat32, queue NullableString, pool NullableString, poolSlots NullableFloat32, executionTimeout NullableTimeDelta, retryDelay NullableTimeDelta, retryExponentialBackoff float32, priorityWeight NullableFloat32, weightRule NullableString, uiColor NullableString, uiFgcolor NullableString, templateFields []string, downstreamTaskIds []string, docMd NullableString, operatorName NullableString, params map[string]interface{}, classRef map[string]interface{}, isMapped NullableBool, extraLinks []string) *TaskResponse {
+func CreateTaskResponse(taskId string, taskDisplayName string, owner string, startDate time.Time, endDate time.Time, triggerRule string, dependsOnPast bool, waitForDownstream bool, retries float32, queue string, pool string, poolSlots float32, executionTimeout TimeDelta, retryDelay TimeDelta, retryExponentialBackoff float32, priorityWeight float32, weightRule string, uiColor string, uiFgcolor string, templateFields []string, downstreamTaskIds []string, docMd string, operatorName string, params map[string]interface{}, classRef map[string]interface{}, isMapped bool, extraLinks []string) *TaskResponse {
 	this := TaskResponse{}
 	this.TaskId = taskId
 	this.TaskDisplayName = taskDisplayName
@@ -99,159 +99,147 @@ func NewTaskResponseWithDefaults() *TaskResponse {
 }
 
 // GetTaskId returns the TaskId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetTaskId() string {
-	if o == nil || o.TaskId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TaskId.Get()
+	return o.TaskId
 }
 
 // GetTaskIdOk returns a tuple with the TaskId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetTaskIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TaskId.Get(), o.TaskId.IsSet()
+	return &o.TaskId, true
 }
 
 // SetTaskId sets field value
 func (o *TaskResponse) SetTaskId(v string) {
-	o.TaskId.Set(&v)
+	o.TaskId = v
 }
 
 // GetTaskDisplayName returns the TaskDisplayName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetTaskDisplayName() string {
-	if o == nil || o.TaskDisplayName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TaskDisplayName.Get()
+	return o.TaskDisplayName
 }
 
 // GetTaskDisplayNameOk returns a tuple with the TaskDisplayName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetTaskDisplayNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TaskDisplayName.Get(), o.TaskDisplayName.IsSet()
+	return &o.TaskDisplayName, true
 }
 
 // SetTaskDisplayName sets field value
 func (o *TaskResponse) SetTaskDisplayName(v string) {
-	o.TaskDisplayName.Set(&v)
+	o.TaskDisplayName = v
 }
 
 // GetOwner returns the Owner field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetOwner() string {
-	if o == nil || o.Owner.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Owner.Get()
+	return o.Owner
 }
 
 // GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetOwnerOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Owner.Get(), o.Owner.IsSet()
+	return &o.Owner, true
 }
 
 // SetOwner sets field value
 func (o *TaskResponse) SetOwner(v string) {
-	o.Owner.Set(&v)
+	o.Owner = v
 }
 
 // GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskResponse) GetStartDate() time.Time {
-	if o == nil || o.StartDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.StartDate.Get()
+	return o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetStartDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return &o.StartDate, true
 }
 
 // SetStartDate sets field value
 func (o *TaskResponse) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TaskResponse) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *TaskResponse) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetTriggerRule returns the TriggerRule field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetTriggerRule() string {
-	if o == nil || o.TriggerRule.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TriggerRule.Get()
+	return o.TriggerRule
 }
 
 // GetTriggerRuleOk returns a tuple with the TriggerRule field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetTriggerRuleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TriggerRule.Get(), o.TriggerRule.IsSet()
+	return &o.TriggerRule, true
 }
 
 // SetTriggerRule sets field value
 func (o *TaskResponse) SetTriggerRule(v string) {
-	o.TriggerRule.Set(&v)
+	o.TriggerRule = v
 }
 
 // GetDependsOnPast returns the DependsOnPast field value
@@ -303,159 +291,147 @@ func (o *TaskResponse) SetWaitForDownstream(v bool) {
 }
 
 // GetRetries returns the Retries field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *TaskResponse) GetRetries() float32 {
-	if o == nil || o.Retries.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.Retries.Get()
+	return o.Retries
 }
 
 // GetRetriesOk returns a tuple with the Retries field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetRetriesOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Retries.Get(), o.Retries.IsSet()
+	return &o.Retries, true
 }
 
 // SetRetries sets field value
 func (o *TaskResponse) SetRetries(v float32) {
-	o.Retries.Set(&v)
+	o.Retries = v
 }
 
 // GetQueue returns the Queue field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetQueue() string {
-	if o == nil || o.Queue.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Queue.Get()
+	return o.Queue
 }
 
 // GetQueueOk returns a tuple with the Queue field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetQueueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Queue.Get(), o.Queue.IsSet()
+	return &o.Queue, true
 }
 
 // SetQueue sets field value
 func (o *TaskResponse) SetQueue(v string) {
-	o.Queue.Set(&v)
+	o.Queue = v
 }
 
 // GetPool returns the Pool field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetPool() string {
-	if o == nil || o.Pool.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Pool.Get()
+	return o.Pool
 }
 
 // GetPoolOk returns a tuple with the Pool field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetPoolOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Pool.Get(), o.Pool.IsSet()
+	return &o.Pool, true
 }
 
 // SetPool sets field value
 func (o *TaskResponse) SetPool(v string) {
-	o.Pool.Set(&v)
+	o.Pool = v
 }
 
 // GetPoolSlots returns the PoolSlots field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *TaskResponse) GetPoolSlots() float32 {
-	if o == nil || o.PoolSlots.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.PoolSlots.Get()
+	return o.PoolSlots
 }
 
 // GetPoolSlotsOk returns a tuple with the PoolSlots field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetPoolSlotsOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PoolSlots.Get(), o.PoolSlots.IsSet()
+	return &o.PoolSlots, true
 }
 
 // SetPoolSlots sets field value
 func (o *TaskResponse) SetPoolSlots(v float32) {
-	o.PoolSlots.Set(&v)
+	o.PoolSlots = v
 }
 
 // GetExecutionTimeout returns the ExecutionTimeout field value
-// If the value is explicit nil, the zero value for TimeDelta will be returned
 func (o *TaskResponse) GetExecutionTimeout() TimeDelta {
-	if o == nil || o.ExecutionTimeout.Get() == nil {
+	if o == nil {
 		var ret TimeDelta
 		return ret
 	}
 
-	return *o.ExecutionTimeout.Get()
+	return o.ExecutionTimeout
 }
 
 // GetExecutionTimeoutOk returns a tuple with the ExecutionTimeout field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetExecutionTimeoutOk() (*TimeDelta, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExecutionTimeout.Get(), o.ExecutionTimeout.IsSet()
+	return &o.ExecutionTimeout, true
 }
 
 // SetExecutionTimeout sets field value
 func (o *TaskResponse) SetExecutionTimeout(v TimeDelta) {
-	o.ExecutionTimeout.Set(&v)
+	o.ExecutionTimeout = v
 }
 
 // GetRetryDelay returns the RetryDelay field value
-// If the value is explicit nil, the zero value for TimeDelta will be returned
 func (o *TaskResponse) GetRetryDelay() TimeDelta {
-	if o == nil || o.RetryDelay.Get() == nil {
+	if o == nil {
 		var ret TimeDelta
 		return ret
 	}
 
-	return *o.RetryDelay.Get()
+	return o.RetryDelay
 }
 
 // GetRetryDelayOk returns a tuple with the RetryDelay field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetRetryDelayOk() (*TimeDelta, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RetryDelay.Get(), o.RetryDelay.IsSet()
+	return &o.RetryDelay, true
 }
 
 // SetRetryDelay sets field value
 func (o *TaskResponse) SetRetryDelay(v TimeDelta) {
-	o.RetryDelay.Set(&v)
+	o.RetryDelay = v
 }
 
 // GetRetryExponentialBackoff returns the RetryExponentialBackoff field value
@@ -483,111 +459,102 @@ func (o *TaskResponse) SetRetryExponentialBackoff(v float32) {
 }
 
 // GetPriorityWeight returns the PriorityWeight field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *TaskResponse) GetPriorityWeight() float32 {
-	if o == nil || o.PriorityWeight.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.PriorityWeight.Get()
+	return o.PriorityWeight
 }
 
 // GetPriorityWeightOk returns a tuple with the PriorityWeight field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetPriorityWeightOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PriorityWeight.Get(), o.PriorityWeight.IsSet()
+	return &o.PriorityWeight, true
 }
 
 // SetPriorityWeight sets field value
 func (o *TaskResponse) SetPriorityWeight(v float32) {
-	o.PriorityWeight.Set(&v)
+	o.PriorityWeight = v
 }
 
 // GetWeightRule returns the WeightRule field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetWeightRule() string {
-	if o == nil || o.WeightRule.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.WeightRule.Get()
+	return o.WeightRule
 }
 
 // GetWeightRuleOk returns a tuple with the WeightRule field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetWeightRuleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WeightRule.Get(), o.WeightRule.IsSet()
+	return &o.WeightRule, true
 }
 
 // SetWeightRule sets field value
 func (o *TaskResponse) SetWeightRule(v string) {
-	o.WeightRule.Set(&v)
+	o.WeightRule = v
 }
 
 // GetUiColor returns the UiColor field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetUiColor() string {
-	if o == nil || o.UiColor.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.UiColor.Get()
+	return o.UiColor
 }
 
 // GetUiColorOk returns a tuple with the UiColor field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetUiColorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UiColor.Get(), o.UiColor.IsSet()
+	return &o.UiColor, true
 }
 
 // SetUiColor sets field value
 func (o *TaskResponse) SetUiColor(v string) {
-	o.UiColor.Set(&v)
+	o.UiColor = v
 }
 
 // GetUiFgcolor returns the UiFgcolor field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetUiFgcolor() string {
-	if o == nil || o.UiFgcolor.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.UiFgcolor.Get()
+	return o.UiFgcolor
 }
 
 // GetUiFgcolorOk returns a tuple with the UiFgcolor field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetUiFgcolorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UiFgcolor.Get(), o.UiFgcolor.IsSet()
+	return &o.UiFgcolor, true
 }
 
 // SetUiFgcolor sets field value
 func (o *TaskResponse) SetUiFgcolor(v string) {
-	o.UiFgcolor.Set(&v)
+	o.UiFgcolor = v
 }
 
 // GetTemplateFields returns the TemplateFields field value
-// If the value is explicit nil, the zero value for []string will be returned
 func (o *TaskResponse) GetTemplateFields() []string {
 	if o == nil {
 		var ret []string
@@ -599,9 +566,8 @@ func (o *TaskResponse) GetTemplateFields() []string {
 
 // GetTemplateFieldsOk returns a tuple with the TemplateFields field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetTemplateFieldsOk() ([]string, bool) {
-	if o == nil || IsNil(o.TemplateFields) {
+	if o == nil {
 		return nil, false
 	}
 	return o.TemplateFields, true
@@ -613,7 +579,6 @@ func (o *TaskResponse) SetTemplateFields(v []string) {
 }
 
 // GetDownstreamTaskIds returns the DownstreamTaskIds field value
-// If the value is explicit nil, the zero value for []string will be returned
 func (o *TaskResponse) GetDownstreamTaskIds() []string {
 	if o == nil {
 		var ret []string
@@ -625,9 +590,8 @@ func (o *TaskResponse) GetDownstreamTaskIds() []string {
 
 // GetDownstreamTaskIdsOk returns a tuple with the DownstreamTaskIds field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetDownstreamTaskIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.DownstreamTaskIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.DownstreamTaskIds, true
@@ -639,59 +603,54 @@ func (o *TaskResponse) SetDownstreamTaskIds(v []string) {
 }
 
 // GetDocMd returns the DocMd field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetDocMd() string {
-	if o == nil || o.DocMd.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DocMd.Get()
+	return o.DocMd
 }
 
 // GetDocMdOk returns a tuple with the DocMd field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetDocMdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DocMd.Get(), o.DocMd.IsSet()
+	return &o.DocMd, true
 }
 
 // SetDocMd sets field value
 func (o *TaskResponse) SetDocMd(v string) {
-	o.DocMd.Set(&v)
+	o.DocMd = v
 }
 
 // GetOperatorName returns the OperatorName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskResponse) GetOperatorName() string {
-	if o == nil || o.OperatorName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.OperatorName.Get()
+	return o.OperatorName
 }
 
 // GetOperatorNameOk returns a tuple with the OperatorName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetOperatorNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.OperatorName.Get(), o.OperatorName.IsSet()
+	return &o.OperatorName, true
 }
 
 // SetOperatorName sets field value
 func (o *TaskResponse) SetOperatorName(v string) {
-	o.OperatorName.Set(&v)
+	o.OperatorName = v
 }
 
 // GetParams returns the Params field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *TaskResponse) GetParams() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -703,9 +662,8 @@ func (o *TaskResponse) GetParams() map[string]interface{} {
 
 // GetParamsOk returns a tuple with the Params field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetParamsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Params) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Params, true
@@ -717,7 +675,6 @@ func (o *TaskResponse) SetParams(v map[string]interface{}) {
 }
 
 // GetClassRef returns the ClassRef field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *TaskResponse) GetClassRef() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -729,9 +686,8 @@ func (o *TaskResponse) GetClassRef() map[string]interface{} {
 
 // GetClassRefOk returns a tuple with the ClassRef field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetClassRefOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.ClassRef) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.ClassRef, true
@@ -743,29 +699,27 @@ func (o *TaskResponse) SetClassRef(v map[string]interface{}) {
 }
 
 // GetIsMapped returns the IsMapped field value
-// If the value is explicit nil, the zero value for bool will be returned
 func (o *TaskResponse) GetIsMapped() bool {
-	if o == nil || o.IsMapped.Get() == nil {
+	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return *o.IsMapped.Get()
+	return o.IsMapped
 }
 
 // GetIsMappedOk returns a tuple with the IsMapped field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskResponse) GetIsMappedOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IsMapped.Get(), o.IsMapped.IsSet()
+	return &o.IsMapped, true
 }
 
 // SetIsMapped sets field value
 func (o *TaskResponse) SetIsMapped(v bool) {
-	o.IsMapped.Set(&v)
+	o.IsMapped = v
 }
 
 // GetExtraLinks returns the ExtraLinks field value
@@ -802,40 +756,32 @@ func (o TaskResponse) MarshalJSON() ([]byte, error) {
 
 func (o TaskResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["task_id"] = o.TaskId.Get()
-	toSerialize["task_display_name"] = o.TaskDisplayName.Get()
-	toSerialize["owner"] = o.Owner.Get()
-	toSerialize["start_date"] = o.StartDate.Get()
-	toSerialize["end_date"] = o.EndDate.Get()
-	toSerialize["trigger_rule"] = o.TriggerRule.Get()
+	toSerialize["task_id"] = o.TaskId
+	toSerialize["task_display_name"] = o.TaskDisplayName
+	toSerialize["owner"] = o.Owner
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["trigger_rule"] = o.TriggerRule
 	toSerialize["depends_on_past"] = o.DependsOnPast
 	toSerialize["wait_for_downstream"] = o.WaitForDownstream
-	toSerialize["retries"] = o.Retries.Get()
-	toSerialize["queue"] = o.Queue.Get()
-	toSerialize["pool"] = o.Pool.Get()
-	toSerialize["pool_slots"] = o.PoolSlots.Get()
-	toSerialize["execution_timeout"] = o.ExecutionTimeout.Get()
-	toSerialize["retry_delay"] = o.RetryDelay.Get()
+	toSerialize["retries"] = o.Retries
+	toSerialize["queue"] = o.Queue
+	toSerialize["pool"] = o.Pool
+	toSerialize["pool_slots"] = o.PoolSlots
+	toSerialize["execution_timeout"] = o.ExecutionTimeout
+	toSerialize["retry_delay"] = o.RetryDelay
 	toSerialize["retry_exponential_backoff"] = o.RetryExponentialBackoff
-	toSerialize["priority_weight"] = o.PriorityWeight.Get()
-	toSerialize["weight_rule"] = o.WeightRule.Get()
-	toSerialize["ui_color"] = o.UiColor.Get()
-	toSerialize["ui_fgcolor"] = o.UiFgcolor.Get()
-	if o.TemplateFields != nil {
-		toSerialize["template_fields"] = o.TemplateFields
-	}
-	if o.DownstreamTaskIds != nil {
-		toSerialize["downstream_task_ids"] = o.DownstreamTaskIds
-	}
-	toSerialize["doc_md"] = o.DocMd.Get()
-	toSerialize["operator_name"] = o.OperatorName.Get()
-	if o.Params != nil {
-		toSerialize["params"] = o.Params
-	}
-	if o.ClassRef != nil {
-		toSerialize["class_ref"] = o.ClassRef
-	}
-	toSerialize["is_mapped"] = o.IsMapped.Get()
+	toSerialize["priority_weight"] = o.PriorityWeight
+	toSerialize["weight_rule"] = o.WeightRule
+	toSerialize["ui_color"] = o.UiColor
+	toSerialize["ui_fgcolor"] = o.UiFgcolor
+	toSerialize["template_fields"] = o.TemplateFields
+	toSerialize["downstream_task_ids"] = o.DownstreamTaskIds
+	toSerialize["doc_md"] = o.DocMd
+	toSerialize["operator_name"] = o.OperatorName
+	toSerialize["params"] = o.Params
+	toSerialize["class_ref"] = o.ClassRef
+	toSerialize["is_mapped"] = o.IsMapped
 	toSerialize["extra_links"] = o.ExtraLinks
 	return toSerialize, nil
 }

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Classpath** | **string** |  | 
 **Kwargs** | **string** |  | 
 **CreatedDate** | **time.Time** |  | 
-**Queue** | **NullableString** |  | 
-**TriggererId** | **NullableInt32** |  | 
+**Queue** | **string** |  | 
+**TriggererId** | **int32** |  | 
 
 ## Methods
 
 ### NewTriggerResponse
 
-`func NewTriggerResponse(id int32, classpath string, kwargs string, createdDate time.Time, queue NullableString, triggererId NullableInt32, ) *TriggerResponse`
+`func NewTriggerResponse(id int32, classpath string, kwargs string, createdDate time.Time, queue string, triggererId int32, ) *TriggerResponse`
 
 NewTriggerResponse instantiates a new TriggerResponse object
 This constructor will assign default values to properties that have it defined,
@@ -130,16 +130,6 @@ and a boolean to check if the value has been set.
 SetQueue sets Queue field to given value.
 
 
-### SetQueueNil
-
-`func (o *TriggerResponse) SetQueueNil(b bool)`
-
- SetQueueNil sets the value for Queue to be an explicit nil
-
-### UnsetQueue
-`func (o *TriggerResponse) UnsetQueue()`
-
-UnsetQueue ensures that no value is present for Queue, not even an explicit nil
 ### GetTriggererId
 
 `func (o *TriggerResponse) GetTriggererId() int32`
@@ -160,16 +150,6 @@ and a boolean to check if the value has been set.
 SetTriggererId sets TriggererId field to given value.
 
 
-### SetTriggererIdNil
-
-`func (o *TriggerResponse) SetTriggererIdNil(b bool)`
-
- SetTriggererIdNil sets the value for TriggererId to be an explicit nil
-
-### UnsetTriggererId
-`func (o *TriggerResponse) UnsetTriggererId()`
-
-UnsetTriggererId ensures that no value is present for TriggererId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

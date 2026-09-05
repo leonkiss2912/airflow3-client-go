@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The action to be performed on the entities. | 
 **Entities** | [**[]BulkTaskInstanceBody**](BulkTaskInstanceBody.md) | A list of entities to be created. | 
-**ActionOnExistence** | Pointer to [**BulkActionOnExistence**](BulkActionOnExistence.md) |  | [optional] [default to FAIL]
+**ActionOnExistence** | Pointer to [**BulkActionOnExistence**](BulkActionOnExistence.md) |  | [optional] [default to BULKACTIONONEXISTENCE_FAIL]
 
 ## Methods
 

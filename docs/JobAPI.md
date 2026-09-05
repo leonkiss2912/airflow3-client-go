@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
 	endDateLt := time.Now() // time.Time |  (optional)
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	offset := int32(56) // int32 |  (optional) (default to 0)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dag_id, state, job_type, start_date, end_date, latest_heartbeat, executor_class, hostname, unixname` (optional) (default to {"id"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dag_id, state, job_type, start_date, end_date, latest_heartbeat, executor_class, hostname, unixname` (optional) (default to {"id"})
 	jobState := "jobState_example" // string |  (optional)
 	jobType := "jobType_example" // string |  (optional)
 	hostname := "hostname_example" // string |  (optional)

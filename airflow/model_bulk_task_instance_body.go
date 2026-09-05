@@ -21,16 +21,16 @@ var _ MappedNullable = &BulkTaskInstanceBody{}
 
 // BulkTaskInstanceBody Request body for bulk update, and delete task instances.
 type BulkTaskInstanceBody struct {
-	NewState NullableTaskInstanceState `json:"new_state,omitempty"`
-	Note NullableString `json:"note,omitempty"`
+	NewState *TaskInstanceState `json:"new_state,omitempty"`
+	Note *string `json:"note,omitempty"`
 	IncludeUpstream *bool `json:"include_upstream,omitempty"`
 	IncludeDownstream *bool `json:"include_downstream,omitempty"`
 	IncludeFuture *bool `json:"include_future,omitempty"`
 	IncludePast *bool `json:"include_past,omitempty"`
 	TaskId string `json:"task_id"`
-	MapIndex NullableInt32 `json:"map_index,omitempty"`
-	DagId NullableString `json:"dag_id,omitempty"`
-	DagRunId NullableString `json:"dag_run_id,omitempty"`
+	MapIndex *int32 `json:"map_index,omitempty"`
+	DagId *string `json:"dag_id,omitempty"`
+	DagRunId *string `json:"dag_run_id,omitempty"`
 }
 
 type _BulkTaskInstanceBody BulkTaskInstanceBody
@@ -69,88 +69,68 @@ func NewBulkTaskInstanceBodyWithDefaults() *BulkTaskInstanceBody {
 	return &this
 }
 
-// GetNewState returns the NewState field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNewState returns the NewState field value if set, zero value otherwise.
 func (o *BulkTaskInstanceBody) GetNewState() TaskInstanceState {
-	if o == nil || IsNil(o.NewState.Get()) {
+	if o == nil || IsNil(o.NewState) {
 		var ret TaskInstanceState
 		return ret
 	}
-	return *o.NewState.Get()
+	return *o.NewState
 }
 
 // GetNewStateOk returns a tuple with the NewState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkTaskInstanceBody) GetNewStateOk() (*TaskInstanceState, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NewState) {
 		return nil, false
 	}
-	return o.NewState.Get(), o.NewState.IsSet()
+	return o.NewState, true
 }
 
 // HasNewState returns a boolean if a field has been set.
 func (o *BulkTaskInstanceBody) HasNewState() bool {
-	if o != nil && o.NewState.IsSet() {
+	if o != nil && !IsNil(o.NewState) {
 		return true
 	}
 
 	return false
 }
 
-// SetNewState gets a reference to the given NullableTaskInstanceState and assigns it to the NewState field.
+// SetNewState gets a reference to the given TaskInstanceState and assigns it to the NewState field.
 func (o *BulkTaskInstanceBody) SetNewState(v TaskInstanceState) {
-	o.NewState.Set(&v)
-}
-// SetNewStateNil sets the value for NewState to be an explicit nil
-func (o *BulkTaskInstanceBody) SetNewStateNil() {
-	o.NewState.Set(nil)
+	o.NewState = &v
 }
 
-// UnsetNewState ensures that no value is present for NewState, not even an explicit nil
-func (o *BulkTaskInstanceBody) UnsetNewState() {
-	o.NewState.Unset()
-}
-
-// GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNote returns the Note field value if set, zero value otherwise.
 func (o *BulkTaskInstanceBody) GetNote() string {
-	if o == nil || IsNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note) {
 		var ret string
 		return ret
 	}
-	return *o.Note.Get()
+	return *o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkTaskInstanceBody) GetNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Note) {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return o.Note, true
 }
 
 // HasNote returns a boolean if a field has been set.
 func (o *BulkTaskInstanceBody) HasNote() bool {
-	if o != nil && o.Note.IsSet() {
+	if o != nil && !IsNil(o.Note) {
 		return true
 	}
 
 	return false
 }
 
-// SetNote gets a reference to the given NullableString and assigns it to the Note field.
+// SetNote gets a reference to the given string and assigns it to the Note field.
 func (o *BulkTaskInstanceBody) SetNote(v string) {
-	o.Note.Set(&v)
-}
-// SetNoteNil sets the value for Note to be an explicit nil
-func (o *BulkTaskInstanceBody) SetNoteNil() {
-	o.Note.Set(nil)
-}
-
-// UnsetNote ensures that no value is present for Note, not even an explicit nil
-func (o *BulkTaskInstanceBody) UnsetNote() {
-	o.Note.Unset()
+	o.Note = &v
 }
 
 // GetIncludeUpstream returns the IncludeUpstream field value if set, zero value otherwise.
@@ -305,130 +285,100 @@ func (o *BulkTaskInstanceBody) SetTaskId(v string) {
 	o.TaskId = v
 }
 
-// GetMapIndex returns the MapIndex field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMapIndex returns the MapIndex field value if set, zero value otherwise.
 func (o *BulkTaskInstanceBody) GetMapIndex() int32 {
-	if o == nil || IsNil(o.MapIndex.Get()) {
+	if o == nil || IsNil(o.MapIndex) {
 		var ret int32
 		return ret
 	}
-	return *o.MapIndex.Get()
+	return *o.MapIndex
 }
 
 // GetMapIndexOk returns a tuple with the MapIndex field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkTaskInstanceBody) GetMapIndexOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MapIndex) {
 		return nil, false
 	}
-	return o.MapIndex.Get(), o.MapIndex.IsSet()
+	return o.MapIndex, true
 }
 
 // HasMapIndex returns a boolean if a field has been set.
 func (o *BulkTaskInstanceBody) HasMapIndex() bool {
-	if o != nil && o.MapIndex.IsSet() {
+	if o != nil && !IsNil(o.MapIndex) {
 		return true
 	}
 
 	return false
 }
 
-// SetMapIndex gets a reference to the given NullableInt32 and assigns it to the MapIndex field.
+// SetMapIndex gets a reference to the given int32 and assigns it to the MapIndex field.
 func (o *BulkTaskInstanceBody) SetMapIndex(v int32) {
-	o.MapIndex.Set(&v)
-}
-// SetMapIndexNil sets the value for MapIndex to be an explicit nil
-func (o *BulkTaskInstanceBody) SetMapIndexNil() {
-	o.MapIndex.Set(nil)
+	o.MapIndex = &v
 }
 
-// UnsetMapIndex ensures that no value is present for MapIndex, not even an explicit nil
-func (o *BulkTaskInstanceBody) UnsetMapIndex() {
-	o.MapIndex.Unset()
-}
-
-// GetDagId returns the DagId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagId returns the DagId field value if set, zero value otherwise.
 func (o *BulkTaskInstanceBody) GetDagId() string {
-	if o == nil || IsNil(o.DagId.Get()) {
+	if o == nil || IsNil(o.DagId) {
 		var ret string
 		return ret
 	}
-	return *o.DagId.Get()
+	return *o.DagId
 }
 
 // GetDagIdOk returns a tuple with the DagId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkTaskInstanceBody) GetDagIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagId) {
 		return nil, false
 	}
-	return o.DagId.Get(), o.DagId.IsSet()
+	return o.DagId, true
 }
 
 // HasDagId returns a boolean if a field has been set.
 func (o *BulkTaskInstanceBody) HasDagId() bool {
-	if o != nil && o.DagId.IsSet() {
+	if o != nil && !IsNil(o.DagId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagId gets a reference to the given NullableString and assigns it to the DagId field.
+// SetDagId gets a reference to the given string and assigns it to the DagId field.
 func (o *BulkTaskInstanceBody) SetDagId(v string) {
-	o.DagId.Set(&v)
-}
-// SetDagIdNil sets the value for DagId to be an explicit nil
-func (o *BulkTaskInstanceBody) SetDagIdNil() {
-	o.DagId.Set(nil)
+	o.DagId = &v
 }
 
-// UnsetDagId ensures that no value is present for DagId, not even an explicit nil
-func (o *BulkTaskInstanceBody) UnsetDagId() {
-	o.DagId.Unset()
-}
-
-// GetDagRunId returns the DagRunId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagRunId returns the DagRunId field value if set, zero value otherwise.
 func (o *BulkTaskInstanceBody) GetDagRunId() string {
-	if o == nil || IsNil(o.DagRunId.Get()) {
+	if o == nil || IsNil(o.DagRunId) {
 		var ret string
 		return ret
 	}
-	return *o.DagRunId.Get()
+	return *o.DagRunId
 }
 
 // GetDagRunIdOk returns a tuple with the DagRunId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkTaskInstanceBody) GetDagRunIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagRunId) {
 		return nil, false
 	}
-	return o.DagRunId.Get(), o.DagRunId.IsSet()
+	return o.DagRunId, true
 }
 
 // HasDagRunId returns a boolean if a field has been set.
 func (o *BulkTaskInstanceBody) HasDagRunId() bool {
-	if o != nil && o.DagRunId.IsSet() {
+	if o != nil && !IsNil(o.DagRunId) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagRunId gets a reference to the given NullableString and assigns it to the DagRunId field.
+// SetDagRunId gets a reference to the given string and assigns it to the DagRunId field.
 func (o *BulkTaskInstanceBody) SetDagRunId(v string) {
-	o.DagRunId.Set(&v)
-}
-// SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-func (o *BulkTaskInstanceBody) SetDagRunIdNil() {
-	o.DagRunId.Set(nil)
-}
-
-// UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
-func (o *BulkTaskInstanceBody) UnsetDagRunId() {
-	o.DagRunId.Unset()
+	o.DagRunId = &v
 }
 
 func (o BulkTaskInstanceBody) MarshalJSON() ([]byte, error) {
@@ -441,11 +391,11 @@ func (o BulkTaskInstanceBody) MarshalJSON() ([]byte, error) {
 
 func (o BulkTaskInstanceBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NewState.IsSet() {
-		toSerialize["new_state"] = o.NewState.Get()
+	if !IsNil(o.NewState) {
+		toSerialize["new_state"] = o.NewState
 	}
-	if o.Note.IsSet() {
-		toSerialize["note"] = o.Note.Get()
+	if !IsNil(o.Note) {
+		toSerialize["note"] = o.Note
 	}
 	if !IsNil(o.IncludeUpstream) {
 		toSerialize["include_upstream"] = o.IncludeUpstream
@@ -460,14 +410,14 @@ func (o BulkTaskInstanceBody) ToMap() (map[string]interface{}, error) {
 		toSerialize["include_past"] = o.IncludePast
 	}
 	toSerialize["task_id"] = o.TaskId
-	if o.MapIndex.IsSet() {
-		toSerialize["map_index"] = o.MapIndex.Get()
+	if !IsNil(o.MapIndex) {
+		toSerialize["map_index"] = o.MapIndex
 	}
-	if o.DagId.IsSet() {
-		toSerialize["dag_id"] = o.DagId.Get()
+	if !IsNil(o.DagId) {
+		toSerialize["dag_id"] = o.DagId
 	}
-	if o.DagRunId.IsSet() {
-		toSerialize["dag_run_id"] = o.DagRunId.Get()
+	if !IsNil(o.DagRunId) {
+		toSerialize["dag_run_id"] = o.DagRunId
 	}
 	return toSerialize, nil
 }

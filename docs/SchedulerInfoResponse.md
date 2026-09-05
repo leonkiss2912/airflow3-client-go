@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **NullableString** |  | 
-**LatestSchedulerHeartbeat** | **NullableString** |  | 
+**Status** | **string** |  | 
+**LatestSchedulerHeartbeat** | **string** |  | 
 
 ## Methods
 
 ### NewSchedulerInfoResponse
 
-`func NewSchedulerInfoResponse(status NullableString, latestSchedulerHeartbeat NullableString, ) *SchedulerInfoResponse`
+`func NewSchedulerInfoResponse(status string, latestSchedulerHeartbeat string, ) *SchedulerInfoResponse`
 
 NewSchedulerInfoResponse instantiates a new SchedulerInfoResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,16 +46,6 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
-### SetStatusNil
-
-`func (o *SchedulerInfoResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *SchedulerInfoResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetLatestSchedulerHeartbeat
 
 `func (o *SchedulerInfoResponse) GetLatestSchedulerHeartbeat() string`
@@ -76,16 +66,6 @@ and a boolean to check if the value has been set.
 SetLatestSchedulerHeartbeat sets LatestSchedulerHeartbeat field to given value.
 
 
-### SetLatestSchedulerHeartbeatNil
-
-`func (o *SchedulerInfoResponse) SetLatestSchedulerHeartbeatNil(b bool)`
-
- SetLatestSchedulerHeartbeatNil sets the value for LatestSchedulerHeartbeat to be an explicit nil
-
-### UnsetLatestSchedulerHeartbeat
-`func (o *SchedulerInfoResponse) UnsetLatestSchedulerHeartbeat()`
-
-UnsetLatestSchedulerHeartbeat ensures that no value is present for LatestSchedulerHeartbeat, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

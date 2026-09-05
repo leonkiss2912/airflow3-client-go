@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewState** | Pointer to [**NullableTaskInstanceState**](TaskInstanceState.md) |  | [optional] 
-**Note** | Pointer to **NullableString** |  | [optional] 
+**NewState** | Pointer to [**TaskInstanceState**](TaskInstanceState.md) |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
 **IncludeUpstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeDownstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeFuture** | Pointer to **bool** |  | [optional] [default to false]
@@ -55,16 +55,6 @@ SetNewState sets NewState field to given value.
 
 HasNewState returns a boolean if a field has been set.
 
-### SetNewStateNil
-
-`func (o *PatchTaskInstanceBody) SetNewStateNil(b bool)`
-
- SetNewStateNil sets the value for NewState to be an explicit nil
-
-### UnsetNewState
-`func (o *PatchTaskInstanceBody) UnsetNewState()`
-
-UnsetNewState ensures that no value is present for NewState, not even an explicit nil
 ### GetNote
 
 `func (o *PatchTaskInstanceBody) GetNote() string`
@@ -90,16 +80,6 @@ SetNote sets Note field to given value.
 
 HasNote returns a boolean if a field has been set.
 
-### SetNoteNil
-
-`func (o *PatchTaskInstanceBody) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *PatchTaskInstanceBody) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetIncludeUpstream
 
 `func (o *PatchTaskInstanceBody) GetIncludeUpstream() bool`

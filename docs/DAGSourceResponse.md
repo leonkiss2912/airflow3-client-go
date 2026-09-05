@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | **NullableString** |  | 
+**Content** | **string** |  | 
 **DagId** | **string** |  | 
-**VersionNumber** | **NullableInt32** |  | 
+**VersionNumber** | **int32** |  | 
 **DagDisplayName** | **string** |  | 
 
 ## Methods
 
 ### NewDAGSourceResponse
 
-`func NewDAGSourceResponse(content NullableString, dagId string, versionNumber NullableInt32, dagDisplayName string, ) *DAGSourceResponse`
+`func NewDAGSourceResponse(content string, dagId string, versionNumber int32, dagDisplayName string, ) *DAGSourceResponse`
 
 NewDAGSourceResponse instantiates a new DAGSourceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -48,16 +48,6 @@ and a boolean to check if the value has been set.
 SetContent sets Content field to given value.
 
 
-### SetContentNil
-
-`func (o *DAGSourceResponse) SetContentNil(b bool)`
-
- SetContentNil sets the value for Content to be an explicit nil
-
-### UnsetContent
-`func (o *DAGSourceResponse) UnsetContent()`
-
-UnsetContent ensures that no value is present for Content, not even an explicit nil
 ### GetDagId
 
 `func (o *DAGSourceResponse) GetDagId() string`
@@ -98,16 +88,6 @@ and a boolean to check if the value has been set.
 SetVersionNumber sets VersionNumber field to given value.
 
 
-### SetVersionNumberNil
-
-`func (o *DAGSourceResponse) SetVersionNumberNil(b bool)`
-
- SetVersionNumberNil sets the value for VersionNumber to be an explicit nil
-
-### UnsetVersionNumber
-`func (o *DAGSourceResponse) UnsetVersionNumber()`
-
-UnsetVersionNumber ensures that no value is present for VersionNumber, not even an explicit nil
 ### GetDagDisplayName
 
 `func (o *DAGSourceResponse) GetDagDisplayName() string`

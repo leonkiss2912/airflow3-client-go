@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DagRunId** | Pointer to **NullableString** |  | [optional] 
-**DataIntervalStart** | Pointer to **NullableTime** |  | [optional] 
-**DataIntervalEnd** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDate** | Pointer to **NullableTime** |  | [optional] 
-**RunAfter** | Pointer to **NullableTime** |  | [optional] 
+**DagRunId** | Pointer to **string** |  | [optional] 
+**DataIntervalStart** | Pointer to **time.Time** |  | [optional] 
+**DataIntervalEnd** | Pointer to **time.Time** |  | [optional] 
+**LogicalDate** | Pointer to **time.Time** |  | [optional] 
+**RunAfter** | Pointer to **time.Time** |  | [optional] 
 **Conf** | Pointer to **map[string]interface{}** |  | [optional] 
-**Note** | Pointer to **NullableString** |  | [optional] 
-**PartitionKey** | Pointer to **NullableString** |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
+**PartitionKey** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -57,16 +57,6 @@ SetDagRunId sets DagRunId field to given value.
 
 HasDagRunId returns a boolean if a field has been set.
 
-### SetDagRunIdNil
-
-`func (o *MaterializeAssetBody) SetDagRunIdNil(b bool)`
-
- SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-
-### UnsetDagRunId
-`func (o *MaterializeAssetBody) UnsetDagRunId()`
-
-UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
 ### GetDataIntervalStart
 
 `func (o *MaterializeAssetBody) GetDataIntervalStart() time.Time`
@@ -92,16 +82,6 @@ SetDataIntervalStart sets DataIntervalStart field to given value.
 
 HasDataIntervalStart returns a boolean if a field has been set.
 
-### SetDataIntervalStartNil
-
-`func (o *MaterializeAssetBody) SetDataIntervalStartNil(b bool)`
-
- SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-
-### UnsetDataIntervalStart
-`func (o *MaterializeAssetBody) UnsetDataIntervalStart()`
-
-UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
 ### GetDataIntervalEnd
 
 `func (o *MaterializeAssetBody) GetDataIntervalEnd() time.Time`
@@ -127,16 +107,6 @@ SetDataIntervalEnd sets DataIntervalEnd field to given value.
 
 HasDataIntervalEnd returns a boolean if a field has been set.
 
-### SetDataIntervalEndNil
-
-`func (o *MaterializeAssetBody) SetDataIntervalEndNil(b bool)`
-
- SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-
-### UnsetDataIntervalEnd
-`func (o *MaterializeAssetBody) UnsetDataIntervalEnd()`
-
-UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
 ### GetLogicalDate
 
 `func (o *MaterializeAssetBody) GetLogicalDate() time.Time`
@@ -162,16 +132,6 @@ SetLogicalDate sets LogicalDate field to given value.
 
 HasLogicalDate returns a boolean if a field has been set.
 
-### SetLogicalDateNil
-
-`func (o *MaterializeAssetBody) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *MaterializeAssetBody) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetRunAfter
 
 `func (o *MaterializeAssetBody) GetRunAfter() time.Time`
@@ -197,16 +157,6 @@ SetRunAfter sets RunAfter field to given value.
 
 HasRunAfter returns a boolean if a field has been set.
 
-### SetRunAfterNil
-
-`func (o *MaterializeAssetBody) SetRunAfterNil(b bool)`
-
- SetRunAfterNil sets the value for RunAfter to be an explicit nil
-
-### UnsetRunAfter
-`func (o *MaterializeAssetBody) UnsetRunAfter()`
-
-UnsetRunAfter ensures that no value is present for RunAfter, not even an explicit nil
 ### GetConf
 
 `func (o *MaterializeAssetBody) GetConf() map[string]interface{}`
@@ -232,16 +182,6 @@ SetConf sets Conf field to given value.
 
 HasConf returns a boolean if a field has been set.
 
-### SetConfNil
-
-`func (o *MaterializeAssetBody) SetConfNil(b bool)`
-
- SetConfNil sets the value for Conf to be an explicit nil
-
-### UnsetConf
-`func (o *MaterializeAssetBody) UnsetConf()`
-
-UnsetConf ensures that no value is present for Conf, not even an explicit nil
 ### GetNote
 
 `func (o *MaterializeAssetBody) GetNote() string`
@@ -267,16 +207,6 @@ SetNote sets Note field to given value.
 
 HasNote returns a boolean if a field has been set.
 
-### SetNoteNil
-
-`func (o *MaterializeAssetBody) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *MaterializeAssetBody) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetPartitionKey
 
 `func (o *MaterializeAssetBody) GetPartitionKey() string`
@@ -302,16 +232,6 @@ SetPartitionKey sets PartitionKey field to given value.
 
 HasPartitionKey returns a boolean if a field has been set.
 
-### SetPartitionKeyNil
-
-`func (o *MaterializeAssetBody) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *MaterializeAssetBody) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

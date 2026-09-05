@@ -24,7 +24,7 @@ import (
 // JobAPIService JobAPI service
 type JobAPIService service
 
-type ApiGetJobsRequest struct {
+type JobAPIGetJobsRequest struct {
 	ctx context.Context
 	ApiService *JobAPIService
 	isAlive *bool
@@ -38,95 +38,95 @@ type ApiGetJobsRequest struct {
 	endDateLt *time.Time
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	jobState *string
 	jobType *string
 	hostname *string
 	executorClass *string
 }
 
-func (r ApiGetJobsRequest) IsAlive(isAlive bool) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) IsAlive(isAlive bool) JobAPIGetJobsRequest {
 	r.isAlive = &isAlive
 	return r
 }
 
-func (r ApiGetJobsRequest) StartDateGte(startDateGte time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) StartDateGte(startDateGte time.Time) JobAPIGetJobsRequest {
 	r.startDateGte = &startDateGte
 	return r
 }
 
-func (r ApiGetJobsRequest) StartDateGt(startDateGt time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) StartDateGt(startDateGt time.Time) JobAPIGetJobsRequest {
 	r.startDateGt = &startDateGt
 	return r
 }
 
-func (r ApiGetJobsRequest) StartDateLte(startDateLte time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) StartDateLte(startDateLte time.Time) JobAPIGetJobsRequest {
 	r.startDateLte = &startDateLte
 	return r
 }
 
-func (r ApiGetJobsRequest) StartDateLt(startDateLt time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) StartDateLt(startDateLt time.Time) JobAPIGetJobsRequest {
 	r.startDateLt = &startDateLt
 	return r
 }
 
-func (r ApiGetJobsRequest) EndDateGte(endDateGte time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) EndDateGte(endDateGte time.Time) JobAPIGetJobsRequest {
 	r.endDateGte = &endDateGte
 	return r
 }
 
-func (r ApiGetJobsRequest) EndDateGt(endDateGt time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) EndDateGt(endDateGt time.Time) JobAPIGetJobsRequest {
 	r.endDateGt = &endDateGt
 	return r
 }
 
-func (r ApiGetJobsRequest) EndDateLte(endDateLte time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) EndDateLte(endDateLte time.Time) JobAPIGetJobsRequest {
 	r.endDateLte = &endDateLte
 	return r
 }
 
-func (r ApiGetJobsRequest) EndDateLt(endDateLt time.Time) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) EndDateLt(endDateLt time.Time) JobAPIGetJobsRequest {
 	r.endDateLt = &endDateLt
 	return r
 }
 
-func (r ApiGetJobsRequest) Limit(limit int32) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) Limit(limit int32) JobAPIGetJobsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetJobsRequest) Offset(offset int32) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) Offset(offset int32) JobAPIGetJobsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, dag_id, state, job_type, start_date, end_date, latest_heartbeat, executor_class, hostname, unixname&#x60;
-func (r ApiGetJobsRequest) OrderBy(orderBy []*string) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) OrderBy(orderBy []string) JobAPIGetJobsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetJobsRequest) JobState(jobState string) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) JobState(jobState string) JobAPIGetJobsRequest {
 	r.jobState = &jobState
 	return r
 }
 
-func (r ApiGetJobsRequest) JobType(jobType string) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) JobType(jobType string) JobAPIGetJobsRequest {
 	r.jobType = &jobType
 	return r
 }
 
-func (r ApiGetJobsRequest) Hostname(hostname string) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) Hostname(hostname string) JobAPIGetJobsRequest {
 	r.hostname = &hostname
 	return r
 }
 
-func (r ApiGetJobsRequest) ExecutorClass(executorClass string) ApiGetJobsRequest {
+func (r JobAPIGetJobsRequest) ExecutorClass(executorClass string) JobAPIGetJobsRequest {
 	r.executorClass = &executorClass
 	return r
 }
 
-func (r ApiGetJobsRequest) Execute() (*JobCollectionResponse, *http.Response, error) {
+func (r JobAPIGetJobsRequest) Execute() (*JobCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetJobsExecute(r)
 }
 
@@ -136,10 +136,10 @@ GetJobs Get Jobs
 Get all jobs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetJobsRequest
+ @return JobAPIGetJobsRequest
 */
-func (a *JobAPIService) GetJobs(ctx context.Context) ApiGetJobsRequest {
-	return ApiGetJobsRequest{
+func (a *JobAPIService) GetJobs(ctx context.Context) JobAPIGetJobsRequest {
+	return JobAPIGetJobsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -147,7 +147,7 @@ func (a *JobAPIService) GetJobs(ctx context.Context) ApiGetJobsRequest {
 
 // Execute executes the request
 //  @return JobCollectionResponse
-func (a *JobAPIService) GetJobsExecute(r ApiGetJobsRequest) (*JobCollectionResponse, *http.Response, error) {
+func (a *JobAPIService) GetJobsExecute(r JobAPIGetJobsRequest) (*JobCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -218,7 +218,7 @@ func (a *JobAPIService) GetJobsExecute(r ApiGetJobsRequest) (*JobCollectionRespo
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}

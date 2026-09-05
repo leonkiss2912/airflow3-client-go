@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Version** | **string** |  | 
-**GitVersion** | **NullableString** |  | 
+**GitVersion** | **string** |  | 
 
 ## Methods
 
 ### NewVersionInfo
 
-`func NewVersionInfo(version string, gitVersion NullableString, ) *VersionInfo`
+`func NewVersionInfo(version string, gitVersion string, ) *VersionInfo`
 
 NewVersionInfo instantiates a new VersionInfo object
 This constructor will assign default values to properties that have it defined,
@@ -66,16 +66,6 @@ and a boolean to check if the value has been set.
 SetGitVersion sets GitVersion field to given value.
 
 
-### SetGitVersionNil
-
-`func (o *VersionInfo) SetGitVersionNil(b bool)`
-
- SetGitVersionNil sets the value for GitVersion to be an explicit nil
-
-### UnsetGitVersion
-`func (o *VersionInfo) UnsetGitVersion()`
-
-UnsetGitVersion ensures that no value is present for GitVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Metadatabase** | [**BaseInfoResponse**](BaseInfoResponse.md) |  | 
 **Scheduler** | [**SchedulerInfoResponse**](SchedulerInfoResponse.md) |  | 
 **Triggerer** | [**TriggererInfoResponse**](TriggererInfoResponse.md) |  | 
-**DagProcessor** | Pointer to [**NullableDagProcessorInfoResponse**](DagProcessorInfoResponse.md) |  | [optional] 
+**DagProcessor** | Pointer to [**DagProcessorInfoResponse**](DagProcessorInfoResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -113,16 +113,6 @@ SetDagProcessor sets DagProcessor field to given value.
 
 HasDagProcessor returns a boolean if a field has been set.
 
-### SetDagProcessorNil
-
-`func (o *HealthInfoResponse) SetDagProcessorNil(b bool)`
-
- SetDagProcessorNil sets the value for DagProcessor to be an explicit nil
-
-### UnsetDagProcessor
-`func (o *HealthInfoResponse) UnsetDagProcessor()`
-
-UnsetDagProcessor ensures that no value is present for DagProcessor, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

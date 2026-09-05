@@ -25,11 +25,11 @@ type DagVersionResponse struct {
 	Id string `json:"id"`
 	VersionNumber int32 `json:"version_number"`
 	DagId string `json:"dag_id"`
-	BundleName NullableString `json:"bundle_name"`
-	BundleVersion NullableString `json:"bundle_version"`
+	BundleName string `json:"bundle_name"`
+	BundleVersion string `json:"bundle_version"`
 	CreatedAt time.Time `json:"created_at"`
 	DagDisplayName string `json:"dag_display_name"`
-	BundleUrl NullableString `json:"bundle_url"`
+	BundleUrl string `json:"bundle_url"`
 }
 
 type _DagVersionResponse DagVersionResponse
@@ -38,7 +38,7 @@ type _DagVersionResponse DagVersionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDagVersionResponse(id string, versionNumber int32, dagId string, bundleName NullableString, bundleVersion NullableString, createdAt time.Time, dagDisplayName string, bundleUrl NullableString) *DagVersionResponse {
+func NewDagVersionResponse(id string, versionNumber int32, dagId string, bundleName string, bundleVersion string, createdAt time.Time, dagDisplayName string, bundleUrl string) *DagVersionResponse {
 	this := DagVersionResponse{}
 	this.Id = id
 	this.VersionNumber = versionNumber
@@ -132,55 +132,51 @@ func (o *DagVersionResponse) SetDagId(v string) {
 }
 
 // GetBundleName returns the BundleName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagVersionResponse) GetBundleName() string {
-	if o == nil || o.BundleName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleName.Get()
+	return o.BundleName
 }
 
 // GetBundleNameOk returns a tuple with the BundleName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagVersionResponse) GetBundleNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleName.Get(), o.BundleName.IsSet()
+	return &o.BundleName, true
 }
 
 // SetBundleName sets field value
 func (o *DagVersionResponse) SetBundleName(v string) {
-	o.BundleName.Set(&v)
+	o.BundleName = v
 }
 
 // GetBundleVersion returns the BundleVersion field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagVersionResponse) GetBundleVersion() string {
-	if o == nil || o.BundleVersion.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleVersion.Get()
+	return o.BundleVersion
 }
 
 // GetBundleVersionOk returns a tuple with the BundleVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagVersionResponse) GetBundleVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleVersion.Get(), o.BundleVersion.IsSet()
+	return &o.BundleVersion, true
 }
 
 // SetBundleVersion sets field value
 func (o *DagVersionResponse) SetBundleVersion(v string) {
-	o.BundleVersion.Set(&v)
+	o.BundleVersion = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
@@ -232,29 +228,27 @@ func (o *DagVersionResponse) SetDagDisplayName(v string) {
 }
 
 // GetBundleUrl returns the BundleUrl field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagVersionResponse) GetBundleUrl() string {
-	if o == nil || o.BundleUrl.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleUrl.Get()
+	return o.BundleUrl
 }
 
 // GetBundleUrlOk returns a tuple with the BundleUrl field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagVersionResponse) GetBundleUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleUrl.Get(), o.BundleUrl.IsSet()
+	return &o.BundleUrl, true
 }
 
 // SetBundleUrl sets field value
 func (o *DagVersionResponse) SetBundleUrl(v string) {
-	o.BundleUrl.Set(&v)
+	o.BundleUrl = v
 }
 
 func (o DagVersionResponse) MarshalJSON() ([]byte, error) {
@@ -270,11 +264,11 @@ func (o DagVersionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["version_number"] = o.VersionNumber
 	toSerialize["dag_id"] = o.DagId
-	toSerialize["bundle_name"] = o.BundleName.Get()
-	toSerialize["bundle_version"] = o.BundleVersion.Get()
+	toSerialize["bundle_name"] = o.BundleName
+	toSerialize["bundle_version"] = o.BundleVersion
 	toSerialize["created_at"] = o.CreatedAt
 	toSerialize["dag_display_name"] = o.DagDisplayName
-	toSerialize["bundle_url"] = o.BundleUrl.Get()
+	toSerialize["bundle_url"] = o.BundleUrl
 	return toSerialize, nil
 }
 

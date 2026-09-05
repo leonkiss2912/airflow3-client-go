@@ -8,32 +8,32 @@ Name | Type | Description | Notes
 **DagRunIds** | Pointer to **[]string** |  | [optional] 
 **TaskIds** | Pointer to **[]string** |  | [optional] 
 **State** | Pointer to [**[]TaskInstanceState**](TaskInstanceState.md) |  | [optional] 
-**RunAfterGte** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterGt** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterLte** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterLt** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateGte** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateGt** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateLte** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateLt** | Pointer to **NullableTime** |  | [optional] 
-**StartDateGte** | Pointer to **NullableTime** |  | [optional] 
-**StartDateGt** | Pointer to **NullableTime** |  | [optional] 
-**StartDateLte** | Pointer to **NullableTime** |  | [optional] 
-**StartDateLt** | Pointer to **NullableTime** |  | [optional] 
-**EndDateGte** | Pointer to **NullableTime** |  | [optional] 
-**EndDateGt** | Pointer to **NullableTime** |  | [optional] 
-**EndDateLte** | Pointer to **NullableTime** |  | [optional] 
-**EndDateLt** | Pointer to **NullableTime** |  | [optional] 
-**DurationGte** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationGt** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationLte** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationLt** | Pointer to **NullableFloat32** |  | [optional] 
+**RunAfterGte** | Pointer to **time.Time** |  | [optional] 
+**RunAfterGt** | Pointer to **time.Time** |  | [optional] 
+**RunAfterLte** | Pointer to **time.Time** |  | [optional] 
+**RunAfterLt** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateGte** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateGt** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateLte** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateLt** | Pointer to **time.Time** |  | [optional] 
+**StartDateGte** | Pointer to **time.Time** |  | [optional] 
+**StartDateGt** | Pointer to **time.Time** |  | [optional] 
+**StartDateLte** | Pointer to **time.Time** |  | [optional] 
+**StartDateLt** | Pointer to **time.Time** |  | [optional] 
+**EndDateGte** | Pointer to **time.Time** |  | [optional] 
+**EndDateGt** | Pointer to **time.Time** |  | [optional] 
+**EndDateLte** | Pointer to **time.Time** |  | [optional] 
+**EndDateLt** | Pointer to **time.Time** |  | [optional] 
+**DurationGte** | Pointer to **float32** |  | [optional] 
+**DurationGt** | Pointer to **float32** |  | [optional] 
+**DurationLte** | Pointer to **float32** |  | [optional] 
+**DurationLt** | Pointer to **float32** |  | [optional] 
 **Pool** | Pointer to **[]string** |  | [optional] 
 **Queue** | Pointer to **[]string** |  | [optional] 
 **Executor** | Pointer to **[]string** |  | [optional] 
 **PageOffset** | Pointer to **int32** |  | [optional] [default to 0]
 **PageLimit** | Pointer to **int32** |  | [optional] [default to 100]
-**OrderBy** | Pointer to **NullableString** |  | [optional] 
+**OrderBy** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -79,16 +79,6 @@ SetDagIds sets DagIds field to given value.
 
 HasDagIds returns a boolean if a field has been set.
 
-### SetDagIdsNil
-
-`func (o *TaskInstancesBatchBody) SetDagIdsNil(b bool)`
-
- SetDagIdsNil sets the value for DagIds to be an explicit nil
-
-### UnsetDagIds
-`func (o *TaskInstancesBatchBody) UnsetDagIds()`
-
-UnsetDagIds ensures that no value is present for DagIds, not even an explicit nil
 ### GetDagRunIds
 
 `func (o *TaskInstancesBatchBody) GetDagRunIds() []string`
@@ -114,16 +104,6 @@ SetDagRunIds sets DagRunIds field to given value.
 
 HasDagRunIds returns a boolean if a field has been set.
 
-### SetDagRunIdsNil
-
-`func (o *TaskInstancesBatchBody) SetDagRunIdsNil(b bool)`
-
- SetDagRunIdsNil sets the value for DagRunIds to be an explicit nil
-
-### UnsetDagRunIds
-`func (o *TaskInstancesBatchBody) UnsetDagRunIds()`
-
-UnsetDagRunIds ensures that no value is present for DagRunIds, not even an explicit nil
 ### GetTaskIds
 
 `func (o *TaskInstancesBatchBody) GetTaskIds() []string`
@@ -149,32 +129,22 @@ SetTaskIds sets TaskIds field to given value.
 
 HasTaskIds returns a boolean if a field has been set.
 
-### SetTaskIdsNil
-
-`func (o *TaskInstancesBatchBody) SetTaskIdsNil(b bool)`
-
- SetTaskIdsNil sets the value for TaskIds to be an explicit nil
-
-### UnsetTaskIds
-`func (o *TaskInstancesBatchBody) UnsetTaskIds()`
-
-UnsetTaskIds ensures that no value is present for TaskIds, not even an explicit nil
 ### GetState
 
-`func (o *TaskInstancesBatchBody) GetState() []*TaskInstanceState`
+`func (o *TaskInstancesBatchBody) GetState() []TaskInstanceState`
 
 GetState returns the State field if non-nil, zero value otherwise.
 
 ### GetStateOk
 
-`func (o *TaskInstancesBatchBody) GetStateOk() (*[]*TaskInstanceState, bool)`
+`func (o *TaskInstancesBatchBody) GetStateOk() (*[]TaskInstanceState, bool)`
 
 GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetState
 
-`func (o *TaskInstancesBatchBody) SetState(v []*TaskInstanceState)`
+`func (o *TaskInstancesBatchBody) SetState(v []TaskInstanceState)`
 
 SetState sets State field to given value.
 
@@ -184,16 +154,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-### SetStateNil
-
-`func (o *TaskInstancesBatchBody) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *TaskInstancesBatchBody) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetRunAfterGte
 
 `func (o *TaskInstancesBatchBody) GetRunAfterGte() time.Time`
@@ -219,16 +179,6 @@ SetRunAfterGte sets RunAfterGte field to given value.
 
 HasRunAfterGte returns a boolean if a field has been set.
 
-### SetRunAfterGteNil
-
-`func (o *TaskInstancesBatchBody) SetRunAfterGteNil(b bool)`
-
- SetRunAfterGteNil sets the value for RunAfterGte to be an explicit nil
-
-### UnsetRunAfterGte
-`func (o *TaskInstancesBatchBody) UnsetRunAfterGte()`
-
-UnsetRunAfterGte ensures that no value is present for RunAfterGte, not even an explicit nil
 ### GetRunAfterGt
 
 `func (o *TaskInstancesBatchBody) GetRunAfterGt() time.Time`
@@ -254,16 +204,6 @@ SetRunAfterGt sets RunAfterGt field to given value.
 
 HasRunAfterGt returns a boolean if a field has been set.
 
-### SetRunAfterGtNil
-
-`func (o *TaskInstancesBatchBody) SetRunAfterGtNil(b bool)`
-
- SetRunAfterGtNil sets the value for RunAfterGt to be an explicit nil
-
-### UnsetRunAfterGt
-`func (o *TaskInstancesBatchBody) UnsetRunAfterGt()`
-
-UnsetRunAfterGt ensures that no value is present for RunAfterGt, not even an explicit nil
 ### GetRunAfterLte
 
 `func (o *TaskInstancesBatchBody) GetRunAfterLte() time.Time`
@@ -289,16 +229,6 @@ SetRunAfterLte sets RunAfterLte field to given value.
 
 HasRunAfterLte returns a boolean if a field has been set.
 
-### SetRunAfterLteNil
-
-`func (o *TaskInstancesBatchBody) SetRunAfterLteNil(b bool)`
-
- SetRunAfterLteNil sets the value for RunAfterLte to be an explicit nil
-
-### UnsetRunAfterLte
-`func (o *TaskInstancesBatchBody) UnsetRunAfterLte()`
-
-UnsetRunAfterLte ensures that no value is present for RunAfterLte, not even an explicit nil
 ### GetRunAfterLt
 
 `func (o *TaskInstancesBatchBody) GetRunAfterLt() time.Time`
@@ -324,16 +254,6 @@ SetRunAfterLt sets RunAfterLt field to given value.
 
 HasRunAfterLt returns a boolean if a field has been set.
 
-### SetRunAfterLtNil
-
-`func (o *TaskInstancesBatchBody) SetRunAfterLtNil(b bool)`
-
- SetRunAfterLtNil sets the value for RunAfterLt to be an explicit nil
-
-### UnsetRunAfterLt
-`func (o *TaskInstancesBatchBody) UnsetRunAfterLt()`
-
-UnsetRunAfterLt ensures that no value is present for RunAfterLt, not even an explicit nil
 ### GetLogicalDateGte
 
 `func (o *TaskInstancesBatchBody) GetLogicalDateGte() time.Time`
@@ -359,16 +279,6 @@ SetLogicalDateGte sets LogicalDateGte field to given value.
 
 HasLogicalDateGte returns a boolean if a field has been set.
 
-### SetLogicalDateGteNil
-
-`func (o *TaskInstancesBatchBody) SetLogicalDateGteNil(b bool)`
-
- SetLogicalDateGteNil sets the value for LogicalDateGte to be an explicit nil
-
-### UnsetLogicalDateGte
-`func (o *TaskInstancesBatchBody) UnsetLogicalDateGte()`
-
-UnsetLogicalDateGte ensures that no value is present for LogicalDateGte, not even an explicit nil
 ### GetLogicalDateGt
 
 `func (o *TaskInstancesBatchBody) GetLogicalDateGt() time.Time`
@@ -394,16 +304,6 @@ SetLogicalDateGt sets LogicalDateGt field to given value.
 
 HasLogicalDateGt returns a boolean if a field has been set.
 
-### SetLogicalDateGtNil
-
-`func (o *TaskInstancesBatchBody) SetLogicalDateGtNil(b bool)`
-
- SetLogicalDateGtNil sets the value for LogicalDateGt to be an explicit nil
-
-### UnsetLogicalDateGt
-`func (o *TaskInstancesBatchBody) UnsetLogicalDateGt()`
-
-UnsetLogicalDateGt ensures that no value is present for LogicalDateGt, not even an explicit nil
 ### GetLogicalDateLte
 
 `func (o *TaskInstancesBatchBody) GetLogicalDateLte() time.Time`
@@ -429,16 +329,6 @@ SetLogicalDateLte sets LogicalDateLte field to given value.
 
 HasLogicalDateLte returns a boolean if a field has been set.
 
-### SetLogicalDateLteNil
-
-`func (o *TaskInstancesBatchBody) SetLogicalDateLteNil(b bool)`
-
- SetLogicalDateLteNil sets the value for LogicalDateLte to be an explicit nil
-
-### UnsetLogicalDateLte
-`func (o *TaskInstancesBatchBody) UnsetLogicalDateLte()`
-
-UnsetLogicalDateLte ensures that no value is present for LogicalDateLte, not even an explicit nil
 ### GetLogicalDateLt
 
 `func (o *TaskInstancesBatchBody) GetLogicalDateLt() time.Time`
@@ -464,16 +354,6 @@ SetLogicalDateLt sets LogicalDateLt field to given value.
 
 HasLogicalDateLt returns a boolean if a field has been set.
 
-### SetLogicalDateLtNil
-
-`func (o *TaskInstancesBatchBody) SetLogicalDateLtNil(b bool)`
-
- SetLogicalDateLtNil sets the value for LogicalDateLt to be an explicit nil
-
-### UnsetLogicalDateLt
-`func (o *TaskInstancesBatchBody) UnsetLogicalDateLt()`
-
-UnsetLogicalDateLt ensures that no value is present for LogicalDateLt, not even an explicit nil
 ### GetStartDateGte
 
 `func (o *TaskInstancesBatchBody) GetStartDateGte() time.Time`
@@ -499,16 +379,6 @@ SetStartDateGte sets StartDateGte field to given value.
 
 HasStartDateGte returns a boolean if a field has been set.
 
-### SetStartDateGteNil
-
-`func (o *TaskInstancesBatchBody) SetStartDateGteNil(b bool)`
-
- SetStartDateGteNil sets the value for StartDateGte to be an explicit nil
-
-### UnsetStartDateGte
-`func (o *TaskInstancesBatchBody) UnsetStartDateGte()`
-
-UnsetStartDateGte ensures that no value is present for StartDateGte, not even an explicit nil
 ### GetStartDateGt
 
 `func (o *TaskInstancesBatchBody) GetStartDateGt() time.Time`
@@ -534,16 +404,6 @@ SetStartDateGt sets StartDateGt field to given value.
 
 HasStartDateGt returns a boolean if a field has been set.
 
-### SetStartDateGtNil
-
-`func (o *TaskInstancesBatchBody) SetStartDateGtNil(b bool)`
-
- SetStartDateGtNil sets the value for StartDateGt to be an explicit nil
-
-### UnsetStartDateGt
-`func (o *TaskInstancesBatchBody) UnsetStartDateGt()`
-
-UnsetStartDateGt ensures that no value is present for StartDateGt, not even an explicit nil
 ### GetStartDateLte
 
 `func (o *TaskInstancesBatchBody) GetStartDateLte() time.Time`
@@ -569,16 +429,6 @@ SetStartDateLte sets StartDateLte field to given value.
 
 HasStartDateLte returns a boolean if a field has been set.
 
-### SetStartDateLteNil
-
-`func (o *TaskInstancesBatchBody) SetStartDateLteNil(b bool)`
-
- SetStartDateLteNil sets the value for StartDateLte to be an explicit nil
-
-### UnsetStartDateLte
-`func (o *TaskInstancesBatchBody) UnsetStartDateLte()`
-
-UnsetStartDateLte ensures that no value is present for StartDateLte, not even an explicit nil
 ### GetStartDateLt
 
 `func (o *TaskInstancesBatchBody) GetStartDateLt() time.Time`
@@ -604,16 +454,6 @@ SetStartDateLt sets StartDateLt field to given value.
 
 HasStartDateLt returns a boolean if a field has been set.
 
-### SetStartDateLtNil
-
-`func (o *TaskInstancesBatchBody) SetStartDateLtNil(b bool)`
-
- SetStartDateLtNil sets the value for StartDateLt to be an explicit nil
-
-### UnsetStartDateLt
-`func (o *TaskInstancesBatchBody) UnsetStartDateLt()`
-
-UnsetStartDateLt ensures that no value is present for StartDateLt, not even an explicit nil
 ### GetEndDateGte
 
 `func (o *TaskInstancesBatchBody) GetEndDateGte() time.Time`
@@ -639,16 +479,6 @@ SetEndDateGte sets EndDateGte field to given value.
 
 HasEndDateGte returns a boolean if a field has been set.
 
-### SetEndDateGteNil
-
-`func (o *TaskInstancesBatchBody) SetEndDateGteNil(b bool)`
-
- SetEndDateGteNil sets the value for EndDateGte to be an explicit nil
-
-### UnsetEndDateGte
-`func (o *TaskInstancesBatchBody) UnsetEndDateGte()`
-
-UnsetEndDateGte ensures that no value is present for EndDateGte, not even an explicit nil
 ### GetEndDateGt
 
 `func (o *TaskInstancesBatchBody) GetEndDateGt() time.Time`
@@ -674,16 +504,6 @@ SetEndDateGt sets EndDateGt field to given value.
 
 HasEndDateGt returns a boolean if a field has been set.
 
-### SetEndDateGtNil
-
-`func (o *TaskInstancesBatchBody) SetEndDateGtNil(b bool)`
-
- SetEndDateGtNil sets the value for EndDateGt to be an explicit nil
-
-### UnsetEndDateGt
-`func (o *TaskInstancesBatchBody) UnsetEndDateGt()`
-
-UnsetEndDateGt ensures that no value is present for EndDateGt, not even an explicit nil
 ### GetEndDateLte
 
 `func (o *TaskInstancesBatchBody) GetEndDateLte() time.Time`
@@ -709,16 +529,6 @@ SetEndDateLte sets EndDateLte field to given value.
 
 HasEndDateLte returns a boolean if a field has been set.
 
-### SetEndDateLteNil
-
-`func (o *TaskInstancesBatchBody) SetEndDateLteNil(b bool)`
-
- SetEndDateLteNil sets the value for EndDateLte to be an explicit nil
-
-### UnsetEndDateLte
-`func (o *TaskInstancesBatchBody) UnsetEndDateLte()`
-
-UnsetEndDateLte ensures that no value is present for EndDateLte, not even an explicit nil
 ### GetEndDateLt
 
 `func (o *TaskInstancesBatchBody) GetEndDateLt() time.Time`
@@ -744,16 +554,6 @@ SetEndDateLt sets EndDateLt field to given value.
 
 HasEndDateLt returns a boolean if a field has been set.
 
-### SetEndDateLtNil
-
-`func (o *TaskInstancesBatchBody) SetEndDateLtNil(b bool)`
-
- SetEndDateLtNil sets the value for EndDateLt to be an explicit nil
-
-### UnsetEndDateLt
-`func (o *TaskInstancesBatchBody) UnsetEndDateLt()`
-
-UnsetEndDateLt ensures that no value is present for EndDateLt, not even an explicit nil
 ### GetDurationGte
 
 `func (o *TaskInstancesBatchBody) GetDurationGte() float32`
@@ -779,16 +579,6 @@ SetDurationGte sets DurationGte field to given value.
 
 HasDurationGte returns a boolean if a field has been set.
 
-### SetDurationGteNil
-
-`func (o *TaskInstancesBatchBody) SetDurationGteNil(b bool)`
-
- SetDurationGteNil sets the value for DurationGte to be an explicit nil
-
-### UnsetDurationGte
-`func (o *TaskInstancesBatchBody) UnsetDurationGte()`
-
-UnsetDurationGte ensures that no value is present for DurationGte, not even an explicit nil
 ### GetDurationGt
 
 `func (o *TaskInstancesBatchBody) GetDurationGt() float32`
@@ -814,16 +604,6 @@ SetDurationGt sets DurationGt field to given value.
 
 HasDurationGt returns a boolean if a field has been set.
 
-### SetDurationGtNil
-
-`func (o *TaskInstancesBatchBody) SetDurationGtNil(b bool)`
-
- SetDurationGtNil sets the value for DurationGt to be an explicit nil
-
-### UnsetDurationGt
-`func (o *TaskInstancesBatchBody) UnsetDurationGt()`
-
-UnsetDurationGt ensures that no value is present for DurationGt, not even an explicit nil
 ### GetDurationLte
 
 `func (o *TaskInstancesBatchBody) GetDurationLte() float32`
@@ -849,16 +629,6 @@ SetDurationLte sets DurationLte field to given value.
 
 HasDurationLte returns a boolean if a field has been set.
 
-### SetDurationLteNil
-
-`func (o *TaskInstancesBatchBody) SetDurationLteNil(b bool)`
-
- SetDurationLteNil sets the value for DurationLte to be an explicit nil
-
-### UnsetDurationLte
-`func (o *TaskInstancesBatchBody) UnsetDurationLte()`
-
-UnsetDurationLte ensures that no value is present for DurationLte, not even an explicit nil
 ### GetDurationLt
 
 `func (o *TaskInstancesBatchBody) GetDurationLt() float32`
@@ -884,16 +654,6 @@ SetDurationLt sets DurationLt field to given value.
 
 HasDurationLt returns a boolean if a field has been set.
 
-### SetDurationLtNil
-
-`func (o *TaskInstancesBatchBody) SetDurationLtNil(b bool)`
-
- SetDurationLtNil sets the value for DurationLt to be an explicit nil
-
-### UnsetDurationLt
-`func (o *TaskInstancesBatchBody) UnsetDurationLt()`
-
-UnsetDurationLt ensures that no value is present for DurationLt, not even an explicit nil
 ### GetPool
 
 `func (o *TaskInstancesBatchBody) GetPool() []string`
@@ -919,16 +679,6 @@ SetPool sets Pool field to given value.
 
 HasPool returns a boolean if a field has been set.
 
-### SetPoolNil
-
-`func (o *TaskInstancesBatchBody) SetPoolNil(b bool)`
-
- SetPoolNil sets the value for Pool to be an explicit nil
-
-### UnsetPool
-`func (o *TaskInstancesBatchBody) UnsetPool()`
-
-UnsetPool ensures that no value is present for Pool, not even an explicit nil
 ### GetQueue
 
 `func (o *TaskInstancesBatchBody) GetQueue() []string`
@@ -954,16 +704,6 @@ SetQueue sets Queue field to given value.
 
 HasQueue returns a boolean if a field has been set.
 
-### SetQueueNil
-
-`func (o *TaskInstancesBatchBody) SetQueueNil(b bool)`
-
- SetQueueNil sets the value for Queue to be an explicit nil
-
-### UnsetQueue
-`func (o *TaskInstancesBatchBody) UnsetQueue()`
-
-UnsetQueue ensures that no value is present for Queue, not even an explicit nil
 ### GetExecutor
 
 `func (o *TaskInstancesBatchBody) GetExecutor() []string`
@@ -989,16 +729,6 @@ SetExecutor sets Executor field to given value.
 
 HasExecutor returns a boolean if a field has been set.
 
-### SetExecutorNil
-
-`func (o *TaskInstancesBatchBody) SetExecutorNil(b bool)`
-
- SetExecutorNil sets the value for Executor to be an explicit nil
-
-### UnsetExecutor
-`func (o *TaskInstancesBatchBody) UnsetExecutor()`
-
-UnsetExecutor ensures that no value is present for Executor, not even an explicit nil
 ### GetPageOffset
 
 `func (o *TaskInstancesBatchBody) GetPageOffset() int32`
@@ -1074,16 +804,6 @@ SetOrderBy sets OrderBy field to given value.
 
 HasOrderBy returns a boolean if a field has been set.
 
-### SetOrderByNil
-
-`func (o *TaskInstancesBatchBody) SetOrderByNil(b bool)`
-
- SetOrderByNil sets the value for OrderBy to be an explicit nil
-
-### UnsetOrderBy
-`func (o *TaskInstancesBatchBody) UnsetOrderBy()`
-
-UnsetOrderBy ensures that no value is present for OrderBy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,14 +24,14 @@ import (
 // DagVersionAPIService DagVersionAPI service
 type DagVersionAPIService service
 
-type ApiGetDagVersionRequest struct {
+type DagVersionAPIGetDagVersionRequest struct {
 	ctx context.Context
 	ApiService *DagVersionAPIService
 	dagId string
 	versionNumber int32
 }
 
-func (r ApiGetDagVersionRequest) Execute() (*DagVersionResponse, *http.Response, error) {
+func (r DagVersionAPIGetDagVersionRequest) Execute() (*DagVersionResponse, *http.Response, error) {
 	return r.ApiService.GetDagVersionExecute(r)
 }
 
@@ -43,10 +43,10 @@ Get one Dag Version.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param versionNumber
- @return ApiGetDagVersionRequest
+ @return DagVersionAPIGetDagVersionRequest
 */
-func (a *DagVersionAPIService) GetDagVersion(ctx context.Context, dagId string, versionNumber int32) ApiGetDagVersionRequest {
-	return ApiGetDagVersionRequest{
+func (a *DagVersionAPIService) GetDagVersion(ctx context.Context, dagId string, versionNumber int32) DagVersionAPIGetDagVersionRequest {
+	return DagVersionAPIGetDagVersionRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -56,7 +56,7 @@ func (a *DagVersionAPIService) GetDagVersion(ctx context.Context, dagId string, 
 
 // Execute executes the request
 //  @return DagVersionResponse
-func (a *DagVersionAPIService) GetDagVersionExecute(r ApiGetDagVersionRequest) (*DagVersionResponse, *http.Response, error) {
+func (a *DagVersionAPIService) GetDagVersionExecute(r DagVersionAPIGetDagVersionRequest) (*DagVersionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -174,7 +174,7 @@ func (a *DagVersionAPIService) GetDagVersionExecute(r ApiGetDagVersionRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDagVersionsRequest struct {
+type DagVersionAPIGetDagVersionsRequest struct {
 	ctx context.Context
 	ApiService *DagVersionAPIService
 	dagId string
@@ -183,41 +183,41 @@ type ApiGetDagVersionsRequest struct {
 	versionNumber *int32
 	bundleName *string
 	bundleVersion *string
-	orderBy *[]*string
+	orderBy *[]string
 }
 
-func (r ApiGetDagVersionsRequest) Limit(limit int32) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) Limit(limit int32) DagVersionAPIGetDagVersionsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetDagVersionsRequest) Offset(offset int32) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) Offset(offset int32) DagVersionAPIGetDagVersionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetDagVersionsRequest) VersionNumber(versionNumber int32) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) VersionNumber(versionNumber int32) DagVersionAPIGetDagVersionsRequest {
 	r.versionNumber = &versionNumber
 	return r
 }
 
-func (r ApiGetDagVersionsRequest) BundleName(bundleName string) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) BundleName(bundleName string) DagVersionAPIGetDagVersionsRequest {
 	r.bundleName = &bundleName
 	return r
 }
 
-func (r ApiGetDagVersionsRequest) BundleVersion(bundleVersion string) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) BundleVersion(bundleVersion string) DagVersionAPIGetDagVersionsRequest {
 	r.bundleVersion = &bundleVersion
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, version_number, bundle_name, bundle_version&#x60;
-func (r ApiGetDagVersionsRequest) OrderBy(orderBy []*string) ApiGetDagVersionsRequest {
+func (r DagVersionAPIGetDagVersionsRequest) OrderBy(orderBy []string) DagVersionAPIGetDagVersionsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetDagVersionsRequest) Execute() (*DAGVersionCollectionResponse, *http.Response, error) {
+func (r DagVersionAPIGetDagVersionsRequest) Execute() (*DAGVersionCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetDagVersionsExecute(r)
 }
 
@@ -230,10 +230,10 @@ This endpoint allows specifying `~` as the dag_id to retrieve Dag Versions for a
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiGetDagVersionsRequest
+ @return DagVersionAPIGetDagVersionsRequest
 */
-func (a *DagVersionAPIService) GetDagVersions(ctx context.Context, dagId string) ApiGetDagVersionsRequest {
-	return ApiGetDagVersionsRequest{
+func (a *DagVersionAPIService) GetDagVersions(ctx context.Context, dagId string) DagVersionAPIGetDagVersionsRequest {
+	return DagVersionAPIGetDagVersionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -242,7 +242,7 @@ func (a *DagVersionAPIService) GetDagVersions(ctx context.Context, dagId string)
 
 // Execute executes the request
 //  @return DAGVersionCollectionResponse
-func (a *DagVersionAPIService) GetDagVersionsExecute(r ApiGetDagVersionsRequest) (*DAGVersionCollectionResponse, *http.Response, error) {
+func (a *DagVersionAPIService) GetDagVersionsExecute(r DagVersionAPIGetDagVersionsRequest) (*DAGVersionCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *DagVersionAPIService) GetDagVersionsExecute(r ApiGetDagVersionsRequest)
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}

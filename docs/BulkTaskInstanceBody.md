@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewState** | Pointer to [**NullableTaskInstanceState**](TaskInstanceState.md) |  | [optional] 
-**Note** | Pointer to **NullableString** |  | [optional] 
+**NewState** | Pointer to [**TaskInstanceState**](TaskInstanceState.md) |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
 **IncludeUpstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeDownstream** | Pointer to **bool** |  | [optional] [default to false]
 **IncludeFuture** | Pointer to **bool** |  | [optional] [default to false]
 **IncludePast** | Pointer to **bool** |  | [optional] [default to false]
 **TaskId** | **string** |  | 
-**MapIndex** | Pointer to **NullableInt32** |  | [optional] 
-**DagId** | Pointer to **NullableString** |  | [optional] 
-**DagRunId** | Pointer to **NullableString** |  | [optional] 
+**MapIndex** | Pointer to **int32** |  | [optional] 
+**DagId** | Pointer to **string** |  | [optional] 
+**DagRunId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -59,16 +59,6 @@ SetNewState sets NewState field to given value.
 
 HasNewState returns a boolean if a field has been set.
 
-### SetNewStateNil
-
-`func (o *BulkTaskInstanceBody) SetNewStateNil(b bool)`
-
- SetNewStateNil sets the value for NewState to be an explicit nil
-
-### UnsetNewState
-`func (o *BulkTaskInstanceBody) UnsetNewState()`
-
-UnsetNewState ensures that no value is present for NewState, not even an explicit nil
 ### GetNote
 
 `func (o *BulkTaskInstanceBody) GetNote() string`
@@ -94,16 +84,6 @@ SetNote sets Note field to given value.
 
 HasNote returns a boolean if a field has been set.
 
-### SetNoteNil
-
-`func (o *BulkTaskInstanceBody) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *BulkTaskInstanceBody) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetIncludeUpstream
 
 `func (o *BulkTaskInstanceBody) GetIncludeUpstream() bool`
@@ -249,16 +229,6 @@ SetMapIndex sets MapIndex field to given value.
 
 HasMapIndex returns a boolean if a field has been set.
 
-### SetMapIndexNil
-
-`func (o *BulkTaskInstanceBody) SetMapIndexNil(b bool)`
-
- SetMapIndexNil sets the value for MapIndex to be an explicit nil
-
-### UnsetMapIndex
-`func (o *BulkTaskInstanceBody) UnsetMapIndex()`
-
-UnsetMapIndex ensures that no value is present for MapIndex, not even an explicit nil
 ### GetDagId
 
 `func (o *BulkTaskInstanceBody) GetDagId() string`
@@ -284,16 +254,6 @@ SetDagId sets DagId field to given value.
 
 HasDagId returns a boolean if a field has been set.
 
-### SetDagIdNil
-
-`func (o *BulkTaskInstanceBody) SetDagIdNil(b bool)`
-
- SetDagIdNil sets the value for DagId to be an explicit nil
-
-### UnsetDagId
-`func (o *BulkTaskInstanceBody) UnsetDagId()`
-
-UnsetDagId ensures that no value is present for DagId, not even an explicit nil
 ### GetDagRunId
 
 `func (o *BulkTaskInstanceBody) GetDagRunId() string`
@@ -319,16 +279,6 @@ SetDagRunId sets DagRunId field to given value.
 
 HasDagRunId returns a boolean if a field has been set.
 
-### SetDagRunIdNil
-
-`func (o *BulkTaskInstanceBody) SetDagRunIdNil(b bool)`
-
- SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-
-### UnsetDagRunId
-`func (o *BulkTaskInstanceBody) UnsetDagRunId()`
-
-UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

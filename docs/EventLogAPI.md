@@ -24,7 +24,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
@@ -95,13 +95,13 @@ import (
 	"fmt"
 	"os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
 func main() {
 	limit := int32(56) // int32 |  (optional) (default to 50)
 	offset := int32(56) // int32 |  (optional) (default to 0)
-	orderBy := []*string{"Inner_example"} // []*string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dttm, dag_id, task_id, run_id, event, logical_date, owner, extra, when, event_log_id` (optional) (default to {"id"})
+	orderBy := []string{"Inner_example"} // []string | Attributes to order by, multi criteria sort is supported. Prefix with `-` for descending order. Supported attributes: `id, dttm, dag_id, task_id, run_id, event, logical_date, owner, extra, when, event_log_id` (optional) (default to {"id"})
 	dagId := "dagId_example" // string |  (optional)
 	taskId := "taskId_example" // string |  (optional)
 	runId := "runId_example" // string |  (optional)

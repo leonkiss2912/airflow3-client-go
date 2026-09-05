@@ -25,7 +25,7 @@ import (
 // DagRunAPIService DagRunAPI service
 type DagRunAPIService service
 
-type ApiClearDagRunRequest struct {
+type DagRunAPIClearDagRunRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
@@ -33,12 +33,12 @@ type ApiClearDagRunRequest struct {
 	dAGRunClearBody *DAGRunClearBody
 }
 
-func (r ApiClearDagRunRequest) DAGRunClearBody(dAGRunClearBody DAGRunClearBody) ApiClearDagRunRequest {
+func (r DagRunAPIClearDagRunRequest) DAGRunClearBody(dAGRunClearBody DAGRunClearBody) DagRunAPIClearDagRunRequest {
 	r.dAGRunClearBody = &dAGRunClearBody
 	return r
 }
 
-func (r ApiClearDagRunRequest) Execute() (*ResponseClearDagRun, *http.Response, error) {
+func (r DagRunAPIClearDagRunRequest) Execute() (*ResponseClearDagRun, *http.Response, error) {
 	return r.ApiService.ClearDagRunExecute(r)
 }
 
@@ -48,10 +48,10 @@ ClearDagRun Clear Dag Run
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiClearDagRunRequest
+ @return DagRunAPIClearDagRunRequest
 */
-func (a *DagRunAPIService) ClearDagRun(ctx context.Context, dagId string, dagRunId string) ApiClearDagRunRequest {
-	return ApiClearDagRunRequest{
+func (a *DagRunAPIService) ClearDagRun(ctx context.Context, dagId string, dagRunId string) DagRunAPIClearDagRunRequest {
+	return DagRunAPIClearDagRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -61,7 +61,7 @@ func (a *DagRunAPIService) ClearDagRun(ctx context.Context, dagId string, dagRun
 
 // Execute executes the request
 //  @return ResponseClearDagRun
-func (a *DagRunAPIService) ClearDagRunExecute(r ApiClearDagRunRequest) (*ResponseClearDagRun, *http.Response, error) {
+func (a *DagRunAPIService) ClearDagRunExecute(r DagRunAPIClearDagRunRequest) (*ResponseClearDagRun, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -184,14 +184,14 @@ func (a *DagRunAPIService) ClearDagRunExecute(r ApiClearDagRunRequest) (*Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDagRunRequest struct {
+type DagRunAPIDeleteDagRunRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
 	dagRunId string
 }
 
-func (r ApiDeleteDagRunRequest) Execute() (*http.Response, error) {
+func (r DagRunAPIDeleteDagRunRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteDagRunExecute(r)
 }
 
@@ -203,10 +203,10 @@ Delete a Dag Run entry.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiDeleteDagRunRequest
+ @return DagRunAPIDeleteDagRunRequest
 */
-func (a *DagRunAPIService) DeleteDagRun(ctx context.Context, dagId string, dagRunId string) ApiDeleteDagRunRequest {
-	return ApiDeleteDagRunRequest{
+func (a *DagRunAPIService) DeleteDagRun(ctx context.Context, dagId string, dagRunId string) DagRunAPIDeleteDagRunRequest {
+	return DagRunAPIDeleteDagRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -215,7 +215,7 @@ func (a *DagRunAPIService) DeleteDagRun(ctx context.Context, dagId string, dagRu
 }
 
 // Execute executes the request
-func (a *DagRunAPIService) DeleteDagRunExecute(r ApiDeleteDagRunRequest) (*http.Response, error) {
+func (a *DagRunAPIService) DeleteDagRunExecute(r DagRunAPIDeleteDagRunRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -334,14 +334,14 @@ func (a *DagRunAPIService) DeleteDagRunExecute(r ApiDeleteDagRunRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetDagRunRequest struct {
+type DagRunAPIGetDagRunRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
 	dagRunId string
 }
 
-func (r ApiGetDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
+func (r DagRunAPIGetDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
 	return r.ApiService.GetDagRunExecute(r)
 }
 
@@ -351,10 +351,10 @@ GetDagRun Get Dag Run
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiGetDagRunRequest
+ @return DagRunAPIGetDagRunRequest
 */
-func (a *DagRunAPIService) GetDagRun(ctx context.Context, dagId string, dagRunId string) ApiGetDagRunRequest {
-	return ApiGetDagRunRequest{
+func (a *DagRunAPIService) GetDagRun(ctx context.Context, dagId string, dagRunId string) DagRunAPIGetDagRunRequest {
+	return DagRunAPIGetDagRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -364,7 +364,7 @@ func (a *DagRunAPIService) GetDagRun(ctx context.Context, dagId string, dagRunId
 
 // Execute executes the request
 //  @return DAGRunResponse
-func (a *DagRunAPIService) GetDagRunExecute(r ApiGetDagRunRequest) (*DAGRunResponse, *http.Response, error) {
+func (a *DagRunAPIService) GetDagRunExecute(r DagRunAPIGetDagRunRequest) (*DAGRunResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -482,7 +482,7 @@ func (a *DagRunAPIService) GetDagRunExecute(r ApiGetDagRunRequest) (*DAGRunRespo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDagRunsRequest struct {
+type DagRunAPIGetDagRunsRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
@@ -514,11 +514,11 @@ type ApiGetDagRunsRequest struct {
 	updatedAtLte *time.Time
 	updatedAtLt *time.Time
 	confContains *string
-	runType *[]*string
-	state *[]*string
-	dagVersion *[]*int32
+	runType *[]string
+	state *[]string
+	dagVersion *[]int32
 	bundleVersion *string
-	orderBy *[]*string
+	orderBy *[]string
 	runIdPattern *string
 	runIdPrefixPattern *string
 	triggeringUserNamePattern *string
@@ -531,227 +531,227 @@ type ApiGetDagRunsRequest struct {
 }
 
 // Cursor for keyset-based pagination. Pass an empty string for the first page, then use &#x60;&#x60;next_cursor&#x60;&#x60; from the response. When &#x60;&#x60;cursor&#x60;&#x60; is provided, &#x60;&#x60;offset&#x60;&#x60; is ignored.
-func (r ApiGetDagRunsRequest) Cursor(cursor string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) Cursor(cursor string) DagRunAPIGetDagRunsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetDagRunsRequest) Limit(limit int32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) Limit(limit int32) DagRunAPIGetDagRunsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetDagRunsRequest) Offset(offset int32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) Offset(offset int32) DagRunAPIGetDagRunsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiGetDagRunsRequest) RunAfterGte(runAfterGte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunAfterGte(runAfterGte time.Time) DagRunAPIGetDagRunsRequest {
 	r.runAfterGte = &runAfterGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) RunAfterGt(runAfterGt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunAfterGt(runAfterGt time.Time) DagRunAPIGetDagRunsRequest {
 	r.runAfterGt = &runAfterGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) RunAfterLte(runAfterLte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunAfterLte(runAfterLte time.Time) DagRunAPIGetDagRunsRequest {
 	r.runAfterLte = &runAfterLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) RunAfterLt(runAfterLt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunAfterLt(runAfterLt time.Time) DagRunAPIGetDagRunsRequest {
 	r.runAfterLt = &runAfterLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) LogicalDateGte(logicalDateGte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) LogicalDateGte(logicalDateGte time.Time) DagRunAPIGetDagRunsRequest {
 	r.logicalDateGte = &logicalDateGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) LogicalDateGt(logicalDateGt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) LogicalDateGt(logicalDateGt time.Time) DagRunAPIGetDagRunsRequest {
 	r.logicalDateGt = &logicalDateGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) LogicalDateLte(logicalDateLte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) LogicalDateLte(logicalDateLte time.Time) DagRunAPIGetDagRunsRequest {
 	r.logicalDateLte = &logicalDateLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) LogicalDateLt(logicalDateLt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) LogicalDateLt(logicalDateLt time.Time) DagRunAPIGetDagRunsRequest {
 	r.logicalDateLt = &logicalDateLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) StartDateGte(startDateGte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) StartDateGte(startDateGte time.Time) DagRunAPIGetDagRunsRequest {
 	r.startDateGte = &startDateGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) StartDateGt(startDateGt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) StartDateGt(startDateGt time.Time) DagRunAPIGetDagRunsRequest {
 	r.startDateGt = &startDateGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) StartDateLte(startDateLte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) StartDateLte(startDateLte time.Time) DagRunAPIGetDagRunsRequest {
 	r.startDateLte = &startDateLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) StartDateLt(startDateLt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) StartDateLt(startDateLt time.Time) DagRunAPIGetDagRunsRequest {
 	r.startDateLt = &startDateLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) EndDateGte(endDateGte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) EndDateGte(endDateGte time.Time) DagRunAPIGetDagRunsRequest {
 	r.endDateGte = &endDateGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) EndDateGt(endDateGt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) EndDateGt(endDateGt time.Time) DagRunAPIGetDagRunsRequest {
 	r.endDateGt = &endDateGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) EndDateLte(endDateLte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) EndDateLte(endDateLte time.Time) DagRunAPIGetDagRunsRequest {
 	r.endDateLte = &endDateLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) EndDateLt(endDateLt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) EndDateLt(endDateLt time.Time) DagRunAPIGetDagRunsRequest {
 	r.endDateLt = &endDateLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) DurationGte(durationGte float32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DurationGte(durationGte float32) DagRunAPIGetDagRunsRequest {
 	r.durationGte = &durationGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) DurationGt(durationGt float32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DurationGt(durationGt float32) DagRunAPIGetDagRunsRequest {
 	r.durationGt = &durationGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) DurationLte(durationLte float32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DurationLte(durationLte float32) DagRunAPIGetDagRunsRequest {
 	r.durationLte = &durationLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) DurationLt(durationLt float32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DurationLt(durationLt float32) DagRunAPIGetDagRunsRequest {
 	r.durationLt = &durationLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) UpdatedAtGte(updatedAtGte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) UpdatedAtGte(updatedAtGte time.Time) DagRunAPIGetDagRunsRequest {
 	r.updatedAtGte = &updatedAtGte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) UpdatedAtGt(updatedAtGt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) UpdatedAtGt(updatedAtGt time.Time) DagRunAPIGetDagRunsRequest {
 	r.updatedAtGt = &updatedAtGt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) UpdatedAtLte(updatedAtLte time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) UpdatedAtLte(updatedAtLte time.Time) DagRunAPIGetDagRunsRequest {
 	r.updatedAtLte = &updatedAtLte
 	return r
 }
 
-func (r ApiGetDagRunsRequest) UpdatedAtLt(updatedAtLt time.Time) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) UpdatedAtLt(updatedAtLt time.Time) DagRunAPIGetDagRunsRequest {
 	r.updatedAtLt = &updatedAtLt
 	return r
 }
 
-func (r ApiGetDagRunsRequest) ConfContains(confContains string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) ConfContains(confContains string) DagRunAPIGetDagRunsRequest {
 	r.confContains = &confContains
 	return r
 }
 
-func (r ApiGetDagRunsRequest) RunType(runType []*string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunType(runType []string) DagRunAPIGetDagRunsRequest {
 	r.runType = &runType
 	return r
 }
 
-func (r ApiGetDagRunsRequest) State(state []*string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) State(state []string) DagRunAPIGetDagRunsRequest {
 	r.state = &state
 	return r
 }
 
-func (r ApiGetDagRunsRequest) DagVersion(dagVersion []*int32) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DagVersion(dagVersion []int32) DagRunAPIGetDagRunsRequest {
 	r.dagVersion = &dagVersion
 	return r
 }
 
-func (r ApiGetDagRunsRequest) BundleVersion(bundleVersion string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) BundleVersion(bundleVersion string) DagRunAPIGetDagRunsRequest {
 	r.bundleVersion = &bundleVersion
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, state, dag_id, run_id, logical_date, run_after, start_date, end_date, updated_at, conf, duration, dag_run_id&#x60;
-func (r ApiGetDagRunsRequest) OrderBy(orderBy []*string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) OrderBy(orderBy []string) DagRunAPIGetDagRunsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;run_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagRunsRequest) RunIdPattern(runIdPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunIdPattern(runIdPattern string) DagRunAPIGetDagRunsRequest {
 	r.runIdPattern = &runIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagRunsRequest) RunIdPrefixPattern(runIdPrefixPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) RunIdPrefixPattern(runIdPrefixPattern string) DagRunAPIGetDagRunsRequest {
 	r.runIdPrefixPattern = &runIdPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;triggering_user_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagRunsRequest) TriggeringUserNamePattern(triggeringUserNamePattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) TriggeringUserNamePattern(triggeringUserNamePattern string) DagRunAPIGetDagRunsRequest {
 	r.triggeringUserNamePattern = &triggeringUserNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagRunsRequest) TriggeringUserNamePrefixPattern(triggeringUserNamePrefixPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) TriggeringUserNamePrefixPattern(triggeringUserNamePrefixPattern string) DagRunAPIGetDagRunsRequest {
 	r.triggeringUserNamePrefixPattern = &triggeringUserNamePrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagRunsRequest) DagIdPattern(dagIdPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DagIdPattern(dagIdPattern string) DagRunAPIGetDagRunsRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagRunsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) DagRunAPIGetDagRunsRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;partition_key_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetDagRunsRequest) PartitionKeyPattern(partitionKeyPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) PartitionKeyPattern(partitionKeyPattern string) DagRunAPIGetDagRunsRequest {
 	r.partitionKeyPattern = &partitionKeyPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetDagRunsRequest) PartitionKeyPrefixPattern(partitionKeyPrefixPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) PartitionKeyPrefixPattern(partitionKeyPrefixPattern string) DagRunAPIGetDagRunsRequest {
 	r.partitionKeyPrefixPattern = &partitionKeyPrefixPattern
 	return r
 }
 
 // Filter by consuming asset name or URI using pattern matching
-func (r ApiGetDagRunsRequest) ConsumingAssetPattern(consumingAssetPattern string) ApiGetDagRunsRequest {
+func (r DagRunAPIGetDagRunsRequest) ConsumingAssetPattern(consumingAssetPattern string) DagRunAPIGetDagRunsRequest {
 	r.consumingAssetPattern = &consumingAssetPattern
 	return r
 }
 
-func (r ApiGetDagRunsRequest) Execute() (*DAGRunCollectionResponse, *http.Response, error) {
+func (r DagRunAPIGetDagRunsRequest) Execute() (*DAGRunCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetDagRunsExecute(r)
 }
 
@@ -773,10 +773,10 @@ on the first page.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiGetDagRunsRequest
+ @return DagRunAPIGetDagRunsRequest
 */
-func (a *DagRunAPIService) GetDagRuns(ctx context.Context, dagId string) ApiGetDagRunsRequest {
-	return ApiGetDagRunsRequest{
+func (a *DagRunAPIService) GetDagRuns(ctx context.Context, dagId string) DagRunAPIGetDagRunsRequest {
+	return DagRunAPIGetDagRunsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -785,7 +785,7 @@ func (a *DagRunAPIService) GetDagRuns(ctx context.Context, dagId string) ApiGetD
 
 // Execute executes the request
 //  @return DAGRunCollectionResponse
-func (a *DagRunAPIService) GetDagRunsExecute(r ApiGetDagRunsRequest) (*DAGRunCollectionResponse, *http.Response, error) {
+func (a *DagRunAPIService) GetDagRunsExecute(r DagRunAPIGetDagRunsRequest) (*DAGRunCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -944,7 +944,7 @@ func (a *DagRunAPIService) GetDagRunsExecute(r ApiGetDagRunsRequest) (*DAGRunCol
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -1072,19 +1072,19 @@ func (a *DagRunAPIService) GetDagRunsExecute(r ApiGetDagRunsRequest) (*DAGRunCol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetListDagRunsBatchRequest struct {
+type DagRunAPIGetListDagRunsBatchRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
 	dAGRunsBatchBody *DAGRunsBatchBody
 }
 
-func (r ApiGetListDagRunsBatchRequest) DAGRunsBatchBody(dAGRunsBatchBody DAGRunsBatchBody) ApiGetListDagRunsBatchRequest {
+func (r DagRunAPIGetListDagRunsBatchRequest) DAGRunsBatchBody(dAGRunsBatchBody DAGRunsBatchBody) DagRunAPIGetListDagRunsBatchRequest {
 	r.dAGRunsBatchBody = &dAGRunsBatchBody
 	return r
 }
 
-func (r ApiGetListDagRunsBatchRequest) Execute() (*DAGRunCollectionResponse, *http.Response, error) {
+func (r DagRunAPIGetListDagRunsBatchRequest) Execute() (*DAGRunCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetListDagRunsBatchExecute(r)
 }
 
@@ -1095,10 +1095,10 @@ Get a list of Dag Runs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiGetListDagRunsBatchRequest
+ @return DagRunAPIGetListDagRunsBatchRequest
 */
-func (a *DagRunAPIService) GetListDagRunsBatch(ctx context.Context, dagId string) ApiGetListDagRunsBatchRequest {
-	return ApiGetListDagRunsBatchRequest{
+func (a *DagRunAPIService) GetListDagRunsBatch(ctx context.Context, dagId string) DagRunAPIGetListDagRunsBatchRequest {
+	return DagRunAPIGetListDagRunsBatchRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1107,7 +1107,7 @@ func (a *DagRunAPIService) GetListDagRunsBatch(ctx context.Context, dagId string
 
 // Execute executes the request
 //  @return DAGRunCollectionResponse
-func (a *DagRunAPIService) GetListDagRunsBatchExecute(r ApiGetListDagRunsBatchRequest) (*DAGRunCollectionResponse, *http.Response, error) {
+func (a *DagRunAPIService) GetListDagRunsBatchExecute(r DagRunAPIGetListDagRunsBatchRequest) (*DAGRunCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1229,14 +1229,14 @@ func (a *DagRunAPIService) GetListDagRunsBatchExecute(r ApiGetListDagRunsBatchRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetUpstreamAssetEventsRequest struct {
+type DagRunAPIGetUpstreamAssetEventsRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
 	dagRunId string
 }
 
-func (r ApiGetUpstreamAssetEventsRequest) Execute() (*AssetEventCollectionResponse, *http.Response, error) {
+func (r DagRunAPIGetUpstreamAssetEventsRequest) Execute() (*AssetEventCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetUpstreamAssetEventsExecute(r)
 }
 
@@ -1248,10 +1248,10 @@ If dag run is asset-triggered, return the asset events that triggered it.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiGetUpstreamAssetEventsRequest
+ @return DagRunAPIGetUpstreamAssetEventsRequest
 */
-func (a *DagRunAPIService) GetUpstreamAssetEvents(ctx context.Context, dagId string, dagRunId string) ApiGetUpstreamAssetEventsRequest {
-	return ApiGetUpstreamAssetEventsRequest{
+func (a *DagRunAPIService) GetUpstreamAssetEvents(ctx context.Context, dagId string, dagRunId string) DagRunAPIGetUpstreamAssetEventsRequest {
+	return DagRunAPIGetUpstreamAssetEventsRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1261,7 +1261,7 @@ func (a *DagRunAPIService) GetUpstreamAssetEvents(ctx context.Context, dagId str
 
 // Execute executes the request
 //  @return AssetEventCollectionResponse
-func (a *DagRunAPIService) GetUpstreamAssetEventsExecute(r ApiGetUpstreamAssetEventsRequest) (*AssetEventCollectionResponse, *http.Response, error) {
+func (a *DagRunAPIService) GetUpstreamAssetEventsExecute(r DagRunAPIGetUpstreamAssetEventsRequest) (*AssetEventCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1379,7 +1379,7 @@ func (a *DagRunAPIService) GetUpstreamAssetEventsExecute(r ApiGetUpstreamAssetEv
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchDagRunRequest struct {
+type DagRunAPIPatchDagRunRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
@@ -1388,17 +1388,17 @@ type ApiPatchDagRunRequest struct {
 	updateMask *[]string
 }
 
-func (r ApiPatchDagRunRequest) DAGRunPatchBody(dAGRunPatchBody DAGRunPatchBody) ApiPatchDagRunRequest {
+func (r DagRunAPIPatchDagRunRequest) DAGRunPatchBody(dAGRunPatchBody DAGRunPatchBody) DagRunAPIPatchDagRunRequest {
 	r.dAGRunPatchBody = &dAGRunPatchBody
 	return r
 }
 
-func (r ApiPatchDagRunRequest) UpdateMask(updateMask []string) ApiPatchDagRunRequest {
+func (r DagRunAPIPatchDagRunRequest) UpdateMask(updateMask []string) DagRunAPIPatchDagRunRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
+func (r DagRunAPIPatchDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
 	return r.ApiService.PatchDagRunExecute(r)
 }
 
@@ -1410,10 +1410,10 @@ Modify a Dag Run.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiPatchDagRunRequest
+ @return DagRunAPIPatchDagRunRequest
 */
-func (a *DagRunAPIService) PatchDagRun(ctx context.Context, dagId string, dagRunId string) ApiPatchDagRunRequest {
-	return ApiPatchDagRunRequest{
+func (a *DagRunAPIService) PatchDagRun(ctx context.Context, dagId string, dagRunId string) DagRunAPIPatchDagRunRequest {
+	return DagRunAPIPatchDagRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1423,7 +1423,7 @@ func (a *DagRunAPIService) PatchDagRun(ctx context.Context, dagId string, dagRun
 
 // Execute executes the request
 //  @return DAGRunResponse
-func (a *DagRunAPIService) PatchDagRunExecute(r ApiPatchDagRunRequest) (*DAGRunResponse, *http.Response, error) {
+func (a *DagRunAPIService) PatchDagRunExecute(r DagRunAPIPatchDagRunRequest) (*DAGRunResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1568,19 +1568,19 @@ func (a *DagRunAPIService) PatchDagRunExecute(r ApiPatchDagRunRequest) (*DAGRunR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiTriggerDagRunRequest struct {
+type DagRunAPITriggerDagRunRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId interface{}
 	triggerDAGRunPostBody *TriggerDAGRunPostBody
 }
 
-func (r ApiTriggerDagRunRequest) TriggerDAGRunPostBody(triggerDAGRunPostBody TriggerDAGRunPostBody) ApiTriggerDagRunRequest {
+func (r DagRunAPITriggerDagRunRequest) TriggerDAGRunPostBody(triggerDAGRunPostBody TriggerDAGRunPostBody) DagRunAPITriggerDagRunRequest {
 	r.triggerDAGRunPostBody = &triggerDAGRunPostBody
 	return r
 }
 
-func (r ApiTriggerDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
+func (r DagRunAPITriggerDagRunRequest) Execute() (*DAGRunResponse, *http.Response, error) {
 	return r.ApiService.TriggerDagRunExecute(r)
 }
 
@@ -1591,10 +1591,10 @@ Trigger a Dag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
- @return ApiTriggerDagRunRequest
+ @return DagRunAPITriggerDagRunRequest
 */
-func (a *DagRunAPIService) TriggerDagRun(ctx context.Context, dagId interface{}) ApiTriggerDagRunRequest {
-	return ApiTriggerDagRunRequest{
+func (a *DagRunAPIService) TriggerDagRun(ctx context.Context, dagId interface{}) DagRunAPITriggerDagRunRequest {
+	return DagRunAPITriggerDagRunRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1603,7 +1603,7 @@ func (a *DagRunAPIService) TriggerDagRun(ctx context.Context, dagId interface{})
 
 // Execute executes the request
 //  @return DAGRunResponse
-func (a *DagRunAPIService) TriggerDagRunExecute(r ApiTriggerDagRunRequest) (*DAGRunResponse, *http.Response, error) {
+func (a *DagRunAPIService) TriggerDagRunExecute(r DagRunAPITriggerDagRunRequest) (*DAGRunResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1747,7 +1747,7 @@ func (a *DagRunAPIService) TriggerDagRunExecute(r ApiTriggerDagRunRequest) (*DAG
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiWaitDagRunUntilFinishedRequest struct {
+type DagRunAPIWaitDagRunUntilFinishedRequest struct {
 	ctx context.Context
 	ApiService *DagRunAPIService
 	dagId string
@@ -1757,18 +1757,18 @@ type ApiWaitDagRunUntilFinishedRequest struct {
 }
 
 // Seconds to wait between dag run state checks
-func (r ApiWaitDagRunUntilFinishedRequest) Interval(interval float32) ApiWaitDagRunUntilFinishedRequest {
+func (r DagRunAPIWaitDagRunUntilFinishedRequest) Interval(interval float32) DagRunAPIWaitDagRunUntilFinishedRequest {
 	r.interval = &interval
 	return r
 }
 
 // Collect result XCom from task. Can be set multiple times.
-func (r ApiWaitDagRunUntilFinishedRequest) Result(result []string) ApiWaitDagRunUntilFinishedRequest {
+func (r DagRunAPIWaitDagRunUntilFinishedRequest) Result(result []string) DagRunAPIWaitDagRunUntilFinishedRequest {
 	r.result = &result
 	return r
 }
 
-func (r ApiWaitDagRunUntilFinishedRequest) Execute() (interface{}, *http.Response, error) {
+func (r DagRunAPIWaitDagRunUntilFinishedRequest) Execute() (interface{}, *http.Response, error) {
 	return r.ApiService.WaitDagRunUntilFinishedExecute(r)
 }
 
@@ -1780,10 +1780,10 @@ WaitDagRunUntilFinished Experimental: Wait for a dag run to complete, and return
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiWaitDagRunUntilFinishedRequest
+ @return DagRunAPIWaitDagRunUntilFinishedRequest
 */
-func (a *DagRunAPIService) WaitDagRunUntilFinished(ctx context.Context, dagId string, dagRunId string) ApiWaitDagRunUntilFinishedRequest {
-	return ApiWaitDagRunUntilFinishedRequest{
+func (a *DagRunAPIService) WaitDagRunUntilFinished(ctx context.Context, dagId string, dagRunId string) DagRunAPIWaitDagRunUntilFinishedRequest {
+	return DagRunAPIWaitDagRunUntilFinishedRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1793,7 +1793,7 @@ func (a *DagRunAPIService) WaitDagRunUntilFinished(ctx context.Context, dagId st
 
 // Execute executes the request
 //  @return interface{}
-func (a *DagRunAPIService) WaitDagRunUntilFinishedExecute(r ApiWaitDagRunUntilFinishedRequest) (interface{}, *http.Response, error) {
+func (a *DagRunAPIService) WaitDagRunUntilFinishedExecute(r DagRunAPIWaitDagRunUntilFinishedRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

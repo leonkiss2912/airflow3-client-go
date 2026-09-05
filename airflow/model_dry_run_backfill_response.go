@@ -22,9 +22,9 @@ var _ MappedNullable = &DryRunBackfillResponse{}
 
 // DryRunBackfillResponse Backfill serializer for responses in dry-run mode.
 type DryRunBackfillResponse struct {
-	LogicalDate NullableTime `json:"logical_date"`
-	PartitionKey NullableString `json:"partition_key"`
-	PartitionDate NullableTime `json:"partition_date"`
+	LogicalDate time.Time `json:"logical_date"`
+	PartitionKey string `json:"partition_key"`
+	PartitionDate time.Time `json:"partition_date"`
 }
 
 type _DryRunBackfillResponse DryRunBackfillResponse
@@ -33,7 +33,7 @@ type _DryRunBackfillResponse DryRunBackfillResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDryRunBackfillResponse(logicalDate NullableTime, partitionKey NullableString, partitionDate NullableTime) *DryRunBackfillResponse {
+func NewDryRunBackfillResponse(logicalDate time.Time, partitionKey string, partitionDate time.Time) *DryRunBackfillResponse {
 	this := DryRunBackfillResponse{}
 	this.LogicalDate = logicalDate
 	this.PartitionKey = partitionKey
@@ -50,81 +50,75 @@ func NewDryRunBackfillResponseWithDefaults() *DryRunBackfillResponse {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DryRunBackfillResponse) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DryRunBackfillResponse) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *DryRunBackfillResponse) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetPartitionKey returns the PartitionKey field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DryRunBackfillResponse) GetPartitionKey() string {
-	if o == nil || o.PartitionKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.PartitionKey.Get()
+	return o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DryRunBackfillResponse) GetPartitionKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return &o.PartitionKey, true
 }
 
 // SetPartitionKey sets field value
 func (o *DryRunBackfillResponse) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
+	o.PartitionKey = v
 }
 
 // GetPartitionDate returns the PartitionDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DryRunBackfillResponse) GetPartitionDate() time.Time {
-	if o == nil || o.PartitionDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.PartitionDate.Get()
+	return o.PartitionDate
 }
 
 // GetPartitionDateOk returns a tuple with the PartitionDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DryRunBackfillResponse) GetPartitionDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PartitionDate.Get(), o.PartitionDate.IsSet()
+	return &o.PartitionDate, true
 }
 
 // SetPartitionDate sets field value
 func (o *DryRunBackfillResponse) SetPartitionDate(v time.Time) {
-	o.PartitionDate.Set(&v)
+	o.PartitionDate = v
 }
 
 func (o DryRunBackfillResponse) MarshalJSON() ([]byte, error) {
@@ -137,9 +131,9 @@ func (o DryRunBackfillResponse) MarshalJSON() ([]byte, error) {
 
 func (o DryRunBackfillResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["logical_date"] = o.LogicalDate.Get()
-	toSerialize["partition_key"] = o.PartitionKey.Get()
-	toSerialize["partition_date"] = o.PartitionDate.Get()
+	toSerialize["logical_date"] = o.LogicalDate
+	toSerialize["partition_key"] = o.PartitionKey
+	toSerialize["partition_date"] = o.PartitionDate
 	return toSerialize, nil
 }
 

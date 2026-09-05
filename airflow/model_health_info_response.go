@@ -24,7 +24,7 @@ type HealthInfoResponse struct {
 	Metadatabase BaseInfoResponse `json:"metadatabase"`
 	Scheduler SchedulerInfoResponse `json:"scheduler"`
 	Triggerer TriggererInfoResponse `json:"triggerer"`
-	DagProcessor NullableDagProcessorInfoResponse `json:"dag_processor,omitempty"`
+	DagProcessor *DagProcessorInfoResponse `json:"dag_processor,omitempty"`
 }
 
 type _HealthInfoResponse HealthInfoResponse
@@ -121,46 +121,36 @@ func (o *HealthInfoResponse) SetTriggerer(v TriggererInfoResponse) {
 	o.Triggerer = v
 }
 
-// GetDagProcessor returns the DagProcessor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagProcessor returns the DagProcessor field value if set, zero value otherwise.
 func (o *HealthInfoResponse) GetDagProcessor() DagProcessorInfoResponse {
-	if o == nil || IsNil(o.DagProcessor.Get()) {
+	if o == nil || IsNil(o.DagProcessor) {
 		var ret DagProcessorInfoResponse
 		return ret
 	}
-	return *o.DagProcessor.Get()
+	return *o.DagProcessor
 }
 
 // GetDagProcessorOk returns a tuple with the DagProcessor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HealthInfoResponse) GetDagProcessorOk() (*DagProcessorInfoResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagProcessor) {
 		return nil, false
 	}
-	return o.DagProcessor.Get(), o.DagProcessor.IsSet()
+	return o.DagProcessor, true
 }
 
 // HasDagProcessor returns a boolean if a field has been set.
 func (o *HealthInfoResponse) HasDagProcessor() bool {
-	if o != nil && o.DagProcessor.IsSet() {
+	if o != nil && !IsNil(o.DagProcessor) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagProcessor gets a reference to the given NullableDagProcessorInfoResponse and assigns it to the DagProcessor field.
+// SetDagProcessor gets a reference to the given DagProcessorInfoResponse and assigns it to the DagProcessor field.
 func (o *HealthInfoResponse) SetDagProcessor(v DagProcessorInfoResponse) {
-	o.DagProcessor.Set(&v)
-}
-// SetDagProcessorNil sets the value for DagProcessor to be an explicit nil
-func (o *HealthInfoResponse) SetDagProcessorNil() {
-	o.DagProcessor.Set(nil)
-}
-
-// UnsetDagProcessor ensures that no value is present for DagProcessor, not even an explicit nil
-func (o *HealthInfoResponse) UnsetDagProcessor() {
-	o.DagProcessor.Unset()
+	o.DagProcessor = &v
 }
 
 func (o HealthInfoResponse) MarshalJSON() ([]byte, error) {
@@ -176,8 +166,8 @@ func (o HealthInfoResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["metadatabase"] = o.Metadatabase
 	toSerialize["scheduler"] = o.Scheduler
 	toSerialize["triggerer"] = o.Triggerer
-	if o.DagProcessor.IsSet() {
-		toSerialize["dag_processor"] = o.DagProcessor.Get()
+	if !IsNil(o.DagProcessor) {
+		toSerialize["dag_processor"] = o.DagProcessor
 	}
 	return toSerialize, nil
 }

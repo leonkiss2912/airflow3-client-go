@@ -4,32 +4,32 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderBy** | Pointer to **NullableString** |  | [optional] 
+**OrderBy** | Pointer to **string** |  | [optional] 
 **PageOffset** | Pointer to **int32** |  | [optional] [default to 0]
 **PageLimit** | Pointer to **int32** |  | [optional] [default to 100]
 **DagIds** | Pointer to **[]string** |  | [optional] 
 **States** | Pointer to [**[]DagRunState**](DagRunState.md) |  | [optional] 
-**RunAfterGte** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterGt** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterLte** | Pointer to **NullableTime** |  | [optional] 
-**RunAfterLt** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateGte** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateGt** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateLte** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDateLt** | Pointer to **NullableTime** |  | [optional] 
-**StartDateGte** | Pointer to **NullableTime** |  | [optional] 
-**StartDateGt** | Pointer to **NullableTime** |  | [optional] 
-**StartDateLte** | Pointer to **NullableTime** |  | [optional] 
-**StartDateLt** | Pointer to **NullableTime** |  | [optional] 
-**EndDateGte** | Pointer to **NullableTime** |  | [optional] 
-**EndDateGt** | Pointer to **NullableTime** |  | [optional] 
-**EndDateLte** | Pointer to **NullableTime** |  | [optional] 
-**EndDateLt** | Pointer to **NullableTime** |  | [optional] 
-**DurationGte** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationGt** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationLte** | Pointer to **NullableFloat32** |  | [optional] 
-**DurationLt** | Pointer to **NullableFloat32** |  | [optional] 
-**ConfContains** | Pointer to **NullableString** |  | [optional] 
+**RunAfterGte** | Pointer to **time.Time** |  | [optional] 
+**RunAfterGt** | Pointer to **time.Time** |  | [optional] 
+**RunAfterLte** | Pointer to **time.Time** |  | [optional] 
+**RunAfterLt** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateGte** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateGt** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateLte** | Pointer to **time.Time** |  | [optional] 
+**LogicalDateLt** | Pointer to **time.Time** |  | [optional] 
+**StartDateGte** | Pointer to **time.Time** |  | [optional] 
+**StartDateGt** | Pointer to **time.Time** |  | [optional] 
+**StartDateLte** | Pointer to **time.Time** |  | [optional] 
+**StartDateLt** | Pointer to **time.Time** |  | [optional] 
+**EndDateGte** | Pointer to **time.Time** |  | [optional] 
+**EndDateGt** | Pointer to **time.Time** |  | [optional] 
+**EndDateLte** | Pointer to **time.Time** |  | [optional] 
+**EndDateLt** | Pointer to **time.Time** |  | [optional] 
+**DurationGte** | Pointer to **float32** |  | [optional] 
+**DurationGt** | Pointer to **float32** |  | [optional] 
+**DurationLte** | Pointer to **float32** |  | [optional] 
+**DurationLt** | Pointer to **float32** |  | [optional] 
+**ConfContains** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -75,16 +75,6 @@ SetOrderBy sets OrderBy field to given value.
 
 HasOrderBy returns a boolean if a field has been set.
 
-### SetOrderByNil
-
-`func (o *DAGRunsBatchBody) SetOrderByNil(b bool)`
-
- SetOrderByNil sets the value for OrderBy to be an explicit nil
-
-### UnsetOrderBy
-`func (o *DAGRunsBatchBody) UnsetOrderBy()`
-
-UnsetOrderBy ensures that no value is present for OrderBy, not even an explicit nil
 ### GetPageOffset
 
 `func (o *DAGRunsBatchBody) GetPageOffset() int32`
@@ -160,32 +150,22 @@ SetDagIds sets DagIds field to given value.
 
 HasDagIds returns a boolean if a field has been set.
 
-### SetDagIdsNil
-
-`func (o *DAGRunsBatchBody) SetDagIdsNil(b bool)`
-
- SetDagIdsNil sets the value for DagIds to be an explicit nil
-
-### UnsetDagIds
-`func (o *DAGRunsBatchBody) UnsetDagIds()`
-
-UnsetDagIds ensures that no value is present for DagIds, not even an explicit nil
 ### GetStates
 
-`func (o *DAGRunsBatchBody) GetStates() []*DagRunState`
+`func (o *DAGRunsBatchBody) GetStates() []DagRunState`
 
 GetStates returns the States field if non-nil, zero value otherwise.
 
 ### GetStatesOk
 
-`func (o *DAGRunsBatchBody) GetStatesOk() (*[]*DagRunState, bool)`
+`func (o *DAGRunsBatchBody) GetStatesOk() (*[]DagRunState, bool)`
 
 GetStatesOk returns a tuple with the States field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStates
 
-`func (o *DAGRunsBatchBody) SetStates(v []*DagRunState)`
+`func (o *DAGRunsBatchBody) SetStates(v []DagRunState)`
 
 SetStates sets States field to given value.
 
@@ -195,16 +175,6 @@ SetStates sets States field to given value.
 
 HasStates returns a boolean if a field has been set.
 
-### SetStatesNil
-
-`func (o *DAGRunsBatchBody) SetStatesNil(b bool)`
-
- SetStatesNil sets the value for States to be an explicit nil
-
-### UnsetStates
-`func (o *DAGRunsBatchBody) UnsetStates()`
-
-UnsetStates ensures that no value is present for States, not even an explicit nil
 ### GetRunAfterGte
 
 `func (o *DAGRunsBatchBody) GetRunAfterGte() time.Time`
@@ -230,16 +200,6 @@ SetRunAfterGte sets RunAfterGte field to given value.
 
 HasRunAfterGte returns a boolean if a field has been set.
 
-### SetRunAfterGteNil
-
-`func (o *DAGRunsBatchBody) SetRunAfterGteNil(b bool)`
-
- SetRunAfterGteNil sets the value for RunAfterGte to be an explicit nil
-
-### UnsetRunAfterGte
-`func (o *DAGRunsBatchBody) UnsetRunAfterGte()`
-
-UnsetRunAfterGte ensures that no value is present for RunAfterGte, not even an explicit nil
 ### GetRunAfterGt
 
 `func (o *DAGRunsBatchBody) GetRunAfterGt() time.Time`
@@ -265,16 +225,6 @@ SetRunAfterGt sets RunAfterGt field to given value.
 
 HasRunAfterGt returns a boolean if a field has been set.
 
-### SetRunAfterGtNil
-
-`func (o *DAGRunsBatchBody) SetRunAfterGtNil(b bool)`
-
- SetRunAfterGtNil sets the value for RunAfterGt to be an explicit nil
-
-### UnsetRunAfterGt
-`func (o *DAGRunsBatchBody) UnsetRunAfterGt()`
-
-UnsetRunAfterGt ensures that no value is present for RunAfterGt, not even an explicit nil
 ### GetRunAfterLte
 
 `func (o *DAGRunsBatchBody) GetRunAfterLte() time.Time`
@@ -300,16 +250,6 @@ SetRunAfterLte sets RunAfterLte field to given value.
 
 HasRunAfterLte returns a boolean if a field has been set.
 
-### SetRunAfterLteNil
-
-`func (o *DAGRunsBatchBody) SetRunAfterLteNil(b bool)`
-
- SetRunAfterLteNil sets the value for RunAfterLte to be an explicit nil
-
-### UnsetRunAfterLte
-`func (o *DAGRunsBatchBody) UnsetRunAfterLte()`
-
-UnsetRunAfterLte ensures that no value is present for RunAfterLte, not even an explicit nil
 ### GetRunAfterLt
 
 `func (o *DAGRunsBatchBody) GetRunAfterLt() time.Time`
@@ -335,16 +275,6 @@ SetRunAfterLt sets RunAfterLt field to given value.
 
 HasRunAfterLt returns a boolean if a field has been set.
 
-### SetRunAfterLtNil
-
-`func (o *DAGRunsBatchBody) SetRunAfterLtNil(b bool)`
-
- SetRunAfterLtNil sets the value for RunAfterLt to be an explicit nil
-
-### UnsetRunAfterLt
-`func (o *DAGRunsBatchBody) UnsetRunAfterLt()`
-
-UnsetRunAfterLt ensures that no value is present for RunAfterLt, not even an explicit nil
 ### GetLogicalDateGte
 
 `func (o *DAGRunsBatchBody) GetLogicalDateGte() time.Time`
@@ -370,16 +300,6 @@ SetLogicalDateGte sets LogicalDateGte field to given value.
 
 HasLogicalDateGte returns a boolean if a field has been set.
 
-### SetLogicalDateGteNil
-
-`func (o *DAGRunsBatchBody) SetLogicalDateGteNil(b bool)`
-
- SetLogicalDateGteNil sets the value for LogicalDateGte to be an explicit nil
-
-### UnsetLogicalDateGte
-`func (o *DAGRunsBatchBody) UnsetLogicalDateGte()`
-
-UnsetLogicalDateGte ensures that no value is present for LogicalDateGte, not even an explicit nil
 ### GetLogicalDateGt
 
 `func (o *DAGRunsBatchBody) GetLogicalDateGt() time.Time`
@@ -405,16 +325,6 @@ SetLogicalDateGt sets LogicalDateGt field to given value.
 
 HasLogicalDateGt returns a boolean if a field has been set.
 
-### SetLogicalDateGtNil
-
-`func (o *DAGRunsBatchBody) SetLogicalDateGtNil(b bool)`
-
- SetLogicalDateGtNil sets the value for LogicalDateGt to be an explicit nil
-
-### UnsetLogicalDateGt
-`func (o *DAGRunsBatchBody) UnsetLogicalDateGt()`
-
-UnsetLogicalDateGt ensures that no value is present for LogicalDateGt, not even an explicit nil
 ### GetLogicalDateLte
 
 `func (o *DAGRunsBatchBody) GetLogicalDateLte() time.Time`
@@ -440,16 +350,6 @@ SetLogicalDateLte sets LogicalDateLte field to given value.
 
 HasLogicalDateLte returns a boolean if a field has been set.
 
-### SetLogicalDateLteNil
-
-`func (o *DAGRunsBatchBody) SetLogicalDateLteNil(b bool)`
-
- SetLogicalDateLteNil sets the value for LogicalDateLte to be an explicit nil
-
-### UnsetLogicalDateLte
-`func (o *DAGRunsBatchBody) UnsetLogicalDateLte()`
-
-UnsetLogicalDateLte ensures that no value is present for LogicalDateLte, not even an explicit nil
 ### GetLogicalDateLt
 
 `func (o *DAGRunsBatchBody) GetLogicalDateLt() time.Time`
@@ -475,16 +375,6 @@ SetLogicalDateLt sets LogicalDateLt field to given value.
 
 HasLogicalDateLt returns a boolean if a field has been set.
 
-### SetLogicalDateLtNil
-
-`func (o *DAGRunsBatchBody) SetLogicalDateLtNil(b bool)`
-
- SetLogicalDateLtNil sets the value for LogicalDateLt to be an explicit nil
-
-### UnsetLogicalDateLt
-`func (o *DAGRunsBatchBody) UnsetLogicalDateLt()`
-
-UnsetLogicalDateLt ensures that no value is present for LogicalDateLt, not even an explicit nil
 ### GetStartDateGte
 
 `func (o *DAGRunsBatchBody) GetStartDateGte() time.Time`
@@ -510,16 +400,6 @@ SetStartDateGte sets StartDateGte field to given value.
 
 HasStartDateGte returns a boolean if a field has been set.
 
-### SetStartDateGteNil
-
-`func (o *DAGRunsBatchBody) SetStartDateGteNil(b bool)`
-
- SetStartDateGteNil sets the value for StartDateGte to be an explicit nil
-
-### UnsetStartDateGte
-`func (o *DAGRunsBatchBody) UnsetStartDateGte()`
-
-UnsetStartDateGte ensures that no value is present for StartDateGte, not even an explicit nil
 ### GetStartDateGt
 
 `func (o *DAGRunsBatchBody) GetStartDateGt() time.Time`
@@ -545,16 +425,6 @@ SetStartDateGt sets StartDateGt field to given value.
 
 HasStartDateGt returns a boolean if a field has been set.
 
-### SetStartDateGtNil
-
-`func (o *DAGRunsBatchBody) SetStartDateGtNil(b bool)`
-
- SetStartDateGtNil sets the value for StartDateGt to be an explicit nil
-
-### UnsetStartDateGt
-`func (o *DAGRunsBatchBody) UnsetStartDateGt()`
-
-UnsetStartDateGt ensures that no value is present for StartDateGt, not even an explicit nil
 ### GetStartDateLte
 
 `func (o *DAGRunsBatchBody) GetStartDateLte() time.Time`
@@ -580,16 +450,6 @@ SetStartDateLte sets StartDateLte field to given value.
 
 HasStartDateLte returns a boolean if a field has been set.
 
-### SetStartDateLteNil
-
-`func (o *DAGRunsBatchBody) SetStartDateLteNil(b bool)`
-
- SetStartDateLteNil sets the value for StartDateLte to be an explicit nil
-
-### UnsetStartDateLte
-`func (o *DAGRunsBatchBody) UnsetStartDateLte()`
-
-UnsetStartDateLte ensures that no value is present for StartDateLte, not even an explicit nil
 ### GetStartDateLt
 
 `func (o *DAGRunsBatchBody) GetStartDateLt() time.Time`
@@ -615,16 +475,6 @@ SetStartDateLt sets StartDateLt field to given value.
 
 HasStartDateLt returns a boolean if a field has been set.
 
-### SetStartDateLtNil
-
-`func (o *DAGRunsBatchBody) SetStartDateLtNil(b bool)`
-
- SetStartDateLtNil sets the value for StartDateLt to be an explicit nil
-
-### UnsetStartDateLt
-`func (o *DAGRunsBatchBody) UnsetStartDateLt()`
-
-UnsetStartDateLt ensures that no value is present for StartDateLt, not even an explicit nil
 ### GetEndDateGte
 
 `func (o *DAGRunsBatchBody) GetEndDateGte() time.Time`
@@ -650,16 +500,6 @@ SetEndDateGte sets EndDateGte field to given value.
 
 HasEndDateGte returns a boolean if a field has been set.
 
-### SetEndDateGteNil
-
-`func (o *DAGRunsBatchBody) SetEndDateGteNil(b bool)`
-
- SetEndDateGteNil sets the value for EndDateGte to be an explicit nil
-
-### UnsetEndDateGte
-`func (o *DAGRunsBatchBody) UnsetEndDateGte()`
-
-UnsetEndDateGte ensures that no value is present for EndDateGte, not even an explicit nil
 ### GetEndDateGt
 
 `func (o *DAGRunsBatchBody) GetEndDateGt() time.Time`
@@ -685,16 +525,6 @@ SetEndDateGt sets EndDateGt field to given value.
 
 HasEndDateGt returns a boolean if a field has been set.
 
-### SetEndDateGtNil
-
-`func (o *DAGRunsBatchBody) SetEndDateGtNil(b bool)`
-
- SetEndDateGtNil sets the value for EndDateGt to be an explicit nil
-
-### UnsetEndDateGt
-`func (o *DAGRunsBatchBody) UnsetEndDateGt()`
-
-UnsetEndDateGt ensures that no value is present for EndDateGt, not even an explicit nil
 ### GetEndDateLte
 
 `func (o *DAGRunsBatchBody) GetEndDateLte() time.Time`
@@ -720,16 +550,6 @@ SetEndDateLte sets EndDateLte field to given value.
 
 HasEndDateLte returns a boolean if a field has been set.
 
-### SetEndDateLteNil
-
-`func (o *DAGRunsBatchBody) SetEndDateLteNil(b bool)`
-
- SetEndDateLteNil sets the value for EndDateLte to be an explicit nil
-
-### UnsetEndDateLte
-`func (o *DAGRunsBatchBody) UnsetEndDateLte()`
-
-UnsetEndDateLte ensures that no value is present for EndDateLte, not even an explicit nil
 ### GetEndDateLt
 
 `func (o *DAGRunsBatchBody) GetEndDateLt() time.Time`
@@ -755,16 +575,6 @@ SetEndDateLt sets EndDateLt field to given value.
 
 HasEndDateLt returns a boolean if a field has been set.
 
-### SetEndDateLtNil
-
-`func (o *DAGRunsBatchBody) SetEndDateLtNil(b bool)`
-
- SetEndDateLtNil sets the value for EndDateLt to be an explicit nil
-
-### UnsetEndDateLt
-`func (o *DAGRunsBatchBody) UnsetEndDateLt()`
-
-UnsetEndDateLt ensures that no value is present for EndDateLt, not even an explicit nil
 ### GetDurationGte
 
 `func (o *DAGRunsBatchBody) GetDurationGte() float32`
@@ -790,16 +600,6 @@ SetDurationGte sets DurationGte field to given value.
 
 HasDurationGte returns a boolean if a field has been set.
 
-### SetDurationGteNil
-
-`func (o *DAGRunsBatchBody) SetDurationGteNil(b bool)`
-
- SetDurationGteNil sets the value for DurationGte to be an explicit nil
-
-### UnsetDurationGte
-`func (o *DAGRunsBatchBody) UnsetDurationGte()`
-
-UnsetDurationGte ensures that no value is present for DurationGte, not even an explicit nil
 ### GetDurationGt
 
 `func (o *DAGRunsBatchBody) GetDurationGt() float32`
@@ -825,16 +625,6 @@ SetDurationGt sets DurationGt field to given value.
 
 HasDurationGt returns a boolean if a field has been set.
 
-### SetDurationGtNil
-
-`func (o *DAGRunsBatchBody) SetDurationGtNil(b bool)`
-
- SetDurationGtNil sets the value for DurationGt to be an explicit nil
-
-### UnsetDurationGt
-`func (o *DAGRunsBatchBody) UnsetDurationGt()`
-
-UnsetDurationGt ensures that no value is present for DurationGt, not even an explicit nil
 ### GetDurationLte
 
 `func (o *DAGRunsBatchBody) GetDurationLte() float32`
@@ -860,16 +650,6 @@ SetDurationLte sets DurationLte field to given value.
 
 HasDurationLte returns a boolean if a field has been set.
 
-### SetDurationLteNil
-
-`func (o *DAGRunsBatchBody) SetDurationLteNil(b bool)`
-
- SetDurationLteNil sets the value for DurationLte to be an explicit nil
-
-### UnsetDurationLte
-`func (o *DAGRunsBatchBody) UnsetDurationLte()`
-
-UnsetDurationLte ensures that no value is present for DurationLte, not even an explicit nil
 ### GetDurationLt
 
 `func (o *DAGRunsBatchBody) GetDurationLt() float32`
@@ -895,16 +675,6 @@ SetDurationLt sets DurationLt field to given value.
 
 HasDurationLt returns a boolean if a field has been set.
 
-### SetDurationLtNil
-
-`func (o *DAGRunsBatchBody) SetDurationLtNil(b bool)`
-
- SetDurationLtNil sets the value for DurationLt to be an explicit nil
-
-### UnsetDurationLt
-`func (o *DAGRunsBatchBody) UnsetDurationLt()`
-
-UnsetDurationLt ensures that no value is present for DurationLt, not even an explicit nil
 ### GetConfContains
 
 `func (o *DAGRunsBatchBody) GetConfContains() string`
@@ -930,16 +700,6 @@ SetConfContains sets ConfContains field to given value.
 
 HasConfContains returns a boolean if a field has been set.
 
-### SetConfContainsNil
-
-`func (o *DAGRunsBatchBody) SetConfContainsNil(b bool)`
-
- SetConfContainsNil sets the value for ConfContains to be an explicit nil
-
-### UnsetConfContains
-`func (o *DAGRunsBatchBody) UnsetConfContains()`
-
-UnsetConfContains ensures that no value is present for ConfContains, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

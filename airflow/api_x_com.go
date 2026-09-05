@@ -25,7 +25,7 @@ import (
 // XComAPIService XComAPI service
 type XComAPIService service
 
-type ApiCreateXcomEntryRequest struct {
+type XComAPICreateXcomEntryRequest struct {
 	ctx context.Context
 	ApiService *XComAPIService
 	dagId string
@@ -34,12 +34,12 @@ type ApiCreateXcomEntryRequest struct {
 	xComCreateBody *XComCreateBody
 }
 
-func (r ApiCreateXcomEntryRequest) XComCreateBody(xComCreateBody XComCreateBody) ApiCreateXcomEntryRequest {
+func (r XComAPICreateXcomEntryRequest) XComCreateBody(xComCreateBody XComCreateBody) XComAPICreateXcomEntryRequest {
 	r.xComCreateBody = &xComCreateBody
 	return r
 }
 
-func (r ApiCreateXcomEntryRequest) Execute() (*XComResponseNative, *http.Response, error) {
+func (r XComAPICreateXcomEntryRequest) Execute() (*XComResponseNative, *http.Response, error) {
 	return r.ApiService.CreateXcomEntryExecute(r)
 }
 
@@ -52,10 +52,10 @@ Create an XCom entry.
  @param dagId
  @param taskId
  @param dagRunId
- @return ApiCreateXcomEntryRequest
+ @return XComAPICreateXcomEntryRequest
 */
-func (a *XComAPIService) CreateXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string) ApiCreateXcomEntryRequest {
-	return ApiCreateXcomEntryRequest{
+func (a *XComAPIService) CreateXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string) XComAPICreateXcomEntryRequest {
+	return XComAPICreateXcomEntryRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -66,7 +66,7 @@ func (a *XComAPIService) CreateXcomEntry(ctx context.Context, dagId string, task
 
 // Execute executes the request
 //  @return XComResponseNative
-func (a *XComAPIService) CreateXcomEntryExecute(r ApiCreateXcomEntryRequest) (*XComResponseNative, *http.Response, error) {
+func (a *XComAPIService) CreateXcomEntryExecute(r XComAPICreateXcomEntryRequest) (*XComResponseNative, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -201,7 +201,7 @@ func (a *XComAPIService) CreateXcomEntryExecute(r ApiCreateXcomEntryRequest) (*X
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteXcomEntryRequest struct {
+type XComAPIDeleteXcomEntryRequest struct {
 	ctx context.Context
 	ApiService *XComAPIService
 	dagId string
@@ -211,12 +211,12 @@ type ApiDeleteXcomEntryRequest struct {
 	mapIndex *int32
 }
 
-func (r ApiDeleteXcomEntryRequest) MapIndex(mapIndex int32) ApiDeleteXcomEntryRequest {
+func (r XComAPIDeleteXcomEntryRequest) MapIndex(mapIndex int32) XComAPIDeleteXcomEntryRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiDeleteXcomEntryRequest) Execute() (*http.Response, error) {
+func (r XComAPIDeleteXcomEntryRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteXcomEntryExecute(r)
 }
 
@@ -230,10 +230,10 @@ Delete an XCom entry.
  @param taskId
  @param dagRunId
  @param xcomKey
- @return ApiDeleteXcomEntryRequest
+ @return XComAPIDeleteXcomEntryRequest
 */
-func (a *XComAPIService) DeleteXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) ApiDeleteXcomEntryRequest {
-	return ApiDeleteXcomEntryRequest{
+func (a *XComAPIService) DeleteXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) XComAPIDeleteXcomEntryRequest {
+	return XComAPIDeleteXcomEntryRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -244,7 +244,7 @@ func (a *XComAPIService) DeleteXcomEntry(ctx context.Context, dagId string, task
 }
 
 // Execute executes the request
-func (a *XComAPIService) DeleteXcomEntryExecute(r ApiDeleteXcomEntryRequest) (*http.Response, error) {
+func (a *XComAPIService) DeleteXcomEntryExecute(r XComAPIDeleteXcomEntryRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -372,7 +372,7 @@ func (a *XComAPIService) DeleteXcomEntryExecute(r ApiDeleteXcomEntryRequest) (*h
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetXcomEntriesRequest struct {
+type XComAPIGetXcomEntriesRequest struct {
 	ctx context.Context
 	ApiService *XComAPIService
 	dagId string
@@ -399,129 +399,129 @@ type ApiGetXcomEntriesRequest struct {
 	runAfterGt *time.Time
 	runAfterLte *time.Time
 	runAfterLt *time.Time
-	orderBy *[]*string
+	orderBy *[]string
 }
 
-func (r ApiGetXcomEntriesRequest) XcomKey(xcomKey string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) XcomKey(xcomKey string) XComAPIGetXcomEntriesRequest {
 	r.xcomKey = &xcomKey
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) MapIndex(mapIndex int32) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) MapIndex(mapIndex int32) XComAPIGetXcomEntriesRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) Limit(limit int32) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) Limit(limit int32) XComAPIGetXcomEntriesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) Offset(offset int32) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) Offset(offset int32) XComAPIGetXcomEntriesRequest {
 	r.offset = &offset
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;xcom_key_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetXcomEntriesRequest) XcomKeyPattern(xcomKeyPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) XcomKeyPattern(xcomKeyPattern string) XComAPIGetXcomEntriesRequest {
 	r.xcomKeyPattern = &xcomKeyPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetXcomEntriesRequest) XcomKeyPrefixPattern(xcomKeyPrefixPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) XcomKeyPrefixPattern(xcomKeyPrefixPattern string) XComAPIGetXcomEntriesRequest {
 	r.xcomKeyPrefixPattern = &xcomKeyPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_display_name_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetXcomEntriesRequest) DagDisplayNamePattern(dagDisplayNamePattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) DagDisplayNamePattern(dagDisplayNamePattern string) XComAPIGetXcomEntriesRequest {
 	r.dagDisplayNamePattern = &dagDisplayNamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetXcomEntriesRequest) DagDisplayNamePrefixPattern(dagDisplayNamePrefixPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) DagDisplayNamePrefixPattern(dagDisplayNamePrefixPattern string) XComAPIGetXcomEntriesRequest {
 	r.dagDisplayNamePrefixPattern = &dagDisplayNamePrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;run_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetXcomEntriesRequest) RunIdPattern(runIdPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunIdPattern(runIdPattern string) XComAPIGetXcomEntriesRequest {
 	r.runIdPattern = &runIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetXcomEntriesRequest) RunIdPrefixPattern(runIdPrefixPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunIdPrefixPattern(runIdPrefixPattern string) XComAPIGetXcomEntriesRequest {
 	r.runIdPrefixPattern = &runIdPrefixPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;task_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetXcomEntriesRequest) TaskIdPattern(taskIdPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) TaskIdPattern(taskIdPattern string) XComAPIGetXcomEntriesRequest {
 	r.taskIdPattern = &taskIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetXcomEntriesRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) XComAPIGetXcomEntriesRequest {
 	r.taskIdPrefixPattern = &taskIdPrefixPattern
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) MapIndexFilter(mapIndexFilter int32) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) MapIndexFilter(mapIndexFilter int32) XComAPIGetXcomEntriesRequest {
 	r.mapIndexFilter = &mapIndexFilter
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) LogicalDateGte(logicalDateGte time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) LogicalDateGte(logicalDateGte time.Time) XComAPIGetXcomEntriesRequest {
 	r.logicalDateGte = &logicalDateGte
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) LogicalDateGt(logicalDateGt time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) LogicalDateGt(logicalDateGt time.Time) XComAPIGetXcomEntriesRequest {
 	r.logicalDateGt = &logicalDateGt
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) LogicalDateLte(logicalDateLte time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) LogicalDateLte(logicalDateLte time.Time) XComAPIGetXcomEntriesRequest {
 	r.logicalDateLte = &logicalDateLte
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) LogicalDateLt(logicalDateLt time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) LogicalDateLt(logicalDateLt time.Time) XComAPIGetXcomEntriesRequest {
 	r.logicalDateLt = &logicalDateLt
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) RunAfterGte(runAfterGte time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunAfterGte(runAfterGte time.Time) XComAPIGetXcomEntriesRequest {
 	r.runAfterGte = &runAfterGte
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) RunAfterGt(runAfterGt time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunAfterGt(runAfterGt time.Time) XComAPIGetXcomEntriesRequest {
 	r.runAfterGt = &runAfterGt
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) RunAfterLte(runAfterLte time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunAfterLte(runAfterLte time.Time) XComAPIGetXcomEntriesRequest {
 	r.runAfterLte = &runAfterLte
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) RunAfterLt(runAfterLt time.Time) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) RunAfterLt(runAfterLt time.Time) XComAPIGetXcomEntriesRequest {
 	r.runAfterLt = &runAfterLt
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;key, dag_id, run_id, task_id, map_index, timestamp, run_after&#x60;
-func (r ApiGetXcomEntriesRequest) OrderBy(orderBy []*string) ApiGetXcomEntriesRequest {
+func (r XComAPIGetXcomEntriesRequest) OrderBy(orderBy []string) XComAPIGetXcomEntriesRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetXcomEntriesRequest) Execute() (*XComCollectionResponse, *http.Response, error) {
+func (r XComAPIGetXcomEntriesRequest) Execute() (*XComCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetXcomEntriesExecute(r)
 }
 
@@ -536,10 +536,10 @@ This endpoint allows specifying `~` as the dag_id, dag_run_id, task_id to retrie
  @param dagId
  @param dagRunId
  @param taskId
- @return ApiGetXcomEntriesRequest
+ @return XComAPIGetXcomEntriesRequest
 */
-func (a *XComAPIService) GetXcomEntries(ctx context.Context, dagId string, dagRunId string, taskId string) ApiGetXcomEntriesRequest {
-	return ApiGetXcomEntriesRequest{
+func (a *XComAPIService) GetXcomEntries(ctx context.Context, dagId string, dagRunId string, taskId string) XComAPIGetXcomEntriesRequest {
+	return XComAPIGetXcomEntriesRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -550,7 +550,7 @@ func (a *XComAPIService) GetXcomEntries(ctx context.Context, dagId string, dagRu
 
 // Execute executes the request
 //  @return XComCollectionResponse
-func (a *XComAPIService) GetXcomEntriesExecute(r ApiGetXcomEntriesRequest) (*XComCollectionResponse, *http.Response, error) {
+func (a *XComAPIService) GetXcomEntriesExecute(r XComAPIGetXcomEntriesRequest) (*XComCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -654,7 +654,7 @@ func (a *XComAPIService) GetXcomEntriesExecute(r ApiGetXcomEntriesRequest) (*XCo
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"dag_id", "task_id", "run_id", "map_index", "key"}
+		var defaultValue []string = []string{"dag_id", "task_id", "run_id", "map_index", "key"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -766,7 +766,7 @@ func (a *XComAPIService) GetXcomEntriesExecute(r ApiGetXcomEntriesRequest) (*XCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetXcomEntryRequest struct {
+type XComAPIGetXcomEntryRequest struct {
 	ctx context.Context
 	ApiService *XComAPIService
 	dagId string
@@ -778,22 +778,22 @@ type ApiGetXcomEntryRequest struct {
 	stringify *bool
 }
 
-func (r ApiGetXcomEntryRequest) MapIndex(mapIndex int32) ApiGetXcomEntryRequest {
+func (r XComAPIGetXcomEntryRequest) MapIndex(mapIndex int32) XComAPIGetXcomEntryRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetXcomEntryRequest) Deserialize(deserialize bool) ApiGetXcomEntryRequest {
+func (r XComAPIGetXcomEntryRequest) Deserialize(deserialize bool) XComAPIGetXcomEntryRequest {
 	r.deserialize = &deserialize
 	return r
 }
 
-func (r ApiGetXcomEntryRequest) Stringify(stringify bool) ApiGetXcomEntryRequest {
+func (r XComAPIGetXcomEntryRequest) Stringify(stringify bool) XComAPIGetXcomEntryRequest {
 	r.stringify = &stringify
 	return r
 }
 
-func (r ApiGetXcomEntryRequest) Execute() (*ResponseGetXcomEntry, *http.Response, error) {
+func (r XComAPIGetXcomEntryRequest) Execute() (*ResponseGetXcomEntry, *http.Response, error) {
 	return r.ApiService.GetXcomEntryExecute(r)
 }
 
@@ -807,10 +807,10 @@ Get an XCom entry.
  @param taskId
  @param dagRunId
  @param xcomKey
- @return ApiGetXcomEntryRequest
+ @return XComAPIGetXcomEntryRequest
 */
-func (a *XComAPIService) GetXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) ApiGetXcomEntryRequest {
-	return ApiGetXcomEntryRequest{
+func (a *XComAPIService) GetXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) XComAPIGetXcomEntryRequest {
+	return XComAPIGetXcomEntryRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -822,7 +822,7 @@ func (a *XComAPIService) GetXcomEntry(ctx context.Context, dagId string, taskId 
 
 // Execute executes the request
 //  @return ResponseGetXcomEntry
-func (a *XComAPIService) GetXcomEntryExecute(r ApiGetXcomEntryRequest) (*ResponseGetXcomEntry, *http.Response, error) {
+func (a *XComAPIService) GetXcomEntryExecute(r XComAPIGetXcomEntryRequest) (*ResponseGetXcomEntry, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -974,7 +974,7 @@ func (a *XComAPIService) GetXcomEntryExecute(r ApiGetXcomEntryRequest) (*Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateXcomEntryRequest struct {
+type XComAPIUpdateXcomEntryRequest struct {
 	ctx context.Context
 	ApiService *XComAPIService
 	dagId string
@@ -984,12 +984,12 @@ type ApiUpdateXcomEntryRequest struct {
 	xComUpdateBody *XComUpdateBody
 }
 
-func (r ApiUpdateXcomEntryRequest) XComUpdateBody(xComUpdateBody XComUpdateBody) ApiUpdateXcomEntryRequest {
+func (r XComAPIUpdateXcomEntryRequest) XComUpdateBody(xComUpdateBody XComUpdateBody) XComAPIUpdateXcomEntryRequest {
 	r.xComUpdateBody = &xComUpdateBody
 	return r
 }
 
-func (r ApiUpdateXcomEntryRequest) Execute() (*XComResponseNative, *http.Response, error) {
+func (r XComAPIUpdateXcomEntryRequest) Execute() (*XComResponseNative, *http.Response, error) {
 	return r.ApiService.UpdateXcomEntryExecute(r)
 }
 
@@ -1003,10 +1003,10 @@ Update an existing XCom entry.
  @param taskId
  @param dagRunId
  @param xcomKey
- @return ApiUpdateXcomEntryRequest
+ @return XComAPIUpdateXcomEntryRequest
 */
-func (a *XComAPIService) UpdateXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) ApiUpdateXcomEntryRequest {
-	return ApiUpdateXcomEntryRequest{
+func (a *XComAPIService) UpdateXcomEntry(ctx context.Context, dagId string, taskId string, dagRunId string, xcomKey string) XComAPIUpdateXcomEntryRequest {
+	return XComAPIUpdateXcomEntryRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -1018,7 +1018,7 @@ func (a *XComAPIService) UpdateXcomEntry(ctx context.Context, dagId string, task
 
 // Execute executes the request
 //  @return XComResponseNative
-func (a *XComAPIService) UpdateXcomEntryExecute(r ApiUpdateXcomEntryRequest) (*XComResponseNative, *http.Response, error) {
+func (a *XComAPIService) UpdateXcomEntryExecute(r XComAPIUpdateXcomEntryRequest) (*XComResponseNative, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

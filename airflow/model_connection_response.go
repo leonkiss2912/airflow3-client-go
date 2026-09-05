@@ -23,14 +23,14 @@ var _ MappedNullable = &ConnectionResponse{}
 type ConnectionResponse struct {
 	ConnectionId string `json:"connection_id"`
 	ConnType string `json:"conn_type"`
-	Description NullableString `json:"description"`
-	Host NullableString `json:"host"`
-	Login NullableString `json:"login"`
-	Schema NullableString `json:"schema"`
-	Port NullableInt32 `json:"port"`
-	Password NullableString `json:"password"`
-	Extra NullableString `json:"extra"`
-	TeamName NullableString `json:"team_name"`
+	Description string `json:"description"`
+	Host string `json:"host"`
+	Login string `json:"login"`
+	Schema string `json:"schema"`
+	Port int32 `json:"port"`
+	Password string `json:"password"`
+	Extra string `json:"extra"`
+	TeamName string `json:"team_name"`
 }
 
 type _ConnectionResponse ConnectionResponse
@@ -39,7 +39,7 @@ type _ConnectionResponse ConnectionResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConnectionResponse(connectionId string, connType string, description NullableString, host NullableString, login NullableString, schema NullableString, port NullableInt32, password NullableString, extra NullableString, teamName NullableString) *ConnectionResponse {
+func NewConnectionResponse(connectionId string, connType string, description string, host string, login string, schema string, port int32, password string, extra string, teamName string) *ConnectionResponse {
 	this := ConnectionResponse{}
 	this.ConnectionId = connectionId
 	this.ConnType = connType
@@ -111,211 +111,195 @@ func (o *ConnectionResponse) SetConnType(v string) {
 }
 
 // GetDescription returns the Description field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Description.Get()
+	return o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return &o.Description, true
 }
 
 // SetDescription sets field value
 func (o *ConnectionResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = v
 }
 
 // GetHost returns the Host field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetHost() string {
-	if o == nil || o.Host.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Host.Get()
+	return o.Host
 }
 
 // GetHostOk returns a tuple with the Host field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetHostOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Host.Get(), o.Host.IsSet()
+	return &o.Host, true
 }
 
 // SetHost sets field value
 func (o *ConnectionResponse) SetHost(v string) {
-	o.Host.Set(&v)
+	o.Host = v
 }
 
 // GetLogin returns the Login field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetLogin() string {
-	if o == nil || o.Login.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Login.Get()
+	return o.Login
 }
 
 // GetLoginOk returns a tuple with the Login field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetLoginOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Login.Get(), o.Login.IsSet()
+	return &o.Login, true
 }
 
 // SetLogin sets field value
 func (o *ConnectionResponse) SetLogin(v string) {
-	o.Login.Set(&v)
+	o.Login = v
 }
 
 // GetSchema returns the Schema field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetSchema() string {
-	if o == nil || o.Schema.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Schema.Get()
+	return o.Schema
 }
 
 // GetSchemaOk returns a tuple with the Schema field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetSchemaOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Schema.Get(), o.Schema.IsSet()
+	return &o.Schema, true
 }
 
 // SetSchema sets field value
 func (o *ConnectionResponse) SetSchema(v string) {
-	o.Schema.Set(&v)
+	o.Schema = v
 }
 
 // GetPort returns the Port field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *ConnectionResponse) GetPort() int32 {
-	if o == nil || o.Port.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.Port.Get()
+	return o.Port
 }
 
 // GetPortOk returns a tuple with the Port field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetPortOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Port.Get(), o.Port.IsSet()
+	return &o.Port, true
 }
 
 // SetPort sets field value
 func (o *ConnectionResponse) SetPort(v int32) {
-	o.Port.Set(&v)
+	o.Port = v
 }
 
 // GetPassword returns the Password field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetPassword() string {
-	if o == nil || o.Password.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Password.Get()
+	return o.Password
 }
 
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetPasswordOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Password.Get(), o.Password.IsSet()
+	return &o.Password, true
 }
 
 // SetPassword sets field value
 func (o *ConnectionResponse) SetPassword(v string) {
-	o.Password.Set(&v)
+	o.Password = v
 }
 
 // GetExtra returns the Extra field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetExtra() string {
-	if o == nil || o.Extra.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Extra.Get()
+	return o.Extra
 }
 
 // GetExtraOk returns a tuple with the Extra field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetExtraOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Extra.Get(), o.Extra.IsSet()
+	return &o.Extra, true
 }
 
 // SetExtra sets field value
 func (o *ConnectionResponse) SetExtra(v string) {
-	o.Extra.Set(&v)
+	o.Extra = v
 }
 
 // GetTeamName returns the TeamName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ConnectionResponse) GetTeamName() string {
-	if o == nil || o.TeamName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TeamName.Get()
+	return o.TeamName
 }
 
 // GetTeamNameOk returns a tuple with the TeamName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConnectionResponse) GetTeamNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TeamName.Get(), o.TeamName.IsSet()
+	return &o.TeamName, true
 }
 
 // SetTeamName sets field value
 func (o *ConnectionResponse) SetTeamName(v string) {
-	o.TeamName.Set(&v)
+	o.TeamName = v
 }
 
 func (o ConnectionResponse) MarshalJSON() ([]byte, error) {
@@ -330,14 +314,14 @@ func (o ConnectionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["connection_id"] = o.ConnectionId
 	toSerialize["conn_type"] = o.ConnType
-	toSerialize["description"] = o.Description.Get()
-	toSerialize["host"] = o.Host.Get()
-	toSerialize["login"] = o.Login.Get()
-	toSerialize["schema"] = o.Schema.Get()
-	toSerialize["port"] = o.Port.Get()
-	toSerialize["password"] = o.Password.Get()
-	toSerialize["extra"] = o.Extra.Get()
-	toSerialize["team_name"] = o.TeamName.Get()
+	toSerialize["description"] = o.Description
+	toSerialize["host"] = o.Host
+	toSerialize["login"] = o.Login
+	toSerialize["schema"] = o.Schema
+	toSerialize["port"] = o.Port
+	toSerialize["password"] = o.Password
+	toSerialize["extra"] = o.Extra
+	toSerialize["team_name"] = o.TeamName
 	return toSerialize, nil
 }
 

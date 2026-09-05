@@ -8,27 +8,27 @@ Name | Type | Description | Notes
 **DagDisplayName** | **string** |  | 
 **IsPaused** | **bool** |  | 
 **IsStale** | **bool** |  | 
-**LastParsedTime** | **NullableTime** |  | 
-**LastParseDuration** | **NullableFloat32** |  | 
-**LastExpired** | **NullableTime** |  | 
-**BundleName** | **NullableString** |  | 
-**BundleVersion** | **NullableString** |  | 
-**RelativeFileloc** | **NullableString** |  | 
+**LastParsedTime** | **time.Time** |  | 
+**LastParseDuration** | **float32** |  | 
+**LastExpired** | **time.Time** |  | 
+**BundleName** | **string** |  | 
+**BundleVersion** | **string** |  | 
+**RelativeFileloc** | **string** |  | 
 **Fileloc** | **string** |  | 
-**Description** | **NullableString** |  | 
-**TimetableSummary** | **NullableString** |  | 
-**TimetableDescription** | **NullableString** |  | 
+**Description** | **string** |  | 
+**TimetableSummary** | **string** |  | 
+**TimetableDescription** | **string** |  | 
 **TimetablePartitioned** | **bool** |  | 
 **Tags** | [**[]DagTagResponse**](DagTagResponse.md) |  | 
 **MaxActiveTasks** | **int32** |  | 
-**MaxActiveRuns** | **NullableInt32** |  | 
+**MaxActiveRuns** | **int32** |  | 
 **MaxConsecutiveFailedDagRuns** | **int32** |  | 
 **HasTaskConcurrencyLimits** | **bool** |  | 
 **HasImportErrors** | **bool** |  | 
-**NextDagrunLogicalDate** | **NullableTime** |  | 
-**NextDagrunDataIntervalStart** | **NullableTime** |  | 
-**NextDagrunDataIntervalEnd** | **NullableTime** |  | 
-**NextDagrunRunAfter** | **NullableTime** |  | 
+**NextDagrunLogicalDate** | **time.Time** |  | 
+**NextDagrunDataIntervalStart** | **time.Time** |  | 
+**NextDagrunDataIntervalEnd** | **time.Time** |  | 
+**NextDagrunRunAfter** | **time.Time** |  | 
 **AllowedRunTypes** | [**[]DagRunType**](DagRunType.md) |  | 
 **Owners** | **[]string** |  | 
 **FileToken** | **string** | Return file token. | [readonly] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewDAGResponse
 
-`func NewDAGResponse(dagId string, dagDisplayName string, isPaused bool, isStale bool, lastParsedTime NullableTime, lastParseDuration NullableFloat32, lastExpired NullableTime, bundleName NullableString, bundleVersion NullableString, relativeFileloc NullableString, fileloc string, description NullableString, timetableSummary NullableString, timetableDescription NullableString, timetablePartitioned bool, tags []DagTagResponse, maxActiveTasks int32, maxActiveRuns NullableInt32, maxConsecutiveFailedDagRuns int32, hasTaskConcurrencyLimits bool, hasImportErrors bool, nextDagrunLogicalDate NullableTime, nextDagrunDataIntervalStart NullableTime, nextDagrunDataIntervalEnd NullableTime, nextDagrunRunAfter NullableTime, allowedRunTypes []DagRunType, owners []string, fileToken string, ) *DAGResponse`
+`func NewDAGResponse(dagId string, dagDisplayName string, isPaused bool, isStale bool, lastParsedTime time.Time, lastParseDuration float32, lastExpired time.Time, bundleName string, bundleVersion string, relativeFileloc string, fileloc string, description string, timetableSummary string, timetableDescription string, timetablePartitioned bool, tags []DagTagResponse, maxActiveTasks int32, maxActiveRuns int32, maxConsecutiveFailedDagRuns int32, hasTaskConcurrencyLimits bool, hasImportErrors bool, nextDagrunLogicalDate time.Time, nextDagrunDataIntervalStart time.Time, nextDagrunDataIntervalEnd time.Time, nextDagrunRunAfter time.Time, allowedRunTypes []DagRunType, owners []string, fileToken string, ) *DAGResponse`
 
 NewDAGResponse instantiates a new DAGResponse object
 This constructor will assign default values to properties that have it defined,
@@ -152,16 +152,6 @@ and a boolean to check if the value has been set.
 SetLastParsedTime sets LastParsedTime field to given value.
 
 
-### SetLastParsedTimeNil
-
-`func (o *DAGResponse) SetLastParsedTimeNil(b bool)`
-
- SetLastParsedTimeNil sets the value for LastParsedTime to be an explicit nil
-
-### UnsetLastParsedTime
-`func (o *DAGResponse) UnsetLastParsedTime()`
-
-UnsetLastParsedTime ensures that no value is present for LastParsedTime, not even an explicit nil
 ### GetLastParseDuration
 
 `func (o *DAGResponse) GetLastParseDuration() float32`
@@ -182,16 +172,6 @@ and a boolean to check if the value has been set.
 SetLastParseDuration sets LastParseDuration field to given value.
 
 
-### SetLastParseDurationNil
-
-`func (o *DAGResponse) SetLastParseDurationNil(b bool)`
-
- SetLastParseDurationNil sets the value for LastParseDuration to be an explicit nil
-
-### UnsetLastParseDuration
-`func (o *DAGResponse) UnsetLastParseDuration()`
-
-UnsetLastParseDuration ensures that no value is present for LastParseDuration, not even an explicit nil
 ### GetLastExpired
 
 `func (o *DAGResponse) GetLastExpired() time.Time`
@@ -212,16 +192,6 @@ and a boolean to check if the value has been set.
 SetLastExpired sets LastExpired field to given value.
 
 
-### SetLastExpiredNil
-
-`func (o *DAGResponse) SetLastExpiredNil(b bool)`
-
- SetLastExpiredNil sets the value for LastExpired to be an explicit nil
-
-### UnsetLastExpired
-`func (o *DAGResponse) UnsetLastExpired()`
-
-UnsetLastExpired ensures that no value is present for LastExpired, not even an explicit nil
 ### GetBundleName
 
 `func (o *DAGResponse) GetBundleName() string`
@@ -242,16 +212,6 @@ and a boolean to check if the value has been set.
 SetBundleName sets BundleName field to given value.
 
 
-### SetBundleNameNil
-
-`func (o *DAGResponse) SetBundleNameNil(b bool)`
-
- SetBundleNameNil sets the value for BundleName to be an explicit nil
-
-### UnsetBundleName
-`func (o *DAGResponse) UnsetBundleName()`
-
-UnsetBundleName ensures that no value is present for BundleName, not even an explicit nil
 ### GetBundleVersion
 
 `func (o *DAGResponse) GetBundleVersion() string`
@@ -272,16 +232,6 @@ and a boolean to check if the value has been set.
 SetBundleVersion sets BundleVersion field to given value.
 
 
-### SetBundleVersionNil
-
-`func (o *DAGResponse) SetBundleVersionNil(b bool)`
-
- SetBundleVersionNil sets the value for BundleVersion to be an explicit nil
-
-### UnsetBundleVersion
-`func (o *DAGResponse) UnsetBundleVersion()`
-
-UnsetBundleVersion ensures that no value is present for BundleVersion, not even an explicit nil
 ### GetRelativeFileloc
 
 `func (o *DAGResponse) GetRelativeFileloc() string`
@@ -302,16 +252,6 @@ and a boolean to check if the value has been set.
 SetRelativeFileloc sets RelativeFileloc field to given value.
 
 
-### SetRelativeFilelocNil
-
-`func (o *DAGResponse) SetRelativeFilelocNil(b bool)`
-
- SetRelativeFilelocNil sets the value for RelativeFileloc to be an explicit nil
-
-### UnsetRelativeFileloc
-`func (o *DAGResponse) UnsetRelativeFileloc()`
-
-UnsetRelativeFileloc ensures that no value is present for RelativeFileloc, not even an explicit nil
 ### GetFileloc
 
 `func (o *DAGResponse) GetFileloc() string`
@@ -352,16 +292,6 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
-### SetDescriptionNil
-
-`func (o *DAGResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *DAGResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetTimetableSummary
 
 `func (o *DAGResponse) GetTimetableSummary() string`
@@ -382,16 +312,6 @@ and a boolean to check if the value has been set.
 SetTimetableSummary sets TimetableSummary field to given value.
 
 
-### SetTimetableSummaryNil
-
-`func (o *DAGResponse) SetTimetableSummaryNil(b bool)`
-
- SetTimetableSummaryNil sets the value for TimetableSummary to be an explicit nil
-
-### UnsetTimetableSummary
-`func (o *DAGResponse) UnsetTimetableSummary()`
-
-UnsetTimetableSummary ensures that no value is present for TimetableSummary, not even an explicit nil
 ### GetTimetableDescription
 
 `func (o *DAGResponse) GetTimetableDescription() string`
@@ -412,16 +332,6 @@ and a boolean to check if the value has been set.
 SetTimetableDescription sets TimetableDescription field to given value.
 
 
-### SetTimetableDescriptionNil
-
-`func (o *DAGResponse) SetTimetableDescriptionNil(b bool)`
-
- SetTimetableDescriptionNil sets the value for TimetableDescription to be an explicit nil
-
-### UnsetTimetableDescription
-`func (o *DAGResponse) UnsetTimetableDescription()`
-
-UnsetTimetableDescription ensures that no value is present for TimetableDescription, not even an explicit nil
 ### GetTimetablePartitioned
 
 `func (o *DAGResponse) GetTimetablePartitioned() bool`
@@ -502,16 +412,6 @@ and a boolean to check if the value has been set.
 SetMaxActiveRuns sets MaxActiveRuns field to given value.
 
 
-### SetMaxActiveRunsNil
-
-`func (o *DAGResponse) SetMaxActiveRunsNil(b bool)`
-
- SetMaxActiveRunsNil sets the value for MaxActiveRuns to be an explicit nil
-
-### UnsetMaxActiveRuns
-`func (o *DAGResponse) UnsetMaxActiveRuns()`
-
-UnsetMaxActiveRuns ensures that no value is present for MaxActiveRuns, not even an explicit nil
 ### GetMaxConsecutiveFailedDagRuns
 
 `func (o *DAGResponse) GetMaxConsecutiveFailedDagRuns() int32`
@@ -592,16 +492,6 @@ and a boolean to check if the value has been set.
 SetNextDagrunLogicalDate sets NextDagrunLogicalDate field to given value.
 
 
-### SetNextDagrunLogicalDateNil
-
-`func (o *DAGResponse) SetNextDagrunLogicalDateNil(b bool)`
-
- SetNextDagrunLogicalDateNil sets the value for NextDagrunLogicalDate to be an explicit nil
-
-### UnsetNextDagrunLogicalDate
-`func (o *DAGResponse) UnsetNextDagrunLogicalDate()`
-
-UnsetNextDagrunLogicalDate ensures that no value is present for NextDagrunLogicalDate, not even an explicit nil
 ### GetNextDagrunDataIntervalStart
 
 `func (o *DAGResponse) GetNextDagrunDataIntervalStart() time.Time`
@@ -622,16 +512,6 @@ and a boolean to check if the value has been set.
 SetNextDagrunDataIntervalStart sets NextDagrunDataIntervalStart field to given value.
 
 
-### SetNextDagrunDataIntervalStartNil
-
-`func (o *DAGResponse) SetNextDagrunDataIntervalStartNil(b bool)`
-
- SetNextDagrunDataIntervalStartNil sets the value for NextDagrunDataIntervalStart to be an explicit nil
-
-### UnsetNextDagrunDataIntervalStart
-`func (o *DAGResponse) UnsetNextDagrunDataIntervalStart()`
-
-UnsetNextDagrunDataIntervalStart ensures that no value is present for NextDagrunDataIntervalStart, not even an explicit nil
 ### GetNextDagrunDataIntervalEnd
 
 `func (o *DAGResponse) GetNextDagrunDataIntervalEnd() time.Time`
@@ -652,16 +532,6 @@ and a boolean to check if the value has been set.
 SetNextDagrunDataIntervalEnd sets NextDagrunDataIntervalEnd field to given value.
 
 
-### SetNextDagrunDataIntervalEndNil
-
-`func (o *DAGResponse) SetNextDagrunDataIntervalEndNil(b bool)`
-
- SetNextDagrunDataIntervalEndNil sets the value for NextDagrunDataIntervalEnd to be an explicit nil
-
-### UnsetNextDagrunDataIntervalEnd
-`func (o *DAGResponse) UnsetNextDagrunDataIntervalEnd()`
-
-UnsetNextDagrunDataIntervalEnd ensures that no value is present for NextDagrunDataIntervalEnd, not even an explicit nil
 ### GetNextDagrunRunAfter
 
 `func (o *DAGResponse) GetNextDagrunRunAfter() time.Time`
@@ -682,16 +552,6 @@ and a boolean to check if the value has been set.
 SetNextDagrunRunAfter sets NextDagrunRunAfter field to given value.
 
 
-### SetNextDagrunRunAfterNil
-
-`func (o *DAGResponse) SetNextDagrunRunAfterNil(b bool)`
-
- SetNextDagrunRunAfterNil sets the value for NextDagrunRunAfter to be an explicit nil
-
-### UnsetNextDagrunRunAfter
-`func (o *DAGResponse) UnsetNextDagrunRunAfter()`
-
-UnsetNextDagrunRunAfter ensures that no value is present for NextDagrunRunAfter, not even an explicit nil
 ### GetAllowedRunTypes
 
 `func (o *DAGResponse) GetAllowedRunTypes() []DagRunType`
@@ -712,16 +572,6 @@ and a boolean to check if the value has been set.
 SetAllowedRunTypes sets AllowedRunTypes field to given value.
 
 
-### SetAllowedRunTypesNil
-
-`func (o *DAGResponse) SetAllowedRunTypesNil(b bool)`
-
- SetAllowedRunTypesNil sets the value for AllowedRunTypes to be an explicit nil
-
-### UnsetAllowedRunTypes
-`func (o *DAGResponse) UnsetAllowedRunTypes()`
-
-UnsetAllowedRunTypes ensures that no value is present for AllowedRunTypes, not even an explicit nil
 ### GetOwners
 
 `func (o *DAGResponse) GetOwners() []string`

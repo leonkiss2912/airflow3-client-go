@@ -8,34 +8,34 @@ Name | Type | Description | Notes
 **DagId** | **string** |  | 
 **DagRunId** | **string** |  | 
 **MapIndex** | **int32** |  | 
-**StartDate** | **NullableTime** |  | 
-**EndDate** | **NullableTime** |  | 
-**Duration** | **NullableFloat32** |  | 
-**State** | [**NullableTaskInstanceState**](TaskInstanceState.md) |  | 
+**StartDate** | **time.Time** |  | 
+**EndDate** | **time.Time** |  | 
+**Duration** | **float32** |  | 
+**State** | [**TaskInstanceState**](TaskInstanceState.md) |  | 
 **TryNumber** | **int32** |  | 
 **MaxTries** | **int32** |  | 
 **TaskDisplayName** | **string** |  | 
 **DagDisplayName** | **string** |  | 
-**Hostname** | **NullableString** |  | 
-**Unixname** | **NullableString** |  | 
+**Hostname** | **string** |  | 
+**Unixname** | **string** |  | 
 **Pool** | **string** |  | 
 **PoolSlots** | **int32** |  | 
-**Queue** | **NullableString** |  | 
-**PriorityWeight** | **NullableInt32** |  | 
-**Operator** | **NullableString** |  | 
-**OperatorName** | **NullableString** |  | 
-**QueuedWhen** | **NullableTime** |  | 
-**ScheduledWhen** | **NullableTime** |  | 
-**Pid** | **NullableInt32** |  | 
-**Executor** | **NullableString** |  | 
+**Queue** | **string** |  | 
+**PriorityWeight** | **int32** |  | 
+**Operator** | **string** |  | 
+**OperatorName** | **string** |  | 
+**QueuedWhen** | **time.Time** |  | 
+**ScheduledWhen** | **time.Time** |  | 
+**Pid** | **int32** |  | 
+**Executor** | **string** |  | 
 **ExecutorConfig** | **string** |  | 
-**DagVersion** | [**NullableDagVersionResponse**](DagVersionResponse.md) |  | 
+**DagVersion** | [**DagVersionResponse**](DagVersionResponse.md) |  | 
 
 ## Methods
 
 ### NewTaskInstanceHistoryResponse
 
-`func NewTaskInstanceHistoryResponse(taskId string, dagId string, dagRunId string, mapIndex int32, startDate NullableTime, endDate NullableTime, duration NullableFloat32, state NullableTaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname NullableString, unixname NullableString, pool string, poolSlots int32, queue NullableString, priorityWeight NullableInt32, operator NullableString, operatorName NullableString, queuedWhen NullableTime, scheduledWhen NullableTime, pid NullableInt32, executor NullableString, executorConfig string, dagVersion NullableDagVersionResponse, ) *TaskInstanceHistoryResponse`
+`func NewTaskInstanceHistoryResponse(taskId string, dagId string, dagRunId string, mapIndex int32, startDate time.Time, endDate time.Time, duration float32, state TaskInstanceState, tryNumber int32, maxTries int32, taskDisplayName string, dagDisplayName string, hostname string, unixname string, pool string, poolSlots int32, queue string, priorityWeight int32, operator string, operatorName string, queuedWhen time.Time, scheduledWhen time.Time, pid int32, executor string, executorConfig string, dagVersion DagVersionResponse, ) *TaskInstanceHistoryResponse`
 
 NewTaskInstanceHistoryResponse instantiates a new TaskInstanceHistoryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -150,16 +150,6 @@ and a boolean to check if the value has been set.
 SetStartDate sets StartDate field to given value.
 
 
-### SetStartDateNil
-
-`func (o *TaskInstanceHistoryResponse) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *TaskInstanceHistoryResponse) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *TaskInstanceHistoryResponse) GetEndDate() time.Time`
@@ -180,16 +170,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *TaskInstanceHistoryResponse) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *TaskInstanceHistoryResponse) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetDuration
 
 `func (o *TaskInstanceHistoryResponse) GetDuration() float32`
@@ -210,16 +190,6 @@ and a boolean to check if the value has been set.
 SetDuration sets Duration field to given value.
 
 
-### SetDurationNil
-
-`func (o *TaskInstanceHistoryResponse) SetDurationNil(b bool)`
-
- SetDurationNil sets the value for Duration to be an explicit nil
-
-### UnsetDuration
-`func (o *TaskInstanceHistoryResponse) UnsetDuration()`
-
-UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 ### GetState
 
 `func (o *TaskInstanceHistoryResponse) GetState() TaskInstanceState`
@@ -240,16 +210,6 @@ and a boolean to check if the value has been set.
 SetState sets State field to given value.
 
 
-### SetStateNil
-
-`func (o *TaskInstanceHistoryResponse) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *TaskInstanceHistoryResponse) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetTryNumber
 
 `func (o *TaskInstanceHistoryResponse) GetTryNumber() int32`
@@ -350,16 +310,6 @@ and a boolean to check if the value has been set.
 SetHostname sets Hostname field to given value.
 
 
-### SetHostnameNil
-
-`func (o *TaskInstanceHistoryResponse) SetHostnameNil(b bool)`
-
- SetHostnameNil sets the value for Hostname to be an explicit nil
-
-### UnsetHostname
-`func (o *TaskInstanceHistoryResponse) UnsetHostname()`
-
-UnsetHostname ensures that no value is present for Hostname, not even an explicit nil
 ### GetUnixname
 
 `func (o *TaskInstanceHistoryResponse) GetUnixname() string`
@@ -380,16 +330,6 @@ and a boolean to check if the value has been set.
 SetUnixname sets Unixname field to given value.
 
 
-### SetUnixnameNil
-
-`func (o *TaskInstanceHistoryResponse) SetUnixnameNil(b bool)`
-
- SetUnixnameNil sets the value for Unixname to be an explicit nil
-
-### UnsetUnixname
-`func (o *TaskInstanceHistoryResponse) UnsetUnixname()`
-
-UnsetUnixname ensures that no value is present for Unixname, not even an explicit nil
 ### GetPool
 
 `func (o *TaskInstanceHistoryResponse) GetPool() string`
@@ -450,16 +390,6 @@ and a boolean to check if the value has been set.
 SetQueue sets Queue field to given value.
 
 
-### SetQueueNil
-
-`func (o *TaskInstanceHistoryResponse) SetQueueNil(b bool)`
-
- SetQueueNil sets the value for Queue to be an explicit nil
-
-### UnsetQueue
-`func (o *TaskInstanceHistoryResponse) UnsetQueue()`
-
-UnsetQueue ensures that no value is present for Queue, not even an explicit nil
 ### GetPriorityWeight
 
 `func (o *TaskInstanceHistoryResponse) GetPriorityWeight() int32`
@@ -480,16 +410,6 @@ and a boolean to check if the value has been set.
 SetPriorityWeight sets PriorityWeight field to given value.
 
 
-### SetPriorityWeightNil
-
-`func (o *TaskInstanceHistoryResponse) SetPriorityWeightNil(b bool)`
-
- SetPriorityWeightNil sets the value for PriorityWeight to be an explicit nil
-
-### UnsetPriorityWeight
-`func (o *TaskInstanceHistoryResponse) UnsetPriorityWeight()`
-
-UnsetPriorityWeight ensures that no value is present for PriorityWeight, not even an explicit nil
 ### GetOperator
 
 `func (o *TaskInstanceHistoryResponse) GetOperator() string`
@@ -510,16 +430,6 @@ and a boolean to check if the value has been set.
 SetOperator sets Operator field to given value.
 
 
-### SetOperatorNil
-
-`func (o *TaskInstanceHistoryResponse) SetOperatorNil(b bool)`
-
- SetOperatorNil sets the value for Operator to be an explicit nil
-
-### UnsetOperator
-`func (o *TaskInstanceHistoryResponse) UnsetOperator()`
-
-UnsetOperator ensures that no value is present for Operator, not even an explicit nil
 ### GetOperatorName
 
 `func (o *TaskInstanceHistoryResponse) GetOperatorName() string`
@@ -540,16 +450,6 @@ and a boolean to check if the value has been set.
 SetOperatorName sets OperatorName field to given value.
 
 
-### SetOperatorNameNil
-
-`func (o *TaskInstanceHistoryResponse) SetOperatorNameNil(b bool)`
-
- SetOperatorNameNil sets the value for OperatorName to be an explicit nil
-
-### UnsetOperatorName
-`func (o *TaskInstanceHistoryResponse) UnsetOperatorName()`
-
-UnsetOperatorName ensures that no value is present for OperatorName, not even an explicit nil
 ### GetQueuedWhen
 
 `func (o *TaskInstanceHistoryResponse) GetQueuedWhen() time.Time`
@@ -570,16 +470,6 @@ and a boolean to check if the value has been set.
 SetQueuedWhen sets QueuedWhen field to given value.
 
 
-### SetQueuedWhenNil
-
-`func (o *TaskInstanceHistoryResponse) SetQueuedWhenNil(b bool)`
-
- SetQueuedWhenNil sets the value for QueuedWhen to be an explicit nil
-
-### UnsetQueuedWhen
-`func (o *TaskInstanceHistoryResponse) UnsetQueuedWhen()`
-
-UnsetQueuedWhen ensures that no value is present for QueuedWhen, not even an explicit nil
 ### GetScheduledWhen
 
 `func (o *TaskInstanceHistoryResponse) GetScheduledWhen() time.Time`
@@ -600,16 +490,6 @@ and a boolean to check if the value has been set.
 SetScheduledWhen sets ScheduledWhen field to given value.
 
 
-### SetScheduledWhenNil
-
-`func (o *TaskInstanceHistoryResponse) SetScheduledWhenNil(b bool)`
-
- SetScheduledWhenNil sets the value for ScheduledWhen to be an explicit nil
-
-### UnsetScheduledWhen
-`func (o *TaskInstanceHistoryResponse) UnsetScheduledWhen()`
-
-UnsetScheduledWhen ensures that no value is present for ScheduledWhen, not even an explicit nil
 ### GetPid
 
 `func (o *TaskInstanceHistoryResponse) GetPid() int32`
@@ -630,16 +510,6 @@ and a boolean to check if the value has been set.
 SetPid sets Pid field to given value.
 
 
-### SetPidNil
-
-`func (o *TaskInstanceHistoryResponse) SetPidNil(b bool)`
-
- SetPidNil sets the value for Pid to be an explicit nil
-
-### UnsetPid
-`func (o *TaskInstanceHistoryResponse) UnsetPid()`
-
-UnsetPid ensures that no value is present for Pid, not even an explicit nil
 ### GetExecutor
 
 `func (o *TaskInstanceHistoryResponse) GetExecutor() string`
@@ -660,16 +530,6 @@ and a boolean to check if the value has been set.
 SetExecutor sets Executor field to given value.
 
 
-### SetExecutorNil
-
-`func (o *TaskInstanceHistoryResponse) SetExecutorNil(b bool)`
-
- SetExecutorNil sets the value for Executor to be an explicit nil
-
-### UnsetExecutor
-`func (o *TaskInstanceHistoryResponse) UnsetExecutor()`
-
-UnsetExecutor ensures that no value is present for Executor, not even an explicit nil
 ### GetExecutorConfig
 
 `func (o *TaskInstanceHistoryResponse) GetExecutorConfig() string`
@@ -710,16 +570,6 @@ and a boolean to check if the value has been set.
 SetDagVersion sets DagVersion field to given value.
 
 
-### SetDagVersionNil
-
-`func (o *TaskInstanceHistoryResponse) SetDagVersionNil(b bool)`
-
- SetDagVersionNil sets the value for DagVersion to be an explicit nil
-
-### UnsetDagVersion
-`func (o *TaskInstanceHistoryResponse) UnsetDagVersion()`
-
-UnsetDagVersion ensures that no value is present for DagVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

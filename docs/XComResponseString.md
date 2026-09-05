@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
 **Timestamp** | **time.Time** |  | 
-**LogicalDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
 **MapIndex** | **int32** |  | 
 **TaskId** | **string** |  | 
 **DagId** | **string** |  | 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 **DagDisplayName** | **string** |  | 
 **TaskDisplayName** | **string** |  | 
 **RunAfter** | **time.Time** |  | 
-**Value** | **NullableString** |  | 
+**Value** | **string** |  | 
 
 ## Methods
 
 ### NewXComResponseString
 
-`func NewXComResponseString(key string, timestamp time.Time, logicalDate NullableTime, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value NullableString, ) *XComResponseString`
+`func NewXComResponseString(key string, timestamp time.Time, logicalDate time.Time, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value string, ) *XComResponseString`
 
 NewXComResponseString instantiates a new XComResponseString object
 This constructor will assign default values to properties that have it defined,
@@ -95,16 +95,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *XComResponseString) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *XComResponseString) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetMapIndex
 
 `func (o *XComResponseString) GetMapIndex() int32`
@@ -265,16 +255,6 @@ and a boolean to check if the value has been set.
 SetValue sets Value field to given value.
 
 
-### SetValueNil
-
-`func (o *XComResponseString) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *XComResponseString) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

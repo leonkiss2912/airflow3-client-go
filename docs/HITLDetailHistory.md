@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Options** | **[]string** |  | 
 **Subject** | **string** |  | 
-**Body** | Pointer to **NullableString** |  | [optional] 
+**Body** | Pointer to **string** |  | [optional] 
 **Defaults** | Pointer to **[]string** |  | [optional] 
 **Multiple** | Pointer to **bool** |  | [optional] [default to false]
 **Params** | Pointer to **map[string]interface{}** |  | [optional] 
 **AssignedUsers** | Pointer to [**[]HITLUser**](HITLUser.md) |  | [optional] 
 **CreatedAt** | **time.Time** |  | 
-**RespondedByUser** | Pointer to [**NullableHITLUser**](HITLUser.md) |  | [optional] 
-**RespondedAt** | Pointer to **NullableTime** |  | [optional] 
+**RespondedByUser** | Pointer to [**HITLUser**](HITLUser.md) |  | [optional] 
+**RespondedAt** | Pointer to **time.Time** |  | [optional] 
 **ChosenOptions** | Pointer to **[]string** |  | [optional] 
 **ParamsInput** | Pointer to **map[string]interface{}** |  | [optional] 
 **ResponseReceived** | Pointer to **bool** |  | [optional] [default to false]
@@ -103,16 +103,6 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
-### SetBodyNil
-
-`func (o *HITLDetailHistory) SetBodyNil(b bool)`
-
- SetBodyNil sets the value for Body to be an explicit nil
-
-### UnsetBody
-`func (o *HITLDetailHistory) UnsetBody()`
-
-UnsetBody ensures that no value is present for Body, not even an explicit nil
 ### GetDefaults
 
 `func (o *HITLDetailHistory) GetDefaults() []string`
@@ -138,16 +128,6 @@ SetDefaults sets Defaults field to given value.
 
 HasDefaults returns a boolean if a field has been set.
 
-### SetDefaultsNil
-
-`func (o *HITLDetailHistory) SetDefaultsNil(b bool)`
-
- SetDefaultsNil sets the value for Defaults to be an explicit nil
-
-### UnsetDefaults
-`func (o *HITLDetailHistory) UnsetDefaults()`
-
-UnsetDefaults ensures that no value is present for Defaults, not even an explicit nil
 ### GetMultiple
 
 `func (o *HITLDetailHistory) GetMultiple() bool`
@@ -268,16 +248,6 @@ SetRespondedByUser sets RespondedByUser field to given value.
 
 HasRespondedByUser returns a boolean if a field has been set.
 
-### SetRespondedByUserNil
-
-`func (o *HITLDetailHistory) SetRespondedByUserNil(b bool)`
-
- SetRespondedByUserNil sets the value for RespondedByUser to be an explicit nil
-
-### UnsetRespondedByUser
-`func (o *HITLDetailHistory) UnsetRespondedByUser()`
-
-UnsetRespondedByUser ensures that no value is present for RespondedByUser, not even an explicit nil
 ### GetRespondedAt
 
 `func (o *HITLDetailHistory) GetRespondedAt() time.Time`
@@ -303,16 +273,6 @@ SetRespondedAt sets RespondedAt field to given value.
 
 HasRespondedAt returns a boolean if a field has been set.
 
-### SetRespondedAtNil
-
-`func (o *HITLDetailHistory) SetRespondedAtNil(b bool)`
-
- SetRespondedAtNil sets the value for RespondedAt to be an explicit nil
-
-### UnsetRespondedAt
-`func (o *HITLDetailHistory) UnsetRespondedAt()`
-
-UnsetRespondedAt ensures that no value is present for RespondedAt, not even an explicit nil
 ### GetChosenOptions
 
 `func (o *HITLDetailHistory) GetChosenOptions() []string`
@@ -338,16 +298,6 @@ SetChosenOptions sets ChosenOptions field to given value.
 
 HasChosenOptions returns a boolean if a field has been set.
 
-### SetChosenOptionsNil
-
-`func (o *HITLDetailHistory) SetChosenOptionsNil(b bool)`
-
- SetChosenOptionsNil sets the value for ChosenOptions to be an explicit nil
-
-### UnsetChosenOptions
-`func (o *HITLDetailHistory) UnsetChosenOptions()`
-
-UnsetChosenOptions ensures that no value is present for ChosenOptions, not even an explicit nil
 ### GetParamsInput
 
 `func (o *HITLDetailHistory) GetParamsInput() map[string]interface{}`

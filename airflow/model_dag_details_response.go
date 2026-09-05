@@ -26,41 +26,41 @@ type DAGDetailsResponse struct {
 	DagDisplayName string `json:"dag_display_name"`
 	IsPaused bool `json:"is_paused"`
 	IsStale bool `json:"is_stale"`
-	LastParsedTime NullableTime `json:"last_parsed_time"`
-	LastParseDuration NullableFloat32 `json:"last_parse_duration"`
-	LastExpired NullableTime `json:"last_expired"`
-	BundleName NullableString `json:"bundle_name"`
-	BundleVersion NullableString `json:"bundle_version"`
-	RelativeFileloc NullableString `json:"relative_fileloc"`
+	LastParsedTime time.Time `json:"last_parsed_time"`
+	LastParseDuration float32 `json:"last_parse_duration"`
+	LastExpired time.Time `json:"last_expired"`
+	BundleName string `json:"bundle_name"`
+	BundleVersion string `json:"bundle_version"`
+	RelativeFileloc string `json:"relative_fileloc"`
 	Fileloc string `json:"fileloc"`
-	Description NullableString `json:"description"`
-	TimetableSummary NullableString `json:"timetable_summary"`
-	TimetableDescription NullableString `json:"timetable_description"`
+	Description string `json:"description"`
+	TimetableSummary string `json:"timetable_summary"`
+	TimetableDescription string `json:"timetable_description"`
 	TimetablePartitioned bool `json:"timetable_partitioned"`
 	Tags []DagTagResponse `json:"tags"`
 	MaxActiveTasks int32 `json:"max_active_tasks"`
-	MaxActiveRuns NullableInt32 `json:"max_active_runs"`
+	MaxActiveRuns int32 `json:"max_active_runs"`
 	MaxConsecutiveFailedDagRuns int32 `json:"max_consecutive_failed_dag_runs"`
 	HasTaskConcurrencyLimits bool `json:"has_task_concurrency_limits"`
 	HasImportErrors bool `json:"has_import_errors"`
-	NextDagrunLogicalDate NullableTime `json:"next_dagrun_logical_date"`
-	NextDagrunDataIntervalStart NullableTime `json:"next_dagrun_data_interval_start"`
-	NextDagrunDataIntervalEnd NullableTime `json:"next_dagrun_data_interval_end"`
-	NextDagrunRunAfter NullableTime `json:"next_dagrun_run_after"`
+	NextDagrunLogicalDate time.Time `json:"next_dagrun_logical_date"`
+	NextDagrunDataIntervalStart time.Time `json:"next_dagrun_data_interval_start"`
+	NextDagrunDataIntervalEnd time.Time `json:"next_dagrun_data_interval_end"`
+	NextDagrunRunAfter time.Time `json:"next_dagrun_run_after"`
 	AllowedRunTypes []DagRunType `json:"allowed_run_types"`
 	Owners []string `json:"owners"`
 	Catchup bool `json:"catchup"`
-	DagRunTimeout NullableString `json:"dag_run_timeout"`
+	DagRunTimeout string `json:"dag_run_timeout"`
 	AssetExpression map[string]interface{} `json:"asset_expression"`
-	DocMd NullableString `json:"doc_md"`
-	StartDate NullableTime `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
-	IsPausedUponCreation NullableBool `json:"is_paused_upon_creation"`
+	DocMd string `json:"doc_md"`
+	StartDate time.Time `json:"start_date"`
+	EndDate time.Time `json:"end_date"`
+	IsPausedUponCreation bool `json:"is_paused_upon_creation"`
 	Params map[string]interface{} `json:"params"`
 	RenderTemplateAsNativeObj bool `json:"render_template_as_native_obj"`
 	TemplateSearchPath []string `json:"template_search_path"`
-	Timezone NullableString `json:"timezone"`
-	LastParsed NullableTime `json:"last_parsed"`
+	Timezone string `json:"timezone"`
+	LastParsed time.Time `json:"last_parsed"`
 	DefaultArgs map[string]interface{} `json:"default_args"`
 	OwnerLinks map[string]string `json:"owner_links,omitempty"`
 	IsFavorite *bool `json:"is_favorite,omitempty"`
@@ -71,7 +71,7 @@ type DAGDetailsResponse struct {
 	// Deprecated
 	Concurrency int32 `json:"concurrency"`
 	// Return the latest DagVersion.
-	LatestDagVersion NullableDagVersionResponse `json:"latest_dag_version"`
+	LatestDagVersion DagVersionResponse `json:"latest_dag_version"`
 }
 
 type _DAGDetailsResponse DAGDetailsResponse
@@ -80,7 +80,7 @@ type _DAGDetailsResponse DAGDetailsResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDAGDetailsResponse(dagId string, dagDisplayName string, isPaused bool, isStale bool, lastParsedTime NullableTime, lastParseDuration NullableFloat32, lastExpired NullableTime, bundleName NullableString, bundleVersion NullableString, relativeFileloc NullableString, fileloc string, description NullableString, timetableSummary NullableString, timetableDescription NullableString, timetablePartitioned bool, tags []DagTagResponse, maxActiveTasks int32, maxActiveRuns NullableInt32, maxConsecutiveFailedDagRuns int32, hasTaskConcurrencyLimits bool, hasImportErrors bool, nextDagrunLogicalDate NullableTime, nextDagrunDataIntervalStart NullableTime, nextDagrunDataIntervalEnd NullableTime, nextDagrunRunAfter NullableTime, allowedRunTypes []DagRunType, owners []string, catchup bool, dagRunTimeout NullableString, assetExpression map[string]interface{}, docMd NullableString, startDate NullableTime, endDate NullableTime, isPausedUponCreation NullableBool, params map[string]interface{}, renderTemplateAsNativeObj bool, templateSearchPath []string, timezone NullableString, lastParsed NullableTime, defaultArgs map[string]interface{}, fileToken string, concurrency int32, latestDagVersion NullableDagVersionResponse) *DAGDetailsResponse {
+func NewDAGDetailsResponse(dagId string, dagDisplayName string, isPaused bool, isStale bool, lastParsedTime time.Time, lastParseDuration float32, lastExpired time.Time, bundleName string, bundleVersion string, relativeFileloc string, fileloc string, description string, timetableSummary string, timetableDescription string, timetablePartitioned bool, tags []DagTagResponse, maxActiveTasks int32, maxActiveRuns int32, maxConsecutiveFailedDagRuns int32, hasTaskConcurrencyLimits bool, hasImportErrors bool, nextDagrunLogicalDate time.Time, nextDagrunDataIntervalStart time.Time, nextDagrunDataIntervalEnd time.Time, nextDagrunRunAfter time.Time, allowedRunTypes []DagRunType, owners []string, catchup bool, dagRunTimeout string, assetExpression map[string]interface{}, docMd string, startDate time.Time, endDate time.Time, isPausedUponCreation bool, params map[string]interface{}, renderTemplateAsNativeObj bool, templateSearchPath []string, timezone string, lastParsed time.Time, defaultArgs map[string]interface{}, fileToken string, concurrency int32, latestDagVersion DagVersionResponse) *DAGDetailsResponse {
 	this := DAGDetailsResponse{}
 	this.DagId = dagId
 	this.DagDisplayName = dagDisplayName
@@ -241,159 +241,147 @@ func (o *DAGDetailsResponse) SetIsStale(v bool) {
 }
 
 // GetLastParsedTime returns the LastParsedTime field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetLastParsedTime() time.Time {
-	if o == nil || o.LastParsedTime.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LastParsedTime.Get()
+	return o.LastParsedTime
 }
 
 // GetLastParsedTimeOk returns a tuple with the LastParsedTime field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetLastParsedTimeOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastParsedTime.Get(), o.LastParsedTime.IsSet()
+	return &o.LastParsedTime, true
 }
 
 // SetLastParsedTime sets field value
 func (o *DAGDetailsResponse) SetLastParsedTime(v time.Time) {
-	o.LastParsedTime.Set(&v)
+	o.LastParsedTime = v
 }
 
 // GetLastParseDuration returns the LastParseDuration field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *DAGDetailsResponse) GetLastParseDuration() float32 {
-	if o == nil || o.LastParseDuration.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.LastParseDuration.Get()
+	return o.LastParseDuration
 }
 
 // GetLastParseDurationOk returns a tuple with the LastParseDuration field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetLastParseDurationOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastParseDuration.Get(), o.LastParseDuration.IsSet()
+	return &o.LastParseDuration, true
 }
 
 // SetLastParseDuration sets field value
 func (o *DAGDetailsResponse) SetLastParseDuration(v float32) {
-	o.LastParseDuration.Set(&v)
+	o.LastParseDuration = v
 }
 
 // GetLastExpired returns the LastExpired field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetLastExpired() time.Time {
-	if o == nil || o.LastExpired.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LastExpired.Get()
+	return o.LastExpired
 }
 
 // GetLastExpiredOk returns a tuple with the LastExpired field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetLastExpiredOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastExpired.Get(), o.LastExpired.IsSet()
+	return &o.LastExpired, true
 }
 
 // SetLastExpired sets field value
 func (o *DAGDetailsResponse) SetLastExpired(v time.Time) {
-	o.LastExpired.Set(&v)
+	o.LastExpired = v
 }
 
 // GetBundleName returns the BundleName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetBundleName() string {
-	if o == nil || o.BundleName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleName.Get()
+	return o.BundleName
 }
 
 // GetBundleNameOk returns a tuple with the BundleName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetBundleNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleName.Get(), o.BundleName.IsSet()
+	return &o.BundleName, true
 }
 
 // SetBundleName sets field value
 func (o *DAGDetailsResponse) SetBundleName(v string) {
-	o.BundleName.Set(&v)
+	o.BundleName = v
 }
 
 // GetBundleVersion returns the BundleVersion field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetBundleVersion() string {
-	if o == nil || o.BundleVersion.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleVersion.Get()
+	return o.BundleVersion
 }
 
 // GetBundleVersionOk returns a tuple with the BundleVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetBundleVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleVersion.Get(), o.BundleVersion.IsSet()
+	return &o.BundleVersion, true
 }
 
 // SetBundleVersion sets field value
 func (o *DAGDetailsResponse) SetBundleVersion(v string) {
-	o.BundleVersion.Set(&v)
+	o.BundleVersion = v
 }
 
 // GetRelativeFileloc returns the RelativeFileloc field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetRelativeFileloc() string {
-	if o == nil || o.RelativeFileloc.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.RelativeFileloc.Get()
+	return o.RelativeFileloc
 }
 
 // GetRelativeFilelocOk returns a tuple with the RelativeFileloc field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetRelativeFilelocOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RelativeFileloc.Get(), o.RelativeFileloc.IsSet()
+	return &o.RelativeFileloc, true
 }
 
 // SetRelativeFileloc sets field value
 func (o *DAGDetailsResponse) SetRelativeFileloc(v string) {
-	o.RelativeFileloc.Set(&v)
+	o.RelativeFileloc = v
 }
 
 // GetFileloc returns the Fileloc field value
@@ -421,81 +409,75 @@ func (o *DAGDetailsResponse) SetFileloc(v string) {
 }
 
 // GetDescription returns the Description field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetDescription() string {
-	if o == nil || o.Description.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Description.Get()
+	return o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return &o.Description, true
 }
 
 // SetDescription sets field value
 func (o *DAGDetailsResponse) SetDescription(v string) {
-	o.Description.Set(&v)
+	o.Description = v
 }
 
 // GetTimetableSummary returns the TimetableSummary field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetTimetableSummary() string {
-	if o == nil || o.TimetableSummary.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TimetableSummary.Get()
+	return o.TimetableSummary
 }
 
 // GetTimetableSummaryOk returns a tuple with the TimetableSummary field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetTimetableSummaryOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TimetableSummary.Get(), o.TimetableSummary.IsSet()
+	return &o.TimetableSummary, true
 }
 
 // SetTimetableSummary sets field value
 func (o *DAGDetailsResponse) SetTimetableSummary(v string) {
-	o.TimetableSummary.Set(&v)
+	o.TimetableSummary = v
 }
 
 // GetTimetableDescription returns the TimetableDescription field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetTimetableDescription() string {
-	if o == nil || o.TimetableDescription.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TimetableDescription.Get()
+	return o.TimetableDescription
 }
 
 // GetTimetableDescriptionOk returns a tuple with the TimetableDescription field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetTimetableDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TimetableDescription.Get(), o.TimetableDescription.IsSet()
+	return &o.TimetableDescription, true
 }
 
 // SetTimetableDescription sets field value
 func (o *DAGDetailsResponse) SetTimetableDescription(v string) {
-	o.TimetableDescription.Set(&v)
+	o.TimetableDescription = v
 }
 
 // GetTimetablePartitioned returns the TimetablePartitioned field value
@@ -571,29 +553,27 @@ func (o *DAGDetailsResponse) SetMaxActiveTasks(v int32) {
 }
 
 // GetMaxActiveRuns returns the MaxActiveRuns field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *DAGDetailsResponse) GetMaxActiveRuns() int32 {
-	if o == nil || o.MaxActiveRuns.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.MaxActiveRuns.Get()
+	return o.MaxActiveRuns
 }
 
 // GetMaxActiveRunsOk returns a tuple with the MaxActiveRuns field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetMaxActiveRunsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MaxActiveRuns.Get(), o.MaxActiveRuns.IsSet()
+	return &o.MaxActiveRuns, true
 }
 
 // SetMaxActiveRuns sets field value
 func (o *DAGDetailsResponse) SetMaxActiveRuns(v int32) {
-	o.MaxActiveRuns.Set(&v)
+	o.MaxActiveRuns = v
 }
 
 // GetMaxConsecutiveFailedDagRuns returns the MaxConsecutiveFailedDagRuns field value
@@ -669,111 +649,102 @@ func (o *DAGDetailsResponse) SetHasImportErrors(v bool) {
 }
 
 // GetNextDagrunLogicalDate returns the NextDagrunLogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetNextDagrunLogicalDate() time.Time {
-	if o == nil || o.NextDagrunLogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.NextDagrunLogicalDate.Get()
+	return o.NextDagrunLogicalDate
 }
 
 // GetNextDagrunLogicalDateOk returns a tuple with the NextDagrunLogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetNextDagrunLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NextDagrunLogicalDate.Get(), o.NextDagrunLogicalDate.IsSet()
+	return &o.NextDagrunLogicalDate, true
 }
 
 // SetNextDagrunLogicalDate sets field value
 func (o *DAGDetailsResponse) SetNextDagrunLogicalDate(v time.Time) {
-	o.NextDagrunLogicalDate.Set(&v)
+	o.NextDagrunLogicalDate = v
 }
 
 // GetNextDagrunDataIntervalStart returns the NextDagrunDataIntervalStart field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetNextDagrunDataIntervalStart() time.Time {
-	if o == nil || o.NextDagrunDataIntervalStart.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.NextDagrunDataIntervalStart.Get()
+	return o.NextDagrunDataIntervalStart
 }
 
 // GetNextDagrunDataIntervalStartOk returns a tuple with the NextDagrunDataIntervalStart field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetNextDagrunDataIntervalStartOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NextDagrunDataIntervalStart.Get(), o.NextDagrunDataIntervalStart.IsSet()
+	return &o.NextDagrunDataIntervalStart, true
 }
 
 // SetNextDagrunDataIntervalStart sets field value
 func (o *DAGDetailsResponse) SetNextDagrunDataIntervalStart(v time.Time) {
-	o.NextDagrunDataIntervalStart.Set(&v)
+	o.NextDagrunDataIntervalStart = v
 }
 
 // GetNextDagrunDataIntervalEnd returns the NextDagrunDataIntervalEnd field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetNextDagrunDataIntervalEnd() time.Time {
-	if o == nil || o.NextDagrunDataIntervalEnd.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.NextDagrunDataIntervalEnd.Get()
+	return o.NextDagrunDataIntervalEnd
 }
 
 // GetNextDagrunDataIntervalEndOk returns a tuple with the NextDagrunDataIntervalEnd field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetNextDagrunDataIntervalEndOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NextDagrunDataIntervalEnd.Get(), o.NextDagrunDataIntervalEnd.IsSet()
+	return &o.NextDagrunDataIntervalEnd, true
 }
 
 // SetNextDagrunDataIntervalEnd sets field value
 func (o *DAGDetailsResponse) SetNextDagrunDataIntervalEnd(v time.Time) {
-	o.NextDagrunDataIntervalEnd.Set(&v)
+	o.NextDagrunDataIntervalEnd = v
 }
 
 // GetNextDagrunRunAfter returns the NextDagrunRunAfter field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetNextDagrunRunAfter() time.Time {
-	if o == nil || o.NextDagrunRunAfter.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.NextDagrunRunAfter.Get()
+	return o.NextDagrunRunAfter
 }
 
 // GetNextDagrunRunAfterOk returns a tuple with the NextDagrunRunAfter field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetNextDagrunRunAfterOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.NextDagrunRunAfter.Get(), o.NextDagrunRunAfter.IsSet()
+	return &o.NextDagrunRunAfter, true
 }
 
 // SetNextDagrunRunAfter sets field value
 func (o *DAGDetailsResponse) SetNextDagrunRunAfter(v time.Time) {
-	o.NextDagrunRunAfter.Set(&v)
+	o.NextDagrunRunAfter = v
 }
 
 // GetAllowedRunTypes returns the AllowedRunTypes field value
-// If the value is explicit nil, the zero value for []DagRunType will be returned
 func (o *DAGDetailsResponse) GetAllowedRunTypes() []DagRunType {
 	if o == nil {
 		var ret []DagRunType
@@ -785,9 +756,8 @@ func (o *DAGDetailsResponse) GetAllowedRunTypes() []DagRunType {
 
 // GetAllowedRunTypesOk returns a tuple with the AllowedRunTypes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetAllowedRunTypesOk() ([]DagRunType, bool) {
-	if o == nil || IsNil(o.AllowedRunTypes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.AllowedRunTypes, true
@@ -847,33 +817,30 @@ func (o *DAGDetailsResponse) SetCatchup(v bool) {
 }
 
 // GetDagRunTimeout returns the DagRunTimeout field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetDagRunTimeout() string {
-	if o == nil || o.DagRunTimeout.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DagRunTimeout.Get()
+	return o.DagRunTimeout
 }
 
 // GetDagRunTimeoutOk returns a tuple with the DagRunTimeout field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetDagRunTimeoutOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DagRunTimeout.Get(), o.DagRunTimeout.IsSet()
+	return &o.DagRunTimeout, true
 }
 
 // SetDagRunTimeout sets field value
 func (o *DAGDetailsResponse) SetDagRunTimeout(v string) {
-	o.DagRunTimeout.Set(&v)
+	o.DagRunTimeout = v
 }
 
 // GetAssetExpression returns the AssetExpression field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *DAGDetailsResponse) GetAssetExpression() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -885,9 +852,8 @@ func (o *DAGDetailsResponse) GetAssetExpression() map[string]interface{} {
 
 // GetAssetExpressionOk returns a tuple with the AssetExpression field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetAssetExpressionOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.AssetExpression) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.AssetExpression, true
@@ -899,111 +865,102 @@ func (o *DAGDetailsResponse) SetAssetExpression(v map[string]interface{}) {
 }
 
 // GetDocMd returns the DocMd field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetDocMd() string {
-	if o == nil || o.DocMd.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DocMd.Get()
+	return o.DocMd
 }
 
 // GetDocMdOk returns a tuple with the DocMd field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetDocMdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DocMd.Get(), o.DocMd.IsSet()
+	return &o.DocMd, true
 }
 
 // SetDocMd sets field value
 func (o *DAGDetailsResponse) SetDocMd(v string) {
-	o.DocMd.Set(&v)
+	o.DocMd = v
 }
 
 // GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetStartDate() time.Time {
-	if o == nil || o.StartDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.StartDate.Get()
+	return o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetStartDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return &o.StartDate, true
 }
 
 // SetStartDate sets field value
 func (o *DAGDetailsResponse) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *DAGDetailsResponse) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetIsPausedUponCreation returns the IsPausedUponCreation field value
-// If the value is explicit nil, the zero value for bool will be returned
 func (o *DAGDetailsResponse) GetIsPausedUponCreation() bool {
-	if o == nil || o.IsPausedUponCreation.Get() == nil {
+	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return *o.IsPausedUponCreation.Get()
+	return o.IsPausedUponCreation
 }
 
 // GetIsPausedUponCreationOk returns a tuple with the IsPausedUponCreation field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetIsPausedUponCreationOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IsPausedUponCreation.Get(), o.IsPausedUponCreation.IsSet()
+	return &o.IsPausedUponCreation, true
 }
 
 // SetIsPausedUponCreation sets field value
 func (o *DAGDetailsResponse) SetIsPausedUponCreation(v bool) {
-	o.IsPausedUponCreation.Set(&v)
+	o.IsPausedUponCreation = v
 }
 
 // GetParams returns the Params field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *DAGDetailsResponse) GetParams() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -1015,9 +972,8 @@ func (o *DAGDetailsResponse) GetParams() map[string]interface{} {
 
 // GetParamsOk returns a tuple with the Params field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetParamsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Params) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Params, true
@@ -1053,7 +1009,6 @@ func (o *DAGDetailsResponse) SetRenderTemplateAsNativeObj(v bool) {
 }
 
 // GetTemplateSearchPath returns the TemplateSearchPath field value
-// If the value is explicit nil, the zero value for []string will be returned
 func (o *DAGDetailsResponse) GetTemplateSearchPath() []string {
 	if o == nil {
 		var ret []string
@@ -1065,9 +1020,8 @@ func (o *DAGDetailsResponse) GetTemplateSearchPath() []string {
 
 // GetTemplateSearchPathOk returns a tuple with the TemplateSearchPath field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetTemplateSearchPathOk() ([]string, bool) {
-	if o == nil || IsNil(o.TemplateSearchPath) {
+	if o == nil {
 		return nil, false
 	}
 	return o.TemplateSearchPath, true
@@ -1079,59 +1033,54 @@ func (o *DAGDetailsResponse) SetTemplateSearchPath(v []string) {
 }
 
 // GetTimezone returns the Timezone field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGDetailsResponse) GetTimezone() string {
-	if o == nil || o.Timezone.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Timezone.Get()
+	return o.Timezone
 }
 
 // GetTimezoneOk returns a tuple with the Timezone field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetTimezoneOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Timezone.Get(), o.Timezone.IsSet()
+	return &o.Timezone, true
 }
 
 // SetTimezone sets field value
 func (o *DAGDetailsResponse) SetTimezone(v string) {
-	o.Timezone.Set(&v)
+	o.Timezone = v
 }
 
 // GetLastParsed returns the LastParsed field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGDetailsResponse) GetLastParsed() time.Time {
-	if o == nil || o.LastParsed.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LastParsed.Get()
+	return o.LastParsed
 }
 
 // GetLastParsedOk returns a tuple with the LastParsed field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetLastParsedOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastParsed.Get(), o.LastParsed.IsSet()
+	return &o.LastParsed, true
 }
 
 // SetLastParsed sets field value
 func (o *DAGDetailsResponse) SetLastParsed(v time.Time) {
-	o.LastParsed.Set(&v)
+	o.LastParsed = v
 }
 
 // GetDefaultArgs returns the DefaultArgs field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *DAGDetailsResponse) GetDefaultArgs() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -1143,9 +1092,8 @@ func (o *DAGDetailsResponse) GetDefaultArgs() map[string]interface{} {
 
 // GetDefaultArgsOk returns a tuple with the DefaultArgs field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetDefaultArgsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.DefaultArgs) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.DefaultArgs, true
@@ -1156,9 +1104,9 @@ func (o *DAGDetailsResponse) SetDefaultArgs(v map[string]interface{}) {
 	o.DefaultArgs = v
 }
 
-// GetOwnerLinks returns the OwnerLinks field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOwnerLinks returns the OwnerLinks field value if set, zero value otherwise.
 func (o *DAGDetailsResponse) GetOwnerLinks() map[string]string {
-	if o == nil {
+	if o == nil || IsNil(o.OwnerLinks) {
 		var ret map[string]string
 		return ret
 	}
@@ -1167,7 +1115,6 @@ func (o *DAGDetailsResponse) GetOwnerLinks() map[string]string {
 
 // GetOwnerLinksOk returns a tuple with the OwnerLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetOwnerLinksOk() (map[string]string, bool) {
 	if o == nil || IsNil(o.OwnerLinks) {
 		return map[string]string{}, false
@@ -1305,29 +1252,27 @@ func (o *DAGDetailsResponse) SetConcurrency(v int32) {
 }
 
 // GetLatestDagVersion returns the LatestDagVersion field value
-// If the value is explicit nil, the zero value for DagVersionResponse will be returned
 func (o *DAGDetailsResponse) GetLatestDagVersion() DagVersionResponse {
-	if o == nil || o.LatestDagVersion.Get() == nil {
+	if o == nil {
 		var ret DagVersionResponse
 		return ret
 	}
 
-	return *o.LatestDagVersion.Get()
+	return o.LatestDagVersion
 }
 
 // GetLatestDagVersionOk returns a tuple with the LatestDagVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGDetailsResponse) GetLatestDagVersionOk() (*DagVersionResponse, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LatestDagVersion.Get(), o.LatestDagVersion.IsSet()
+	return &o.LatestDagVersion, true
 }
 
 // SetLatestDagVersion sets field value
 func (o *DAGDetailsResponse) SetLatestDagVersion(v DagVersionResponse) {
-	o.LatestDagVersion.Set(&v)
+	o.LatestDagVersion = v
 }
 
 func (o DAGDetailsResponse) MarshalJSON() ([]byte, error) {
@@ -1344,53 +1289,43 @@ func (o DAGDetailsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["dag_display_name"] = o.DagDisplayName
 	toSerialize["is_paused"] = o.IsPaused
 	toSerialize["is_stale"] = o.IsStale
-	toSerialize["last_parsed_time"] = o.LastParsedTime.Get()
-	toSerialize["last_parse_duration"] = o.LastParseDuration.Get()
-	toSerialize["last_expired"] = o.LastExpired.Get()
-	toSerialize["bundle_name"] = o.BundleName.Get()
-	toSerialize["bundle_version"] = o.BundleVersion.Get()
-	toSerialize["relative_fileloc"] = o.RelativeFileloc.Get()
+	toSerialize["last_parsed_time"] = o.LastParsedTime
+	toSerialize["last_parse_duration"] = o.LastParseDuration
+	toSerialize["last_expired"] = o.LastExpired
+	toSerialize["bundle_name"] = o.BundleName
+	toSerialize["bundle_version"] = o.BundleVersion
+	toSerialize["relative_fileloc"] = o.RelativeFileloc
 	toSerialize["fileloc"] = o.Fileloc
-	toSerialize["description"] = o.Description.Get()
-	toSerialize["timetable_summary"] = o.TimetableSummary.Get()
-	toSerialize["timetable_description"] = o.TimetableDescription.Get()
+	toSerialize["description"] = o.Description
+	toSerialize["timetable_summary"] = o.TimetableSummary
+	toSerialize["timetable_description"] = o.TimetableDescription
 	toSerialize["timetable_partitioned"] = o.TimetablePartitioned
 	toSerialize["tags"] = o.Tags
 	toSerialize["max_active_tasks"] = o.MaxActiveTasks
-	toSerialize["max_active_runs"] = o.MaxActiveRuns.Get()
+	toSerialize["max_active_runs"] = o.MaxActiveRuns
 	toSerialize["max_consecutive_failed_dag_runs"] = o.MaxConsecutiveFailedDagRuns
 	toSerialize["has_task_concurrency_limits"] = o.HasTaskConcurrencyLimits
 	toSerialize["has_import_errors"] = o.HasImportErrors
-	toSerialize["next_dagrun_logical_date"] = o.NextDagrunLogicalDate.Get()
-	toSerialize["next_dagrun_data_interval_start"] = o.NextDagrunDataIntervalStart.Get()
-	toSerialize["next_dagrun_data_interval_end"] = o.NextDagrunDataIntervalEnd.Get()
-	toSerialize["next_dagrun_run_after"] = o.NextDagrunRunAfter.Get()
-	if o.AllowedRunTypes != nil {
-		toSerialize["allowed_run_types"] = o.AllowedRunTypes
-	}
+	toSerialize["next_dagrun_logical_date"] = o.NextDagrunLogicalDate
+	toSerialize["next_dagrun_data_interval_start"] = o.NextDagrunDataIntervalStart
+	toSerialize["next_dagrun_data_interval_end"] = o.NextDagrunDataIntervalEnd
+	toSerialize["next_dagrun_run_after"] = o.NextDagrunRunAfter
+	toSerialize["allowed_run_types"] = o.AllowedRunTypes
 	toSerialize["owners"] = o.Owners
 	toSerialize["catchup"] = o.Catchup
-	toSerialize["dag_run_timeout"] = o.DagRunTimeout.Get()
-	if o.AssetExpression != nil {
-		toSerialize["asset_expression"] = o.AssetExpression
-	}
-	toSerialize["doc_md"] = o.DocMd.Get()
-	toSerialize["start_date"] = o.StartDate.Get()
-	toSerialize["end_date"] = o.EndDate.Get()
-	toSerialize["is_paused_upon_creation"] = o.IsPausedUponCreation.Get()
-	if o.Params != nil {
-		toSerialize["params"] = o.Params
-	}
+	toSerialize["dag_run_timeout"] = o.DagRunTimeout
+	toSerialize["asset_expression"] = o.AssetExpression
+	toSerialize["doc_md"] = o.DocMd
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["is_paused_upon_creation"] = o.IsPausedUponCreation
+	toSerialize["params"] = o.Params
 	toSerialize["render_template_as_native_obj"] = o.RenderTemplateAsNativeObj
-	if o.TemplateSearchPath != nil {
-		toSerialize["template_search_path"] = o.TemplateSearchPath
-	}
-	toSerialize["timezone"] = o.Timezone.Get()
-	toSerialize["last_parsed"] = o.LastParsed.Get()
-	if o.DefaultArgs != nil {
-		toSerialize["default_args"] = o.DefaultArgs
-	}
-	if o.OwnerLinks != nil {
+	toSerialize["template_search_path"] = o.TemplateSearchPath
+	toSerialize["timezone"] = o.Timezone
+	toSerialize["last_parsed"] = o.LastParsed
+	toSerialize["default_args"] = o.DefaultArgs
+	if !IsNil(o.OwnerLinks) {
 		toSerialize["owner_links"] = o.OwnerLinks
 	}
 	if !IsNil(o.IsFavorite) {
@@ -1401,7 +1336,7 @@ func (o DAGDetailsResponse) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["file_token"] = o.FileToken
 	toSerialize["concurrency"] = o.Concurrency
-	toSerialize["latest_dag_version"] = o.LatestDagVersion.Get()
+	toSerialize["latest_dag_version"] = o.LatestDagVersion
 	return toSerialize, nil
 }
 

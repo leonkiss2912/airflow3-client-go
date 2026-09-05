@@ -24,25 +24,25 @@ var _ MappedNullable = &DAGRunResponse{}
 type DAGRunResponse struct {
 	DagRunId string `json:"dag_run_id"`
 	DagId string `json:"dag_id"`
-	LogicalDate NullableTime `json:"logical_date"`
-	QueuedAt NullableTime `json:"queued_at"`
-	StartDate NullableTime `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
-	Duration NullableFloat32 `json:"duration"`
-	DataIntervalStart NullableTime `json:"data_interval_start"`
-	DataIntervalEnd NullableTime `json:"data_interval_end"`
+	LogicalDate time.Time `json:"logical_date"`
+	QueuedAt time.Time `json:"queued_at"`
+	StartDate time.Time `json:"start_date"`
+	EndDate time.Time `json:"end_date"`
+	Duration float32 `json:"duration"`
+	DataIntervalStart time.Time `json:"data_interval_start"`
+	DataIntervalEnd time.Time `json:"data_interval_end"`
 	RunAfter time.Time `json:"run_after"`
-	LastSchedulingDecision NullableTime `json:"last_scheduling_decision"`
+	LastSchedulingDecision time.Time `json:"last_scheduling_decision"`
 	RunType DagRunType `json:"run_type"`
 	State DagRunState `json:"state"`
-	TriggeredBy NullableDagRunTriggeredByType `json:"triggered_by"`
-	TriggeringUserName NullableString `json:"triggering_user_name"`
+	TriggeredBy DagRunTriggeredByType `json:"triggered_by"`
+	TriggeringUserName string `json:"triggering_user_name"`
 	Conf map[string]interface{} `json:"conf"`
-	Note NullableString `json:"note"`
+	Note string `json:"note"`
 	DagVersions []DagVersionResponse `json:"dag_versions"`
-	BundleVersion NullableString `json:"bundle_version"`
+	BundleVersion string `json:"bundle_version"`
 	DagDisplayName string `json:"dag_display_name"`
-	PartitionKey NullableString `json:"partition_key"`
+	PartitionKey string `json:"partition_key"`
 }
 
 type _DAGRunResponse DAGRunResponse
@@ -51,7 +51,7 @@ type _DAGRunResponse DAGRunResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDAGRunResponse(dagRunId string, dagId string, logicalDate NullableTime, queuedAt NullableTime, startDate NullableTime, endDate NullableTime, duration NullableFloat32, dataIntervalStart NullableTime, dataIntervalEnd NullableTime, runAfter time.Time, lastSchedulingDecision NullableTime, runType DagRunType, state DagRunState, triggeredBy NullableDagRunTriggeredByType, triggeringUserName NullableString, conf map[string]interface{}, note NullableString, dagVersions []DagVersionResponse, bundleVersion NullableString, dagDisplayName string, partitionKey NullableString) *DAGRunResponse {
+func NewDAGRunResponse(dagRunId string, dagId string, logicalDate time.Time, queuedAt time.Time, startDate time.Time, endDate time.Time, duration float32, dataIntervalStart time.Time, dataIntervalEnd time.Time, runAfter time.Time, lastSchedulingDecision time.Time, runType DagRunType, state DagRunState, triggeredBy DagRunTriggeredByType, triggeringUserName string, conf map[string]interface{}, note string, dagVersions []DagVersionResponse, bundleVersion string, dagDisplayName string, partitionKey string) *DAGRunResponse {
 	this := DAGRunResponse{}
 	this.DagRunId = dagRunId
 	this.DagId = dagId
@@ -134,185 +134,171 @@ func (o *DAGRunResponse) SetDagId(v string) {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *DAGRunResponse) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetQueuedAt returns the QueuedAt field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetQueuedAt() time.Time {
-	if o == nil || o.QueuedAt.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.QueuedAt.Get()
+	return o.QueuedAt
 }
 
 // GetQueuedAtOk returns a tuple with the QueuedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetQueuedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.QueuedAt.Get(), o.QueuedAt.IsSet()
+	return &o.QueuedAt, true
 }
 
 // SetQueuedAt sets field value
 func (o *DAGRunResponse) SetQueuedAt(v time.Time) {
-	o.QueuedAt.Set(&v)
+	o.QueuedAt = v
 }
 
 // GetStartDate returns the StartDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetStartDate() time.Time {
-	if o == nil || o.StartDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.StartDate.Get()
+	return o.StartDate
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetStartDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.StartDate.Get(), o.StartDate.IsSet()
+	return &o.StartDate, true
 }
 
 // SetStartDate sets field value
 func (o *DAGRunResponse) SetStartDate(v time.Time) {
-	o.StartDate.Set(&v)
+	o.StartDate = v
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *DAGRunResponse) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetDuration returns the Duration field value
-// If the value is explicit nil, the zero value for float32 will be returned
 func (o *DAGRunResponse) GetDuration() float32 {
-	if o == nil || o.Duration.Get() == nil {
+	if o == nil {
 		var ret float32
 		return ret
 	}
 
-	return *o.Duration.Get()
+	return o.Duration
 }
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetDurationOk() (*float32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Duration.Get(), o.Duration.IsSet()
+	return &o.Duration, true
 }
 
 // SetDuration sets field value
 func (o *DAGRunResponse) SetDuration(v float32) {
-	o.Duration.Set(&v)
+	o.Duration = v
 }
 
 // GetDataIntervalStart returns the DataIntervalStart field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetDataIntervalStart() time.Time {
-	if o == nil || o.DataIntervalStart.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.DataIntervalStart.Get()
+	return o.DataIntervalStart
 }
 
 // GetDataIntervalStartOk returns a tuple with the DataIntervalStart field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetDataIntervalStartOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DataIntervalStart.Get(), o.DataIntervalStart.IsSet()
+	return &o.DataIntervalStart, true
 }
 
 // SetDataIntervalStart sets field value
 func (o *DAGRunResponse) SetDataIntervalStart(v time.Time) {
-	o.DataIntervalStart.Set(&v)
+	o.DataIntervalStart = v
 }
 
 // GetDataIntervalEnd returns the DataIntervalEnd field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetDataIntervalEnd() time.Time {
-	if o == nil || o.DataIntervalEnd.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.DataIntervalEnd.Get()
+	return o.DataIntervalEnd
 }
 
 // GetDataIntervalEndOk returns a tuple with the DataIntervalEnd field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetDataIntervalEndOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DataIntervalEnd.Get(), o.DataIntervalEnd.IsSet()
+	return &o.DataIntervalEnd, true
 }
 
 // SetDataIntervalEnd sets field value
 func (o *DAGRunResponse) SetDataIntervalEnd(v time.Time) {
-	o.DataIntervalEnd.Set(&v)
+	o.DataIntervalEnd = v
 }
 
 // GetRunAfter returns the RunAfter field value
@@ -340,29 +326,27 @@ func (o *DAGRunResponse) SetRunAfter(v time.Time) {
 }
 
 // GetLastSchedulingDecision returns the LastSchedulingDecision field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DAGRunResponse) GetLastSchedulingDecision() time.Time {
-	if o == nil || o.LastSchedulingDecision.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LastSchedulingDecision.Get()
+	return o.LastSchedulingDecision
 }
 
 // GetLastSchedulingDecisionOk returns a tuple with the LastSchedulingDecision field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetLastSchedulingDecisionOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastSchedulingDecision.Get(), o.LastSchedulingDecision.IsSet()
+	return &o.LastSchedulingDecision, true
 }
 
 // SetLastSchedulingDecision sets field value
 func (o *DAGRunResponse) SetLastSchedulingDecision(v time.Time) {
-	o.LastSchedulingDecision.Set(&v)
+	o.LastSchedulingDecision = v
 }
 
 // GetRunType returns the RunType field value
@@ -414,59 +398,54 @@ func (o *DAGRunResponse) SetState(v DagRunState) {
 }
 
 // GetTriggeredBy returns the TriggeredBy field value
-// If the value is explicit nil, the zero value for DagRunTriggeredByType will be returned
 func (o *DAGRunResponse) GetTriggeredBy() DagRunTriggeredByType {
-	if o == nil || o.TriggeredBy.Get() == nil {
+	if o == nil {
 		var ret DagRunTriggeredByType
 		return ret
 	}
 
-	return *o.TriggeredBy.Get()
+	return o.TriggeredBy
 }
 
 // GetTriggeredByOk returns a tuple with the TriggeredBy field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetTriggeredByOk() (*DagRunTriggeredByType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TriggeredBy.Get(), o.TriggeredBy.IsSet()
+	return &o.TriggeredBy, true
 }
 
 // SetTriggeredBy sets field value
 func (o *DAGRunResponse) SetTriggeredBy(v DagRunTriggeredByType) {
-	o.TriggeredBy.Set(&v)
+	o.TriggeredBy = v
 }
 
 // GetTriggeringUserName returns the TriggeringUserName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGRunResponse) GetTriggeringUserName() string {
-	if o == nil || o.TriggeringUserName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TriggeringUserName.Get()
+	return o.TriggeringUserName
 }
 
 // GetTriggeringUserNameOk returns a tuple with the TriggeringUserName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetTriggeringUserNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TriggeringUserName.Get(), o.TriggeringUserName.IsSet()
+	return &o.TriggeringUserName, true
 }
 
 // SetTriggeringUserName sets field value
 func (o *DAGRunResponse) SetTriggeringUserName(v string) {
-	o.TriggeringUserName.Set(&v)
+	o.TriggeringUserName = v
 }
 
 // GetConf returns the Conf field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *DAGRunResponse) GetConf() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -478,9 +457,8 @@ func (o *DAGRunResponse) GetConf() map[string]interface{} {
 
 // GetConfOk returns a tuple with the Conf field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetConfOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Conf) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Conf, true
@@ -492,29 +470,27 @@ func (o *DAGRunResponse) SetConf(v map[string]interface{}) {
 }
 
 // GetNote returns the Note field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGRunResponse) GetNote() string {
-	if o == nil || o.Note.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Note.Get()
+	return o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetNoteOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return &o.Note, true
 }
 
 // SetNote sets field value
 func (o *DAGRunResponse) SetNote(v string) {
-	o.Note.Set(&v)
+	o.Note = v
 }
 
 // GetDagVersions returns the DagVersions field value
@@ -542,29 +518,27 @@ func (o *DAGRunResponse) SetDagVersions(v []DagVersionResponse) {
 }
 
 // GetBundleVersion returns the BundleVersion field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGRunResponse) GetBundleVersion() string {
-	if o == nil || o.BundleVersion.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleVersion.Get()
+	return o.BundleVersion
 }
 
 // GetBundleVersionOk returns a tuple with the BundleVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetBundleVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleVersion.Get(), o.BundleVersion.IsSet()
+	return &o.BundleVersion, true
 }
 
 // SetBundleVersion sets field value
 func (o *DAGRunResponse) SetBundleVersion(v string) {
-	o.BundleVersion.Set(&v)
+	o.BundleVersion = v
 }
 
 // GetDagDisplayName returns the DagDisplayName field value
@@ -592,29 +566,27 @@ func (o *DAGRunResponse) SetDagDisplayName(v string) {
 }
 
 // GetPartitionKey returns the PartitionKey field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DAGRunResponse) GetPartitionKey() string {
-	if o == nil || o.PartitionKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.PartitionKey.Get()
+	return o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunResponse) GetPartitionKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return &o.PartitionKey, true
 }
 
 // SetPartitionKey sets field value
 func (o *DAGRunResponse) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
+	o.PartitionKey = v
 }
 
 func (o DAGRunResponse) MarshalJSON() ([]byte, error) {
@@ -629,27 +601,25 @@ func (o DAGRunResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["dag_run_id"] = o.DagRunId
 	toSerialize["dag_id"] = o.DagId
-	toSerialize["logical_date"] = o.LogicalDate.Get()
-	toSerialize["queued_at"] = o.QueuedAt.Get()
-	toSerialize["start_date"] = o.StartDate.Get()
-	toSerialize["end_date"] = o.EndDate.Get()
-	toSerialize["duration"] = o.Duration.Get()
-	toSerialize["data_interval_start"] = o.DataIntervalStart.Get()
-	toSerialize["data_interval_end"] = o.DataIntervalEnd.Get()
+	toSerialize["logical_date"] = o.LogicalDate
+	toSerialize["queued_at"] = o.QueuedAt
+	toSerialize["start_date"] = o.StartDate
+	toSerialize["end_date"] = o.EndDate
+	toSerialize["duration"] = o.Duration
+	toSerialize["data_interval_start"] = o.DataIntervalStart
+	toSerialize["data_interval_end"] = o.DataIntervalEnd
 	toSerialize["run_after"] = o.RunAfter
-	toSerialize["last_scheduling_decision"] = o.LastSchedulingDecision.Get()
+	toSerialize["last_scheduling_decision"] = o.LastSchedulingDecision
 	toSerialize["run_type"] = o.RunType
 	toSerialize["state"] = o.State
-	toSerialize["triggered_by"] = o.TriggeredBy.Get()
-	toSerialize["triggering_user_name"] = o.TriggeringUserName.Get()
-	if o.Conf != nil {
-		toSerialize["conf"] = o.Conf
-	}
-	toSerialize["note"] = o.Note.Get()
+	toSerialize["triggered_by"] = o.TriggeredBy
+	toSerialize["triggering_user_name"] = o.TriggeringUserName
+	toSerialize["conf"] = o.Conf
+	toSerialize["note"] = o.Note
 	toSerialize["dag_versions"] = o.DagVersions
-	toSerialize["bundle_version"] = o.BundleVersion.Get()
+	toSerialize["bundle_version"] = o.BundleVersion
 	toSerialize["dag_display_name"] = o.DagDisplayName
-	toSerialize["partition_key"] = o.PartitionKey.Get()
+	toSerialize["partition_key"] = o.PartitionKey
 	return toSerialize, nil
 }
 

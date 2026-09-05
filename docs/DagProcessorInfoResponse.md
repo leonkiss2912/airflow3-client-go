@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **NullableString** |  | 
-**LatestDagProcessorHeartbeat** | **NullableString** |  | 
+**Status** | **string** |  | 
+**LatestDagProcessorHeartbeat** | **string** |  | 
 
 ## Methods
 
 ### NewDagProcessorInfoResponse
 
-`func NewDagProcessorInfoResponse(status NullableString, latestDagProcessorHeartbeat NullableString, ) *DagProcessorInfoResponse`
+`func NewDagProcessorInfoResponse(status string, latestDagProcessorHeartbeat string, ) *DagProcessorInfoResponse`
 
 NewDagProcessorInfoResponse instantiates a new DagProcessorInfoResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,16 +46,6 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
-### SetStatusNil
-
-`func (o *DagProcessorInfoResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *DagProcessorInfoResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetLatestDagProcessorHeartbeat
 
 `func (o *DagProcessorInfoResponse) GetLatestDagProcessorHeartbeat() string`
@@ -76,16 +66,6 @@ and a boolean to check if the value has been set.
 SetLatestDagProcessorHeartbeat sets LatestDagProcessorHeartbeat field to given value.
 
 
-### SetLatestDagProcessorHeartbeatNil
-
-`func (o *DagProcessorInfoResponse) SetLatestDagProcessorHeartbeatNil(b bool)`
-
- SetLatestDagProcessorHeartbeatNil sets the value for LatestDagProcessorHeartbeat to be an explicit nil
-
-### UnsetLatestDagProcessorHeartbeat
-`func (o *DagProcessorInfoResponse) UnsetLatestDagProcessorHeartbeat()`
-
-UnsetLatestDagProcessorHeartbeat ensures that no value is present for LatestDagProcessorHeartbeat, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

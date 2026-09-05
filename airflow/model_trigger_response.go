@@ -26,8 +26,8 @@ type TriggerResponse struct {
 	Classpath string `json:"classpath"`
 	Kwargs string `json:"kwargs"`
 	CreatedDate time.Time `json:"created_date"`
-	Queue NullableString `json:"queue"`
-	TriggererId NullableInt32 `json:"triggerer_id"`
+	Queue string `json:"queue"`
+	TriggererId int32 `json:"triggerer_id"`
 }
 
 type _TriggerResponse TriggerResponse
@@ -36,7 +36,7 @@ type _TriggerResponse TriggerResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTriggerResponse(id int32, classpath string, kwargs string, createdDate time.Time, queue NullableString, triggererId NullableInt32) *TriggerResponse {
+func NewTriggerResponse(id int32, classpath string, kwargs string, createdDate time.Time, queue string, triggererId int32) *TriggerResponse {
 	this := TriggerResponse{}
 	this.Id = id
 	this.Classpath = classpath
@@ -152,55 +152,51 @@ func (o *TriggerResponse) SetCreatedDate(v time.Time) {
 }
 
 // GetQueue returns the Queue field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TriggerResponse) GetQueue() string {
-	if o == nil || o.Queue.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Queue.Get()
+	return o.Queue
 }
 
 // GetQueueOk returns a tuple with the Queue field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerResponse) GetQueueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Queue.Get(), o.Queue.IsSet()
+	return &o.Queue, true
 }
 
 // SetQueue sets field value
 func (o *TriggerResponse) SetQueue(v string) {
-	o.Queue.Set(&v)
+	o.Queue = v
 }
 
 // GetTriggererId returns the TriggererId field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *TriggerResponse) GetTriggererId() int32 {
-	if o == nil || o.TriggererId.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.TriggererId.Get()
+	return o.TriggererId
 }
 
 // GetTriggererIdOk returns a tuple with the TriggererId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggerResponse) GetTriggererIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TriggererId.Get(), o.TriggererId.IsSet()
+	return &o.TriggererId, true
 }
 
 // SetTriggererId sets field value
 func (o *TriggerResponse) SetTriggererId(v int32) {
-	o.TriggererId.Set(&v)
+	o.TriggererId = v
 }
 
 func (o TriggerResponse) MarshalJSON() ([]byte, error) {
@@ -217,8 +213,8 @@ func (o TriggerResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["classpath"] = o.Classpath
 	toSerialize["kwargs"] = o.Kwargs
 	toSerialize["created_date"] = o.CreatedDate
-	toSerialize["queue"] = o.Queue.Get()
-	toSerialize["triggerer_id"] = o.TriggererId.Get()
+	toSerialize["queue"] = o.Queue
+	toSerialize["triggerer_id"] = o.TriggererId
 	return toSerialize, nil
 }
 

@@ -21,8 +21,8 @@ var _ MappedNullable = &TriggererInfoResponse{}
 
 // TriggererInfoResponse Triggerer info serializer for responses.
 type TriggererInfoResponse struct {
-	Status NullableString `json:"status"`
-	LatestTriggererHeartbeat NullableString `json:"latest_triggerer_heartbeat"`
+	Status string `json:"status"`
+	LatestTriggererHeartbeat string `json:"latest_triggerer_heartbeat"`
 }
 
 type _TriggererInfoResponse TriggererInfoResponse
@@ -31,7 +31,7 @@ type _TriggererInfoResponse TriggererInfoResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTriggererInfoResponse(status NullableString, latestTriggererHeartbeat NullableString) *TriggererInfoResponse {
+func NewTriggererInfoResponse(status string, latestTriggererHeartbeat string) *TriggererInfoResponse {
 	this := TriggererInfoResponse{}
 	this.Status = status
 	this.LatestTriggererHeartbeat = latestTriggererHeartbeat
@@ -47,55 +47,51 @@ func NewTriggererInfoResponseWithDefaults() *TriggererInfoResponse {
 }
 
 // GetStatus returns the Status field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TriggererInfoResponse) GetStatus() string {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Status.Get()
+	return o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggererInfoResponse) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
 // SetStatus sets field value
 func (o *TriggererInfoResponse) SetStatus(v string) {
-	o.Status.Set(&v)
+	o.Status = v
 }
 
 // GetLatestTriggererHeartbeat returns the LatestTriggererHeartbeat field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TriggererInfoResponse) GetLatestTriggererHeartbeat() string {
-	if o == nil || o.LatestTriggererHeartbeat.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.LatestTriggererHeartbeat.Get()
+	return o.LatestTriggererHeartbeat
 }
 
 // GetLatestTriggererHeartbeatOk returns a tuple with the LatestTriggererHeartbeat field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TriggererInfoResponse) GetLatestTriggererHeartbeatOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LatestTriggererHeartbeat.Get(), o.LatestTriggererHeartbeat.IsSet()
+	return &o.LatestTriggererHeartbeat, true
 }
 
 // SetLatestTriggererHeartbeat sets field value
 func (o *TriggererInfoResponse) SetLatestTriggererHeartbeat(v string) {
-	o.LatestTriggererHeartbeat.Set(&v)
+	o.LatestTriggererHeartbeat = v
 }
 
 func (o TriggererInfoResponse) MarshalJSON() ([]byte, error) {
@@ -108,8 +104,8 @@ func (o TriggererInfoResponse) MarshalJSON() ([]byte, error) {
 
 func (o TriggererInfoResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status.Get()
-	toSerialize["latest_triggerer_heartbeat"] = o.LatestTriggererHeartbeat.Get()
+	toSerialize["status"] = o.Status
+	toSerialize["latest_triggerer_heartbeat"] = o.LatestTriggererHeartbeat
 	return toSerialize, nil
 }
 

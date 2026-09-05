@@ -22,7 +22,7 @@ var _ MappedNullable = &TaskInstancesLogResponse{}
 // TaskInstancesLogResponse Log serializer for responses.
 type TaskInstancesLogResponse struct {
 	Content Content `json:"content"`
-	ContinuationToken NullableString `json:"continuation_token"`
+	ContinuationToken string `json:"continuation_token"`
 }
 
 type _TaskInstancesLogResponse TaskInstancesLogResponse
@@ -31,7 +31,7 @@ type _TaskInstancesLogResponse TaskInstancesLogResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTaskInstancesLogResponse(content Content, continuationToken NullableString) *TaskInstancesLogResponse {
+func NewTaskInstancesLogResponse(content Content, continuationToken string) *TaskInstancesLogResponse {
 	this := TaskInstancesLogResponse{}
 	this.Content = content
 	this.ContinuationToken = continuationToken
@@ -71,29 +71,27 @@ func (o *TaskInstancesLogResponse) SetContent(v Content) {
 }
 
 // GetContinuationToken returns the ContinuationToken field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *TaskInstancesLogResponse) GetContinuationToken() string {
-	if o == nil || o.ContinuationToken.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.ContinuationToken.Get()
+	return o.ContinuationToken
 }
 
 // GetContinuationTokenOk returns a tuple with the ContinuationToken field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TaskInstancesLogResponse) GetContinuationTokenOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ContinuationToken.Get(), o.ContinuationToken.IsSet()
+	return &o.ContinuationToken, true
 }
 
 // SetContinuationToken sets field value
 func (o *TaskInstancesLogResponse) SetContinuationToken(v string) {
-	o.ContinuationToken.Set(&v)
+	o.ContinuationToken = v
 }
 
 func (o TaskInstancesLogResponse) MarshalJSON() ([]byte, error) {
@@ -107,7 +105,7 @@ func (o TaskInstancesLogResponse) MarshalJSON() ([]byte, error) {
 func (o TaskInstancesLogResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["content"] = o.Content
-	toSerialize["continuation_token"] = o.ContinuationToken.Get()
+	toSerialize["continuation_token"] = o.ContinuationToken
 	return toSerialize, nil
 }
 

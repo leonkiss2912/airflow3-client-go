@@ -25,13 +25,13 @@ import (
 // EventLogAPIService EventLogAPI service
 type EventLogAPIService service
 
-type ApiGetEventLogRequest struct {
+type EventLogAPIGetEventLogRequest struct {
 	ctx context.Context
 	ApiService *EventLogAPIService
 	eventLogId int32
 }
 
-func (r ApiGetEventLogRequest) Execute() (*EventLogResponse, *http.Response, error) {
+func (r EventLogAPIGetEventLogRequest) Execute() (*EventLogResponse, *http.Response, error) {
 	return r.ApiService.GetEventLogExecute(r)
 }
 
@@ -40,10 +40,10 @@ GetEventLog Get Event Log
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param eventLogId
- @return ApiGetEventLogRequest
+ @return EventLogAPIGetEventLogRequest
 */
-func (a *EventLogAPIService) GetEventLog(ctx context.Context, eventLogId int32) ApiGetEventLogRequest {
-	return ApiGetEventLogRequest{
+func (a *EventLogAPIService) GetEventLog(ctx context.Context, eventLogId int32) EventLogAPIGetEventLogRequest {
+	return EventLogAPIGetEventLogRequest{
 		ApiService: a,
 		ctx: ctx,
 		eventLogId: eventLogId,
@@ -52,7 +52,7 @@ func (a *EventLogAPIService) GetEventLog(ctx context.Context, eventLogId int32) 
 
 // Execute executes the request
 //  @return EventLogResponse
-func (a *EventLogAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*EventLogResponse, *http.Response, error) {
+func (a *EventLogAPIService) GetEventLogExecute(r EventLogAPIGetEventLogRequest) (*EventLogResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -169,12 +169,12 @@ func (a *EventLogAPIService) GetEventLogExecute(r ApiGetEventLogRequest) (*Event
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetEventLogsRequest struct {
+type EventLogAPIGetEventLogsRequest struct {
 	ctx context.Context
 	ApiService *EventLogAPIService
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	dagId *string
 	taskId *string
 	runId *string
@@ -198,138 +198,138 @@ type ApiGetEventLogsRequest struct {
 	eventPrefixPattern *string
 }
 
-func (r ApiGetEventLogsRequest) Limit(limit int32) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) Limit(limit int32) EventLogAPIGetEventLogsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetEventLogsRequest) Offset(offset int32) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) Offset(offset int32) EventLogAPIGetEventLogsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, dttm, dag_id, task_id, run_id, event, logical_date, owner, extra, when, event_log_id&#x60;
-func (r ApiGetEventLogsRequest) OrderBy(orderBy []*string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) OrderBy(orderBy []string) EventLogAPIGetEventLogsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
-func (r ApiGetEventLogsRequest) DagId(dagId string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) DagId(dagId string) EventLogAPIGetEventLogsRequest {
 	r.dagId = &dagId
 	return r
 }
 
-func (r ApiGetEventLogsRequest) TaskId(taskId string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) TaskId(taskId string) EventLogAPIGetEventLogsRequest {
 	r.taskId = &taskId
 	return r
 }
 
-func (r ApiGetEventLogsRequest) RunId(runId string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) RunId(runId string) EventLogAPIGetEventLogsRequest {
 	r.runId = &runId
 	return r
 }
 
-func (r ApiGetEventLogsRequest) MapIndex(mapIndex int32) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) MapIndex(mapIndex int32) EventLogAPIGetEventLogsRequest {
 	r.mapIndex = &mapIndex
 	return r
 }
 
-func (r ApiGetEventLogsRequest) TryNumber(tryNumber int32) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) TryNumber(tryNumber int32) EventLogAPIGetEventLogsRequest {
 	r.tryNumber = &tryNumber
 	return r
 }
 
-func (r ApiGetEventLogsRequest) Owner(owner string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) Owner(owner string) EventLogAPIGetEventLogsRequest {
 	r.owner = &owner
 	return r
 }
 
-func (r ApiGetEventLogsRequest) Event(event string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) Event(event string) EventLogAPIGetEventLogsRequest {
 	r.event = &event
 	return r
 }
 
-func (r ApiGetEventLogsRequest) ExcludedEvents(excludedEvents []string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) ExcludedEvents(excludedEvents []string) EventLogAPIGetEventLogsRequest {
 	r.excludedEvents = &excludedEvents
 	return r
 }
 
-func (r ApiGetEventLogsRequest) IncludedEvents(includedEvents []string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) IncludedEvents(includedEvents []string) EventLogAPIGetEventLogsRequest {
 	r.includedEvents = &includedEvents
 	return r
 }
 
-func (r ApiGetEventLogsRequest) Before(before time.Time) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) Before(before time.Time) EventLogAPIGetEventLogsRequest {
 	r.before = &before
 	return r
 }
 
-func (r ApiGetEventLogsRequest) After(after time.Time) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) After(after time.Time) EventLogAPIGetEventLogsRequest {
 	r.after = &after
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;dag_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetEventLogsRequest) DagIdPattern(dagIdPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) DagIdPattern(dagIdPattern string) EventLogAPIGetEventLogsRequest {
 	r.dagIdPattern = &dagIdPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;task_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetEventLogsRequest) TaskIdPattern(taskIdPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) TaskIdPattern(taskIdPattern string) EventLogAPIGetEventLogsRequest {
 	r.taskIdPattern = &taskIdPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;run_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetEventLogsRequest) RunIdPattern(runIdPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) RunIdPattern(runIdPattern string) EventLogAPIGetEventLogsRequest {
 	r.runIdPattern = &runIdPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;owner_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetEventLogsRequest) OwnerPattern(ownerPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) OwnerPattern(ownerPattern string) EventLogAPIGetEventLogsRequest {
 	r.ownerPattern = &ownerPattern
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;event_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetEventLogsRequest) EventPattern(eventPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) EventPattern(eventPattern string) EventLogAPIGetEventLogsRequest {
 	r.eventPattern = &eventPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetEventLogsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) DagIdPrefixPattern(dagIdPrefixPattern string) EventLogAPIGetEventLogsRequest {
 	r.dagIdPrefixPattern = &dagIdPrefixPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetEventLogsRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) TaskIdPrefixPattern(taskIdPrefixPattern string) EventLogAPIGetEventLogsRequest {
 	r.taskIdPrefixPattern = &taskIdPrefixPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetEventLogsRequest) RunIdPrefixPattern(runIdPrefixPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) RunIdPrefixPattern(runIdPrefixPattern string) EventLogAPIGetEventLogsRequest {
 	r.runIdPrefixPattern = &runIdPrefixPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetEventLogsRequest) OwnerPrefixPattern(ownerPrefixPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) OwnerPrefixPattern(ownerPrefixPattern string) EventLogAPIGetEventLogsRequest {
 	r.ownerPrefixPattern = &ownerPrefixPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetEventLogsRequest) EventPrefixPattern(eventPrefixPattern string) ApiGetEventLogsRequest {
+func (r EventLogAPIGetEventLogsRequest) EventPrefixPattern(eventPrefixPattern string) EventLogAPIGetEventLogsRequest {
 	r.eventPrefixPattern = &eventPrefixPattern
 	return r
 }
 
-func (r ApiGetEventLogsRequest) Execute() (*EventLogCollectionResponse, *http.Response, error) {
+func (r EventLogAPIGetEventLogsRequest) Execute() (*EventLogCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetEventLogsExecute(r)
 }
 
@@ -339,10 +339,10 @@ GetEventLogs Get Event Logs
 Get all Event Logs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetEventLogsRequest
+ @return EventLogAPIGetEventLogsRequest
 */
-func (a *EventLogAPIService) GetEventLogs(ctx context.Context) ApiGetEventLogsRequest {
-	return ApiGetEventLogsRequest{
+func (a *EventLogAPIService) GetEventLogs(ctx context.Context) EventLogAPIGetEventLogsRequest {
+	return EventLogAPIGetEventLogsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -350,7 +350,7 @@ func (a *EventLogAPIService) GetEventLogs(ctx context.Context) ApiGetEventLogsRe
 
 // Execute executes the request
 //  @return EventLogCollectionResponse
-func (a *EventLogAPIService) GetEventLogsExecute(r ApiGetEventLogsRequest) (*EventLogCollectionResponse, *http.Response, error) {
+func (a *EventLogAPIService) GetEventLogsExecute(r EventLogAPIGetEventLogsRequest) (*EventLogCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -394,7 +394,7 @@ func (a *EventLogAPIService) GetEventLogsExecute(r ApiGetEventLogsRequest) (*Eve
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}

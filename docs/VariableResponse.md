@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
 **Value** | **string** |  | 
-**Description** | **NullableString** |  | 
+**Description** | **string** |  | 
 **IsEncrypted** | **bool** |  | 
-**TeamName** | **NullableString** |  | 
+**TeamName** | **string** |  | 
 
 ## Methods
 
 ### NewVariableResponse
 
-`func NewVariableResponse(key string, value string, description NullableString, isEncrypted bool, teamName NullableString, ) *VariableResponse`
+`func NewVariableResponse(key string, value string, description string, isEncrypted bool, teamName string, ) *VariableResponse`
 
 NewVariableResponse instantiates a new VariableResponse object
 This constructor will assign default values to properties that have it defined,
@@ -89,16 +89,6 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
-### SetDescriptionNil
-
-`func (o *VariableResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *VariableResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsEncrypted
 
 `func (o *VariableResponse) GetIsEncrypted() bool`
@@ -139,16 +129,6 @@ and a boolean to check if the value has been set.
 SetTeamName sets TeamName field to given value.
 
 
-### SetTeamNameNil
-
-`func (o *VariableResponse) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *VariableResponse) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

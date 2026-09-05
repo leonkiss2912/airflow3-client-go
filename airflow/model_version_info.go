@@ -22,7 +22,7 @@ var _ MappedNullable = &VersionInfo{}
 // VersionInfo Version information serializer for responses.
 type VersionInfo struct {
 	Version string `json:"version"`
-	GitVersion NullableString `json:"git_version"`
+	GitVersion string `json:"git_version"`
 }
 
 type _VersionInfo VersionInfo
@@ -31,7 +31,7 @@ type _VersionInfo VersionInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionInfo(version string, gitVersion NullableString) *VersionInfo {
+func NewVersionInfo(version string, gitVersion string) *VersionInfo {
 	this := VersionInfo{}
 	this.Version = version
 	this.GitVersion = gitVersion
@@ -71,29 +71,27 @@ func (o *VersionInfo) SetVersion(v string) {
 }
 
 // GetGitVersion returns the GitVersion field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *VersionInfo) GetGitVersion() string {
-	if o == nil || o.GitVersion.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.GitVersion.Get()
+	return o.GitVersion
 }
 
 // GetGitVersionOk returns a tuple with the GitVersion field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VersionInfo) GetGitVersionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.GitVersion.Get(), o.GitVersion.IsSet()
+	return &o.GitVersion, true
 }
 
 // SetGitVersion sets field value
 func (o *VersionInfo) SetGitVersion(v string) {
-	o.GitVersion.Set(&v)
+	o.GitVersion = v
 }
 
 func (o VersionInfo) MarshalJSON() ([]byte, error) {
@@ -107,7 +105,7 @@ func (o VersionInfo) MarshalJSON() ([]byte, error) {
 func (o VersionInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["version"] = o.Version
-	toSerialize["git_version"] = o.GitVersion.Get()
+	toSerialize["git_version"] = o.GitVersion
 	return toSerialize, nil
 }
 

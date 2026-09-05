@@ -24,17 +24,17 @@ var _ MappedNullable = &EventLogResponse{}
 type EventLogResponse struct {
 	EventLogId int32 `json:"event_log_id"`
 	When time.Time `json:"when"`
-	DagId NullableString `json:"dag_id"`
-	TaskId NullableString `json:"task_id"`
-	RunId NullableString `json:"run_id"`
-	MapIndex NullableInt32 `json:"map_index"`
-	TryNumber NullableInt32 `json:"try_number"`
+	DagId string `json:"dag_id"`
+	TaskId string `json:"task_id"`
+	RunId string `json:"run_id"`
+	MapIndex int32 `json:"map_index"`
+	TryNumber int32 `json:"try_number"`
 	Event string `json:"event"`
-	LogicalDate NullableTime `json:"logical_date"`
-	Owner NullableString `json:"owner"`
-	Extra NullableString `json:"extra"`
-	DagDisplayName NullableString `json:"dag_display_name,omitempty"`
-	TaskDisplayName NullableString `json:"task_display_name,omitempty"`
+	LogicalDate time.Time `json:"logical_date"`
+	Owner string `json:"owner"`
+	Extra string `json:"extra"`
+	DagDisplayName *string `json:"dag_display_name,omitempty"`
+	TaskDisplayName *string `json:"task_display_name,omitempty"`
 }
 
 type _EventLogResponse EventLogResponse
@@ -43,7 +43,7 @@ type _EventLogResponse EventLogResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEventLogResponse(eventLogId int32, when time.Time, dagId NullableString, taskId NullableString, runId NullableString, mapIndex NullableInt32, tryNumber NullableInt32, event string, logicalDate NullableTime, owner NullableString, extra NullableString) *EventLogResponse {
+func NewEventLogResponse(eventLogId int32, when time.Time, dagId string, taskId string, runId string, mapIndex int32, tryNumber int32, event string, logicalDate time.Time, owner string, extra string) *EventLogResponse {
 	this := EventLogResponse{}
 	this.EventLogId = eventLogId
 	this.When = when
@@ -116,133 +116,123 @@ func (o *EventLogResponse) SetWhen(v time.Time) {
 }
 
 // GetDagId returns the DagId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *EventLogResponse) GetDagId() string {
-	if o == nil || o.DagId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.DagId.Get()
+	return o.DagId
 }
 
 // GetDagIdOk returns a tuple with the DagId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetDagIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DagId.Get(), o.DagId.IsSet()
+	return &o.DagId, true
 }
 
 // SetDagId sets field value
 func (o *EventLogResponse) SetDagId(v string) {
-	o.DagId.Set(&v)
+	o.DagId = v
 }
 
 // GetTaskId returns the TaskId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *EventLogResponse) GetTaskId() string {
-	if o == nil || o.TaskId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.TaskId.Get()
+	return o.TaskId
 }
 
 // GetTaskIdOk returns a tuple with the TaskId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetTaskIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TaskId.Get(), o.TaskId.IsSet()
+	return &o.TaskId, true
 }
 
 // SetTaskId sets field value
 func (o *EventLogResponse) SetTaskId(v string) {
-	o.TaskId.Set(&v)
+	o.TaskId = v
 }
 
 // GetRunId returns the RunId field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *EventLogResponse) GetRunId() string {
-	if o == nil || o.RunId.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.RunId.Get()
+	return o.RunId
 }
 
 // GetRunIdOk returns a tuple with the RunId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetRunIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RunId.Get(), o.RunId.IsSet()
+	return &o.RunId, true
 }
 
 // SetRunId sets field value
 func (o *EventLogResponse) SetRunId(v string) {
-	o.RunId.Set(&v)
+	o.RunId = v
 }
 
 // GetMapIndex returns the MapIndex field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *EventLogResponse) GetMapIndex() int32 {
-	if o == nil || o.MapIndex.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.MapIndex.Get()
+	return o.MapIndex
 }
 
 // GetMapIndexOk returns a tuple with the MapIndex field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetMapIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MapIndex.Get(), o.MapIndex.IsSet()
+	return &o.MapIndex, true
 }
 
 // SetMapIndex sets field value
 func (o *EventLogResponse) SetMapIndex(v int32) {
-	o.MapIndex.Set(&v)
+	o.MapIndex = v
 }
 
 // GetTryNumber returns the TryNumber field value
-// If the value is explicit nil, the zero value for int32 will be returned
 func (o *EventLogResponse) GetTryNumber() int32 {
-	if o == nil || o.TryNumber.Get() == nil {
+	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return *o.TryNumber.Get()
+	return o.TryNumber
 }
 
 // GetTryNumberOk returns a tuple with the TryNumber field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetTryNumberOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TryNumber.Get(), o.TryNumber.IsSet()
+	return &o.TryNumber, true
 }
 
 // SetTryNumber sets field value
 func (o *EventLogResponse) SetTryNumber(v int32) {
-	o.TryNumber.Set(&v)
+	o.TryNumber = v
 }
 
 // GetEvent returns the Event field value
@@ -270,165 +260,139 @@ func (o *EventLogResponse) SetEvent(v string) {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *EventLogResponse) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *EventLogResponse) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetOwner returns the Owner field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *EventLogResponse) GetOwner() string {
-	if o == nil || o.Owner.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Owner.Get()
+	return o.Owner
 }
 
 // GetOwnerOk returns a tuple with the Owner field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetOwnerOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Owner.Get(), o.Owner.IsSet()
+	return &o.Owner, true
 }
 
 // SetOwner sets field value
 func (o *EventLogResponse) SetOwner(v string) {
-	o.Owner.Set(&v)
+	o.Owner = v
 }
 
 // GetExtra returns the Extra field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *EventLogResponse) GetExtra() string {
-	if o == nil || o.Extra.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Extra.Get()
+	return o.Extra
 }
 
 // GetExtraOk returns a tuple with the Extra field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetExtraOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Extra.Get(), o.Extra.IsSet()
+	return &o.Extra, true
 }
 
 // SetExtra sets field value
 func (o *EventLogResponse) SetExtra(v string) {
-	o.Extra.Set(&v)
+	o.Extra = v
 }
 
-// GetDagDisplayName returns the DagDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDagDisplayName returns the DagDisplayName field value if set, zero value otherwise.
 func (o *EventLogResponse) GetDagDisplayName() string {
-	if o == nil || IsNil(o.DagDisplayName.Get()) {
+	if o == nil || IsNil(o.DagDisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.DagDisplayName.Get()
+	return *o.DagDisplayName
 }
 
 // GetDagDisplayNameOk returns a tuple with the DagDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetDagDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DagDisplayName) {
 		return nil, false
 	}
-	return o.DagDisplayName.Get(), o.DagDisplayName.IsSet()
+	return o.DagDisplayName, true
 }
 
 // HasDagDisplayName returns a boolean if a field has been set.
 func (o *EventLogResponse) HasDagDisplayName() bool {
-	if o != nil && o.DagDisplayName.IsSet() {
+	if o != nil && !IsNil(o.DagDisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetDagDisplayName gets a reference to the given NullableString and assigns it to the DagDisplayName field.
+// SetDagDisplayName gets a reference to the given string and assigns it to the DagDisplayName field.
 func (o *EventLogResponse) SetDagDisplayName(v string) {
-	o.DagDisplayName.Set(&v)
-}
-// SetDagDisplayNameNil sets the value for DagDisplayName to be an explicit nil
-func (o *EventLogResponse) SetDagDisplayNameNil() {
-	o.DagDisplayName.Set(nil)
+	o.DagDisplayName = &v
 }
 
-// UnsetDagDisplayName ensures that no value is present for DagDisplayName, not even an explicit nil
-func (o *EventLogResponse) UnsetDagDisplayName() {
-	o.DagDisplayName.Unset()
-}
-
-// GetTaskDisplayName returns the TaskDisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTaskDisplayName returns the TaskDisplayName field value if set, zero value otherwise.
 func (o *EventLogResponse) GetTaskDisplayName() string {
-	if o == nil || IsNil(o.TaskDisplayName.Get()) {
+	if o == nil || IsNil(o.TaskDisplayName) {
 		var ret string
 		return ret
 	}
-	return *o.TaskDisplayName.Get()
+	return *o.TaskDisplayName
 }
 
 // GetTaskDisplayNameOk returns a tuple with the TaskDisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EventLogResponse) GetTaskDisplayNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TaskDisplayName) {
 		return nil, false
 	}
-	return o.TaskDisplayName.Get(), o.TaskDisplayName.IsSet()
+	return o.TaskDisplayName, true
 }
 
 // HasTaskDisplayName returns a boolean if a field has been set.
 func (o *EventLogResponse) HasTaskDisplayName() bool {
-	if o != nil && o.TaskDisplayName.IsSet() {
+	if o != nil && !IsNil(o.TaskDisplayName) {
 		return true
 	}
 
 	return false
 }
 
-// SetTaskDisplayName gets a reference to the given NullableString and assigns it to the TaskDisplayName field.
+// SetTaskDisplayName gets a reference to the given string and assigns it to the TaskDisplayName field.
 func (o *EventLogResponse) SetTaskDisplayName(v string) {
-	o.TaskDisplayName.Set(&v)
-}
-// SetTaskDisplayNameNil sets the value for TaskDisplayName to be an explicit nil
-func (o *EventLogResponse) SetTaskDisplayNameNil() {
-	o.TaskDisplayName.Set(nil)
-}
-
-// UnsetTaskDisplayName ensures that no value is present for TaskDisplayName, not even an explicit nil
-func (o *EventLogResponse) UnsetTaskDisplayName() {
-	o.TaskDisplayName.Unset()
+	o.TaskDisplayName = &v
 }
 
 func (o EventLogResponse) MarshalJSON() ([]byte, error) {
@@ -443,20 +407,20 @@ func (o EventLogResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["event_log_id"] = o.EventLogId
 	toSerialize["when"] = o.When
-	toSerialize["dag_id"] = o.DagId.Get()
-	toSerialize["task_id"] = o.TaskId.Get()
-	toSerialize["run_id"] = o.RunId.Get()
-	toSerialize["map_index"] = o.MapIndex.Get()
-	toSerialize["try_number"] = o.TryNumber.Get()
+	toSerialize["dag_id"] = o.DagId
+	toSerialize["task_id"] = o.TaskId
+	toSerialize["run_id"] = o.RunId
+	toSerialize["map_index"] = o.MapIndex
+	toSerialize["try_number"] = o.TryNumber
 	toSerialize["event"] = o.Event
-	toSerialize["logical_date"] = o.LogicalDate.Get()
-	toSerialize["owner"] = o.Owner.Get()
-	toSerialize["extra"] = o.Extra.Get()
-	if o.DagDisplayName.IsSet() {
-		toSerialize["dag_display_name"] = o.DagDisplayName.Get()
+	toSerialize["logical_date"] = o.LogicalDate
+	toSerialize["owner"] = o.Owner
+	toSerialize["extra"] = o.Extra
+	if !IsNil(o.DagDisplayName) {
+		toSerialize["dag_display_name"] = o.DagDisplayName
 	}
-	if o.TaskDisplayName.IsSet() {
-		toSerialize["task_display_name"] = o.TaskDisplayName.Get()
+	if !IsNil(o.TaskDisplayName) {
+		toSerialize["task_display_name"] = o.TaskDisplayName
 	}
 	return toSerialize, nil
 }

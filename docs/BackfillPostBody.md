@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ToDate** | **time.Time** |  | 
 **RunBackwards** | Pointer to **bool** |  | [optional] [default to false]
 **DagRunConf** | Pointer to **map[string]interface{}** |  | [optional] 
-**ReprocessBehavior** | Pointer to [**ReprocessBehavior**](ReprocessBehavior.md) |  | [optional] [default to NONE]
+**ReprocessBehavior** | Pointer to [**ReprocessBehavior**](ReprocessBehavior.md) |  | [optional] [default to REPROCESSBEHAVIOR_NONE]
 **MaxActiveRuns** | Pointer to **int32** |  | [optional] [default to 10]
 **RunOnLatestVersion** | Pointer to **bool** |  | [optional] [default to true]
 
@@ -142,16 +142,6 @@ SetDagRunConf sets DagRunConf field to given value.
 
 HasDagRunConf returns a boolean if a field has been set.
 
-### SetDagRunConfNil
-
-`func (o *BackfillPostBody) SetDagRunConfNil(b bool)`
-
- SetDagRunConfNil sets the value for DagRunConf to be an explicit nil
-
-### UnsetDagRunConf
-`func (o *BackfillPostBody) UnsetDagRunConf()`
-
-UnsetDagRunConf ensures that no value is present for DagRunConf, not even an explicit nil
 ### GetReprocessBehavior
 
 `func (o *BackfillPostBody) GetReprocessBehavior() ReprocessBehavior`

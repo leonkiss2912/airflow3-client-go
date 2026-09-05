@@ -19,10 +19,10 @@ var _ MappedNullable = &AppBuilderViewResponse{}
 
 // AppBuilderViewResponse Serializer for AppBuilder View responses.
 type AppBuilderViewResponse struct {
-	Name NullableString `json:"name,omitempty"`
-	Category NullableString `json:"category,omitempty"`
-	View NullableString `json:"view,omitempty"`
-	Label NullableString `json:"label,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Category *string `json:"category,omitempty"`
+	View *string `json:"view,omitempty"`
+	Label *string `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -45,172 +45,132 @@ func NewAppBuilderViewResponseWithDefaults() *AppBuilderViewResponse {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AppBuilderViewResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppBuilderViewResponse) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *AppBuilderViewResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AppBuilderViewResponse) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *AppBuilderViewResponse) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AppBuilderViewResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetCategory returns the Category field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCategory returns the Category field value if set, zero value otherwise.
 func (o *AppBuilderViewResponse) GetCategory() string {
-	if o == nil || IsNil(o.Category.Get()) {
+	if o == nil || IsNil(o.Category) {
 		var ret string
 		return ret
 	}
-	return *o.Category.Get()
+	return *o.Category
 }
 
 // GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppBuilderViewResponse) GetCategoryOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Category) {
 		return nil, false
 	}
-	return o.Category.Get(), o.Category.IsSet()
+	return o.Category, true
 }
 
 // HasCategory returns a boolean if a field has been set.
 func (o *AppBuilderViewResponse) HasCategory() bool {
-	if o != nil && o.Category.IsSet() {
+	if o != nil && !IsNil(o.Category) {
 		return true
 	}
 
 	return false
 }
 
-// SetCategory gets a reference to the given NullableString and assigns it to the Category field.
+// SetCategory gets a reference to the given string and assigns it to the Category field.
 func (o *AppBuilderViewResponse) SetCategory(v string) {
-	o.Category.Set(&v)
-}
-// SetCategoryNil sets the value for Category to be an explicit nil
-func (o *AppBuilderViewResponse) SetCategoryNil() {
-	o.Category.Set(nil)
+	o.Category = &v
 }
 
-// UnsetCategory ensures that no value is present for Category, not even an explicit nil
-func (o *AppBuilderViewResponse) UnsetCategory() {
-	o.Category.Unset()
-}
-
-// GetView returns the View field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetView returns the View field value if set, zero value otherwise.
 func (o *AppBuilderViewResponse) GetView() string {
-	if o == nil || IsNil(o.View.Get()) {
+	if o == nil || IsNil(o.View) {
 		var ret string
 		return ret
 	}
-	return *o.View.Get()
+	return *o.View
 }
 
 // GetViewOk returns a tuple with the View field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppBuilderViewResponse) GetViewOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.View) {
 		return nil, false
 	}
-	return o.View.Get(), o.View.IsSet()
+	return o.View, true
 }
 
 // HasView returns a boolean if a field has been set.
 func (o *AppBuilderViewResponse) HasView() bool {
-	if o != nil && o.View.IsSet() {
+	if o != nil && !IsNil(o.View) {
 		return true
 	}
 
 	return false
 }
 
-// SetView gets a reference to the given NullableString and assigns it to the View field.
+// SetView gets a reference to the given string and assigns it to the View field.
 func (o *AppBuilderViewResponse) SetView(v string) {
-	o.View.Set(&v)
-}
-// SetViewNil sets the value for View to be an explicit nil
-func (o *AppBuilderViewResponse) SetViewNil() {
-	o.View.Set(nil)
+	o.View = &v
 }
 
-// UnsetView ensures that no value is present for View, not even an explicit nil
-func (o *AppBuilderViewResponse) UnsetView() {
-	o.View.Unset()
-}
-
-// GetLabel returns the Label field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLabel returns the Label field value if set, zero value otherwise.
 func (o *AppBuilderViewResponse) GetLabel() string {
-	if o == nil || IsNil(o.Label.Get()) {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
-	return *o.Label.Get()
+	return *o.Label
 }
 
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppBuilderViewResponse) GetLabelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
-	return o.Label.Get(), o.Label.IsSet()
+	return o.Label, true
 }
 
 // HasLabel returns a boolean if a field has been set.
 func (o *AppBuilderViewResponse) HasLabel() bool {
-	if o != nil && o.Label.IsSet() {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
 	return false
 }
 
-// SetLabel gets a reference to the given NullableString and assigns it to the Label field.
+// SetLabel gets a reference to the given string and assigns it to the Label field.
 func (o *AppBuilderViewResponse) SetLabel(v string) {
-	o.Label.Set(&v)
-}
-// SetLabelNil sets the value for Label to be an explicit nil
-func (o *AppBuilderViewResponse) SetLabelNil() {
-	o.Label.Set(nil)
-}
-
-// UnsetLabel ensures that no value is present for Label, not even an explicit nil
-func (o *AppBuilderViewResponse) UnsetLabel() {
-	o.Label.Unset()
+	o.Label = &v
 }
 
 func (o AppBuilderViewResponse) MarshalJSON() ([]byte, error) {
@@ -223,17 +183,17 @@ func (o AppBuilderViewResponse) MarshalJSON() ([]byte, error) {
 
 func (o AppBuilderViewResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Category.IsSet() {
-		toSerialize["category"] = o.Category.Get()
+	if !IsNil(o.Category) {
+		toSerialize["category"] = o.Category
 	}
-	if o.View.IsSet() {
-		toSerialize["view"] = o.View.Get()
+	if !IsNil(o.View) {
+		toSerialize["view"] = o.View
 	}
-	if o.Label.IsSet() {
-		toSerialize["label"] = o.Label.Get()
+	if !IsNil(o.Label) {
+		toSerialize["label"] = o.Label
 	}
 
 	for key, value := range o.AdditionalProperties {

@@ -6,20 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConnectionId** | **string** |  | 
 **ConnType** | **string** |  | 
-**Description** | **NullableString** |  | 
-**Host** | **NullableString** |  | 
-**Login** | **NullableString** |  | 
-**Schema** | **NullableString** |  | 
-**Port** | **NullableInt32** |  | 
-**Password** | **NullableString** |  | 
-**Extra** | **NullableString** |  | 
-**TeamName** | **NullableString** |  | 
+**Description** | **string** |  | 
+**Host** | **string** |  | 
+**Login** | **string** |  | 
+**Schema** | **string** |  | 
+**Port** | **int32** |  | 
+**Password** | **string** |  | 
+**Extra** | **string** |  | 
+**TeamName** | **string** |  | 
 
 ## Methods
 
 ### NewConnectionResponse
 
-`func NewConnectionResponse(connectionId string, connType string, description NullableString, host NullableString, login NullableString, schema NullableString, port NullableInt32, password NullableString, extra NullableString, teamName NullableString, ) *ConnectionResponse`
+`func NewConnectionResponse(connectionId string, connType string, description string, host string, login string, schema string, port int32, password string, extra string, teamName string, ) *ConnectionResponse`
 
 NewConnectionResponse instantiates a new ConnectionResponse object
 This constructor will assign default values to properties that have it defined,
@@ -94,16 +94,6 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
-### SetDescriptionNil
-
-`func (o *ConnectionResponse) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *ConnectionResponse) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHost
 
 `func (o *ConnectionResponse) GetHost() string`
@@ -124,16 +114,6 @@ and a boolean to check if the value has been set.
 SetHost sets Host field to given value.
 
 
-### SetHostNil
-
-`func (o *ConnectionResponse) SetHostNil(b bool)`
-
- SetHostNil sets the value for Host to be an explicit nil
-
-### UnsetHost
-`func (o *ConnectionResponse) UnsetHost()`
-
-UnsetHost ensures that no value is present for Host, not even an explicit nil
 ### GetLogin
 
 `func (o *ConnectionResponse) GetLogin() string`
@@ -154,16 +134,6 @@ and a boolean to check if the value has been set.
 SetLogin sets Login field to given value.
 
 
-### SetLoginNil
-
-`func (o *ConnectionResponse) SetLoginNil(b bool)`
-
- SetLoginNil sets the value for Login to be an explicit nil
-
-### UnsetLogin
-`func (o *ConnectionResponse) UnsetLogin()`
-
-UnsetLogin ensures that no value is present for Login, not even an explicit nil
 ### GetSchema
 
 `func (o *ConnectionResponse) GetSchema() string`
@@ -184,16 +154,6 @@ and a boolean to check if the value has been set.
 SetSchema sets Schema field to given value.
 
 
-### SetSchemaNil
-
-`func (o *ConnectionResponse) SetSchemaNil(b bool)`
-
- SetSchemaNil sets the value for Schema to be an explicit nil
-
-### UnsetSchema
-`func (o *ConnectionResponse) UnsetSchema()`
-
-UnsetSchema ensures that no value is present for Schema, not even an explicit nil
 ### GetPort
 
 `func (o *ConnectionResponse) GetPort() int32`
@@ -214,16 +174,6 @@ and a boolean to check if the value has been set.
 SetPort sets Port field to given value.
 
 
-### SetPortNil
-
-`func (o *ConnectionResponse) SetPortNil(b bool)`
-
- SetPortNil sets the value for Port to be an explicit nil
-
-### UnsetPort
-`func (o *ConnectionResponse) UnsetPort()`
-
-UnsetPort ensures that no value is present for Port, not even an explicit nil
 ### GetPassword
 
 `func (o *ConnectionResponse) GetPassword() string`
@@ -244,16 +194,6 @@ and a boolean to check if the value has been set.
 SetPassword sets Password field to given value.
 
 
-### SetPasswordNil
-
-`func (o *ConnectionResponse) SetPasswordNil(b bool)`
-
- SetPasswordNil sets the value for Password to be an explicit nil
-
-### UnsetPassword
-`func (o *ConnectionResponse) UnsetPassword()`
-
-UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetExtra
 
 `func (o *ConnectionResponse) GetExtra() string`
@@ -274,16 +214,6 @@ and a boolean to check if the value has been set.
 SetExtra sets Extra field to given value.
 
 
-### SetExtraNil
-
-`func (o *ConnectionResponse) SetExtraNil(b bool)`
-
- SetExtraNil sets the value for Extra to be an explicit nil
-
-### UnsetExtra
-`func (o *ConnectionResponse) UnsetExtra()`
-
-UnsetExtra ensures that no value is present for Extra, not even an explicit nil
 ### GetTeamName
 
 `func (o *ConnectionResponse) GetTeamName() string`
@@ -304,16 +234,6 @@ and a boolean to check if the value has been set.
 SetTeamName sets TeamName field to given value.
 
 
-### SetTeamNameNil
-
-`func (o *ConnectionResponse) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *ConnectionResponse) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

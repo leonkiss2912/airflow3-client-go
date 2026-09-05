@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Icon** | Pointer to **NullableString** |  | [optional] 
-**IconDarkMode** | Pointer to **NullableString** |  | [optional] 
-**UrlRoute** | Pointer to **NullableString** |  | [optional] 
-**Category** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **string** |  | [optional] 
+**IconDarkMode** | Pointer to **string** |  | [optional] 
+**UrlRoute** | Pointer to **string** |  | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
 **Href** | **string** |  | 
 **Destination** | Pointer to **string** |  | [optional] [default to "nav"]
 
@@ -76,16 +76,6 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
-### SetIconNil
-
-`func (o *ExternalViewResponse) SetIconNil(b bool)`
-
- SetIconNil sets the value for Icon to be an explicit nil
-
-### UnsetIcon
-`func (o *ExternalViewResponse) UnsetIcon()`
-
-UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetIconDarkMode
 
 `func (o *ExternalViewResponse) GetIconDarkMode() string`
@@ -111,16 +101,6 @@ SetIconDarkMode sets IconDarkMode field to given value.
 
 HasIconDarkMode returns a boolean if a field has been set.
 
-### SetIconDarkModeNil
-
-`func (o *ExternalViewResponse) SetIconDarkModeNil(b bool)`
-
- SetIconDarkModeNil sets the value for IconDarkMode to be an explicit nil
-
-### UnsetIconDarkMode
-`func (o *ExternalViewResponse) UnsetIconDarkMode()`
-
-UnsetIconDarkMode ensures that no value is present for IconDarkMode, not even an explicit nil
 ### GetUrlRoute
 
 `func (o *ExternalViewResponse) GetUrlRoute() string`
@@ -146,16 +126,6 @@ SetUrlRoute sets UrlRoute field to given value.
 
 HasUrlRoute returns a boolean if a field has been set.
 
-### SetUrlRouteNil
-
-`func (o *ExternalViewResponse) SetUrlRouteNil(b bool)`
-
- SetUrlRouteNil sets the value for UrlRoute to be an explicit nil
-
-### UnsetUrlRoute
-`func (o *ExternalViewResponse) UnsetUrlRoute()`
-
-UnsetUrlRoute ensures that no value is present for UrlRoute, not even an explicit nil
 ### GetCategory
 
 `func (o *ExternalViewResponse) GetCategory() string`
@@ -181,16 +151,6 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
-### SetCategoryNil
-
-`func (o *ExternalViewResponse) SetCategoryNil(b bool)`
-
- SetCategoryNil sets the value for Category to be an explicit nil
-
-### UnsetCategory
-`func (o *ExternalViewResponse) UnsetCategory()`
-
-UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetHref
 
 `func (o *ExternalViewResponse) GetHref() string`

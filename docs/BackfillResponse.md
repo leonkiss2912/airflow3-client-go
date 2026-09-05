@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ReprocessBehavior** | [**ReprocessBehavior**](ReprocessBehavior.md) |  | 
 **MaxActiveRuns** | **int32** |  | 
 **CreatedAt** | **time.Time** |  | 
-**CompletedAt** | **NullableTime** |  | 
+**CompletedAt** | **time.Time** |  | 
 **UpdatedAt** | **time.Time** |  | 
 **DagDisplayName** | **string** |  | 
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewBackfillResponse
 
-`func NewBackfillResponse(id int32, dagId string, fromDate time.Time, toDate time.Time, dagRunConf map[string]interface{}, isPaused bool, reprocessBehavior ReprocessBehavior, maxActiveRuns int32, createdAt time.Time, completedAt NullableTime, updatedAt time.Time, dagDisplayName string, ) *BackfillResponse`
+`func NewBackfillResponse(id int32, dagId string, fromDate time.Time, toDate time.Time, dagRunConf map[string]interface{}, isPaused bool, reprocessBehavior ReprocessBehavior, maxActiveRuns int32, createdAt time.Time, completedAt time.Time, updatedAt time.Time, dagDisplayName string, ) *BackfillResponse`
 
 NewBackfillResponse instantiates a new BackfillResponse object
 This constructor will assign default values to properties that have it defined,
@@ -136,16 +136,6 @@ and a boolean to check if the value has been set.
 SetDagRunConf sets DagRunConf field to given value.
 
 
-### SetDagRunConfNil
-
-`func (o *BackfillResponse) SetDagRunConfNil(b bool)`
-
- SetDagRunConfNil sets the value for DagRunConf to be an explicit nil
-
-### UnsetDagRunConf
-`func (o *BackfillResponse) UnsetDagRunConf()`
-
-UnsetDagRunConf ensures that no value is present for DagRunConf, not even an explicit nil
 ### GetIsPaused
 
 `func (o *BackfillResponse) GetIsPaused() bool`
@@ -246,16 +236,6 @@ and a boolean to check if the value has been set.
 SetCompletedAt sets CompletedAt field to given value.
 
 
-### SetCompletedAtNil
-
-`func (o *BackfillResponse) SetCompletedAtNil(b bool)`
-
- SetCompletedAtNil sets the value for CompletedAt to be an explicit nil
-
-### UnsetCompletedAt
-`func (o *BackfillResponse) UnsetCompletedAt()`
-
-UnsetCompletedAt ensures that no value is present for CompletedAt, not even an explicit nil
 ### GetUpdatedAt
 
 `func (o *BackfillResponse) GetUpdatedAt() time.Time`

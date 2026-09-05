@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateAssetEventsBody{}
 // CreateAssetEventsBody Create asset events request.
 type CreateAssetEventsBody struct {
 	AssetId int32 `json:"asset_id"`
-	PartitionKey NullableString `json:"partition_key,omitempty"`
+	PartitionKey *string `json:"partition_key,omitempty"`
 	Extra map[string]interface{} `json:"extra,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -70,46 +70,36 @@ func (o *CreateAssetEventsBody) SetAssetId(v int32) {
 	o.AssetId = v
 }
 
-// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise.
 func (o *CreateAssetEventsBody) GetPartitionKey() string {
-	if o == nil || IsNil(o.PartitionKey.Get()) {
+	if o == nil || IsNil(o.PartitionKey) {
 		var ret string
 		return ret
 	}
-	return *o.PartitionKey.Get()
+	return *o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateAssetEventsBody) GetPartitionKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartitionKey) {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return o.PartitionKey, true
 }
 
 // HasPartitionKey returns a boolean if a field has been set.
 func (o *CreateAssetEventsBody) HasPartitionKey() bool {
-	if o != nil && o.PartitionKey.IsSet() {
+	if o != nil && !IsNil(o.PartitionKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetPartitionKey gets a reference to the given NullableString and assigns it to the PartitionKey field.
+// SetPartitionKey gets a reference to the given string and assigns it to the PartitionKey field.
 func (o *CreateAssetEventsBody) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
-}
-// SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-func (o *CreateAssetEventsBody) SetPartitionKeyNil() {
-	o.PartitionKey.Set(nil)
-}
-
-// UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
-func (o *CreateAssetEventsBody) UnsetPartitionKey() {
-	o.PartitionKey.Unset()
+	o.PartitionKey = &v
 }
 
 // GetExtra returns the Extra field value if set, zero value otherwise.
@@ -155,8 +145,8 @@ func (o CreateAssetEventsBody) MarshalJSON() ([]byte, error) {
 func (o CreateAssetEventsBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["asset_id"] = o.AssetId
-	if o.PartitionKey.IsSet() {
-		toSerialize["partition_key"] = o.PartitionKey.Get()
+	if !IsNil(o.PartitionKey) {
+		toSerialize["partition_key"] = o.PartitionKey
 	}
 	if !IsNil(o.Extra) {
 		toSerialize["extra"] = o.Extra

@@ -24,13 +24,13 @@ var _ MappedNullable = &DagRunAssetReference{}
 type DagRunAssetReference struct {
 	RunId string `json:"run_id"`
 	DagId string `json:"dag_id"`
-	LogicalDate NullableTime `json:"logical_date"`
+	LogicalDate time.Time `json:"logical_date"`
 	StartDate time.Time `json:"start_date"`
-	EndDate NullableTime `json:"end_date"`
+	EndDate time.Time `json:"end_date"`
 	State string `json:"state"`
-	DataIntervalStart NullableTime `json:"data_interval_start"`
-	DataIntervalEnd NullableTime `json:"data_interval_end"`
-	PartitionKey NullableString `json:"partition_key"`
+	DataIntervalStart time.Time `json:"data_interval_start"`
+	DataIntervalEnd time.Time `json:"data_interval_end"`
+	PartitionKey string `json:"partition_key"`
 }
 
 type _DagRunAssetReference DagRunAssetReference
@@ -39,7 +39,7 @@ type _DagRunAssetReference DagRunAssetReference
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDagRunAssetReference(runId string, dagId string, logicalDate NullableTime, startDate time.Time, endDate NullableTime, state string, dataIntervalStart NullableTime, dataIntervalEnd NullableTime, partitionKey NullableString) *DagRunAssetReference {
+func NewDagRunAssetReference(runId string, dagId string, logicalDate time.Time, startDate time.Time, endDate time.Time, state string, dataIntervalStart time.Time, dataIntervalEnd time.Time, partitionKey string) *DagRunAssetReference {
 	this := DagRunAssetReference{}
 	this.RunId = runId
 	this.DagId = dagId
@@ -110,29 +110,27 @@ func (o *DagRunAssetReference) SetDagId(v string) {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DagRunAssetReference) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagRunAssetReference) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *DagRunAssetReference) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetStartDate returns the StartDate field value
@@ -160,29 +158,27 @@ func (o *DagRunAssetReference) SetStartDate(v time.Time) {
 }
 
 // GetEndDate returns the EndDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DagRunAssetReference) GetEndDate() time.Time {
-	if o == nil || o.EndDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.EndDate.Get()
+	return o.EndDate
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagRunAssetReference) GetEndDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.EndDate.Get(), o.EndDate.IsSet()
+	return &o.EndDate, true
 }
 
 // SetEndDate sets field value
 func (o *DagRunAssetReference) SetEndDate(v time.Time) {
-	o.EndDate.Set(&v)
+	o.EndDate = v
 }
 
 // GetState returns the State field value
@@ -210,81 +206,75 @@ func (o *DagRunAssetReference) SetState(v string) {
 }
 
 // GetDataIntervalStart returns the DataIntervalStart field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DagRunAssetReference) GetDataIntervalStart() time.Time {
-	if o == nil || o.DataIntervalStart.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.DataIntervalStart.Get()
+	return o.DataIntervalStart
 }
 
 // GetDataIntervalStartOk returns a tuple with the DataIntervalStart field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagRunAssetReference) GetDataIntervalStartOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DataIntervalStart.Get(), o.DataIntervalStart.IsSet()
+	return &o.DataIntervalStart, true
 }
 
 // SetDataIntervalStart sets field value
 func (o *DagRunAssetReference) SetDataIntervalStart(v time.Time) {
-	o.DataIntervalStart.Set(&v)
+	o.DataIntervalStart = v
 }
 
 // GetDataIntervalEnd returns the DataIntervalEnd field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DagRunAssetReference) GetDataIntervalEnd() time.Time {
-	if o == nil || o.DataIntervalEnd.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.DataIntervalEnd.Get()
+	return o.DataIntervalEnd
 }
 
 // GetDataIntervalEndOk returns a tuple with the DataIntervalEnd field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagRunAssetReference) GetDataIntervalEndOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DataIntervalEnd.Get(), o.DataIntervalEnd.IsSet()
+	return &o.DataIntervalEnd, true
 }
 
 // SetDataIntervalEnd sets field value
 func (o *DagRunAssetReference) SetDataIntervalEnd(v time.Time) {
-	o.DataIntervalEnd.Set(&v)
+	o.DataIntervalEnd = v
 }
 
 // GetPartitionKey returns the PartitionKey field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *DagRunAssetReference) GetPartitionKey() string {
-	if o == nil || o.PartitionKey.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.PartitionKey.Get()
+	return o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DagRunAssetReference) GetPartitionKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return &o.PartitionKey, true
 }
 
 // SetPartitionKey sets field value
 func (o *DagRunAssetReference) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
+	o.PartitionKey = v
 }
 
 func (o DagRunAssetReference) MarshalJSON() ([]byte, error) {
@@ -299,13 +289,13 @@ func (o DagRunAssetReference) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["run_id"] = o.RunId
 	toSerialize["dag_id"] = o.DagId
-	toSerialize["logical_date"] = o.LogicalDate.Get()
+	toSerialize["logical_date"] = o.LogicalDate
 	toSerialize["start_date"] = o.StartDate
-	toSerialize["end_date"] = o.EndDate.Get()
+	toSerialize["end_date"] = o.EndDate
 	toSerialize["state"] = o.State
-	toSerialize["data_interval_start"] = o.DataIntervalStart.Get()
-	toSerialize["data_interval_end"] = o.DataIntervalEnd.Get()
-	toSerialize["partition_key"] = o.PartitionKey.Get()
+	toSerialize["data_interval_start"] = o.DataIntervalStart
+	toSerialize["data_interval_end"] = o.DataIntervalEnd
+	toSerialize["partition_key"] = o.PartitionKey
 	return toSerialize, nil
 }
 

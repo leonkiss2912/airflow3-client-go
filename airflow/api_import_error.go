@@ -24,13 +24,13 @@ import (
 // ImportErrorAPIService ImportErrorAPI service
 type ImportErrorAPIService service
 
-type ApiGetImportErrorRequest struct {
+type ImportErrorAPIGetImportErrorRequest struct {
 	ctx context.Context
 	ApiService *ImportErrorAPIService
 	importErrorId int32
 }
 
-func (r ApiGetImportErrorRequest) Execute() (*ImportErrorResponse, *http.Response, error) {
+func (r ImportErrorAPIGetImportErrorRequest) Execute() (*ImportErrorResponse, *http.Response, error) {
 	return r.ApiService.GetImportErrorExecute(r)
 }
 
@@ -41,10 +41,10 @@ Get an import error.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param importErrorId
- @return ApiGetImportErrorRequest
+ @return ImportErrorAPIGetImportErrorRequest
 */
-func (a *ImportErrorAPIService) GetImportError(ctx context.Context, importErrorId int32) ApiGetImportErrorRequest {
-	return ApiGetImportErrorRequest{
+func (a *ImportErrorAPIService) GetImportError(ctx context.Context, importErrorId int32) ImportErrorAPIGetImportErrorRequest {
+	return ImportErrorAPIGetImportErrorRequest{
 		ApiService: a,
 		ctx: ctx,
 		importErrorId: importErrorId,
@@ -53,7 +53,7 @@ func (a *ImportErrorAPIService) GetImportError(ctx context.Context, importErrorI
 
 // Execute executes the request
 //  @return ImportErrorResponse
-func (a *ImportErrorAPIService) GetImportErrorExecute(r ApiGetImportErrorRequest) (*ImportErrorResponse, *http.Response, error) {
+func (a *ImportErrorAPIService) GetImportErrorExecute(r ImportErrorAPIGetImportErrorRequest) (*ImportErrorResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -170,45 +170,45 @@ func (a *ImportErrorAPIService) GetImportErrorExecute(r ApiGetImportErrorRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetImportErrorsRequest struct {
+type ImportErrorAPIGetImportErrorsRequest struct {
 	ctx context.Context
 	ApiService *ImportErrorAPIService
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	filenamePattern *string
 	filenamePrefixPattern *string
 }
 
-func (r ApiGetImportErrorsRequest) Limit(limit int32) ApiGetImportErrorsRequest {
+func (r ImportErrorAPIGetImportErrorsRequest) Limit(limit int32) ImportErrorAPIGetImportErrorsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetImportErrorsRequest) Offset(offset int32) ApiGetImportErrorsRequest {
+func (r ImportErrorAPIGetImportErrorsRequest) Offset(offset int32) ImportErrorAPIGetImportErrorsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;id, timestamp, filename, bundle_name, stacktrace, import_error_id&#x60;
-func (r ApiGetImportErrorsRequest) OrderBy(orderBy []*string) ApiGetImportErrorsRequest {
+func (r ImportErrorAPIGetImportErrorsRequest) OrderBy(orderBy []string) ImportErrorAPIGetImportErrorsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;filename_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetImportErrorsRequest) FilenamePattern(filenamePattern string) ApiGetImportErrorsRequest {
+func (r ImportErrorAPIGetImportErrorsRequest) FilenamePattern(filenamePattern string) ImportErrorAPIGetImportErrorsRequest {
 	r.filenamePattern = &filenamePattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetImportErrorsRequest) FilenamePrefixPattern(filenamePrefixPattern string) ApiGetImportErrorsRequest {
+func (r ImportErrorAPIGetImportErrorsRequest) FilenamePrefixPattern(filenamePrefixPattern string) ImportErrorAPIGetImportErrorsRequest {
 	r.filenamePrefixPattern = &filenamePrefixPattern
 	return r
 }
 
-func (r ApiGetImportErrorsRequest) Execute() (*ImportErrorCollectionResponse, *http.Response, error) {
+func (r ImportErrorAPIGetImportErrorsRequest) Execute() (*ImportErrorCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetImportErrorsExecute(r)
 }
 
@@ -218,10 +218,10 @@ GetImportErrors Get Import Errors
 Get all import errors.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetImportErrorsRequest
+ @return ImportErrorAPIGetImportErrorsRequest
 */
-func (a *ImportErrorAPIService) GetImportErrors(ctx context.Context) ApiGetImportErrorsRequest {
-	return ApiGetImportErrorsRequest{
+func (a *ImportErrorAPIService) GetImportErrors(ctx context.Context) ImportErrorAPIGetImportErrorsRequest {
+	return ImportErrorAPIGetImportErrorsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -229,7 +229,7 @@ func (a *ImportErrorAPIService) GetImportErrors(ctx context.Context) ApiGetImpor
 
 // Execute executes the request
 //  @return ImportErrorCollectionResponse
-func (a *ImportErrorAPIService) GetImportErrorsExecute(r ApiGetImportErrorsRequest) (*ImportErrorCollectionResponse, *http.Response, error) {
+func (a *ImportErrorAPIService) GetImportErrorsExecute(r ImportErrorAPIGetImportErrorsRequest) (*ImportErrorCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -273,7 +273,7 @@ func (a *ImportErrorAPIService) GetImportErrorsExecute(r ApiGetImportErrorsReque
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}

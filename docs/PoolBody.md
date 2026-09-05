@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Slots** | **int32** | Number of slots. Use -1 for unlimited. | 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **IncludeDeferred** | Pointer to **bool** |  | [optional] [default to false]
-**TeamName** | Pointer to **NullableString** |  | [optional] 
+**TeamName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -94,16 +94,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *PoolBody) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *PoolBody) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIncludeDeferred
 
 `func (o *PoolBody) GetIncludeDeferred() bool`
@@ -154,16 +144,6 @@ SetTeamName sets TeamName field to given value.
 
 HasTeamName returns a boolean if a field has been set.
 
-### SetTeamNameNil
-
-`func (o *PoolBody) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *PoolBody) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

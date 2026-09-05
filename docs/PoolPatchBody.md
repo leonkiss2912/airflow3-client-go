@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Pool** | Pointer to **NullableString** |  | [optional] 
-**Slots** | Pointer to **NullableInt32** | Number of slots. Use -1 for unlimited. | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**IncludeDeferred** | Pointer to **NullableBool** |  | [optional] 
-**TeamName** | Pointer to **NullableString** |  | [optional] 
+**Pool** | Pointer to **string** |  | [optional] 
+**Slots** | Pointer to **int32** | Number of slots. Use -1 for unlimited. | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**IncludeDeferred** | Pointer to **bool** |  | [optional] 
+**TeamName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -54,16 +54,6 @@ SetPool sets Pool field to given value.
 
 HasPool returns a boolean if a field has been set.
 
-### SetPoolNil
-
-`func (o *PoolPatchBody) SetPoolNil(b bool)`
-
- SetPoolNil sets the value for Pool to be an explicit nil
-
-### UnsetPool
-`func (o *PoolPatchBody) UnsetPool()`
-
-UnsetPool ensures that no value is present for Pool, not even an explicit nil
 ### GetSlots
 
 `func (o *PoolPatchBody) GetSlots() int32`
@@ -89,16 +79,6 @@ SetSlots sets Slots field to given value.
 
 HasSlots returns a boolean if a field has been set.
 
-### SetSlotsNil
-
-`func (o *PoolPatchBody) SetSlotsNil(b bool)`
-
- SetSlotsNil sets the value for Slots to be an explicit nil
-
-### UnsetSlots
-`func (o *PoolPatchBody) UnsetSlots()`
-
-UnsetSlots ensures that no value is present for Slots, not even an explicit nil
 ### GetDescription
 
 `func (o *PoolPatchBody) GetDescription() string`
@@ -124,16 +104,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *PoolPatchBody) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *PoolPatchBody) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIncludeDeferred
 
 `func (o *PoolPatchBody) GetIncludeDeferred() bool`
@@ -159,16 +129,6 @@ SetIncludeDeferred sets IncludeDeferred field to given value.
 
 HasIncludeDeferred returns a boolean if a field has been set.
 
-### SetIncludeDeferredNil
-
-`func (o *PoolPatchBody) SetIncludeDeferredNil(b bool)`
-
- SetIncludeDeferredNil sets the value for IncludeDeferred to be an explicit nil
-
-### UnsetIncludeDeferred
-`func (o *PoolPatchBody) UnsetIncludeDeferred()`
-
-UnsetIncludeDeferred ensures that no value is present for IncludeDeferred, not even an explicit nil
 ### GetTeamName
 
 `func (o *PoolPatchBody) GetTeamName() string`
@@ -194,16 +154,6 @@ SetTeamName sets TeamName field to given value.
 
 HasTeamName returns a boolean if a field has been set.
 
-### SetTeamNameNil
-
-`func (o *PoolPatchBody) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *PoolPatchBody) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssetId** | **int32** |  | 
-**PartitionKey** | Pointer to **NullableString** |  | [optional] 
+**PartitionKey** | Pointer to **string** |  | [optional] 
 **Extra** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -72,16 +72,6 @@ SetPartitionKey sets PartitionKey field to given value.
 
 HasPartitionKey returns a boolean if a field has been set.
 
-### SetPartitionKeyNil
-
-`func (o *CreateAssetEventsBody) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *CreateAssetEventsBody) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 ### GetExtra
 
 `func (o *CreateAssetEventsBody) GetExtra() map[string]interface{}`

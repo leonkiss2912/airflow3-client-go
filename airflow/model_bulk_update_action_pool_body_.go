@@ -40,7 +40,7 @@ func NewBulkUpdateActionPoolBody(action string, entities []PoolBody) *BulkUpdate
 	this := BulkUpdateActionPoolBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }
@@ -50,7 +50,7 @@ func NewBulkUpdateActionPoolBody(action string, entities []PoolBody) *BulkUpdate
 // but it doesn't guarantee that properties required by API are set
 func NewBulkUpdateActionPoolBodyWithDefaults() *BulkUpdateActionPoolBody {
 	this := BulkUpdateActionPoolBody{}
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }
@@ -103,9 +103,9 @@ func (o *BulkUpdateActionPoolBody) SetEntities(v []PoolBody) {
 	o.Entities = v
 }
 
-// GetUpdateMask returns the UpdateMask field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUpdateMask returns the UpdateMask field value if set, zero value otherwise.
 func (o *BulkUpdateActionPoolBody) GetUpdateMask() []string {
-	if o == nil {
+	if o == nil || IsNil(o.UpdateMask) {
 		var ret []string
 		return ret
 	}
@@ -114,7 +114,6 @@ func (o *BulkUpdateActionPoolBody) GetUpdateMask() []string {
 
 // GetUpdateMaskOk returns a tuple with the UpdateMask field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BulkUpdateActionPoolBody) GetUpdateMaskOk() ([]string, bool) {
 	if o == nil || IsNil(o.UpdateMask) {
 		return nil, false
@@ -180,7 +179,7 @@ func (o BulkUpdateActionPoolBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["action"] = o.Action
 	toSerialize["entities"] = o.Entities
-	if o.UpdateMask != nil {
+	if !IsNil(o.UpdateMask) {
 		toSerialize["update_mask"] = o.UpdateMask
 	}
 	if !IsNil(o.ActionOnNonExistence) {

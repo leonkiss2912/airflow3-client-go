@@ -6,31 +6,31 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DagRunId** | **string** |  | 
 **DagId** | **string** |  | 
-**LogicalDate** | **NullableTime** |  | 
-**QueuedAt** | **NullableTime** |  | 
-**StartDate** | **NullableTime** |  | 
-**EndDate** | **NullableTime** |  | 
-**Duration** | **NullableFloat32** |  | 
-**DataIntervalStart** | **NullableTime** |  | 
-**DataIntervalEnd** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
+**QueuedAt** | **time.Time** |  | 
+**StartDate** | **time.Time** |  | 
+**EndDate** | **time.Time** |  | 
+**Duration** | **float32** |  | 
+**DataIntervalStart** | **time.Time** |  | 
+**DataIntervalEnd** | **time.Time** |  | 
 **RunAfter** | **time.Time** |  | 
-**LastSchedulingDecision** | **NullableTime** |  | 
+**LastSchedulingDecision** | **time.Time** |  | 
 **RunType** | [**DagRunType**](DagRunType.md) |  | 
 **State** | [**DagRunState**](DagRunState.md) |  | 
-**TriggeredBy** | [**NullableDagRunTriggeredByType**](DagRunTriggeredByType.md) |  | 
-**TriggeringUserName** | **NullableString** |  | 
+**TriggeredBy** | [**DagRunTriggeredByType**](DagRunTriggeredByType.md) |  | 
+**TriggeringUserName** | **string** |  | 
 **Conf** | **map[string]interface{}** |  | 
-**Note** | **NullableString** |  | 
+**Note** | **string** |  | 
 **DagVersions** | [**[]DagVersionResponse**](DagVersionResponse.md) |  | 
-**BundleVersion** | **NullableString** |  | 
+**BundleVersion** | **string** |  | 
 **DagDisplayName** | **string** |  | 
-**PartitionKey** | **NullableString** |  | 
+**PartitionKey** | **string** |  | 
 
 ## Methods
 
 ### NewDAGRunResponse
 
-`func NewDAGRunResponse(dagRunId string, dagId string, logicalDate NullableTime, queuedAt NullableTime, startDate NullableTime, endDate NullableTime, duration NullableFloat32, dataIntervalStart NullableTime, dataIntervalEnd NullableTime, runAfter time.Time, lastSchedulingDecision NullableTime, runType DagRunType, state DagRunState, triggeredBy NullableDagRunTriggeredByType, triggeringUserName NullableString, conf map[string]interface{}, note NullableString, dagVersions []DagVersionResponse, bundleVersion NullableString, dagDisplayName string, partitionKey NullableString, ) *DAGRunResponse`
+`func NewDAGRunResponse(dagRunId string, dagId string, logicalDate time.Time, queuedAt time.Time, startDate time.Time, endDate time.Time, duration float32, dataIntervalStart time.Time, dataIntervalEnd time.Time, runAfter time.Time, lastSchedulingDecision time.Time, runType DagRunType, state DagRunState, triggeredBy DagRunTriggeredByType, triggeringUserName string, conf map[string]interface{}, note string, dagVersions []DagVersionResponse, bundleVersion string, dagDisplayName string, partitionKey string, ) *DAGRunResponse`
 
 NewDAGRunResponse instantiates a new DAGRunResponse object
 This constructor will assign default values to properties that have it defined,
@@ -105,16 +105,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *DAGRunResponse) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *DAGRunResponse) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetQueuedAt
 
 `func (o *DAGRunResponse) GetQueuedAt() time.Time`
@@ -135,16 +125,6 @@ and a boolean to check if the value has been set.
 SetQueuedAt sets QueuedAt field to given value.
 
 
-### SetQueuedAtNil
-
-`func (o *DAGRunResponse) SetQueuedAtNil(b bool)`
-
- SetQueuedAtNil sets the value for QueuedAt to be an explicit nil
-
-### UnsetQueuedAt
-`func (o *DAGRunResponse) UnsetQueuedAt()`
-
-UnsetQueuedAt ensures that no value is present for QueuedAt, not even an explicit nil
 ### GetStartDate
 
 `func (o *DAGRunResponse) GetStartDate() time.Time`
@@ -165,16 +145,6 @@ and a boolean to check if the value has been set.
 SetStartDate sets StartDate field to given value.
 
 
-### SetStartDateNil
-
-`func (o *DAGRunResponse) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *DAGRunResponse) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *DAGRunResponse) GetEndDate() time.Time`
@@ -195,16 +165,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *DAGRunResponse) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *DAGRunResponse) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetDuration
 
 `func (o *DAGRunResponse) GetDuration() float32`
@@ -225,16 +185,6 @@ and a boolean to check if the value has been set.
 SetDuration sets Duration field to given value.
 
 
-### SetDurationNil
-
-`func (o *DAGRunResponse) SetDurationNil(b bool)`
-
- SetDurationNil sets the value for Duration to be an explicit nil
-
-### UnsetDuration
-`func (o *DAGRunResponse) UnsetDuration()`
-
-UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 ### GetDataIntervalStart
 
 `func (o *DAGRunResponse) GetDataIntervalStart() time.Time`
@@ -255,16 +205,6 @@ and a boolean to check if the value has been set.
 SetDataIntervalStart sets DataIntervalStart field to given value.
 
 
-### SetDataIntervalStartNil
-
-`func (o *DAGRunResponse) SetDataIntervalStartNil(b bool)`
-
- SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-
-### UnsetDataIntervalStart
-`func (o *DAGRunResponse) UnsetDataIntervalStart()`
-
-UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
 ### GetDataIntervalEnd
 
 `func (o *DAGRunResponse) GetDataIntervalEnd() time.Time`
@@ -285,16 +225,6 @@ and a boolean to check if the value has been set.
 SetDataIntervalEnd sets DataIntervalEnd field to given value.
 
 
-### SetDataIntervalEndNil
-
-`func (o *DAGRunResponse) SetDataIntervalEndNil(b bool)`
-
- SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-
-### UnsetDataIntervalEnd
-`func (o *DAGRunResponse) UnsetDataIntervalEnd()`
-
-UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
 ### GetRunAfter
 
 `func (o *DAGRunResponse) GetRunAfter() time.Time`
@@ -335,16 +265,6 @@ and a boolean to check if the value has been set.
 SetLastSchedulingDecision sets LastSchedulingDecision field to given value.
 
 
-### SetLastSchedulingDecisionNil
-
-`func (o *DAGRunResponse) SetLastSchedulingDecisionNil(b bool)`
-
- SetLastSchedulingDecisionNil sets the value for LastSchedulingDecision to be an explicit nil
-
-### UnsetLastSchedulingDecision
-`func (o *DAGRunResponse) UnsetLastSchedulingDecision()`
-
-UnsetLastSchedulingDecision ensures that no value is present for LastSchedulingDecision, not even an explicit nil
 ### GetRunType
 
 `func (o *DAGRunResponse) GetRunType() DagRunType`
@@ -405,16 +325,6 @@ and a boolean to check if the value has been set.
 SetTriggeredBy sets TriggeredBy field to given value.
 
 
-### SetTriggeredByNil
-
-`func (o *DAGRunResponse) SetTriggeredByNil(b bool)`
-
- SetTriggeredByNil sets the value for TriggeredBy to be an explicit nil
-
-### UnsetTriggeredBy
-`func (o *DAGRunResponse) UnsetTriggeredBy()`
-
-UnsetTriggeredBy ensures that no value is present for TriggeredBy, not even an explicit nil
 ### GetTriggeringUserName
 
 `func (o *DAGRunResponse) GetTriggeringUserName() string`
@@ -435,16 +345,6 @@ and a boolean to check if the value has been set.
 SetTriggeringUserName sets TriggeringUserName field to given value.
 
 
-### SetTriggeringUserNameNil
-
-`func (o *DAGRunResponse) SetTriggeringUserNameNil(b bool)`
-
- SetTriggeringUserNameNil sets the value for TriggeringUserName to be an explicit nil
-
-### UnsetTriggeringUserName
-`func (o *DAGRunResponse) UnsetTriggeringUserName()`
-
-UnsetTriggeringUserName ensures that no value is present for TriggeringUserName, not even an explicit nil
 ### GetConf
 
 `func (o *DAGRunResponse) GetConf() map[string]interface{}`
@@ -465,16 +365,6 @@ and a boolean to check if the value has been set.
 SetConf sets Conf field to given value.
 
 
-### SetConfNil
-
-`func (o *DAGRunResponse) SetConfNil(b bool)`
-
- SetConfNil sets the value for Conf to be an explicit nil
-
-### UnsetConf
-`func (o *DAGRunResponse) UnsetConf()`
-
-UnsetConf ensures that no value is present for Conf, not even an explicit nil
 ### GetNote
 
 `func (o *DAGRunResponse) GetNote() string`
@@ -495,16 +385,6 @@ and a boolean to check if the value has been set.
 SetNote sets Note field to given value.
 
 
-### SetNoteNil
-
-`func (o *DAGRunResponse) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *DAGRunResponse) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetDagVersions
 
 `func (o *DAGRunResponse) GetDagVersions() []DagVersionResponse`
@@ -545,16 +425,6 @@ and a boolean to check if the value has been set.
 SetBundleVersion sets BundleVersion field to given value.
 
 
-### SetBundleVersionNil
-
-`func (o *DAGRunResponse) SetBundleVersionNil(b bool)`
-
- SetBundleVersionNil sets the value for BundleVersion to be an explicit nil
-
-### UnsetBundleVersion
-`func (o *DAGRunResponse) UnsetBundleVersion()`
-
-UnsetBundleVersion ensures that no value is present for BundleVersion, not even an explicit nil
 ### GetDagDisplayName
 
 `func (o *DAGRunResponse) GetDagDisplayName() string`
@@ -595,16 +465,6 @@ and a boolean to check if the value has been set.
 SetPartitionKey sets PartitionKey field to given value.
 
 
-### SetPartitionKeyNil
-
-`func (o *DAGRunResponse) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *DAGRunResponse) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

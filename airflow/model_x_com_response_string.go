@@ -24,7 +24,7 @@ var _ MappedNullable = &XComResponseString{}
 type XComResponseString struct {
 	Key string `json:"key"`
 	Timestamp time.Time `json:"timestamp"`
-	LogicalDate NullableTime `json:"logical_date"`
+	LogicalDate time.Time `json:"logical_date"`
 	MapIndex int32 `json:"map_index"`
 	TaskId string `json:"task_id"`
 	DagId string `json:"dag_id"`
@@ -32,7 +32,7 @@ type XComResponseString struct {
 	DagDisplayName string `json:"dag_display_name"`
 	TaskDisplayName string `json:"task_display_name"`
 	RunAfter time.Time `json:"run_after"`
-	Value NullableString `json:"value"`
+	Value string `json:"value"`
 }
 
 type _XComResponseString XComResponseString
@@ -41,7 +41,7 @@ type _XComResponseString XComResponseString
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewXComResponseString(key string, timestamp time.Time, logicalDate NullableTime, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value NullableString) *XComResponseString {
+func NewXComResponseString(key string, timestamp time.Time, logicalDate time.Time, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value string) *XComResponseString {
 	this := XComResponseString{}
 	this.Key = key
 	this.Timestamp = timestamp
@@ -114,29 +114,27 @@ func (o *XComResponseString) SetTimestamp(v time.Time) {
 }
 
 // GetLogicalDate returns the LogicalDate field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *XComResponseString) GetLogicalDate() time.Time {
-	if o == nil || o.LogicalDate.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.LogicalDate.Get()
+	return o.LogicalDate
 }
 
 // GetLogicalDateOk returns a tuple with the LogicalDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *XComResponseString) GetLogicalDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LogicalDate.Get(), o.LogicalDate.IsSet()
+	return &o.LogicalDate, true
 }
 
 // SetLogicalDate sets field value
 func (o *XComResponseString) SetLogicalDate(v time.Time) {
-	o.LogicalDate.Set(&v)
+	o.LogicalDate = v
 }
 
 // GetMapIndex returns the MapIndex field value
@@ -308,29 +306,27 @@ func (o *XComResponseString) SetRunAfter(v time.Time) {
 }
 
 // GetValue returns the Value field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *XComResponseString) GetValue() string {
-	if o == nil || o.Value.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Value.Get()
+	return o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *XComResponseString) GetValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
 // SetValue sets field value
 func (o *XComResponseString) SetValue(v string) {
-	o.Value.Set(&v)
+	o.Value = v
 }
 
 func (o XComResponseString) MarshalJSON() ([]byte, error) {
@@ -345,7 +341,7 @@ func (o XComResponseString) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["key"] = o.Key
 	toSerialize["timestamp"] = o.Timestamp
-	toSerialize["logical_date"] = o.LogicalDate.Get()
+	toSerialize["logical_date"] = o.LogicalDate
 	toSerialize["map_index"] = o.MapIndex
 	toSerialize["task_id"] = o.TaskId
 	toSerialize["dag_id"] = o.DagId
@@ -353,7 +349,7 @@ func (o XComResponseString) ToMap() (map[string]interface{}, error) {
 	toSerialize["dag_display_name"] = o.DagDisplayName
 	toSerialize["task_display_name"] = o.TaskDisplayName
 	toSerialize["run_after"] = o.RunAfter
-	toSerialize["value"] = o.Value.Get()
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

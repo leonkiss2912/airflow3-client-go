@@ -24,18 +24,18 @@ import (
 // ConnectionAPIService ConnectionAPI service
 type ConnectionAPIService service
 
-type ApiBulkConnectionsRequest struct {
+type ConnectionAPIBulkConnectionsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	bulkBodyConnectionBody *BulkBodyConnectionBody
 }
 
-func (r ApiBulkConnectionsRequest) BulkBodyConnectionBody(bulkBodyConnectionBody BulkBodyConnectionBody) ApiBulkConnectionsRequest {
+func (r ConnectionAPIBulkConnectionsRequest) BulkBodyConnectionBody(bulkBodyConnectionBody BulkBodyConnectionBody) ConnectionAPIBulkConnectionsRequest {
 	r.bulkBodyConnectionBody = &bulkBodyConnectionBody
 	return r
 }
 
-func (r ApiBulkConnectionsRequest) Execute() (*BulkResponse, *http.Response, error) {
+func (r ConnectionAPIBulkConnectionsRequest) Execute() (*BulkResponse, *http.Response, error) {
 	return r.ApiService.BulkConnectionsExecute(r)
 }
 
@@ -45,10 +45,10 @@ BulkConnections Bulk Connections
 Bulk create, update, and delete connections.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBulkConnectionsRequest
+ @return ConnectionAPIBulkConnectionsRequest
 */
-func (a *ConnectionAPIService) BulkConnections(ctx context.Context) ApiBulkConnectionsRequest {
-	return ApiBulkConnectionsRequest{
+func (a *ConnectionAPIService) BulkConnections(ctx context.Context) ConnectionAPIBulkConnectionsRequest {
+	return ConnectionAPIBulkConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -56,7 +56,7 @@ func (a *ConnectionAPIService) BulkConnections(ctx context.Context) ApiBulkConne
 
 // Execute executes the request
 //  @return BulkResponse
-func (a *ConnectionAPIService) BulkConnectionsExecute(r ApiBulkConnectionsRequest) (*BulkResponse, *http.Response, error) {
+func (a *ConnectionAPIService) BulkConnectionsExecute(r ConnectionAPIBulkConnectionsRequest) (*BulkResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -166,12 +166,12 @@ func (a *ConnectionAPIService) BulkConnectionsExecute(r ApiBulkConnectionsReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateDefaultConnectionsRequest struct {
+type ConnectionAPICreateDefaultConnectionsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 }
 
-func (r ApiCreateDefaultConnectionsRequest) Execute() (*http.Response, error) {
+func (r ConnectionAPICreateDefaultConnectionsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateDefaultConnectionsExecute(r)
 }
 
@@ -181,17 +181,17 @@ CreateDefaultConnections Create Default Connections
 Create default connections.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateDefaultConnectionsRequest
+ @return ConnectionAPICreateDefaultConnectionsRequest
 */
-func (a *ConnectionAPIService) CreateDefaultConnections(ctx context.Context) ApiCreateDefaultConnectionsRequest {
-	return ApiCreateDefaultConnectionsRequest{
+func (a *ConnectionAPIService) CreateDefaultConnections(ctx context.Context) ConnectionAPICreateDefaultConnectionsRequest {
+	return ConnectionAPICreateDefaultConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *ConnectionAPIService) CreateDefaultConnectionsExecute(r ApiCreateDefaultConnectionsRequest) (*http.Response, error) {
+func (a *ConnectionAPIService) CreateDefaultConnectionsExecute(r ConnectionAPICreateDefaultConnectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -275,13 +275,13 @@ func (a *ConnectionAPIService) CreateDefaultConnectionsExecute(r ApiCreateDefaul
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteConnectionRequest struct {
+type ConnectionAPIDeleteConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	connectionId string
 }
 
-func (r ApiDeleteConnectionRequest) Execute() (*http.Response, error) {
+func (r ConnectionAPIDeleteConnectionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteConnectionExecute(r)
 }
 
@@ -292,10 +292,10 @@ Delete a connection entry.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param connectionId
- @return ApiDeleteConnectionRequest
+ @return ConnectionAPIDeleteConnectionRequest
 */
-func (a *ConnectionAPIService) DeleteConnection(ctx context.Context, connectionId string) ApiDeleteConnectionRequest {
-	return ApiDeleteConnectionRequest{
+func (a *ConnectionAPIService) DeleteConnection(ctx context.Context, connectionId string) ConnectionAPIDeleteConnectionRequest {
+	return ConnectionAPIDeleteConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
 		connectionId: connectionId,
@@ -303,7 +303,7 @@ func (a *ConnectionAPIService) DeleteConnection(ctx context.Context, connectionI
 }
 
 // Execute executes the request
-func (a *ConnectionAPIService) DeleteConnectionExecute(r ApiDeleteConnectionRequest) (*http.Response, error) {
+func (a *ConnectionAPIService) DeleteConnectionExecute(r ConnectionAPIDeleteConnectionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -410,13 +410,13 @@ func (a *ConnectionAPIService) DeleteConnectionExecute(r ApiDeleteConnectionRequ
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetConnectionRequest struct {
+type ConnectionAPIGetConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	connectionId string
 }
 
-func (r ApiGetConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
+func (r ConnectionAPIGetConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
 	return r.ApiService.GetConnectionExecute(r)
 }
 
@@ -427,10 +427,10 @@ Get a connection entry.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param connectionId
- @return ApiGetConnectionRequest
+ @return ConnectionAPIGetConnectionRequest
 */
-func (a *ConnectionAPIService) GetConnection(ctx context.Context, connectionId string) ApiGetConnectionRequest {
-	return ApiGetConnectionRequest{
+func (a *ConnectionAPIService) GetConnection(ctx context.Context, connectionId string) ConnectionAPIGetConnectionRequest {
+	return ConnectionAPIGetConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
 		connectionId: connectionId,
@@ -439,7 +439,7 @@ func (a *ConnectionAPIService) GetConnection(ctx context.Context, connectionId s
 
 // Execute executes the request
 //  @return ConnectionResponse
-func (a *ConnectionAPIService) GetConnectionExecute(r ApiGetConnectionRequest) (*ConnectionResponse, *http.Response, error) {
+func (a *ConnectionAPIService) GetConnectionExecute(r ConnectionAPIGetConnectionRequest) (*ConnectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -556,45 +556,45 @@ func (a *ConnectionAPIService) GetConnectionExecute(r ApiGetConnectionRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetConnectionsRequest struct {
+type ConnectionAPIGetConnectionsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	limit *int32
 	offset *int32
-	orderBy *[]*string
+	orderBy *[]string
 	connectionIdPattern *string
 	connectionIdPrefixPattern *string
 }
 
-func (r ApiGetConnectionsRequest) Limit(limit int32) ApiGetConnectionsRequest {
+func (r ConnectionAPIGetConnectionsRequest) Limit(limit int32) ConnectionAPIGetConnectionsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetConnectionsRequest) Offset(offset int32) ApiGetConnectionsRequest {
+func (r ConnectionAPIGetConnectionsRequest) Offset(offset int32) ConnectionAPIGetConnectionsRequest {
 	r.offset = &offset
 	return r
 }
 
 // Attributes to order by, multi criteria sort is supported. Prefix with &#x60;-&#x60; for descending order. Supported attributes: &#x60;conn_id, conn_type, description, host, port, id, team_name, connection_id&#x60;
-func (r ApiGetConnectionsRequest) OrderBy(orderBy []*string) ApiGetConnectionsRequest {
+func (r ConnectionAPIGetConnectionsRequest) OrderBy(orderBy []string) ConnectionAPIGetConnectionsRequest {
 	r.orderBy = &orderBy
 	return r
 }
 
 // SQL LIKE expression — use &#x60;%&#x60; / &#x60;_&#x60; wildcards (e.g. &#x60;%customer_%&#x60;). or the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1 | dag2&#x60;). Regular expressions are **not** supported.   **Performance note:** this full-match pattern is evaluated as &#x60;&#x60;ILIKE &#39;%term%&#39;&#x60;&#x60; and most of the time prevents the database from using B-tree indexes, which can be very slow on large tables. Prefer the equivalent &#x60;&#x60;connection_id_prefix_pattern&#x60;&#x60; parameter when possible.
-func (r ApiGetConnectionsRequest) ConnectionIdPattern(connectionIdPattern string) ApiGetConnectionsRequest {
+func (r ConnectionAPIGetConnectionsRequest) ConnectionIdPattern(connectionIdPattern string) ConnectionAPIGetConnectionsRequest {
 	r.connectionIdPattern = &connectionIdPattern
 	return r
 }
 
 // Prefix match — returns items whose value starts with the given string (case-sensitive, index-friendly). Use the pipe &#x60;|&#x60; operator for OR logic (e.g. &#x60;dag1|dag2&#x60;). Use &#x60;~&#x60; to match all. Wildcard characters (&#x60;%&#x60;, &#x60;_&#x60;) are treated as literal characters. Trailing non-alphanumeric characters in the prefix are stripped before matching so the range scan stays index-compatible under locale-aware collations — e.g. &#x60;test_&#x60; effectively matches items starting with &#x60;test&#x60;, and &#x60;s3://&#x60; matches items starting with &#x60;s3&#x60;.
-func (r ApiGetConnectionsRequest) ConnectionIdPrefixPattern(connectionIdPrefixPattern string) ApiGetConnectionsRequest {
+func (r ConnectionAPIGetConnectionsRequest) ConnectionIdPrefixPattern(connectionIdPrefixPattern string) ConnectionAPIGetConnectionsRequest {
 	r.connectionIdPrefixPattern = &connectionIdPrefixPattern
 	return r
 }
 
-func (r ApiGetConnectionsRequest) Execute() (*ConnectionCollectionResponse, *http.Response, error) {
+func (r ConnectionAPIGetConnectionsRequest) Execute() (*ConnectionCollectionResponse, *http.Response, error) {
 	return r.ApiService.GetConnectionsExecute(r)
 }
 
@@ -604,10 +604,10 @@ GetConnections Get Connections
 Get all connection entries.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetConnectionsRequest
+ @return ConnectionAPIGetConnectionsRequest
 */
-func (a *ConnectionAPIService) GetConnections(ctx context.Context) ApiGetConnectionsRequest {
-	return ApiGetConnectionsRequest{
+func (a *ConnectionAPIService) GetConnections(ctx context.Context) ConnectionAPIGetConnectionsRequest {
+	return ConnectionAPIGetConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -615,7 +615,7 @@ func (a *ConnectionAPIService) GetConnections(ctx context.Context) ApiGetConnect
 
 // Execute executes the request
 //  @return ConnectionCollectionResponse
-func (a *ConnectionAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest) (*ConnectionCollectionResponse, *http.Response, error) {
+func (a *ConnectionAPIService) GetConnectionsExecute(r ConnectionAPIGetConnectionsRequest) (*ConnectionCollectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -659,7 +659,7 @@ func (a *ConnectionAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest)
 			parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", t, "form", "multi")
 		}
 	} else {
-		var defaultValue []*string = []*string{"id"}
+		var defaultValue []string = []string{"id"}
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order_by", defaultValue, "form", "multi")
 		r.orderBy = &defaultValue
 	}
@@ -766,25 +766,25 @@ func (a *ConnectionAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPatchConnectionRequest struct {
+type ConnectionAPIPatchConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	connectionId string
 	connectionBody *ConnectionBody
-	updateMask *[]*string
+	updateMask *[]string
 }
 
-func (r ApiPatchConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ApiPatchConnectionRequest {
+func (r ConnectionAPIPatchConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ConnectionAPIPatchConnectionRequest {
 	r.connectionBody = &connectionBody
 	return r
 }
 
-func (r ApiPatchConnectionRequest) UpdateMask(updateMask []*string) ApiPatchConnectionRequest {
+func (r ConnectionAPIPatchConnectionRequest) UpdateMask(updateMask []string) ConnectionAPIPatchConnectionRequest {
 	r.updateMask = &updateMask
 	return r
 }
 
-func (r ApiPatchConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
+func (r ConnectionAPIPatchConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
 	return r.ApiService.PatchConnectionExecute(r)
 }
 
@@ -795,10 +795,10 @@ Update a connection entry.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param connectionId
- @return ApiPatchConnectionRequest
+ @return ConnectionAPIPatchConnectionRequest
 */
-func (a *ConnectionAPIService) PatchConnection(ctx context.Context, connectionId string) ApiPatchConnectionRequest {
-	return ApiPatchConnectionRequest{
+func (a *ConnectionAPIService) PatchConnection(ctx context.Context, connectionId string) ConnectionAPIPatchConnectionRequest {
+	return ConnectionAPIPatchConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
 		connectionId: connectionId,
@@ -807,7 +807,7 @@ func (a *ConnectionAPIService) PatchConnection(ctx context.Context, connectionId
 
 // Execute executes the request
 //  @return ConnectionResponse
-func (a *ConnectionAPIService) PatchConnectionExecute(r ApiPatchConnectionRequest) (*ConnectionResponse, *http.Response, error) {
+func (a *ConnectionAPIService) PatchConnectionExecute(r ConnectionAPIPatchConnectionRequest) (*ConnectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -951,18 +951,18 @@ func (a *ConnectionAPIService) PatchConnectionExecute(r ApiPatchConnectionReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostConnectionRequest struct {
+type ConnectionAPIPostConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	connectionBody *ConnectionBody
 }
 
-func (r ApiPostConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ApiPostConnectionRequest {
+func (r ConnectionAPIPostConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ConnectionAPIPostConnectionRequest {
 	r.connectionBody = &connectionBody
 	return r
 }
 
-func (r ApiPostConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
+func (r ConnectionAPIPostConnectionRequest) Execute() (*ConnectionResponse, *http.Response, error) {
 	return r.ApiService.PostConnectionExecute(r)
 }
 
@@ -972,10 +972,10 @@ PostConnection Post Connection
 Create connection entry.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPostConnectionRequest
+ @return ConnectionAPIPostConnectionRequest
 */
-func (a *ConnectionAPIService) PostConnection(ctx context.Context) ApiPostConnectionRequest {
-	return ApiPostConnectionRequest{
+func (a *ConnectionAPIService) PostConnection(ctx context.Context) ConnectionAPIPostConnectionRequest {
+	return ConnectionAPIPostConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -983,7 +983,7 @@ func (a *ConnectionAPIService) PostConnection(ctx context.Context) ApiPostConnec
 
 // Execute executes the request
 //  @return ConnectionResponse
-func (a *ConnectionAPIService) PostConnectionExecute(r ApiPostConnectionRequest) (*ConnectionResponse, *http.Response, error) {
+func (a *ConnectionAPIService) PostConnectionExecute(r ConnectionAPIPostConnectionRequest) (*ConnectionResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1104,18 +1104,18 @@ func (a *ConnectionAPIService) PostConnectionExecute(r ApiPostConnectionRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiTestConnectionRequest struct {
+type ConnectionAPITestConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
 	connectionBody *ConnectionBody
 }
 
-func (r ApiTestConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ApiTestConnectionRequest {
+func (r ConnectionAPITestConnectionRequest) ConnectionBody(connectionBody ConnectionBody) ConnectionAPITestConnectionRequest {
 	r.connectionBody = &connectionBody
 	return r
 }
 
-func (r ApiTestConnectionRequest) Execute() (*ConnectionTestResponse, *http.Response, error) {
+func (r ConnectionAPITestConnectionRequest) Execute() (*ConnectionTestResponse, *http.Response, error) {
 	return r.ApiService.TestConnectionExecute(r)
 }
 
@@ -1129,10 +1129,10 @@ as some hook classes tries to find out the `conn` from their __init__ method & e
 It also deletes the conn id env connection after the test.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTestConnectionRequest
+ @return ConnectionAPITestConnectionRequest
 */
-func (a *ConnectionAPIService) TestConnection(ctx context.Context) ApiTestConnectionRequest {
-	return ApiTestConnectionRequest{
+func (a *ConnectionAPIService) TestConnection(ctx context.Context) ConnectionAPITestConnectionRequest {
+	return ConnectionAPITestConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1140,7 +1140,7 @@ func (a *ConnectionAPIService) TestConnection(ctx context.Context) ApiTestConnec
 
 // Execute executes the request
 //  @return ConnectionTestResponse
-func (a *ConnectionAPIService) TestConnectionExecute(r ApiTestConnectionRequest) (*ConnectionTestResponse, *http.Response, error) {
+func (a *ConnectionAPIService) TestConnectionExecute(r ConnectionAPITestConnectionRequest) (*ConnectionTestResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

@@ -38,7 +38,7 @@ func NewBulkCreateActionPoolBody(action string, entities []PoolBody) *BulkCreate
 	this := BulkCreateActionPoolBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkCreateActionPoolBody(action string, entities []PoolBody) *BulkCreate
 // but it doesn't guarantee that properties required by API are set
 func NewBulkCreateActionPoolBodyWithDefaults() *BulkCreateActionPoolBody {
 	this := BulkCreateActionPoolBody{}
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }

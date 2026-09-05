@@ -24,7 +24,7 @@ import (
 // ExperimentalAPIService ExperimentalAPI service
 type ExperimentalAPIService service
 
-type ApiWaitDagRunUntilFinishedRequest struct {
+type ExperimentalAPIWaitDagRunUntilFinishedRequest struct {
 	ctx context.Context
 	ApiService *ExperimentalAPIService
 	dagId string
@@ -34,18 +34,18 @@ type ApiWaitDagRunUntilFinishedRequest struct {
 }
 
 // Seconds to wait between dag run state checks
-func (r ApiWaitDagRunUntilFinishedRequest) Interval(interval float32) ApiWaitDagRunUntilFinishedRequest {
+func (r ExperimentalAPIWaitDagRunUntilFinishedRequest) Interval(interval float32) ExperimentalAPIWaitDagRunUntilFinishedRequest {
 	r.interval = &interval
 	return r
 }
 
 // Collect result XCom from task. Can be set multiple times.
-func (r ApiWaitDagRunUntilFinishedRequest) Result(result []string) ApiWaitDagRunUntilFinishedRequest {
+func (r ExperimentalAPIWaitDagRunUntilFinishedRequest) Result(result []string) ExperimentalAPIWaitDagRunUntilFinishedRequest {
 	r.result = &result
 	return r
 }
 
-func (r ApiWaitDagRunUntilFinishedRequest) Execute() (interface{}, *http.Response, error) {
+func (r ExperimentalAPIWaitDagRunUntilFinishedRequest) Execute() (interface{}, *http.Response, error) {
 	return r.ApiService.WaitDagRunUntilFinishedExecute(r)
 }
 
@@ -57,10 +57,10 @@ WaitDagRunUntilFinished Experimental: Wait for a dag run to complete, and return
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param dagId
  @param dagRunId
- @return ApiWaitDagRunUntilFinishedRequest
+ @return ExperimentalAPIWaitDagRunUntilFinishedRequest
 */
-func (a *ExperimentalAPIService) WaitDagRunUntilFinished(ctx context.Context, dagId string, dagRunId string) ApiWaitDagRunUntilFinishedRequest {
-	return ApiWaitDagRunUntilFinishedRequest{
+func (a *ExperimentalAPIService) WaitDagRunUntilFinished(ctx context.Context, dagId string, dagRunId string) ExperimentalAPIWaitDagRunUntilFinishedRequest {
+	return ExperimentalAPIWaitDagRunUntilFinishedRequest{
 		ApiService: a,
 		ctx: ctx,
 		dagId: dagId,
@@ -70,7 +70,7 @@ func (a *ExperimentalAPIService) WaitDagRunUntilFinished(ctx context.Context, da
 
 // Execute executes the request
 //  @return interface{}
-func (a *ExperimentalAPIService) WaitDagRunUntilFinishedExecute(r ApiWaitDagRunUntilFinishedRequest) (interface{}, *http.Response, error) {
+func (a *ExperimentalAPIService) WaitDagRunUntilFinishedExecute(r ExperimentalAPIWaitDagRunUntilFinishedRequest) (interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

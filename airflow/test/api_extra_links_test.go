@@ -1,7 +1,7 @@
 /*
 Airflow API
 
-Testing ProviderAPIService
+Testing ExtraLinksAPIService
 
 */
 
@@ -14,19 +14,23 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
-func Test_airflow_ProviderAPIService(t *testing.T) {
+func Test_airflow_ExtraLinksAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ProviderAPIService GetProviders", func(t *testing.T) {
+	t.Run("Test ExtraLinksAPIService GetExtraLinks", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ProviderAPI.GetProviders(context.Background()).Execute()
+		var dagId string
+		var dagRunId string
+		var taskId string
+
+		resp, httpRes, err := apiClient.ExtraLinksAPI.GetExtraLinks(context.Background(), dagId, dagRunId, taskId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

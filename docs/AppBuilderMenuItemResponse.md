@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Href** | **string** |  | 
-**Category** | Pointer to **NullableString** |  | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -92,16 +92,6 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
-### SetCategoryNil
-
-`func (o *AppBuilderMenuItemResponse) SetCategoryNil(b bool)`
-
- SetCategoryNil sets the value for Category to be an explicit nil
-
-### UnsetCategory
-`func (o *AppBuilderMenuItemResponse) UnsetCategory()`
-
-UnsetCategory ensures that no value is present for Category, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

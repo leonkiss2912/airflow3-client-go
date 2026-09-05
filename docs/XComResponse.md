@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
 **Timestamp** | **time.Time** |  | 
-**LogicalDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
 **MapIndex** | **int32** |  | 
 **TaskId** | **string** |  | 
 **DagId** | **string** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewXComResponse
 
-`func NewXComResponse(key string, timestamp time.Time, logicalDate NullableTime, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, ) *XComResponse`
+`func NewXComResponse(key string, timestamp time.Time, logicalDate time.Time, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, ) *XComResponse`
 
 NewXComResponse instantiates a new XComResponse object
 This constructor will assign default values to properties that have it defined,
@@ -94,16 +94,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *XComResponse) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *XComResponse) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetMapIndex
 
 `func (o *XComResponse) GetMapIndex() int32`

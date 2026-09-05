@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
 **Value** | **interface{}** |  | 
-**Description** | Pointer to **NullableString** |  | [optional] 
-**TeamName** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**TeamName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -103,16 +103,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *VariableBody) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *VariableBody) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetTeamName
 
 `func (o *VariableBody) GetTeamName() string`
@@ -138,16 +128,6 @@ SetTeamName sets TeamName field to given value.
 
 HasTeamName returns a boolean if a field has been set.
 
-### SetTeamNameNil
-
-`func (o *VariableBody) SetTeamNameNil(b bool)`
-
- SetTeamNameNil sets the value for TeamName to be an explicit nil
-
-### UnsetTeamName
-`func (o *VariableBody) UnsetTeamName()`
-
-UnsetTeamName ensures that no value is present for TeamName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

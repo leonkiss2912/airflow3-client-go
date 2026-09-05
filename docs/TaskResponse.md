@@ -4,39 +4,39 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskId** | **NullableString** |  | 
-**TaskDisplayName** | **NullableString** |  | 
-**Owner** | **NullableString** |  | 
-**StartDate** | **NullableTime** |  | 
-**EndDate** | **NullableTime** |  | 
-**TriggerRule** | **NullableString** |  | 
+**TaskId** | **string** |  | 
+**TaskDisplayName** | **string** |  | 
+**Owner** | **string** |  | 
+**StartDate** | **time.Time** |  | 
+**EndDate** | **time.Time** |  | 
+**TriggerRule** | **string** |  | 
 **DependsOnPast** | **bool** |  | 
 **WaitForDownstream** | **bool** |  | 
-**Retries** | **NullableFloat32** |  | 
-**Queue** | **NullableString** |  | 
-**Pool** | **NullableString** |  | 
-**PoolSlots** | **NullableFloat32** |  | 
-**ExecutionTimeout** | [**NullableTimeDelta**](TimeDelta.md) |  | 
-**RetryDelay** | [**NullableTimeDelta**](TimeDelta.md) |  | 
+**Retries** | **float32** |  | 
+**Queue** | **string** |  | 
+**Pool** | **string** |  | 
+**PoolSlots** | **float32** |  | 
+**ExecutionTimeout** | [**TimeDelta**](TimeDelta.md) |  | 
+**RetryDelay** | [**TimeDelta**](TimeDelta.md) |  | 
 **RetryExponentialBackoff** | **float32** |  | 
-**PriorityWeight** | **NullableFloat32** |  | 
-**WeightRule** | **NullableString** |  | 
-**UiColor** | **NullableString** |  | 
-**UiFgcolor** | **NullableString** |  | 
+**PriorityWeight** | **float32** |  | 
+**WeightRule** | **string** |  | 
+**UiColor** | **string** |  | 
+**UiFgcolor** | **string** |  | 
 **TemplateFields** | **[]string** |  | 
 **DownstreamTaskIds** | **[]string** |  | 
-**DocMd** | **NullableString** |  | 
-**OperatorName** | **NullableString** |  | 
+**DocMd** | **string** |  | 
+**OperatorName** | **string** |  | 
 **Params** | **map[string]interface{}** |  | 
 **ClassRef** | **map[string]interface{}** |  | 
-**IsMapped** | **NullableBool** |  | 
+**IsMapped** | **bool** |  | 
 **ExtraLinks** | **[]string** | Extract and return extra_links. | [readonly] 
 
 ## Methods
 
 ### NewTaskResponse
 
-`func NewTaskResponse(taskId NullableString, taskDisplayName NullableString, owner NullableString, startDate NullableTime, endDate NullableTime, triggerRule NullableString, dependsOnPast bool, waitForDownstream bool, retries NullableFloat32, queue NullableString, pool NullableString, poolSlots NullableFloat32, executionTimeout NullableTimeDelta, retryDelay NullableTimeDelta, retryExponentialBackoff float32, priorityWeight NullableFloat32, weightRule NullableString, uiColor NullableString, uiFgcolor NullableString, templateFields []string, downstreamTaskIds []string, docMd NullableString, operatorName NullableString, params map[string]interface{}, classRef map[string]interface{}, isMapped NullableBool, extraLinks []string, ) *TaskResponse`
+`func NewTaskResponse(taskId string, taskDisplayName string, owner string, startDate time.Time, endDate time.Time, triggerRule string, dependsOnPast bool, waitForDownstream bool, retries float32, queue string, pool string, poolSlots float32, executionTimeout TimeDelta, retryDelay TimeDelta, retryExponentialBackoff float32, priorityWeight float32, weightRule string, uiColor string, uiFgcolor string, templateFields []string, downstreamTaskIds []string, docMd string, operatorName string, params map[string]interface{}, classRef map[string]interface{}, isMapped bool, extraLinks []string, ) *TaskResponse`
 
 NewTaskResponse instantiates a new TaskResponse object
 This constructor will assign default values to properties that have it defined,
@@ -71,16 +71,6 @@ and a boolean to check if the value has been set.
 SetTaskId sets TaskId field to given value.
 
 
-### SetTaskIdNil
-
-`func (o *TaskResponse) SetTaskIdNil(b bool)`
-
- SetTaskIdNil sets the value for TaskId to be an explicit nil
-
-### UnsetTaskId
-`func (o *TaskResponse) UnsetTaskId()`
-
-UnsetTaskId ensures that no value is present for TaskId, not even an explicit nil
 ### GetTaskDisplayName
 
 `func (o *TaskResponse) GetTaskDisplayName() string`
@@ -101,16 +91,6 @@ and a boolean to check if the value has been set.
 SetTaskDisplayName sets TaskDisplayName field to given value.
 
 
-### SetTaskDisplayNameNil
-
-`func (o *TaskResponse) SetTaskDisplayNameNil(b bool)`
-
- SetTaskDisplayNameNil sets the value for TaskDisplayName to be an explicit nil
-
-### UnsetTaskDisplayName
-`func (o *TaskResponse) UnsetTaskDisplayName()`
-
-UnsetTaskDisplayName ensures that no value is present for TaskDisplayName, not even an explicit nil
 ### GetOwner
 
 `func (o *TaskResponse) GetOwner() string`
@@ -131,16 +111,6 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
-### SetOwnerNil
-
-`func (o *TaskResponse) SetOwnerNil(b bool)`
-
- SetOwnerNil sets the value for Owner to be an explicit nil
-
-### UnsetOwner
-`func (o *TaskResponse) UnsetOwner()`
-
-UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetStartDate
 
 `func (o *TaskResponse) GetStartDate() time.Time`
@@ -161,16 +131,6 @@ and a boolean to check if the value has been set.
 SetStartDate sets StartDate field to given value.
 
 
-### SetStartDateNil
-
-`func (o *TaskResponse) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *TaskResponse) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *TaskResponse) GetEndDate() time.Time`
@@ -191,16 +151,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *TaskResponse) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *TaskResponse) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetTriggerRule
 
 `func (o *TaskResponse) GetTriggerRule() string`
@@ -221,16 +171,6 @@ and a boolean to check if the value has been set.
 SetTriggerRule sets TriggerRule field to given value.
 
 
-### SetTriggerRuleNil
-
-`func (o *TaskResponse) SetTriggerRuleNil(b bool)`
-
- SetTriggerRuleNil sets the value for TriggerRule to be an explicit nil
-
-### UnsetTriggerRule
-`func (o *TaskResponse) UnsetTriggerRule()`
-
-UnsetTriggerRule ensures that no value is present for TriggerRule, not even an explicit nil
 ### GetDependsOnPast
 
 `func (o *TaskResponse) GetDependsOnPast() bool`
@@ -291,16 +231,6 @@ and a boolean to check if the value has been set.
 SetRetries sets Retries field to given value.
 
 
-### SetRetriesNil
-
-`func (o *TaskResponse) SetRetriesNil(b bool)`
-
- SetRetriesNil sets the value for Retries to be an explicit nil
-
-### UnsetRetries
-`func (o *TaskResponse) UnsetRetries()`
-
-UnsetRetries ensures that no value is present for Retries, not even an explicit nil
 ### GetQueue
 
 `func (o *TaskResponse) GetQueue() string`
@@ -321,16 +251,6 @@ and a boolean to check if the value has been set.
 SetQueue sets Queue field to given value.
 
 
-### SetQueueNil
-
-`func (o *TaskResponse) SetQueueNil(b bool)`
-
- SetQueueNil sets the value for Queue to be an explicit nil
-
-### UnsetQueue
-`func (o *TaskResponse) UnsetQueue()`
-
-UnsetQueue ensures that no value is present for Queue, not even an explicit nil
 ### GetPool
 
 `func (o *TaskResponse) GetPool() string`
@@ -351,16 +271,6 @@ and a boolean to check if the value has been set.
 SetPool sets Pool field to given value.
 
 
-### SetPoolNil
-
-`func (o *TaskResponse) SetPoolNil(b bool)`
-
- SetPoolNil sets the value for Pool to be an explicit nil
-
-### UnsetPool
-`func (o *TaskResponse) UnsetPool()`
-
-UnsetPool ensures that no value is present for Pool, not even an explicit nil
 ### GetPoolSlots
 
 `func (o *TaskResponse) GetPoolSlots() float32`
@@ -381,16 +291,6 @@ and a boolean to check if the value has been set.
 SetPoolSlots sets PoolSlots field to given value.
 
 
-### SetPoolSlotsNil
-
-`func (o *TaskResponse) SetPoolSlotsNil(b bool)`
-
- SetPoolSlotsNil sets the value for PoolSlots to be an explicit nil
-
-### UnsetPoolSlots
-`func (o *TaskResponse) UnsetPoolSlots()`
-
-UnsetPoolSlots ensures that no value is present for PoolSlots, not even an explicit nil
 ### GetExecutionTimeout
 
 `func (o *TaskResponse) GetExecutionTimeout() TimeDelta`
@@ -411,16 +311,6 @@ and a boolean to check if the value has been set.
 SetExecutionTimeout sets ExecutionTimeout field to given value.
 
 
-### SetExecutionTimeoutNil
-
-`func (o *TaskResponse) SetExecutionTimeoutNil(b bool)`
-
- SetExecutionTimeoutNil sets the value for ExecutionTimeout to be an explicit nil
-
-### UnsetExecutionTimeout
-`func (o *TaskResponse) UnsetExecutionTimeout()`
-
-UnsetExecutionTimeout ensures that no value is present for ExecutionTimeout, not even an explicit nil
 ### GetRetryDelay
 
 `func (o *TaskResponse) GetRetryDelay() TimeDelta`
@@ -441,16 +331,6 @@ and a boolean to check if the value has been set.
 SetRetryDelay sets RetryDelay field to given value.
 
 
-### SetRetryDelayNil
-
-`func (o *TaskResponse) SetRetryDelayNil(b bool)`
-
- SetRetryDelayNil sets the value for RetryDelay to be an explicit nil
-
-### UnsetRetryDelay
-`func (o *TaskResponse) UnsetRetryDelay()`
-
-UnsetRetryDelay ensures that no value is present for RetryDelay, not even an explicit nil
 ### GetRetryExponentialBackoff
 
 `func (o *TaskResponse) GetRetryExponentialBackoff() float32`
@@ -491,16 +371,6 @@ and a boolean to check if the value has been set.
 SetPriorityWeight sets PriorityWeight field to given value.
 
 
-### SetPriorityWeightNil
-
-`func (o *TaskResponse) SetPriorityWeightNil(b bool)`
-
- SetPriorityWeightNil sets the value for PriorityWeight to be an explicit nil
-
-### UnsetPriorityWeight
-`func (o *TaskResponse) UnsetPriorityWeight()`
-
-UnsetPriorityWeight ensures that no value is present for PriorityWeight, not even an explicit nil
 ### GetWeightRule
 
 `func (o *TaskResponse) GetWeightRule() string`
@@ -521,16 +391,6 @@ and a boolean to check if the value has been set.
 SetWeightRule sets WeightRule field to given value.
 
 
-### SetWeightRuleNil
-
-`func (o *TaskResponse) SetWeightRuleNil(b bool)`
-
- SetWeightRuleNil sets the value for WeightRule to be an explicit nil
-
-### UnsetWeightRule
-`func (o *TaskResponse) UnsetWeightRule()`
-
-UnsetWeightRule ensures that no value is present for WeightRule, not even an explicit nil
 ### GetUiColor
 
 `func (o *TaskResponse) GetUiColor() string`
@@ -551,16 +411,6 @@ and a boolean to check if the value has been set.
 SetUiColor sets UiColor field to given value.
 
 
-### SetUiColorNil
-
-`func (o *TaskResponse) SetUiColorNil(b bool)`
-
- SetUiColorNil sets the value for UiColor to be an explicit nil
-
-### UnsetUiColor
-`func (o *TaskResponse) UnsetUiColor()`
-
-UnsetUiColor ensures that no value is present for UiColor, not even an explicit nil
 ### GetUiFgcolor
 
 `func (o *TaskResponse) GetUiFgcolor() string`
@@ -581,16 +431,6 @@ and a boolean to check if the value has been set.
 SetUiFgcolor sets UiFgcolor field to given value.
 
 
-### SetUiFgcolorNil
-
-`func (o *TaskResponse) SetUiFgcolorNil(b bool)`
-
- SetUiFgcolorNil sets the value for UiFgcolor to be an explicit nil
-
-### UnsetUiFgcolor
-`func (o *TaskResponse) UnsetUiFgcolor()`
-
-UnsetUiFgcolor ensures that no value is present for UiFgcolor, not even an explicit nil
 ### GetTemplateFields
 
 `func (o *TaskResponse) GetTemplateFields() []string`
@@ -611,16 +451,6 @@ and a boolean to check if the value has been set.
 SetTemplateFields sets TemplateFields field to given value.
 
 
-### SetTemplateFieldsNil
-
-`func (o *TaskResponse) SetTemplateFieldsNil(b bool)`
-
- SetTemplateFieldsNil sets the value for TemplateFields to be an explicit nil
-
-### UnsetTemplateFields
-`func (o *TaskResponse) UnsetTemplateFields()`
-
-UnsetTemplateFields ensures that no value is present for TemplateFields, not even an explicit nil
 ### GetDownstreamTaskIds
 
 `func (o *TaskResponse) GetDownstreamTaskIds() []string`
@@ -641,16 +471,6 @@ and a boolean to check if the value has been set.
 SetDownstreamTaskIds sets DownstreamTaskIds field to given value.
 
 
-### SetDownstreamTaskIdsNil
-
-`func (o *TaskResponse) SetDownstreamTaskIdsNil(b bool)`
-
- SetDownstreamTaskIdsNil sets the value for DownstreamTaskIds to be an explicit nil
-
-### UnsetDownstreamTaskIds
-`func (o *TaskResponse) UnsetDownstreamTaskIds()`
-
-UnsetDownstreamTaskIds ensures that no value is present for DownstreamTaskIds, not even an explicit nil
 ### GetDocMd
 
 `func (o *TaskResponse) GetDocMd() string`
@@ -671,16 +491,6 @@ and a boolean to check if the value has been set.
 SetDocMd sets DocMd field to given value.
 
 
-### SetDocMdNil
-
-`func (o *TaskResponse) SetDocMdNil(b bool)`
-
- SetDocMdNil sets the value for DocMd to be an explicit nil
-
-### UnsetDocMd
-`func (o *TaskResponse) UnsetDocMd()`
-
-UnsetDocMd ensures that no value is present for DocMd, not even an explicit nil
 ### GetOperatorName
 
 `func (o *TaskResponse) GetOperatorName() string`
@@ -701,16 +511,6 @@ and a boolean to check if the value has been set.
 SetOperatorName sets OperatorName field to given value.
 
 
-### SetOperatorNameNil
-
-`func (o *TaskResponse) SetOperatorNameNil(b bool)`
-
- SetOperatorNameNil sets the value for OperatorName to be an explicit nil
-
-### UnsetOperatorName
-`func (o *TaskResponse) UnsetOperatorName()`
-
-UnsetOperatorName ensures that no value is present for OperatorName, not even an explicit nil
 ### GetParams
 
 `func (o *TaskResponse) GetParams() map[string]interface{}`
@@ -731,16 +531,6 @@ and a boolean to check if the value has been set.
 SetParams sets Params field to given value.
 
 
-### SetParamsNil
-
-`func (o *TaskResponse) SetParamsNil(b bool)`
-
- SetParamsNil sets the value for Params to be an explicit nil
-
-### UnsetParams
-`func (o *TaskResponse) UnsetParams()`
-
-UnsetParams ensures that no value is present for Params, not even an explicit nil
 ### GetClassRef
 
 `func (o *TaskResponse) GetClassRef() map[string]interface{}`
@@ -761,16 +551,6 @@ and a boolean to check if the value has been set.
 SetClassRef sets ClassRef field to given value.
 
 
-### SetClassRefNil
-
-`func (o *TaskResponse) SetClassRefNil(b bool)`
-
- SetClassRefNil sets the value for ClassRef to be an explicit nil
-
-### UnsetClassRef
-`func (o *TaskResponse) UnsetClassRef()`
-
-UnsetClassRef ensures that no value is present for ClassRef, not even an explicit nil
 ### GetIsMapped
 
 `func (o *TaskResponse) GetIsMapped() bool`
@@ -791,16 +571,6 @@ and a boolean to check if the value has been set.
 SetIsMapped sets IsMapped field to given value.
 
 
-### SetIsMappedNil
-
-`func (o *TaskResponse) SetIsMappedNil(b bool)`
-
- SetIsMappedNil sets the value for IsMapped to be an explicit nil
-
-### UnsetIsMapped
-`func (o *TaskResponse) UnsetIsMapped()`
-
-UnsetIsMapped ensures that no value is present for IsMapped, not even an explicit nil
 ### GetExtraLinks
 
 `func (o *TaskResponse) GetExtraLinks() []string`

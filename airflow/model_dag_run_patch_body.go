@@ -19,8 +19,8 @@ var _ MappedNullable = &DAGRunPatchBody{}
 
 // DAGRunPatchBody Dag Run Serializer for PATCH requests.
 type DAGRunPatchBody struct {
-	State NullableDAGRunPatchStates `json:"state,omitempty"`
-	Note NullableString `json:"note,omitempty"`
+	State *DAGRunPatchStates `json:"state,omitempty"`
+	Note *string `json:"note,omitempty"`
 }
 
 // NewDAGRunPatchBody instantiates a new DAGRunPatchBody object
@@ -40,88 +40,68 @@ func NewDAGRunPatchBodyWithDefaults() *DAGRunPatchBody {
 	return &this
 }
 
-// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetState returns the State field value if set, zero value otherwise.
 func (o *DAGRunPatchBody) GetState() DAGRunPatchStates {
-	if o == nil || IsNil(o.State.Get()) {
+	if o == nil || IsNil(o.State) {
 		var ret DAGRunPatchStates
 		return ret
 	}
-	return *o.State.Get()
+	return *o.State
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunPatchBody) GetStateOk() (*DAGRunPatchStates, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
-	return o.State.Get(), o.State.IsSet()
+	return o.State, true
 }
 
 // HasState returns a boolean if a field has been set.
 func (o *DAGRunPatchBody) HasState() bool {
-	if o != nil && o.State.IsSet() {
+	if o != nil && !IsNil(o.State) {
 		return true
 	}
 
 	return false
 }
 
-// SetState gets a reference to the given NullableDAGRunPatchStates and assigns it to the State field.
+// SetState gets a reference to the given DAGRunPatchStates and assigns it to the State field.
 func (o *DAGRunPatchBody) SetState(v DAGRunPatchStates) {
-	o.State.Set(&v)
-}
-// SetStateNil sets the value for State to be an explicit nil
-func (o *DAGRunPatchBody) SetStateNil() {
-	o.State.Set(nil)
+	o.State = &v
 }
 
-// UnsetState ensures that no value is present for State, not even an explicit nil
-func (o *DAGRunPatchBody) UnsetState() {
-	o.State.Unset()
-}
-
-// GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNote returns the Note field value if set, zero value otherwise.
 func (o *DAGRunPatchBody) GetNote() string {
-	if o == nil || IsNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note) {
 		var ret string
 		return ret
 	}
-	return *o.Note.Get()
+	return *o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunPatchBody) GetNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Note) {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return o.Note, true
 }
 
 // HasNote returns a boolean if a field has been set.
 func (o *DAGRunPatchBody) HasNote() bool {
-	if o != nil && o.Note.IsSet() {
+	if o != nil && !IsNil(o.Note) {
 		return true
 	}
 
 	return false
 }
 
-// SetNote gets a reference to the given NullableString and assigns it to the Note field.
+// SetNote gets a reference to the given string and assigns it to the Note field.
 func (o *DAGRunPatchBody) SetNote(v string) {
-	o.Note.Set(&v)
-}
-// SetNoteNil sets the value for Note to be an explicit nil
-func (o *DAGRunPatchBody) SetNoteNil() {
-	o.Note.Set(nil)
-}
-
-// UnsetNote ensures that no value is present for Note, not even an explicit nil
-func (o *DAGRunPatchBody) UnsetNote() {
-	o.Note.Unset()
+	o.Note = &v
 }
 
 func (o DAGRunPatchBody) MarshalJSON() ([]byte, error) {
@@ -134,11 +114,11 @@ func (o DAGRunPatchBody) MarshalJSON() ([]byte, error) {
 
 func (o DAGRunPatchBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.State.IsSet() {
-		toSerialize["state"] = o.State.Get()
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
 	}
-	if o.Note.IsSet() {
-		toSerialize["note"] = o.Note.Get()
+	if !IsNil(o.Note) {
+		toSerialize["note"] = o.Note
 	}
 	return toSerialize, nil
 }

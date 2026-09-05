@@ -34,7 +34,7 @@ type AssetResponse struct {
 	ConsumingTasks []TaskInletAssetReference `json:"consuming_tasks"`
 	Aliases []AssetAliasResponse `json:"aliases"`
 	Watchers []AssetWatcherResponse `json:"watchers"`
-	LastAssetEvent NullableLastAssetEventResponse `json:"last_asset_event,omitempty"`
+	LastAssetEvent *LastAssetEventResponse `json:"last_asset_event,omitempty"`
 }
 
 type _AssetResponse AssetResponse
@@ -163,9 +163,9 @@ func (o *AssetResponse) SetGroup(v string) {
 	o.Group = v
 }
 
-// GetExtra returns the Extra field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtra returns the Extra field value if set, zero value otherwise.
 func (o *AssetResponse) GetExtra() map[string]*interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Extra) {
 		var ret map[string]*interface{}
 		return ret
 	}
@@ -174,7 +174,6 @@ func (o *AssetResponse) GetExtra() map[string]*interface{} {
 
 // GetExtraOk returns a tuple with the Extra field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetResponse) GetExtraOk() (map[string]*interface{}, bool) {
 	if o == nil || IsNil(o.Extra) {
 		return map[string]*interface{}{}, false
@@ -364,46 +363,36 @@ func (o *AssetResponse) SetWatchers(v []AssetWatcherResponse) {
 	o.Watchers = v
 }
 
-// GetLastAssetEvent returns the LastAssetEvent field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastAssetEvent returns the LastAssetEvent field value if set, zero value otherwise.
 func (o *AssetResponse) GetLastAssetEvent() LastAssetEventResponse {
-	if o == nil || IsNil(o.LastAssetEvent.Get()) {
+	if o == nil || IsNil(o.LastAssetEvent) {
 		var ret LastAssetEventResponse
 		return ret
 	}
-	return *o.LastAssetEvent.Get()
+	return *o.LastAssetEvent
 }
 
 // GetLastAssetEventOk returns a tuple with the LastAssetEvent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetResponse) GetLastAssetEventOk() (*LastAssetEventResponse, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastAssetEvent) {
 		return nil, false
 	}
-	return o.LastAssetEvent.Get(), o.LastAssetEvent.IsSet()
+	return o.LastAssetEvent, true
 }
 
 // HasLastAssetEvent returns a boolean if a field has been set.
 func (o *AssetResponse) HasLastAssetEvent() bool {
-	if o != nil && o.LastAssetEvent.IsSet() {
+	if o != nil && !IsNil(o.LastAssetEvent) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastAssetEvent gets a reference to the given NullableLastAssetEventResponse and assigns it to the LastAssetEvent field.
+// SetLastAssetEvent gets a reference to the given LastAssetEventResponse and assigns it to the LastAssetEvent field.
 func (o *AssetResponse) SetLastAssetEvent(v LastAssetEventResponse) {
-	o.LastAssetEvent.Set(&v)
-}
-// SetLastAssetEventNil sets the value for LastAssetEvent to be an explicit nil
-func (o *AssetResponse) SetLastAssetEventNil() {
-	o.LastAssetEvent.Set(nil)
-}
-
-// UnsetLastAssetEvent ensures that no value is present for LastAssetEvent, not even an explicit nil
-func (o *AssetResponse) UnsetLastAssetEvent() {
-	o.LastAssetEvent.Unset()
+	o.LastAssetEvent = &v
 }
 
 func (o AssetResponse) MarshalJSON() ([]byte, error) {
@@ -420,7 +409,7 @@ func (o AssetResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["uri"] = o.Uri
 	toSerialize["group"] = o.Group
-	if o.Extra != nil {
+	if !IsNil(o.Extra) {
 		toSerialize["extra"] = o.Extra
 	}
 	toSerialize["created_at"] = o.CreatedAt
@@ -430,8 +419,8 @@ func (o AssetResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["consuming_tasks"] = o.ConsumingTasks
 	toSerialize["aliases"] = o.Aliases
 	toSerialize["watchers"] = o.Watchers
-	if o.LastAssetEvent.IsSet() {
-		toSerialize["last_asset_event"] = o.LastAssetEvent.Get()
+	if !IsNil(o.LastAssetEvent) {
+		toSerialize["last_asset_event"] = o.LastAssetEvent
 	}
 	return toSerialize, nil
 }

@@ -21,7 +21,7 @@ var _ MappedNullable = &BaseInfoResponse{}
 
 // BaseInfoResponse Base info serializer for responses.
 type BaseInfoResponse struct {
-	Status NullableString `json:"status"`
+	Status string `json:"status"`
 }
 
 type _BaseInfoResponse BaseInfoResponse
@@ -30,7 +30,7 @@ type _BaseInfoResponse BaseInfoResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBaseInfoResponse(status NullableString) *BaseInfoResponse {
+func NewBaseInfoResponse(status string) *BaseInfoResponse {
 	this := BaseInfoResponse{}
 	this.Status = status
 	return &this
@@ -45,29 +45,27 @@ func NewBaseInfoResponseWithDefaults() *BaseInfoResponse {
 }
 
 // GetStatus returns the Status field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *BaseInfoResponse) GetStatus() string {
-	if o == nil || o.Status.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.Status.Get()
+	return o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BaseInfoResponse) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
 // SetStatus sets field value
 func (o *BaseInfoResponse) SetStatus(v string) {
-	o.Status.Set(&v)
+	o.Status = v
 }
 
 func (o BaseInfoResponse) MarshalJSON() ([]byte, error) {
@@ -80,7 +78,7 @@ func (o BaseInfoResponse) MarshalJSON() ([]byte, error) {
 
 func (o BaseInfoResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status.Get()
+	toSerialize["status"] = o.Status
 	return toSerialize, nil
 }
 

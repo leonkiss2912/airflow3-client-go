@@ -38,7 +38,7 @@ func NewBulkDeleteActionPoolBody(action string, entities []EntitiesInner2) *Bulk
 	this := BulkDeleteActionPoolBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkDeleteActionPoolBody(action string, entities []EntitiesInner2) *Bulk
 // but it doesn't guarantee that properties required by API are set
 func NewBulkDeleteActionPoolBodyWithDefaults() *BulkDeleteActionPoolBody {
 	this := BulkDeleteActionPoolBody{}
-	var actionOnNonExistence BulkActionNotOnExistence = FAIL
+	var actionOnNonExistence BulkActionNotOnExistence = BULKACTIONNOTONEXISTENCE_FAIL
 	this.ActionOnNonExistence = &actionOnNonExistence
 	return &this
 }

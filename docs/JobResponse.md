@@ -5,22 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | 
-**DagId** | **NullableString** |  | 
-**State** | **NullableString** |  | 
-**JobType** | **NullableString** |  | 
-**StartDate** | **NullableTime** |  | 
-**EndDate** | **NullableTime** |  | 
-**LatestHeartbeat** | **NullableTime** |  | 
-**ExecutorClass** | **NullableString** |  | 
-**Hostname** | **NullableString** |  | 
-**Unixname** | **NullableString** |  | 
-**DagDisplayName** | Pointer to **NullableString** |  | [optional] 
+**DagId** | **string** |  | 
+**State** | **string** |  | 
+**JobType** | **string** |  | 
+**StartDate** | **time.Time** |  | 
+**EndDate** | **time.Time** |  | 
+**LatestHeartbeat** | **time.Time** |  | 
+**ExecutorClass** | **string** |  | 
+**Hostname** | **string** |  | 
+**Unixname** | **string** |  | 
+**DagDisplayName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewJobResponse
 
-`func NewJobResponse(id int32, dagId NullableString, state NullableString, jobType NullableString, startDate NullableTime, endDate NullableTime, latestHeartbeat NullableTime, executorClass NullableString, hostname NullableString, unixname NullableString, ) *JobResponse`
+`func NewJobResponse(id int32, dagId string, state string, jobType string, startDate time.Time, endDate time.Time, latestHeartbeat time.Time, executorClass string, hostname string, unixname string, ) *JobResponse`
 
 NewJobResponse instantiates a new JobResponse object
 This constructor will assign default values to properties that have it defined,
@@ -75,16 +75,6 @@ and a boolean to check if the value has been set.
 SetDagId sets DagId field to given value.
 
 
-### SetDagIdNil
-
-`func (o *JobResponse) SetDagIdNil(b bool)`
-
- SetDagIdNil sets the value for DagId to be an explicit nil
-
-### UnsetDagId
-`func (o *JobResponse) UnsetDagId()`
-
-UnsetDagId ensures that no value is present for DagId, not even an explicit nil
 ### GetState
 
 `func (o *JobResponse) GetState() string`
@@ -105,16 +95,6 @@ and a boolean to check if the value has been set.
 SetState sets State field to given value.
 
 
-### SetStateNil
-
-`func (o *JobResponse) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *JobResponse) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetJobType
 
 `func (o *JobResponse) GetJobType() string`
@@ -135,16 +115,6 @@ and a boolean to check if the value has been set.
 SetJobType sets JobType field to given value.
 
 
-### SetJobTypeNil
-
-`func (o *JobResponse) SetJobTypeNil(b bool)`
-
- SetJobTypeNil sets the value for JobType to be an explicit nil
-
-### UnsetJobType
-`func (o *JobResponse) UnsetJobType()`
-
-UnsetJobType ensures that no value is present for JobType, not even an explicit nil
 ### GetStartDate
 
 `func (o *JobResponse) GetStartDate() time.Time`
@@ -165,16 +135,6 @@ and a boolean to check if the value has been set.
 SetStartDate sets StartDate field to given value.
 
 
-### SetStartDateNil
-
-`func (o *JobResponse) SetStartDateNil(b bool)`
-
- SetStartDateNil sets the value for StartDate to be an explicit nil
-
-### UnsetStartDate
-`func (o *JobResponse) UnsetStartDate()`
-
-UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *JobResponse) GetEndDate() time.Time`
@@ -195,16 +155,6 @@ and a boolean to check if the value has been set.
 SetEndDate sets EndDate field to given value.
 
 
-### SetEndDateNil
-
-`func (o *JobResponse) SetEndDateNil(b bool)`
-
- SetEndDateNil sets the value for EndDate to be an explicit nil
-
-### UnsetEndDate
-`func (o *JobResponse) UnsetEndDate()`
-
-UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetLatestHeartbeat
 
 `func (o *JobResponse) GetLatestHeartbeat() time.Time`
@@ -225,16 +175,6 @@ and a boolean to check if the value has been set.
 SetLatestHeartbeat sets LatestHeartbeat field to given value.
 
 
-### SetLatestHeartbeatNil
-
-`func (o *JobResponse) SetLatestHeartbeatNil(b bool)`
-
- SetLatestHeartbeatNil sets the value for LatestHeartbeat to be an explicit nil
-
-### UnsetLatestHeartbeat
-`func (o *JobResponse) UnsetLatestHeartbeat()`
-
-UnsetLatestHeartbeat ensures that no value is present for LatestHeartbeat, not even an explicit nil
 ### GetExecutorClass
 
 `func (o *JobResponse) GetExecutorClass() string`
@@ -255,16 +195,6 @@ and a boolean to check if the value has been set.
 SetExecutorClass sets ExecutorClass field to given value.
 
 
-### SetExecutorClassNil
-
-`func (o *JobResponse) SetExecutorClassNil(b bool)`
-
- SetExecutorClassNil sets the value for ExecutorClass to be an explicit nil
-
-### UnsetExecutorClass
-`func (o *JobResponse) UnsetExecutorClass()`
-
-UnsetExecutorClass ensures that no value is present for ExecutorClass, not even an explicit nil
 ### GetHostname
 
 `func (o *JobResponse) GetHostname() string`
@@ -285,16 +215,6 @@ and a boolean to check if the value has been set.
 SetHostname sets Hostname field to given value.
 
 
-### SetHostnameNil
-
-`func (o *JobResponse) SetHostnameNil(b bool)`
-
- SetHostnameNil sets the value for Hostname to be an explicit nil
-
-### UnsetHostname
-`func (o *JobResponse) UnsetHostname()`
-
-UnsetHostname ensures that no value is present for Hostname, not even an explicit nil
 ### GetUnixname
 
 `func (o *JobResponse) GetUnixname() string`
@@ -315,16 +235,6 @@ and a boolean to check if the value has been set.
 SetUnixname sets Unixname field to given value.
 
 
-### SetUnixnameNil
-
-`func (o *JobResponse) SetUnixnameNil(b bool)`
-
- SetUnixnameNil sets the value for Unixname to be an explicit nil
-
-### UnsetUnixname
-`func (o *JobResponse) UnsetUnixname()`
-
-UnsetUnixname ensures that no value is present for Unixname, not even an explicit nil
 ### GetDagDisplayName
 
 `func (o *JobResponse) GetDagDisplayName() string`
@@ -350,16 +260,6 @@ SetDagDisplayName sets DagDisplayName field to given value.
 
 HasDagDisplayName returns a boolean if a field has been set.
 
-### SetDagDisplayNameNil
-
-`func (o *JobResponse) SetDagDisplayNameNil(b bool)`
-
- SetDagDisplayNameNil sets the value for DagDisplayName to be an explicit nil
-
-### UnsetDagDisplayName
-`func (o *JobResponse) UnsetDagDisplayName()`
-
-UnsetDagDisplayName ensures that no value is present for DagDisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,8 +19,8 @@ var _ MappedNullable = &PatchTaskInstanceBody{}
 
 // PatchTaskInstanceBody Request body for Clear Task Instances endpoint.
 type PatchTaskInstanceBody struct {
-	NewState NullableTaskInstanceState `json:"new_state,omitempty"`
-	Note NullableString `json:"note,omitempty"`
+	NewState *TaskInstanceState `json:"new_state,omitempty"`
+	Note *string `json:"note,omitempty"`
 	IncludeUpstream *bool `json:"include_upstream,omitempty"`
 	IncludeDownstream *bool `json:"include_downstream,omitempty"`
 	IncludeFuture *bool `json:"include_future,omitempty"`
@@ -60,88 +60,68 @@ func NewPatchTaskInstanceBodyWithDefaults() *PatchTaskInstanceBody {
 	return &this
 }
 
-// GetNewState returns the NewState field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNewState returns the NewState field value if set, zero value otherwise.
 func (o *PatchTaskInstanceBody) GetNewState() TaskInstanceState {
-	if o == nil || IsNil(o.NewState.Get()) {
+	if o == nil || IsNil(o.NewState) {
 		var ret TaskInstanceState
 		return ret
 	}
-	return *o.NewState.Get()
+	return *o.NewState
 }
 
 // GetNewStateOk returns a tuple with the NewState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchTaskInstanceBody) GetNewStateOk() (*TaskInstanceState, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NewState) {
 		return nil, false
 	}
-	return o.NewState.Get(), o.NewState.IsSet()
+	return o.NewState, true
 }
 
 // HasNewState returns a boolean if a field has been set.
 func (o *PatchTaskInstanceBody) HasNewState() bool {
-	if o != nil && o.NewState.IsSet() {
+	if o != nil && !IsNil(o.NewState) {
 		return true
 	}
 
 	return false
 }
 
-// SetNewState gets a reference to the given NullableTaskInstanceState and assigns it to the NewState field.
+// SetNewState gets a reference to the given TaskInstanceState and assigns it to the NewState field.
 func (o *PatchTaskInstanceBody) SetNewState(v TaskInstanceState) {
-	o.NewState.Set(&v)
-}
-// SetNewStateNil sets the value for NewState to be an explicit nil
-func (o *PatchTaskInstanceBody) SetNewStateNil() {
-	o.NewState.Set(nil)
+	o.NewState = &v
 }
 
-// UnsetNewState ensures that no value is present for NewState, not even an explicit nil
-func (o *PatchTaskInstanceBody) UnsetNewState() {
-	o.NewState.Unset()
-}
-
-// GetNote returns the Note field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNote returns the Note field value if set, zero value otherwise.
 func (o *PatchTaskInstanceBody) GetNote() string {
-	if o == nil || IsNil(o.Note.Get()) {
+	if o == nil || IsNil(o.Note) {
 		var ret string
 		return ret
 	}
-	return *o.Note.Get()
+	return *o.Note
 }
 
 // GetNoteOk returns a tuple with the Note field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PatchTaskInstanceBody) GetNoteOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Note) {
 		return nil, false
 	}
-	return o.Note.Get(), o.Note.IsSet()
+	return o.Note, true
 }
 
 // HasNote returns a boolean if a field has been set.
 func (o *PatchTaskInstanceBody) HasNote() bool {
-	if o != nil && o.Note.IsSet() {
+	if o != nil && !IsNil(o.Note) {
 		return true
 	}
 
 	return false
 }
 
-// SetNote gets a reference to the given NullableString and assigns it to the Note field.
+// SetNote gets a reference to the given string and assigns it to the Note field.
 func (o *PatchTaskInstanceBody) SetNote(v string) {
-	o.Note.Set(&v)
-}
-// SetNoteNil sets the value for Note to be an explicit nil
-func (o *PatchTaskInstanceBody) SetNoteNil() {
-	o.Note.Set(nil)
-}
-
-// UnsetNote ensures that no value is present for Note, not even an explicit nil
-func (o *PatchTaskInstanceBody) UnsetNote() {
-	o.Note.Unset()
+	o.Note = &v
 }
 
 // GetIncludeUpstream returns the IncludeUpstream field value if set, zero value otherwise.
@@ -282,11 +262,11 @@ func (o PatchTaskInstanceBody) MarshalJSON() ([]byte, error) {
 
 func (o PatchTaskInstanceBody) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.NewState.IsSet() {
-		toSerialize["new_state"] = o.NewState.Get()
+	if !IsNil(o.NewState) {
+		toSerialize["new_state"] = o.NewState
 	}
-	if o.Note.IsSet() {
-		toSerialize["note"] = o.Note.Get()
+	if !IsNil(o.Note) {
+		toSerialize["note"] = o.Note
 	}
 	if !IsNil(o.IncludeUpstream) {
 		toSerialize["include_upstream"] = o.IncludeUpstream

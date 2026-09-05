@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** |  | 
 **Timestamp** | **time.Time** |  | 
-**LogicalDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
 **MapIndex** | **int32** |  | 
 **TaskId** | **string** |  | 
 **DagId** | **string** |  | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewXComResponseNative
 
-`func NewXComResponseNative(key string, timestamp time.Time, logicalDate NullableTime, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value interface{}, ) *XComResponseNative`
+`func NewXComResponseNative(key string, timestamp time.Time, logicalDate time.Time, mapIndex int32, taskId string, dagId string, runId string, dagDisplayName string, taskDisplayName string, runAfter time.Time, value interface{}, ) *XComResponseNative`
 
 NewXComResponseNative instantiates a new XComResponseNative object
 This constructor will assign default values to properties that have it defined,
@@ -95,16 +95,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *XComResponseNative) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *XComResponseNative) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetMapIndex
 
 `func (o *XComResponseNative) GetMapIndex() int32`

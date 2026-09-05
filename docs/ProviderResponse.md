@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **PackageName** | **string** |  | 
 **Description** | **string** |  | 
 **Version** | **string** |  | 
-**DocumentationUrl** | **NullableString** |  | 
+**DocumentationUrl** | **string** |  | 
 
 ## Methods
 
 ### NewProviderResponse
 
-`func NewProviderResponse(packageName string, description string, version string, documentationUrl NullableString, ) *ProviderResponse`
+`func NewProviderResponse(packageName string, description string, version string, documentationUrl string, ) *ProviderResponse`
 
 NewProviderResponse instantiates a new ProviderResponse object
 This constructor will assign default values to properties that have it defined,
@@ -108,16 +108,6 @@ and a boolean to check if the value has been set.
 SetDocumentationUrl sets DocumentationUrl field to given value.
 
 
-### SetDocumentationUrlNil
-
-`func (o *ProviderResponse) SetDocumentationUrlNil(b bool)`
-
- SetDocumentationUrlNil sets the value for DocumentationUrl to be an explicit nil
-
-### UnsetDocumentationUrl
-`func (o *ProviderResponse) UnsetDocumentationUrl()`
-
-UnsetDocumentationUrl ensures that no value is present for DocumentationUrl, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

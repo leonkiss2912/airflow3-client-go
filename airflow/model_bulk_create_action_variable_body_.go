@@ -38,7 +38,7 @@ func NewBulkCreateActionVariableBody(action string, entities []VariableBody) *Bu
 	this := BulkCreateActionVariableBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkCreateActionVariableBody(action string, entities []VariableBody) *Bu
 // but it doesn't guarantee that properties required by API are set
 func NewBulkCreateActionVariableBodyWithDefaults() *BulkCreateActionVariableBody {
 	this := BulkCreateActionVariableBody{}
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }

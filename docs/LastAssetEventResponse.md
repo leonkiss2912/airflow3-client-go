@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableInt32** |  | [optional] 
-**Timestamp** | Pointer to **NullableTime** |  | [optional] 
+**Id** | Pointer to **int32** |  | [optional] 
+**Timestamp** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -51,16 +51,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### SetIdNil
-
-`func (o *LastAssetEventResponse) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *LastAssetEventResponse) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTimestamp
 
 `func (o *LastAssetEventResponse) GetTimestamp() time.Time`
@@ -86,16 +76,6 @@ SetTimestamp sets Timestamp field to given value.
 
 HasTimestamp returns a boolean if a field has been set.
 
-### SetTimestampNil
-
-`func (o *LastAssetEventResponse) SetTimestampNil(b bool)`
-
- SetTimestampNil sets the value for Timestamp to be an explicit nil
-
-### UnsetTimestamp
-`func (o *LastAssetEventResponse) UnsetTimestamp()`
-
-UnsetTimestamp ensures that no value is present for Timestamp, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

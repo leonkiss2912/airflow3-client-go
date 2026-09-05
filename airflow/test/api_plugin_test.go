@@ -1,7 +1,7 @@
 /*
 Airflow API
 
-Testing TaskAPIService
+Testing PluginAPIService
 
 */
 
@@ -14,22 +14,19 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID/airflow"
+	openapiclient "github.com/leonkiss2912/airflow3-client-go"
 )
 
-func Test_airflow_TaskAPIService(t *testing.T) {
+func Test_airflow_PluginAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TaskAPIService GetTask", func(t *testing.T) {
+	t.Run("Test PluginAPIService GetPlugins", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var dagId string
-		var taskId openapiclient.interface{}
-
-		resp, httpRes, err := apiClient.TaskAPI.GetTask(context.Background(), dagId, taskId).Execute()
+		resp, httpRes, err := apiClient.PluginAPI.GetPlugins(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,13 +34,11 @@ func Test_airflow_TaskAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test TaskAPIService GetTasks", func(t *testing.T) {
+	t.Run("Test PluginAPIService ImportErrors", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var dagId string
-
-		resp, httpRes, err := apiClient.TaskAPI.GetTasks(context.Background(), dagId).Execute()
+		resp, httpRes, err := apiClient.PluginAPI.ImportErrors(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LogicalDate** | **NullableTime** |  | 
-**PartitionKey** | **NullableString** |  | 
-**PartitionDate** | **NullableTime** |  | 
+**LogicalDate** | **time.Time** |  | 
+**PartitionKey** | **string** |  | 
+**PartitionDate** | **time.Time** |  | 
 
 ## Methods
 
 ### NewDryRunBackfillResponse
 
-`func NewDryRunBackfillResponse(logicalDate NullableTime, partitionKey NullableString, partitionDate NullableTime, ) *DryRunBackfillResponse`
+`func NewDryRunBackfillResponse(logicalDate time.Time, partitionKey string, partitionDate time.Time, ) *DryRunBackfillResponse`
 
 NewDryRunBackfillResponse instantiates a new DryRunBackfillResponse object
 This constructor will assign default values to properties that have it defined,
@@ -47,16 +47,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *DryRunBackfillResponse) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *DryRunBackfillResponse) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetPartitionKey
 
 `func (o *DryRunBackfillResponse) GetPartitionKey() string`
@@ -77,16 +67,6 @@ and a boolean to check if the value has been set.
 SetPartitionKey sets PartitionKey field to given value.
 
 
-### SetPartitionKeyNil
-
-`func (o *DryRunBackfillResponse) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *DryRunBackfillResponse) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 ### GetPartitionDate
 
 `func (o *DryRunBackfillResponse) GetPartitionDate() time.Time`
@@ -107,16 +87,6 @@ and a boolean to check if the value has been set.
 SetPartitionDate sets PartitionDate field to given value.
 
 
-### SetPartitionDateNil
-
-`func (o *DryRunBackfillResponse) SetPartitionDateNil(b bool)`
-
- SetPartitionDateNil sets the value for PartitionDate to be an explicit nil
-
-### UnsetPartitionDate
-`func (o *DryRunBackfillResponse) UnsetPartitionDate()`
-
-UnsetPartitionDate ensures that no value is present for PartitionDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DagRunId** | Pointer to **NullableString** |  | [optional] 
-**DataIntervalStart** | Pointer to **NullableTime** |  | [optional] 
-**DataIntervalEnd** | Pointer to **NullableTime** |  | [optional] 
-**LogicalDate** | **NullableTime** |  | 
-**RunAfter** | Pointer to **NullableTime** |  | [optional] 
+**DagRunId** | Pointer to **string** |  | [optional] 
+**DataIntervalStart** | Pointer to **time.Time** |  | [optional] 
+**DataIntervalEnd** | Pointer to **time.Time** |  | [optional] 
+**LogicalDate** | **time.Time** |  | 
+**RunAfter** | Pointer to **time.Time** |  | [optional] 
 **Conf** | Pointer to **map[string]interface{}** |  | [optional] 
-**Note** | Pointer to **NullableString** |  | [optional] 
-**PartitionKey** | Pointer to **NullableString** |  | [optional] 
+**Note** | Pointer to **string** |  | [optional] 
+**PartitionKey** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewTriggerDAGRunPostBody
 
-`func NewTriggerDAGRunPostBody(logicalDate NullableTime, ) *TriggerDAGRunPostBody`
+`func NewTriggerDAGRunPostBody(logicalDate time.Time, ) *TriggerDAGRunPostBody`
 
 NewTriggerDAGRunPostBody instantiates a new TriggerDAGRunPostBody object
 This constructor will assign default values to properties that have it defined,
@@ -57,16 +57,6 @@ SetDagRunId sets DagRunId field to given value.
 
 HasDagRunId returns a boolean if a field has been set.
 
-### SetDagRunIdNil
-
-`func (o *TriggerDAGRunPostBody) SetDagRunIdNil(b bool)`
-
- SetDagRunIdNil sets the value for DagRunId to be an explicit nil
-
-### UnsetDagRunId
-`func (o *TriggerDAGRunPostBody) UnsetDagRunId()`
-
-UnsetDagRunId ensures that no value is present for DagRunId, not even an explicit nil
 ### GetDataIntervalStart
 
 `func (o *TriggerDAGRunPostBody) GetDataIntervalStart() time.Time`
@@ -92,16 +82,6 @@ SetDataIntervalStart sets DataIntervalStart field to given value.
 
 HasDataIntervalStart returns a boolean if a field has been set.
 
-### SetDataIntervalStartNil
-
-`func (o *TriggerDAGRunPostBody) SetDataIntervalStartNil(b bool)`
-
- SetDataIntervalStartNil sets the value for DataIntervalStart to be an explicit nil
-
-### UnsetDataIntervalStart
-`func (o *TriggerDAGRunPostBody) UnsetDataIntervalStart()`
-
-UnsetDataIntervalStart ensures that no value is present for DataIntervalStart, not even an explicit nil
 ### GetDataIntervalEnd
 
 `func (o *TriggerDAGRunPostBody) GetDataIntervalEnd() time.Time`
@@ -127,16 +107,6 @@ SetDataIntervalEnd sets DataIntervalEnd field to given value.
 
 HasDataIntervalEnd returns a boolean if a field has been set.
 
-### SetDataIntervalEndNil
-
-`func (o *TriggerDAGRunPostBody) SetDataIntervalEndNil(b bool)`
-
- SetDataIntervalEndNil sets the value for DataIntervalEnd to be an explicit nil
-
-### UnsetDataIntervalEnd
-`func (o *TriggerDAGRunPostBody) UnsetDataIntervalEnd()`
-
-UnsetDataIntervalEnd ensures that no value is present for DataIntervalEnd, not even an explicit nil
 ### GetLogicalDate
 
 `func (o *TriggerDAGRunPostBody) GetLogicalDate() time.Time`
@@ -157,16 +127,6 @@ and a boolean to check if the value has been set.
 SetLogicalDate sets LogicalDate field to given value.
 
 
-### SetLogicalDateNil
-
-`func (o *TriggerDAGRunPostBody) SetLogicalDateNil(b bool)`
-
- SetLogicalDateNil sets the value for LogicalDate to be an explicit nil
-
-### UnsetLogicalDate
-`func (o *TriggerDAGRunPostBody) UnsetLogicalDate()`
-
-UnsetLogicalDate ensures that no value is present for LogicalDate, not even an explicit nil
 ### GetRunAfter
 
 `func (o *TriggerDAGRunPostBody) GetRunAfter() time.Time`
@@ -192,16 +152,6 @@ SetRunAfter sets RunAfter field to given value.
 
 HasRunAfter returns a boolean if a field has been set.
 
-### SetRunAfterNil
-
-`func (o *TriggerDAGRunPostBody) SetRunAfterNil(b bool)`
-
- SetRunAfterNil sets the value for RunAfter to be an explicit nil
-
-### UnsetRunAfter
-`func (o *TriggerDAGRunPostBody) UnsetRunAfter()`
-
-UnsetRunAfter ensures that no value is present for RunAfter, not even an explicit nil
 ### GetConf
 
 `func (o *TriggerDAGRunPostBody) GetConf() map[string]interface{}`
@@ -227,16 +177,6 @@ SetConf sets Conf field to given value.
 
 HasConf returns a boolean if a field has been set.
 
-### SetConfNil
-
-`func (o *TriggerDAGRunPostBody) SetConfNil(b bool)`
-
- SetConfNil sets the value for Conf to be an explicit nil
-
-### UnsetConf
-`func (o *TriggerDAGRunPostBody) UnsetConf()`
-
-UnsetConf ensures that no value is present for Conf, not even an explicit nil
 ### GetNote
 
 `func (o *TriggerDAGRunPostBody) GetNote() string`
@@ -262,16 +202,6 @@ SetNote sets Note field to given value.
 
 HasNote returns a boolean if a field has been set.
 
-### SetNoteNil
-
-`func (o *TriggerDAGRunPostBody) SetNoteNil(b bool)`
-
- SetNoteNil sets the value for Note to be an explicit nil
-
-### UnsetNote
-`func (o *TriggerDAGRunPostBody) UnsetNote()`
-
-UnsetNote ensures that no value is present for Note, not even an explicit nil
 ### GetPartitionKey
 
 `func (o *TriggerDAGRunPostBody) GetPartitionKey() string`
@@ -297,16 +227,6 @@ SetPartitionKey sets PartitionKey field to given value.
 
 HasPartitionKey returns a boolean if a field has been set.
 
-### SetPartitionKeyNil
-
-`func (o *TriggerDAGRunPostBody) SetPartitionKeyNil(b bool)`
-
- SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-
-### UnsetPartitionKey
-`func (o *TriggerDAGRunPostBody) UnsetPartitionKey()`
-
-UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

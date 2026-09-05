@@ -31,7 +31,7 @@ type BackfillResponse struct {
 	ReprocessBehavior ReprocessBehavior `json:"reprocess_behavior"`
 	MaxActiveRuns int32 `json:"max_active_runs"`
 	CreatedAt time.Time `json:"created_at"`
-	CompletedAt NullableTime `json:"completed_at"`
+	CompletedAt time.Time `json:"completed_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	DagDisplayName string `json:"dag_display_name"`
 }
@@ -42,7 +42,7 @@ type _BackfillResponse BackfillResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBackfillResponse(id int32, dagId string, fromDate time.Time, toDate time.Time, dagRunConf map[string]interface{}, isPaused bool, reprocessBehavior ReprocessBehavior, maxActiveRuns int32, createdAt time.Time, completedAt NullableTime, updatedAt time.Time, dagDisplayName string) *BackfillResponse {
+func NewBackfillResponse(id int32, dagId string, fromDate time.Time, toDate time.Time, dagRunConf map[string]interface{}, isPaused bool, reprocessBehavior ReprocessBehavior, maxActiveRuns int32, createdAt time.Time, completedAt time.Time, updatedAt time.Time, dagDisplayName string) *BackfillResponse {
 	this := BackfillResponse{}
 	this.Id = id
 	this.DagId = dagId
@@ -164,7 +164,6 @@ func (o *BackfillResponse) SetToDate(v time.Time) {
 }
 
 // GetDagRunConf returns the DagRunConf field value
-// If the value is explicit nil, the zero value for map[string]interface{} will be returned
 func (o *BackfillResponse) GetDagRunConf() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
@@ -176,9 +175,8 @@ func (o *BackfillResponse) GetDagRunConf() map[string]interface{} {
 
 // GetDagRunConfOk returns a tuple with the DagRunConf field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackfillResponse) GetDagRunConfOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.DagRunConf) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.DagRunConf, true
@@ -286,29 +284,27 @@ func (o *BackfillResponse) SetCreatedAt(v time.Time) {
 }
 
 // GetCompletedAt returns the CompletedAt field value
-// If the value is explicit nil, the zero value for time.Time will be returned
 func (o *BackfillResponse) GetCompletedAt() time.Time {
-	if o == nil || o.CompletedAt.Get() == nil {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
 
-	return *o.CompletedAt.Get()
+	return o.CompletedAt
 }
 
 // GetCompletedAtOk returns a tuple with the CompletedAt field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackfillResponse) GetCompletedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CompletedAt.Get(), o.CompletedAt.IsSet()
+	return &o.CompletedAt, true
 }
 
 // SetCompletedAt sets field value
 func (o *BackfillResponse) SetCompletedAt(v time.Time) {
-	o.CompletedAt.Set(&v)
+	o.CompletedAt = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value
@@ -373,14 +369,12 @@ func (o BackfillResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["dag_id"] = o.DagId
 	toSerialize["from_date"] = o.FromDate
 	toSerialize["to_date"] = o.ToDate
-	if o.DagRunConf != nil {
-		toSerialize["dag_run_conf"] = o.DagRunConf
-	}
+	toSerialize["dag_run_conf"] = o.DagRunConf
 	toSerialize["is_paused"] = o.IsPaused
 	toSerialize["reprocess_behavior"] = o.ReprocessBehavior
 	toSerialize["max_active_runs"] = o.MaxActiveRuns
 	toSerialize["created_at"] = o.CreatedAt
-	toSerialize["completed_at"] = o.CompletedAt.Get()
+	toSerialize["completed_at"] = o.CompletedAt
 	toSerialize["updated_at"] = o.UpdatedAt
 	toSerialize["dag_display_name"] = o.DagDisplayName
 	return toSerialize, nil

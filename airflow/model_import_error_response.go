@@ -25,7 +25,7 @@ type ImportErrorResponse struct {
 	ImportErrorId int32 `json:"import_error_id"`
 	Timestamp time.Time `json:"timestamp"`
 	Filename string `json:"filename"`
-	BundleName NullableString `json:"bundle_name"`
+	BundleName string `json:"bundle_name"`
 	StackTrace string `json:"stack_trace"`
 }
 
@@ -35,7 +35,7 @@ type _ImportErrorResponse ImportErrorResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImportErrorResponse(importErrorId int32, timestamp time.Time, filename string, bundleName NullableString, stackTrace string) *ImportErrorResponse {
+func NewImportErrorResponse(importErrorId int32, timestamp time.Time, filename string, bundleName string, stackTrace string) *ImportErrorResponse {
 	this := ImportErrorResponse{}
 	this.ImportErrorId = importErrorId
 	this.Timestamp = timestamp
@@ -126,29 +126,27 @@ func (o *ImportErrorResponse) SetFilename(v string) {
 }
 
 // GetBundleName returns the BundleName field value
-// If the value is explicit nil, the zero value for string will be returned
 func (o *ImportErrorResponse) GetBundleName() string {
-	if o == nil || o.BundleName.Get() == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return *o.BundleName.Get()
+	return o.BundleName
 }
 
 // GetBundleNameOk returns a tuple with the BundleName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ImportErrorResponse) GetBundleNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.BundleName.Get(), o.BundleName.IsSet()
+	return &o.BundleName, true
 }
 
 // SetBundleName sets field value
 func (o *ImportErrorResponse) SetBundleName(v string) {
-	o.BundleName.Set(&v)
+	o.BundleName = v
 }
 
 // GetStackTrace returns the StackTrace field value
@@ -188,7 +186,7 @@ func (o ImportErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["import_error_id"] = o.ImportErrorId
 	toSerialize["timestamp"] = o.Timestamp
 	toSerialize["filename"] = o.Filename
-	toSerialize["bundle_name"] = o.BundleName.Get()
+	toSerialize["bundle_name"] = o.BundleName
 	toSerialize["stack_trace"] = o.StackTrace
 	return toSerialize, nil
 }

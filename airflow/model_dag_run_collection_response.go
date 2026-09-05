@@ -23,11 +23,11 @@ var _ MappedNullable = &DAGRunCollectionResponse{}
 type DAGRunCollectionResponse struct {
 	DagRuns []DAGRunResponse `json:"dag_runs"`
 	// Total number of matching items. Populated for offset pagination, ``null`` when using cursor pagination.
-	TotalEntries NullableInt32 `json:"total_entries,omitempty"`
+	TotalEntries *int32 `json:"total_entries,omitempty"`
 	// Token pointing to the next page. Populated for cursor pagination, ``null`` when using offset pagination or when there is no next page.
-	NextCursor NullableString `json:"next_cursor,omitempty"`
+	NextCursor *string `json:"next_cursor,omitempty"`
 	// Token pointing to the previous page. Populated for cursor pagination, ``null`` when using offset pagination or when on the first page.
-	PreviousCursor NullableString `json:"previous_cursor,omitempty"`
+	PreviousCursor *string `json:"previous_cursor,omitempty"`
 }
 
 type _DAGRunCollectionResponse DAGRunCollectionResponse
@@ -74,130 +74,100 @@ func (o *DAGRunCollectionResponse) SetDagRuns(v []DAGRunResponse) {
 	o.DagRuns = v
 }
 
-// GetTotalEntries returns the TotalEntries field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTotalEntries returns the TotalEntries field value if set, zero value otherwise.
 func (o *DAGRunCollectionResponse) GetTotalEntries() int32 {
-	if o == nil || IsNil(o.TotalEntries.Get()) {
+	if o == nil || IsNil(o.TotalEntries) {
 		var ret int32
 		return ret
 	}
-	return *o.TotalEntries.Get()
+	return *o.TotalEntries
 }
 
 // GetTotalEntriesOk returns a tuple with the TotalEntries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunCollectionResponse) GetTotalEntriesOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TotalEntries) {
 		return nil, false
 	}
-	return o.TotalEntries.Get(), o.TotalEntries.IsSet()
+	return o.TotalEntries, true
 }
 
 // HasTotalEntries returns a boolean if a field has been set.
 func (o *DAGRunCollectionResponse) HasTotalEntries() bool {
-	if o != nil && o.TotalEntries.IsSet() {
+	if o != nil && !IsNil(o.TotalEntries) {
 		return true
 	}
 
 	return false
 }
 
-// SetTotalEntries gets a reference to the given NullableInt32 and assigns it to the TotalEntries field.
+// SetTotalEntries gets a reference to the given int32 and assigns it to the TotalEntries field.
 func (o *DAGRunCollectionResponse) SetTotalEntries(v int32) {
-	o.TotalEntries.Set(&v)
-}
-// SetTotalEntriesNil sets the value for TotalEntries to be an explicit nil
-func (o *DAGRunCollectionResponse) SetTotalEntriesNil() {
-	o.TotalEntries.Set(nil)
+	o.TotalEntries = &v
 }
 
-// UnsetTotalEntries ensures that no value is present for TotalEntries, not even an explicit nil
-func (o *DAGRunCollectionResponse) UnsetTotalEntries() {
-	o.TotalEntries.Unset()
-}
-
-// GetNextCursor returns the NextCursor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetNextCursor returns the NextCursor field value if set, zero value otherwise.
 func (o *DAGRunCollectionResponse) GetNextCursor() string {
-	if o == nil || IsNil(o.NextCursor.Get()) {
+	if o == nil || IsNil(o.NextCursor) {
 		var ret string
 		return ret
 	}
-	return *o.NextCursor.Get()
+	return *o.NextCursor
 }
 
 // GetNextCursorOk returns a tuple with the NextCursor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunCollectionResponse) GetNextCursorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NextCursor) {
 		return nil, false
 	}
-	return o.NextCursor.Get(), o.NextCursor.IsSet()
+	return o.NextCursor, true
 }
 
 // HasNextCursor returns a boolean if a field has been set.
 func (o *DAGRunCollectionResponse) HasNextCursor() bool {
-	if o != nil && o.NextCursor.IsSet() {
+	if o != nil && !IsNil(o.NextCursor) {
 		return true
 	}
 
 	return false
 }
 
-// SetNextCursor gets a reference to the given NullableString and assigns it to the NextCursor field.
+// SetNextCursor gets a reference to the given string and assigns it to the NextCursor field.
 func (o *DAGRunCollectionResponse) SetNextCursor(v string) {
-	o.NextCursor.Set(&v)
-}
-// SetNextCursorNil sets the value for NextCursor to be an explicit nil
-func (o *DAGRunCollectionResponse) SetNextCursorNil() {
-	o.NextCursor.Set(nil)
+	o.NextCursor = &v
 }
 
-// UnsetNextCursor ensures that no value is present for NextCursor, not even an explicit nil
-func (o *DAGRunCollectionResponse) UnsetNextCursor() {
-	o.NextCursor.Unset()
-}
-
-// GetPreviousCursor returns the PreviousCursor field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPreviousCursor returns the PreviousCursor field value if set, zero value otherwise.
 func (o *DAGRunCollectionResponse) GetPreviousCursor() string {
-	if o == nil || IsNil(o.PreviousCursor.Get()) {
+	if o == nil || IsNil(o.PreviousCursor) {
 		var ret string
 		return ret
 	}
-	return *o.PreviousCursor.Get()
+	return *o.PreviousCursor
 }
 
 // GetPreviousCursorOk returns a tuple with the PreviousCursor field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *DAGRunCollectionResponse) GetPreviousCursorOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PreviousCursor) {
 		return nil, false
 	}
-	return o.PreviousCursor.Get(), o.PreviousCursor.IsSet()
+	return o.PreviousCursor, true
 }
 
 // HasPreviousCursor returns a boolean if a field has been set.
 func (o *DAGRunCollectionResponse) HasPreviousCursor() bool {
-	if o != nil && o.PreviousCursor.IsSet() {
+	if o != nil && !IsNil(o.PreviousCursor) {
 		return true
 	}
 
 	return false
 }
 
-// SetPreviousCursor gets a reference to the given NullableString and assigns it to the PreviousCursor field.
+// SetPreviousCursor gets a reference to the given string and assigns it to the PreviousCursor field.
 func (o *DAGRunCollectionResponse) SetPreviousCursor(v string) {
-	o.PreviousCursor.Set(&v)
-}
-// SetPreviousCursorNil sets the value for PreviousCursor to be an explicit nil
-func (o *DAGRunCollectionResponse) SetPreviousCursorNil() {
-	o.PreviousCursor.Set(nil)
-}
-
-// UnsetPreviousCursor ensures that no value is present for PreviousCursor, not even an explicit nil
-func (o *DAGRunCollectionResponse) UnsetPreviousCursor() {
-	o.PreviousCursor.Unset()
+	o.PreviousCursor = &v
 }
 
 func (o DAGRunCollectionResponse) MarshalJSON() ([]byte, error) {
@@ -211,14 +181,14 @@ func (o DAGRunCollectionResponse) MarshalJSON() ([]byte, error) {
 func (o DAGRunCollectionResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["dag_runs"] = o.DagRuns
-	if o.TotalEntries.IsSet() {
-		toSerialize["total_entries"] = o.TotalEntries.Get()
+	if !IsNil(o.TotalEntries) {
+		toSerialize["total_entries"] = o.TotalEntries
 	}
-	if o.NextCursor.IsSet() {
-		toSerialize["next_cursor"] = o.NextCursor.Get()
+	if !IsNil(o.NextCursor) {
+		toSerialize["next_cursor"] = o.NextCursor
 	}
-	if o.PreviousCursor.IsSet() {
-		toSerialize["previous_cursor"] = o.PreviousCursor.Get()
+	if !IsNil(o.PreviousCursor) {
+		toSerialize["previous_cursor"] = o.PreviousCursor
 	}
 	return toSerialize, nil
 }

@@ -24,17 +24,17 @@ var _ MappedNullable = &AssetEventResponse{}
 type AssetEventResponse struct {
 	Id int32 `json:"id"`
 	AssetId int32 `json:"asset_id"`
-	Uri NullableString `json:"uri,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Group NullableString `json:"group,omitempty"`
+	Uri *string `json:"uri,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Group *string `json:"group,omitempty"`
 	Extra map[string]*interface{} `json:"extra,omitempty"`
-	SourceTaskId NullableString `json:"source_task_id,omitempty"`
-	SourceDagId NullableString `json:"source_dag_id,omitempty"`
-	SourceRunId NullableString `json:"source_run_id,omitempty"`
+	SourceTaskId *string `json:"source_task_id,omitempty"`
+	SourceDagId *string `json:"source_dag_id,omitempty"`
+	SourceRunId *string `json:"source_run_id,omitempty"`
 	SourceMapIndex int32 `json:"source_map_index"`
 	CreatedDagruns []DagRunAssetReference `json:"created_dagruns"`
 	Timestamp time.Time `json:"timestamp"`
-	PartitionKey NullableString `json:"partition_key,omitempty"`
+	PartitionKey *string `json:"partition_key,omitempty"`
 }
 
 type _AssetEventResponse AssetEventResponse
@@ -109,135 +109,105 @@ func (o *AssetEventResponse) SetAssetId(v int32) {
 	o.AssetId = v
 }
 
-// GetUri returns the Uri field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUri returns the Uri field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetUri() string {
-	if o == nil || IsNil(o.Uri.Get()) {
+	if o == nil || IsNil(o.Uri) {
 		var ret string
 		return ret
 	}
-	return *o.Uri.Get()
+	return *o.Uri
 }
 
 // GetUriOk returns a tuple with the Uri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetUriOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Uri) {
 		return nil, false
 	}
-	return o.Uri.Get(), o.Uri.IsSet()
+	return o.Uri, true
 }
 
 // HasUri returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasUri() bool {
-	if o != nil && o.Uri.IsSet() {
+	if o != nil && !IsNil(o.Uri) {
 		return true
 	}
 
 	return false
 }
 
-// SetUri gets a reference to the given NullableString and assigns it to the Uri field.
+// SetUri gets a reference to the given string and assigns it to the Uri field.
 func (o *AssetEventResponse) SetUri(v string) {
-	o.Uri.Set(&v)
-}
-// SetUriNil sets the value for Uri to be an explicit nil
-func (o *AssetEventResponse) SetUriNil() {
-	o.Uri.Set(nil)
+	o.Uri = &v
 }
 
-// UnsetUri ensures that no value is present for Uri, not even an explicit nil
-func (o *AssetEventResponse) UnsetUri() {
-	o.Uri.Unset()
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *AssetEventResponse) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *AssetEventResponse) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AssetEventResponse) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetGroup returns the Group field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetGroup() string {
-	if o == nil || IsNil(o.Group.Get()) {
+	if o == nil || IsNil(o.Group) {
 		var ret string
 		return ret
 	}
-	return *o.Group.Get()
+	return *o.Group
 }
 
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetGroupOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Group) {
 		return nil, false
 	}
-	return o.Group.Get(), o.Group.IsSet()
+	return o.Group, true
 }
 
 // HasGroup returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasGroup() bool {
-	if o != nil && o.Group.IsSet() {
+	if o != nil && !IsNil(o.Group) {
 		return true
 	}
 
 	return false
 }
 
-// SetGroup gets a reference to the given NullableString and assigns it to the Group field.
+// SetGroup gets a reference to the given string and assigns it to the Group field.
 func (o *AssetEventResponse) SetGroup(v string) {
-	o.Group.Set(&v)
-}
-// SetGroupNil sets the value for Group to be an explicit nil
-func (o *AssetEventResponse) SetGroupNil() {
-	o.Group.Set(nil)
+	o.Group = &v
 }
 
-// UnsetGroup ensures that no value is present for Group, not even an explicit nil
-func (o *AssetEventResponse) UnsetGroup() {
-	o.Group.Unset()
-}
-
-// GetExtra returns the Extra field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtra returns the Extra field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetExtra() map[string]*interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Extra) {
 		var ret map[string]*interface{}
 		return ret
 	}
@@ -246,7 +216,6 @@ func (o *AssetEventResponse) GetExtra() map[string]*interface{} {
 
 // GetExtraOk returns a tuple with the Extra field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetExtraOk() (map[string]*interface{}, bool) {
 	if o == nil || IsNil(o.Extra) {
 		return map[string]*interface{}{}, false
@@ -268,130 +237,100 @@ func (o *AssetEventResponse) SetExtra(v map[string]*interface{}) {
 	o.Extra = v
 }
 
-// GetSourceTaskId returns the SourceTaskId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceTaskId returns the SourceTaskId field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetSourceTaskId() string {
-	if o == nil || IsNil(o.SourceTaskId.Get()) {
+	if o == nil || IsNil(o.SourceTaskId) {
 		var ret string
 		return ret
 	}
-	return *o.SourceTaskId.Get()
+	return *o.SourceTaskId
 }
 
 // GetSourceTaskIdOk returns a tuple with the SourceTaskId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetSourceTaskIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SourceTaskId) {
 		return nil, false
 	}
-	return o.SourceTaskId.Get(), o.SourceTaskId.IsSet()
+	return o.SourceTaskId, true
 }
 
 // HasSourceTaskId returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasSourceTaskId() bool {
-	if o != nil && o.SourceTaskId.IsSet() {
+	if o != nil && !IsNil(o.SourceTaskId) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceTaskId gets a reference to the given NullableString and assigns it to the SourceTaskId field.
+// SetSourceTaskId gets a reference to the given string and assigns it to the SourceTaskId field.
 func (o *AssetEventResponse) SetSourceTaskId(v string) {
-	o.SourceTaskId.Set(&v)
-}
-// SetSourceTaskIdNil sets the value for SourceTaskId to be an explicit nil
-func (o *AssetEventResponse) SetSourceTaskIdNil() {
-	o.SourceTaskId.Set(nil)
+	o.SourceTaskId = &v
 }
 
-// UnsetSourceTaskId ensures that no value is present for SourceTaskId, not even an explicit nil
-func (o *AssetEventResponse) UnsetSourceTaskId() {
-	o.SourceTaskId.Unset()
-}
-
-// GetSourceDagId returns the SourceDagId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceDagId returns the SourceDagId field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetSourceDagId() string {
-	if o == nil || IsNil(o.SourceDagId.Get()) {
+	if o == nil || IsNil(o.SourceDagId) {
 		var ret string
 		return ret
 	}
-	return *o.SourceDagId.Get()
+	return *o.SourceDagId
 }
 
 // GetSourceDagIdOk returns a tuple with the SourceDagId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetSourceDagIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SourceDagId) {
 		return nil, false
 	}
-	return o.SourceDagId.Get(), o.SourceDagId.IsSet()
+	return o.SourceDagId, true
 }
 
 // HasSourceDagId returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasSourceDagId() bool {
-	if o != nil && o.SourceDagId.IsSet() {
+	if o != nil && !IsNil(o.SourceDagId) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceDagId gets a reference to the given NullableString and assigns it to the SourceDagId field.
+// SetSourceDagId gets a reference to the given string and assigns it to the SourceDagId field.
 func (o *AssetEventResponse) SetSourceDagId(v string) {
-	o.SourceDagId.Set(&v)
-}
-// SetSourceDagIdNil sets the value for SourceDagId to be an explicit nil
-func (o *AssetEventResponse) SetSourceDagIdNil() {
-	o.SourceDagId.Set(nil)
+	o.SourceDagId = &v
 }
 
-// UnsetSourceDagId ensures that no value is present for SourceDagId, not even an explicit nil
-func (o *AssetEventResponse) UnsetSourceDagId() {
-	o.SourceDagId.Unset()
-}
-
-// GetSourceRunId returns the SourceRunId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSourceRunId returns the SourceRunId field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetSourceRunId() string {
-	if o == nil || IsNil(o.SourceRunId.Get()) {
+	if o == nil || IsNil(o.SourceRunId) {
 		var ret string
 		return ret
 	}
-	return *o.SourceRunId.Get()
+	return *o.SourceRunId
 }
 
 // GetSourceRunIdOk returns a tuple with the SourceRunId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetSourceRunIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SourceRunId) {
 		return nil, false
 	}
-	return o.SourceRunId.Get(), o.SourceRunId.IsSet()
+	return o.SourceRunId, true
 }
 
 // HasSourceRunId returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasSourceRunId() bool {
-	if o != nil && o.SourceRunId.IsSet() {
+	if o != nil && !IsNil(o.SourceRunId) {
 		return true
 	}
 
 	return false
 }
 
-// SetSourceRunId gets a reference to the given NullableString and assigns it to the SourceRunId field.
+// SetSourceRunId gets a reference to the given string and assigns it to the SourceRunId field.
 func (o *AssetEventResponse) SetSourceRunId(v string) {
-	o.SourceRunId.Set(&v)
-}
-// SetSourceRunIdNil sets the value for SourceRunId to be an explicit nil
-func (o *AssetEventResponse) SetSourceRunIdNil() {
-	o.SourceRunId.Set(nil)
-}
-
-// UnsetSourceRunId ensures that no value is present for SourceRunId, not even an explicit nil
-func (o *AssetEventResponse) UnsetSourceRunId() {
-	o.SourceRunId.Unset()
+	o.SourceRunId = &v
 }
 
 // GetSourceMapIndex returns the SourceMapIndex field value
@@ -466,46 +405,36 @@ func (o *AssetEventResponse) SetTimestamp(v time.Time) {
 	o.Timestamp = v
 }
 
-// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPartitionKey returns the PartitionKey field value if set, zero value otherwise.
 func (o *AssetEventResponse) GetPartitionKey() string {
-	if o == nil || IsNil(o.PartitionKey.Get()) {
+	if o == nil || IsNil(o.PartitionKey) {
 		var ret string
 		return ret
 	}
-	return *o.PartitionKey.Get()
+	return *o.PartitionKey
 }
 
 // GetPartitionKeyOk returns a tuple with the PartitionKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AssetEventResponse) GetPartitionKeyOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PartitionKey) {
 		return nil, false
 	}
-	return o.PartitionKey.Get(), o.PartitionKey.IsSet()
+	return o.PartitionKey, true
 }
 
 // HasPartitionKey returns a boolean if a field has been set.
 func (o *AssetEventResponse) HasPartitionKey() bool {
-	if o != nil && o.PartitionKey.IsSet() {
+	if o != nil && !IsNil(o.PartitionKey) {
 		return true
 	}
 
 	return false
 }
 
-// SetPartitionKey gets a reference to the given NullableString and assigns it to the PartitionKey field.
+// SetPartitionKey gets a reference to the given string and assigns it to the PartitionKey field.
 func (o *AssetEventResponse) SetPartitionKey(v string) {
-	o.PartitionKey.Set(&v)
-}
-// SetPartitionKeyNil sets the value for PartitionKey to be an explicit nil
-func (o *AssetEventResponse) SetPartitionKeyNil() {
-	o.PartitionKey.Set(nil)
-}
-
-// UnsetPartitionKey ensures that no value is present for PartitionKey, not even an explicit nil
-func (o *AssetEventResponse) UnsetPartitionKey() {
-	o.PartitionKey.Unset()
+	o.PartitionKey = &v
 }
 
 func (o AssetEventResponse) MarshalJSON() ([]byte, error) {
@@ -520,32 +449,32 @@ func (o AssetEventResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["asset_id"] = o.AssetId
-	if o.Uri.IsSet() {
-		toSerialize["uri"] = o.Uri.Get()
+	if !IsNil(o.Uri) {
+		toSerialize["uri"] = o.Uri
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Group.IsSet() {
-		toSerialize["group"] = o.Group.Get()
+	if !IsNil(o.Group) {
+		toSerialize["group"] = o.Group
 	}
-	if o.Extra != nil {
+	if !IsNil(o.Extra) {
 		toSerialize["extra"] = o.Extra
 	}
-	if o.SourceTaskId.IsSet() {
-		toSerialize["source_task_id"] = o.SourceTaskId.Get()
+	if !IsNil(o.SourceTaskId) {
+		toSerialize["source_task_id"] = o.SourceTaskId
 	}
-	if o.SourceDagId.IsSet() {
-		toSerialize["source_dag_id"] = o.SourceDagId.Get()
+	if !IsNil(o.SourceDagId) {
+		toSerialize["source_dag_id"] = o.SourceDagId
 	}
-	if o.SourceRunId.IsSet() {
-		toSerialize["source_run_id"] = o.SourceRunId.Get()
+	if !IsNil(o.SourceRunId) {
+		toSerialize["source_run_id"] = o.SourceRunId
 	}
 	toSerialize["source_map_index"] = o.SourceMapIndex
 	toSerialize["created_dagruns"] = o.CreatedDagruns
 	toSerialize["timestamp"] = o.Timestamp
-	if o.PartitionKey.IsSet() {
-		toSerialize["partition_key"] = o.PartitionKey.Get()
+	if !IsNil(o.PartitionKey) {
+		toSerialize["partition_key"] = o.PartitionKey
 	}
 	return toSerialize, nil
 }

@@ -38,7 +38,7 @@ func NewBulkCreateActionConnectionBody(action string, entities []ConnectionBody)
 	this := BulkCreateActionConnectionBody{}
 	this.Action = action
 	this.Entities = entities
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }
@@ -48,7 +48,7 @@ func NewBulkCreateActionConnectionBody(action string, entities []ConnectionBody)
 // but it doesn't guarantee that properties required by API are set
 func NewBulkCreateActionConnectionBodyWithDefaults() *BulkCreateActionConnectionBody {
 	this := BulkCreateActionConnectionBody{}
-	var actionOnExistence BulkActionOnExistence = FAIL
+	var actionOnExistence BulkActionOnExistence = BULKACTIONONEXISTENCE_FAIL
 	this.ActionOnExistence = &actionOnExistence
 	return &this
 }
