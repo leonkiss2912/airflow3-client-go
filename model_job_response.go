@@ -363,6 +363,9 @@ func (o JobResponse) ToMap() (map[string]interface{}, error) {
 }
 
 func (o *JobResponse) UnmarshalJSON(data []byte) (err error) {
+	if string(data) == "null" {
+		return nil
+	}
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.

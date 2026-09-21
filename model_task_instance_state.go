@@ -51,6 +51,10 @@ var AllowedTaskInstanceStateEnumValues = []TaskInstanceState{
 }
 
 func (v *TaskInstanceState) UnmarshalJSON(src []byte) error {
+	if string(src) == "null" {
+		return nil
+	}
+
 	var value string
 	err := json.Unmarshal(src, &value)
 	if err != nil {
